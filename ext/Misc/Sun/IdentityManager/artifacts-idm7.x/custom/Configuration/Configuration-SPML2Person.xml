@@ -1,0 +1,279 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+
+    <Configuration id='#ID#Configuration:SPML2PersonForm' name='spml2PersonForm' authType='SPML'>
+        <Extension>
+            <Form>
+                <Field name='accountId'>
+                    <Derivation>
+                        <ref>waveset.accountId</ref>
+                    </Derivation>
+                </Field>
+                <Field name='waveset.accountId'>
+                    <Expansion>
+                        <ref>accountId</ref>
+                    </Expansion>
+                </Field>
+                <Field name='emailAddress'>
+                    <Derivation>
+                        <ref>waveset.email</ref>
+                    </Derivation>
+                </Field>
+                <Field name='global.email'>
+                    <Expansion>
+                        <ref>emailAddress</ref>
+                    </Expansion>
+                </Field>
+                <Field name='spml2ObjectClass'>
+                    <Derivation>
+                        <ref>accounts[Lighthouse].spml2ObjectClass</ref>
+                    </Derivation>
+                </Field>
+                <Field name='accounts[Lighthouse].spml2ObjectClass'>
+                    <Expansion>
+                        <ref>spml2ObjectClass</ref>
+                    </Expansion>
+                </Field>
+                <Field name='credentials'>
+                    <Derivation>
+                        <ref>password.password</ref>
+                    </Derivation>
+                </Field>
+                <Field name='password.password'>
+                    <Expansion>
+                        <ref>credentials</ref>
+                    </Expansion>
+                </Field>
+                <Field name='lastname'>
+                    <Derivation>
+                        <ref>accounts[Lighthouse].lastname</ref>
+                    </Derivation>
+                </Field>
+                <Field name='global.lastname'>
+                    <Expansion>
+                        <ref>lastname</ref>
+                    </Expansion>
+                </Field>
+                <Field name='firstname'>
+                    <Derivation>
+                        <ref>accounts[Lighthouse].firstname</ref>
+                    </Derivation>
+                </Field>
+                <Field name='global.firstname'>
+                    <Expansion>
+                        <ref>firstname</ref>
+                    </Expansion>
+                </Field>
+                
+                
+         <Field name='fullname'>
+            <Derivation>
+               <ref>accounts[Lighthouse].fullname</ref>
+            </Derivation>
+         </Field>
+         <Field name='accounts[Lighthouse].fullname'>
+            <Expansion>
+            <block trace="false">
+               <concat>
+                  <ref>firstname</ref>
+                  <s> </s>
+                  <ref>lastname</ref>
+               </concat>
+            </block>
+            </Expansion>
+            <Disable>
+                <or>
+                    <isnull>
+                        <ref>firstname</ref>
+                    </isnull>
+                    <isnull>
+                        <ref>lastname</ref>
+                    </isnull>                    
+                </or>
+            </Disable>
+         </Field>                
+      <Field name='title'>
+            <Derivation>
+               <ref>accounts[Lighthouse].jobTitle</ref>
+            </Derivation>
+         </Field>
+         <Field name='accounts[Lighthouse].jobTitle'>
+            <Expansion>
+               <ref>title</ref>
+            </Expansion>
+         </Field>
+          <Field name='description'>
+            <Derivation>
+               <ref>accounts[Lighthouse].description</ref>
+            </Derivation>
+         </Field>
+         <Field name='accounts[Lighthouse].description'>
+            <Expansion>
+               <ref>description</ref>
+            </Expansion>
+         </Field>
+         <Field name='telephone'>
+            <Derivation>
+               <ref>accounts[Lighthouse].telephone</ref>
+            </Derivation>
+         </Field>
+         <Field name='accounts[Lighthouse].telephone'>
+            <Expansion>
+               <ref>telephone</ref>
+            </Expansion>
+         </Field>
+        <Field name='organization'>
+            <Derivation>
+               <ref>waveset.organization</ref>
+            </Derivation>
+         </Field>
+         <Field name='waveset.organization'>
+            <Expansion>
+               <s>All People</s>
+            </Expansion>
+         </Field>              
+         <Field name='manager'>
+            <Derivation>
+               <ref>waveset.idmManager</ref>
+            </Derivation>
+         </Field>
+         <Field name='waveset.idmManager'>
+            <Expansion>
+               <ref>manager</ref>
+            </Expansion>
+         </Field>
+         <Field name='roles'>
+            <Derivation>
+               <ref>waveset.roles</ref>
+            </Derivation>
+         </Field>
+         <Field name='waveset.roles'>
+            <Expansion>
+               <ref>roles</ref>
+            </Expansion>
+         </Field>
+         <Field name='QuestionAnswerData'>
+            <Expansion>
+               <ref>qAnswData</ref>
+            </Expansion>
+         </Field>         
+         <Field>
+             <Field name='questionView'>
+            <Derivation>
+               <block trace='false'>
+                  <defvar name='mySession'>
+                     <invoke name='getResetSession' class='com.waveset.session.SessionFactory'/>
+                  </defvar>
+                  <defvar name='myView'/>
+                  <defvar name='myOptions'>
+                     <new class='java.util.HashMap'/>
+                  </defvar>
+                  <set>
+                     <ref>myOptions</ref>
+                     <s>questionsForLogin</s>
+                     <s>true</s>
+                  </set>
+                  <set>
+                     <ref>myOptions</ref>
+                     <s>appName</s>
+                     <s>User Interface</s>
+                  </set>
+                  <invoke name='getView'>
+                     <ref>mySession</ref>
+                     <concat>
+                        <s>QuestionLogin:</s>
+                        <ref>waveset.accountId</ref>
+                     </concat>
+                     <ref>myOptions</ref>
+                  </invoke>
+               </block>
+            </Derivation>
+         </Field>         
+             <Field name='initialFPWD'>
+            <Derivation>
+               <block>
+                  <set name='fpwdPreDefined'/>
+                  <set name='fpwdUserDefined'/>
+                  <set name='fpwd'/>
+               </block>
+            </Derivation>
+         <!-- Get the questions and the answers for forgotten password reset -->   
+         </Field>
+             <FieldLoop for='name' in='questionView.questions[*].name'>
+            <Field name='calculateFPD'>
+               <Derivation>
+                  <cond>
+                     <ref>waveset.questions[$(name)].answer</ref>
+                     <set name='fpwdPreDefined'>
+                        <concat>
+                           <ref>fpwdPreDefined</ref>
+                           <ref>questionView.questions[$(name)].question</ref>
+                           <s>|</s>
+                           <ref>waveset.questions[$(name)].answer</ref>
+                           <s>^</s>
+                        </concat>
+                     </set>
+                  </cond>
+               </Derivation>
+            </Field>
+         </FieldLoop>
+             <FieldLoop for='name1' in='questionView.questions[*].name'>
+            <FieldLoop for='name2' in='waveset.suppliedQuestions[*].name'>
+               <Field name='calculateFPD'>
+                  <Derivation>
+                     <cond>
+                        <eq>
+                           <ref>questionView.questions[$(name1)].question</ref>
+                           <ref>waveset.suppliedQuestions[$(name2)].suppliedQuestion</ref>
+                        </eq>
+                        <set name='fpwdUserDefined'>
+                           <concat>
+                              <ref>fpwdUserDefined</ref>
+                              <ref>waveset.suppliedQuestions[$(name2)].suppliedQuestion</ref>
+                              <s>|</s>
+                              <ref>waveset.suppliedQuestions[$(name2)].answer</ref>
+                              <s>^</s>
+                           </concat>
+                        </set>
+                     </cond>
+                  </Derivation>
+               </Field>
+            </FieldLoop>
+         </FieldLoop>
+             <Field name='forgottenPasswordData'>
+            <Derivation>
+               <block trace='false'>
+                  <set name='fpwd'>
+                     <concat>
+                        <ref>fpwdPreDefined</ref>
+                        <ref>fpwdUserDefined</ref>
+                     </concat>
+                  </set>
+                  <substr>
+                     <ref>fpwd</ref>
+                     <i>0</i>
+                     <sub>
+                        <length>
+                           <ref>fpwd</ref>
+                        </length>
+                        <s>1</s>
+                     </sub>
+                  </substr>
+               </block>
+            </Derivation>
+         </Field>         
+         </Field>
+         <!-- Set the answers to the questions supplied on update -->
+         <Field name='forgottenPasswordDataInput'>
+            <Expansion>
+               <block trace='false'>
+                 <ref>forgottenPasswordData</ref>
+               </block>
+            </Expansion>
+         </Field>    
+                 
+         
+         
+            </Form>
+        </Extension>
+    </Configuration>

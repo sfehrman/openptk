@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--  MemberObjectGroups="#ID#Top" authType="SPEConfiguration" extensionClass="GenericObject" id="#ID#IDMXConfiguration" name="SPE"-->
+<Configuration authType='SPEConfiguration' id='#ID#IDMXConfiguration' name='SPE' createDate='1215544183878'>
+  <Extension>
+    <Object>
+      <Attribute name='compressUserXml' value='false'/>
+      <Attribute name='database'>
+        <Object>
+          <Attribute name='autoSchema' value='false'/>
+          <Attribute name='database' value='SPE'/>
+          <Attribute name='driverClass' value='org.gjt.mm.mysql.Driver'/>
+          <Attribute name='driverPrefix'/>
+          <Attribute name='host' value='localhost'/>
+          <Attribute name='numCustomTxnColumns' value='5'/>
+          <Attribute name='password'>
+            <EncryptedData>DE786D3A18A7D459:46935CFE:119BDE89C28:-7FFB|r473X4vqXYU=</EncryptedData>
+          </Attribute>
+          <Attribute name='port' value='3306'/>
+          <Attribute name='transactionTable' value='SPETransaction'/>
+          <Attribute name='urlTemplate' value='jdbc:mysql://%h:%p/%d'/>
+          <Attribute name='user' value='SPE'/>
+        </Object>
+      </Attribute>
+      <Attribute name='idmOrgAttrContainsId' value='false'/>
+      <Attribute name='idmOrganizationAttr' value='org'/>
+      <Attribute name='info'>
+        <Object>
+          <Attribute name='validAttributes'>
+            <List>
+              <String>lastname</String>
+              <String>objectClass</String>
+              <String>accountId</String>
+              <String>cellphone</String>
+              <String>accountUnlockTime</String>
+              <String>passwordRetryCount</String>
+              <String>firstname</String>
+              <String>email</String>
+              <String>homephone</String>
+              <String>xml</String>
+              <String>fullname</String>
+            </List>
+          </Attribute>
+        </Object>
+      </Attribute>
+      <Attribute name='isAccountLockedRule' value='#ID#Rule:IDMXSpeExampleIsAccountLockedRule'/>
+      <Attribute name='linkRules'>
+        <List>
+        </List>
+      </Attribute>
+      <Attribute name='lockAccountRule' value='#ID#Rule:IDMXSpeExampleLockAccountRule'/>
+      <Attribute name='resource' value='#ID#Resource:SPEEndUserDirectory'/>
+      <Attribute name='resourceId'/>
+      <Attribute name='search'>
+        <Object>
+          <Attribute name='basicSearchAttr'/>
+          <Attribute name='basicSearchOp' value='contains'/>
+          <Attribute name='defaultDisplayAttrs'/>
+          <Attribute name='defaultMaxResults' value='100'/>
+          <Attribute name='defaultPageSize' value='10'/>
+        </Object>
+      </Attribute>
+      <Attribute name='trackedEvents'>
+        <Object>
+          <Attribute name='timeScales'>
+            <List>
+              <Object name='TRACKED_EVENT_TIME_SCALE_10_SECONDS'>
+                <Attribute name='enableCollection' value='true'/>
+              </Object>
+              <Object name='TRACKED_EVENT_TIME_SCALE_MINUTE'>
+                <Attribute name='enableCollection' value='true'/>
+              </Object>
+              <Object name='TRACKED_EVENT_TIME_SCALE_HOUR'>
+                <Attribute name='enableCollection' value='true'/>
+              </Object>
+              <Object name='TRACKED_EVENT_TIME_SCALE_DAY'>
+                <Attribute name='enableCollection' value='true'/>
+              </Object>
+              <Object name='TRACKED_EVENT_TIME_SCALE_WEEK'>
+                <Attribute name='enableCollection' value='true'/>
+              </Object>
+              <Object name='TRACKED_EVENT_TIME_SCALE_MONTH'>
+                <Attribute name='enableCollection' value='true'/>
+              </Object>
+            </List>
+          </Attribute>
+          <Attribute name='timeZoneId' value='America/Chicago'/>
+        </Object>
+      </Attribute>
+      <Attribute name='unlockAccountRule' value='#ID#Rule:IDMXSpeExampleUnlockAccountRule'/>
+      <Attribute name='userExtendedAttributes'/>
+      <Attribute name='userForm'>
+        <Object>
+          <Attribute name='speAdminApp' value='#ID#UserForm:IDMXUser'/>
+          <Attribute name='speSyncApp'/>
+          <Attribute name='speUserApp'/>
+        </Object>
+      </Attribute>
+      <Attribute name='userListAttributes'>
+        <List>
+          <String>uid</String>
+          <String>givenname</String>
+          <String>sn</String>
+          <String>cn</String>
+        </List>
+      </Attribute>
+      <Attribute name='userNameAttribute' value='accountId'/>
+      <Attribute name='workflowCallout'>
+        <Object>
+          <Attribute name='callouts'>
+            <Map>
+              <MapEntry key='notification' value='com.sun.idm.idmx.example.NotificationCallout'/>
+            </Map>
+          </Attribute>
+          <Attribute name='enabled' value='false'/>
+          <Attribute name='postOperationMap'>
+            <Map>
+              <MapEntry key='create'>
+                <null/>
+              </MapEntry>
+              <MapEntry key='delete'>
+                <null/>
+              </MapEntry>
+              <MapEntry key='update'>
+                <null/>
+              </MapEntry>
+            </Map>
+          </Attribute>
+          <Attribute name='preOperationMap'>
+            <Map>
+              <MapEntry key='create'>
+                <null/>
+              </MapEntry>
+              <MapEntry key='delete'>
+                <null/>
+              </MapEntry>
+              <MapEntry key='update'>
+                <null/>
+              </MapEntry>
+            </Map>
+          </Attribute>
+          <Attribute name='waitForPostOpCompletion' value='false'/>
+        </Object>
+      </Attribute>
+    </Object>
+  </Extension>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#Top' name='Top'/>
+  </MemberObjectGroups>
+</Configuration>

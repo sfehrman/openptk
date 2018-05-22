@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Resource PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<Resource id='#ID#Resource:SPEEndUserDirectory' name='SPE End-User Directory' class='com.waveset.adapter.LDAPResourceAdapter' typeString='LDAP' typeDisplayString='com.waveset.adapter.RAMessages:RESTYPE_LDAP' facets='provision' timeLastExamined='0' reconcileTime='0' syncSource='true' startupType='Disabled'>
+  <ResourceAttributes>
+    <ResourceAttribute name='host' displayName='com.waveset.adapter.RAMessages:RESATTR_HOST' description='RESATTR_HELP_240' value='localhost'>
+    </ResourceAttribute>
+    <ResourceAttribute name='port' displayName='com.waveset.adapter.RAMessages:RESATTR_PORT' description='RESATTR_HELP_264' value='389'>
+    </ResourceAttribute>
+    <ResourceAttribute name='ssl' displayName='com.waveset.adapter.RAMessages:RESATTR_SSL' description='RESATTR_HELP_281' value='0'>
+    </ResourceAttribute>
+    <ResourceAttribute name='principal' displayName='com.waveset.adapter.RAMessages:RESATTR_USERDN' description='RESATTR_HELP_271' value='cn=Directory Manager'>
+    </ResourceAttribute>
+    <ResourceAttribute name='credentials' displayName='com.waveset.adapter.RAMessages:RESATTR_PASSWORD' type='encrypted' description='RESATTR_HELP_219' value='DE786D3A18A7D459:46935CFE:119BDE89C28:-7FFB|zndMlqZ4w2X+bkmFJvpLXA=='>
+    </ResourceAttribute>
+    <ResourceAttribute name='baseContext' displayName='com.waveset.adapter.RAMessages:RESATTR_BASE_CTXS' description='com.waveset.adapter.RAMessages:RESATTR_BASE_CTX_DESC' multi='true' value='ou=People,dc=openptkspe,dc=org'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Object Class' displayName='com.waveset.adapter.RAMessages:RESATTR_OBJECT_CLASS' description='RESATTR_HELP_253' multi='true'>
+      <value>top</value>
+      <value>person</value>
+      <value>organizationalPerson</value>
+      <value>inetorgperson</value>
+    </ResourceAttribute>
+    <ResourceAttribute name='ldapSearchFilter' displayName='com.waveset.adapter.RAMessages:RESATTR_LDAP_SEARCH_FILTER' description='com.waveset.adapter.RAMessages:RESATTR_HELP_LDAP_SEARCH_FILTER'>
+    </ResourceAttribute>
+    <ResourceAttribute name='includeObjClassesInSearchFilter' displayName='com.waveset.adapter.RAMessages:RESATTR_INCL_OBJCLASSES_IN_SEARCH_FILTER' type='boolean' description='com.waveset.adapter.RAMessages:RESATTR_HELP_INCL_OBJCLASSES_IN_SEARCH_FILTER' value='true'>
+    </ResourceAttribute>
+    <ResourceAttribute name='wsname' displayName='com.waveset.adapter.RAMessages:RESATTR_WSNAME' description='RESATTR_HELP_292' value='uid'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Display Name Attribute' displayName='com.waveset.adapter.RAMessages:RESATTR_DISPLAY_NAME_ATTR' description='RESATTR_HELP_41' value='accountId'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Use blocks' displayName='com.waveset.adapter.RAMessages:RESATTR_USE_BLOCKS' description='RESATTR_HELP_192' value='1'>
+    </ResourceAttribute>
+    <ResourceAttribute name='blockCount' displayName='com.waveset.adapter.RAMessages:RESATTR_BLOCKCOUNT' description='RESATTR_HELP_34' value='100'>
+    </ResourceAttribute>
+    <ResourceAttribute name='groupMemberAttr' displayName='com.waveset.adapter.RAMessages:RESATTR_GRP_MBR_ATTR' description='RESATTR_HELP_233' value='uniquemember'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Password Hash Algorithm' displayName='com.waveset.adapter.RAMessages:RESATTR_PASSWORD_HASH_ALG' description='RESATTR_HELP_49'>
+    </ResourceAttribute>
+    <ResourceAttribute name='changeNamingAttr' displayName='com.waveset.adapter.RAMessages:RESATTR_MOD_NAMING_ATTR' description='RESATTR_HELP_47' value='0'>
+    </ResourceAttribute>
+    <ResourceAttribute name='ldapActivation' displayName='com.waveset.adapter.RAMessages:RESATTR_LDAP_ACTIVATION' description='com.waveset.adapter.RAMessages:RESATTR_HELP_LDAP_ACTIVATION'>
+    </ResourceAttribute>
+    <ResourceAttribute name='ldapActivationParm' displayName='com.waveset.adapter.RAMessages:RESATTR_LDAP_ACTIVATION_PARM' description='com.waveset.adapter.RAMessages:RESATTR_HELP_LDAP_ACTIVATION_PARM'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Object Classes to Synchronize' displayName='com.waveset.adapter.RAMessages:RESATTR_ACTIVE_SYNC_OBJECT_CLASSES' description='com.waveset.adapter.RAMessages:RESATTR_HELP_ACTIVE_SYNC_OBJECT_CLASSES' multi='true' facets='activesync' value='inetorgperson'>
+    </ResourceAttribute>
+    <ResourceAttribute name='LDAP Filter for Accounts to Synchronize' displayName='com.waveset.adapter.RAMessages:RESATTR_ACTIVE_SYNC_LDAP_FILTER' description='com.waveset.adapter.RAMessages:RESATTR_HELP_ACTIVE_SYNC_LDAP_FILTER' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Attributes to synchronize' displayName='com.waveset.adapter.RAMessages:RESATTR_ATTRIBUTE_FILTER' description='com.waveset.adapter.RAMessages:RESATTR_HELP_ATTRIBUTE_FILTER' multi='true' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='When reset, ignore past changes' displayName='com.waveset.adapter.RAMessages:RESATTR_RESET_TO_TODAY' description='com.waveset.adapter.RAMessages:RESATTR_HELP_LDAPAS_RESET_TO_TODAY' facets='activesync' value='1'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Change Log Blocksize' displayName='com.waveset.adapter.RAMessages:RESATTR_BLOCKSIZE' description='com.waveset.adapter.RAMessages:RESATTR_HELP_36' facets='activesync' value='100'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Change Number Attribute Name' displayName='com.waveset.adapter.RAMessages:RESATTR_CHANGE_NUMBER_ATTRIBUTE_NAME' description='com.waveset.adapter.RAMessages:RESATTR_HELP_37' facets='activesync' value='changenumber'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Filter Changes Made By' displayName='com.waveset.adapter.RAMessages:RESATTR_FILTER_CHANGES_BY' description='com.waveset.adapter.RAMessages:RESATTR_HELP_FILTER_CHANGES_BY' multi='true' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Proxy Administrator' displayName='com.waveset.adapter.RAMessages:RESATTR_PROXY_ADMINISTRATOR' description='com.waveset.adapter.RAMessages:RESATTR_HELP_30' value='Configurator'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Input Form' displayName='com.waveset.adapter.RAMessages:RESATTR_FORM' description='com.waveset.adapter.RAMessages:RESATTR_HELP_26'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Pre-Poll Workflow' displayName='com.waveset.adapter.RAMessages:RESATTR_PREPOLL_WORKFLOW' description='com.waveset.adapter.RAMessages:RESATTR_PREPOLL_WORKFLOW_HELP'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Post-Poll Workflow' displayName='com.waveset.adapter.RAMessages:RESATTR_POSTPOLL_WORKFLOW' description='com.waveset.adapter.RAMessages:RESATTR_POSTPOLL_WORKFLOW_HELP'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Maximum Archives' displayName='com.waveset.adapter.RAMessages:RESATTR_MAX_ARCHIVES' description='com.waveset.adapter.RAMessages:RESATTR_HELP_MAX_ARCHIVES' value='3'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Maximum Age Length' displayName='com.waveset.adapter.RAMessages:RESATTR_MAX_LOG_AGE' description='com.waveset.adapter.RAMessages:RESATTR_HELP_MAX_LOG_AGE'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Maximum Age Unit' displayName='com.waveset.adapter.RAMessages:RESATTR_MAX_LOG_AGE_UNIT' description='com.waveset.adapter.RAMessages:RESATTR_HELP_MAX_LOG_AGE_UNIT'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Log Level' displayName='com.waveset.adapter.RAMessages:RESATTR_LOG_LEVEL' description='com.waveset.adapter.RAMessages:RESATTR_HELP_27' value='2'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Log File Path' displayName='com.waveset.adapter.RAMessages:RESATTR_LOG_PATH' description='com.waveset.adapter.RAMessages:RESATTR_HELP_28'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Maximum Log File Size' displayName='com.waveset.adapter.RAMessages:RESATTR_LOG_SIZE' description='com.waveset.adapter.RAMessages:RESATTR_HELP_29'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Scheduling Interval' displayName='com.waveset.adapter.RAMessages:RESATTR_SCHEDULE_INTERVAL' description='com.waveset.adapter.RAMessages:RESATTR_HELP_51'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Poll Every' displayName='com.waveset.adapter.RAMessages:RESATTR_SCHEDULE_INTERVAL_COUNT' description='com.waveset.adapter.RAMessages:RESATTR_HELP_52'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Polling Start Time' displayName='com.waveset.adapter.RAMessages:RESATTR_SCHEDULE_START_TIME' description='com.waveset.adapter.RAMessages:RESATTR_HELP_56'>
+    </ResourceAttribute>
+    <ResourceAttribute name='Polling Start Date' displayName='com.waveset.adapter.RAMessages:RESATTR_SCHEDULE_START_DATE' description='com.waveset.adapter.RAMessages:RESATTR_HELP_54'>
+    </ResourceAttribute>
+    <ResourceAttribute name='useInputForm' displayName='com.waveset.adapter.RAMessages:RESATTR_USE_INPUT_FORM' type='boolean' description='com.waveset.adapter.RAMessages:RESATTR_USE_INPUT_FORM_HELP' facets='activesync' value='true'>
+    </ResourceAttribute>
+    <ResourceAttribute name='parameterizedInputForm' displayName='com.waveset.adapter.RAMessages:RESATTR_PARAMETERIZED_INPUT_FORM' description='com.waveset.adapter.RAMessages:RESATTR_PARAMETERIZED_INPUT_FORM_HELP' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='activeSyncPostProcessForm' displayName='com.waveset.adapter.RAMessages:RESATTR_SYNC_POST_PROCESS_FORM' description='com.waveset.adapter.RAMessages:RESATTR_SYNC_POST_PROCESS_FORM_HELP' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='activeSyncConfigMode' displayName='com.waveset.adapter.RAMessages:RESATTR_SYNC_CONFIG_MODE' description='com.waveset.adapter.RAMessages:RESATTR_SYNC_CONFIG_MODE_HELP' facets='activesync' value='basic'>
+    </ResourceAttribute>
+    <ResourceAttribute name='assignSourceOnCreate' displayName='com.waveset.adapter.RAMessages:RESATTR_ASSIGN_SOURCE_ON_CREATE' type='boolean' description='com.waveset.adapter.RAMessages:RESATTR_ASSIGN_SOURCE_ON_CREATE_HELP' facets='activesync' value='true'>
+    </ResourceAttribute>
+    <ResourceAttribute name='processRule' displayName='com.waveset.adapter.RAMessages:RESATTR_PROCESS_RULE' description='com.waveset.adapter.RAMessages:RESATTR_PROCESS_RULE_HELP' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='correlationRule' displayName='com.waveset.adapter.RAMessages:RESATTR_CORRELATION_RULE' description='com.waveset.adapter.RAMessages:RESATTR_CORRELATION_RULE_HELP' facets='activesync' value='CORRELATION_RULE_NONE'>
+    </ResourceAttribute>
+    <ResourceAttribute name='confirmationRule' displayName='com.waveset.adapter.RAMessages:RESATTR_CONFIRMATION_RULE' description='com.waveset.adapter.RAMessages:RESATTR_CONFIRMATION_RULE_HELP' facets='activesync' value='CONFIRMATION_RULE_NONE'>
+    </ResourceAttribute>
+    <ResourceAttribute name='deleteRule' displayName='com.waveset.adapter.RAMessages:RESATTR_DELETE_RULE' description='com.waveset.adapter.RAMessages:RESATTR_DELETE_RULE_HELP' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='createUnmatched' displayName='com.waveset.adapter.RAMessages:RESATTR_CREATE_UNMATCHED' description='com.waveset.adapter.RAMessages:RESATTR_CREATE_UNMATCHED_HELP' facets='activesync' value='true'>
+    </ResourceAttribute>
+    <ResourceAttribute name='resolveProcessRule' displayName='com.waveset.adapter.RAMessages:RESATTR_RESOLVE_PROCESS_RULE' description='com.waveset.adapter.RAMessages:RESATTR_RESOLVE_PROCESS_RULE_HELP' facets='activesync'>
+    </ResourceAttribute>
+    <ResourceAttribute name='populateGlobal' displayName='com.waveset.adapter.RAMessages:RESATTR_POPULATE_GLOBAL' description='com.waveset.adapter.RAMessages:RESATTR_POPULATE_GLOBAL_HELP' facets='activesync' value='false'>
+    </ResourceAttribute>
+  </ResourceAttributes>
+  <AccountAttributeTypes nextId='15'>
+    <AccountAttributeType id='1' name='accountId' syntax='string' mapName='uid' mapType='string'>
+      <AttributeDefinitionRef>
+        <ObjectRef type='AttributeDefinition' id='#ID#AttributeDefinition:accountId' name='accountId'/>
+      </AttributeDefinitionRef>
+    </AccountAttributeType>
+    <AccountAttributeType id='3' name='password' syntax='encrypted' mapName='userPassword' mapType='string'>
+      <AttributeDefinitionRef>
+        <ObjectRef type='AttributeDefinition' id='#ID#AttributeDefinition:password' name='password'/>
+      </AttributeDefinitionRef>
+    </AccountAttributeType>
+    <AccountAttributeType id='4' name='firstname' syntax='string' mapName='givenname' mapType='string'>
+      <AttributeDefinitionRef>
+        <ObjectRef type='AttributeDefinition' id='#ID#AttributeDefinition:firstname' name='firstname'/>
+      </AttributeDefinitionRef>
+    </AccountAttributeType>
+    <AccountAttributeType id='5' name='lastname' syntax='string' mapName='sn' mapType='string' required='true'>
+      <AttributeDefinitionRef>
+        <ObjectRef type='AttributeDefinition' id='#ID#AttributeDefinition:lastname' name='lastname'/>
+      </AttributeDefinitionRef>
+    </AccountAttributeType>
+    <AccountAttributeType id='7' name='objectClass' syntax='string' mapName='objectClass' mapType='string' readOnly='true'>
+    </AccountAttributeType>
+    <AccountAttributeType id='8' name='fullname' syntax='string' mapName='cn' mapType='string' required='true'>
+    </AccountAttributeType>
+    <AccountAttributeType id='9' name='xml' syntax='string' mapName='jpegPhoto' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='10' name='email' syntax='string' mapName='mail' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='11' name='telephone' syntax='string' mapName='telephoneNumber' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='12' name='cellphone' syntax='string' mapName='mobile' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='13' name='passwordRetryCount' syntax='string' mapName='passwordRetryCount' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='14' name='accountUnlockTime' syntax='string' mapName='accountUnlockTime' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='15' name='org' syntax='string' mapName='o' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='16' name='access' syntax='string' mapName='ou' mapType='string'>
+    </AccountAttributeType>
+    <AccountAttributeType id='16' name='accountnumber' syntax='string' mapName='description' mapType='string'>
+    </AccountAttributeType>
+  </AccountAttributeTypes>
+  <Template>
+    <text>uid=</text>
+    <ObjectRef type='AttributeDefinition' id='#ID#AttributeDefinition:accountId' name='accountId'/>
+    <text>,ou=people,dc=openptkspe,dc=org</text>
+  </Template>
+  <Retries max='0' asynchRetryDelay='0' delay='300' emailThreshold='5'/>
+  <ObjectTypes>
+    <ObjectType name='Group' nameKey='UI_RESOURCE_OBJECT_TYPE_GROUP' icon='group'>
+      <ObjectClasses primary='groupOfUniqueNames' operator='OR'>
+        <ObjectClass name='groupOfNames'/>
+        <ObjectClass name='groupOfUniqueNames'/>
+      </ObjectClasses>
+      <ObjectFeatures>
+        <ObjectFeature name='create'/>
+        <ObjectFeature name='update'/>
+        <ObjectFeature name='delete'/>
+        <ObjectFeature name='rename'/>
+        <ObjectFeature name='saveas'/>
+      </ObjectFeatures>
+      <ObjectAttributes idAttr='dn' displayNameAttr='cn' descriptionAttr='description' objectClassAttr='objectclass'>
+        <ObjectAttribute name='cn' type='string'/>
+        <ObjectAttribute name='description' type='string'/>
+        <ObjectAttribute name='owner' type='distinguishedname' namingAttr='cn'/>
+        <ObjectAttribute name='uniqueMember' type='distinguishedname' namingAttr='cn'/>
+      </ObjectAttributes>
+    </ObjectType>
+    <ObjectType name='Posix Group' nameKey='com.waveset.adapter.RAMessages:OBJECT_TYPE_POSIX_GROUP' icon='group'>
+      <ObjectClasses primary='posixGroup' operator='OR'>
+        <ObjectClass name='posixGroup'/>
+      </ObjectClasses>
+      <ObjectFeatures>
+        <ObjectFeature name='create'/>
+        <ObjectFeature name='update'/>
+        <ObjectFeature name='delete'/>
+        <ObjectFeature name='rename'/>
+        <ObjectFeature name='saveas'/>
+      </ObjectFeatures>
+      <ObjectAttributes idAttr='dn' displayNameAttr='cn' descriptionAttr='description' objectClassAttr='objectclass'>
+        <ObjectAttribute name='cn' type='string'/>
+        <ObjectAttribute name='description' type='string'/>
+        <ObjectAttribute name='gidNumber' type='string'/>
+        <ObjectAttribute name='memberUid' type='string'/>
+      </ObjectAttributes>
+    </ObjectType>
+    <ObjectType name='Domain' nameKey='UI_RESOURCE_OBJECT_TYPE_DOMAIN' icon='folder' container='true'>
+      <ObjectClasses operator='AND'>
+        <ObjectClass name='domain'/>
+      </ObjectClasses>
+      <ObjectFeatures>
+        <ObjectFeature name='find'/>
+      </ObjectFeatures>
+      <ObjectAttributes idAttr='distinguishedName' displayNameAttr='dc' objectClassAttr='objectclass'>
+        <ObjectAttribute name='dc' type='string'/>
+      </ObjectAttributes>
+    </ObjectType>
+    <ObjectType name='Organization' nameKey='UI_RESOURCE_OBJECT_TYPE_ORGANIZATION' icon='folder_with_org' container='true'>
+      <ObjectClasses operator='AND'>
+        <ObjectClass name='organization'/>
+      </ObjectClasses>
+      <ObjectFeatures>
+        <ObjectFeature name='create'/>
+        <ObjectFeature name='delete'/>
+        <ObjectFeature name='rename'/>
+        <ObjectFeature name='saveas'/>
+        <ObjectFeature name='find'/>
+      </ObjectFeatures>
+      <ObjectAttributes idAttr='dn' displayNameAttr='o' objectClassAttr='objectclass'>
+        <ObjectAttribute name='o' type='string'/>
+      </ObjectAttributes>
+    </ObjectType>
+    <ObjectType name='Organizational Unit' nameKey='UI_RESOURCE_OBJECT_TYPE_ORGANIZATIONALUNIT' icon='folder_with_orgunit' container='true'>
+      <ObjectClasses operator='AND'>
+        <ObjectClass name='organizationalUnit'/>
+      </ObjectClasses>
+      <ObjectFeatures>
+        <ObjectFeature name='create'/>
+        <ObjectFeature name='delete'/>
+        <ObjectFeature name='rename'/>
+        <ObjectFeature name='saveas'/>
+        <ObjectFeature name='find'/>
+      </ObjectFeatures>
+      <ObjectAttributes idAttr='dn' displayNameAttr='ou' objectClassAttr='objectclass'>
+        <ObjectAttribute name='ou' type='string'/>
+      </ObjectAttributes>
+    </ObjectType>
+  </ObjectTypes>
+    <LoginConfigEntry name='com.waveset.security.authn.WSResourceLoginModule' type='LDAP' displayName='com.waveset.adapter.RAMessages:RES_LOGIN_MOD_LDAP'>
+      <AuthnProperties>
+        <AuthnProperty name='ldap_uid' displayName='com.waveset.adapter.RAMessages:UI_USERID_LABEL' isId='true' formFieldType='text' dataSource='user'/>
+        <AuthnProperty name='ldap_password' displayName='com.waveset.adapter.RAMessages:UI_PWD_LABEL' formFieldType='password' dataSource='user'/>
+      </AuthnProperties>
+      <SupportedApplications>
+        <SupportedApplication name='Administrator Interface'/>
+        <SupportedApplication name='User Interface'/>
+      </SupportedApplications>
+    </LoginConfigEntry>
+  <Features>
+   <Feature name='CONTINUE_ON_ERROR' denied='true' onDeny='error'/>
+  </Features>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#Top' name='Top'/>
+  </MemberObjectGroups>
+</Resource>

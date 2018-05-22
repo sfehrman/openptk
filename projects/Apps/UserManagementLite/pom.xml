@@ -1,0 +1,119 @@
+<!--
+!
+! DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+! 
+!      Portions Copyright 2012 Project OpenPTK
+! 
+! The contents of this file are subject to the terms of the
+! Common Development and Distribution License, Version 1.0 only
+! (the "License").  You may not use this file except in compliance
+! with the License.
+! 
+! You can obtain a copy of the license at
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+! or https://openptk.dev.java.net/OpenPTK.LICENSE.
+! See the License for the specific language governing permissions
+! and limitations under the License.
+! 
+! When distributing Covered Code, include this CDDL HEADER in each
+! file and include the reference to
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+! add the following below this CDDL HEADER, with the fields enclosed
+! by brackets "[]" replaced with your own identifying information:
+!      Portions Copyright [yyyy] [name of copyright owner]
+! 
+! -->
+
+<!--
+ ! Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+ ! -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <artifactId>openptk-uml</artifactId>
+   <packaging>war</packaging>
+   <name>OpenPTK-Apps-UserManagementLite</name>
+
+   <description>OpenPTK - Application - User Management Lite</description>
+
+   <parent>
+      <groupId>org.openptk</groupId>
+      <artifactId>openptk</artifactId>
+      <version>2.2.0-SNAPSHOT</version>
+      <relativePath>../../..</relativePath>
+   </parent>
+
+   <build>
+      <finalName>openptk-uml</finalName>
+      <resources>
+         <resource>
+            <directory>config</directory>
+            <filtering>false</filtering>
+         </resource>
+      </resources>   
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.1.1</version>
+            <configuration>
+               <warSourceDirectory>web</warSourceDirectory>
+               <warName>openptk-uml</warName>
+               <webResources>
+                  <resource>
+              <!-- this is relative to the pom.xml directory -->
+                     <directory>web</directory>
+                  </resource>
+               </webResources>
+            </configuration>
+         </plugin>
+         <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.5</version>
+            <executions>
+               <execution>
+                  <id>copy-resource</id>
+            <!-- here the phase you need -->
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>copy-resources</goal>
+                  </goals>
+                  <configuration>
+                     <outputDirectory>${basedir}/target/openptk-uml</outputDirectory>
+                     <resources>          
+                        <resource>
+                           <directory>../../../resource</directory>
+                           <filtering>true</filtering>
+                        </resource>
+                     </resources>              
+                  </configuration>            
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>javax</groupId>
+         <artifactId>javaee-web-api</artifactId>
+         <version>6.0</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-taglib</artifactId>
+         <version>${project.version}</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-servlet</artifactId>
+         <version>${project.version}</version>
+         <scope>runtime</scope>
+      </dependency>
+   </dependencies>
+    
+</project>

@@ -1,0 +1,12 @@
+uniqueid,description,street,city,state,postalCode   
+----------------------------------------------------------------------------
+loc32,This is the loc32 building,6972 Sycamore Street,Phoenix,AZ,23135
+loc38,This is the loc38 building,998 Band Street,Beijing,BG,99976
+loc33,This is the loc33 building,45149 Ninth Street,San Francisco,CA,44483
+loc35,This is the loc35 building,300 3rd Street,London,EG,77364
+loc36,This is the loc36 building,99 Main Street,Paris,FR,77976
+loc39,This is the loc39 building,72 Green Street,Berlin,GY,88443
+loc30,This is the loc30 building,31367 Forest Street,Chicago,IL,88897
+loc37,This is the loc37 building,584 Lime Street,Tokyo,JP,59344
+loc34,This is the loc34 building,5542 104th Street,New York,NY,99976
+loc31,This is the loc31 building,2186 Green Street,Austin,TX,74485

@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/openptk" xmlns:tns="http://xml.netbeans.org/schema/openptk"
+            elementFormDefault="qualified">
+   <xsd:element name="OpenPTK">
+      <xsd:complexType>
+         <xsd:all>
+            <xsd:element name="Defaults" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Global" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Contexts" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                     <xsd:element name="Context" minOccurs="1" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Model" maxOccurs="1" minOccurs="0" >
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Relationships" maxOccurs="1" minOccurs="0">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="Relationship" maxOccurs="unbounded" minOccurs="1">
+                                                   <xsd:complexType>
+                                                      <xsd:attribute name="id" type="xsd:string" use="required" />
+                                                      <xsd:attribute name="context" type="xsd:string" use="required" />
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" use="required" type="xsd:string" />
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Query" type="tns:Query" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Operations" type="tns:Operations" maxOccurs="1" minOccurs="1" />
+                              <xsd:element name="Assignments" type="tns:Assignments" maxOccurs="1" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" use="required" type="xsd:string" />
+                           <xsd:attribute name="enabled" use="required" type="xsd:string" />
+                           <xsd:attribute name="definition" use="required" type="xsd:string" />
+                           <xsd:attribute name="connection" type="xsd:string" />
+                           <xsd:attribute name="association" type="xsd:string" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Definitions" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                     <xsd:element name="Definition" maxOccurs="unbounded" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Attributes" type="tns:DefinitionAttributes" minOccurs="1" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Connections" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                     <xsd:element name="Connection" maxOccurs="unbounded" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Associations" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Association" maxOccurs="unbounded" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Attributes" type="tns:DefinitionAttributes" minOccurs="1" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AttrGroups" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="AttrGroup" maxOccurs="unbounded" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Attributes" type="tns:AttrGroupAttributes" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="AttrMaps" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="AttrMap" minOccurs="1" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Attributes" type="tns:AttrMapAttributes" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" use="required" />                           
+                           <xsd:attribute name="classname" use="required" type="xsd:string" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Loggers" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:choice maxOccurs="1">
+                     <xsd:element name="Logger" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:choice>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="unbounded" minOccurs="0" />
+                           </xsd:choice>
+                           <xsd:attribute name="id" use="required" type="xsd:string" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:choice>
+                  <xsd:attribute name="default" use="required" type="xsd:string" />
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Encryptors" maxOccurs="1" minOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Encryptor" maxOccurs="unbounded" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="default" use="required" type="xsd:string" />
+               </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="Clients" minOccurs="1" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                     <xsd:element name="Client" maxOccurs="unbounded" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Authenticators" maxOccurs="1" minOccurs="1">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Authenticator" maxOccurs="unbounded" minOccurs="1">
+                                          <xsd:complexType>
+                                             <xsd:attribute name="id" type="xsd:string" use="required" />
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                              <xsd:element name="Contexts" maxOccurs="1" minOccurs="1">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Context" maxOccurs="unbounded" minOccurs="1">
+                                          <xsd:complexType>
+                                             <xsd:attribute name="id" type="xsd:string" use="required" />
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                    </xsd:sequence>
+                                    <xsd:attribute name="default" use="required" type="xsd:string" />
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                           <xsd:attribute name="id" use="required" type="xsd:string" />
+                           <xsd:attribute name="secret" type="xsd:string" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Models" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                     <xsd:element name="Model" minOccurs="0" maxOccurs="unbounded" >
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Relationships" type="tns:Relationships" maxOccurs="unbounded" minOccurs="0" />
+                              <xsd:element name="Views" type="tns:Views" maxOccurs="unbounded" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" use="required" type="xsd:string" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="Converters" maxOccurs="1" minOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Converter" maxOccurs="unbounded" >
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Structures" maxOccurs="1" minOccurs="0">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Structure" maxOccurs="unbounded" minOccurs="1">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                                             </xsd:sequence>
+                                             <xsd:attribute name="id" type="xsd:string" use="required" />
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                    </xsd:sequence>
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                           <xsd:attribute name="type" use="required" type="xsd:string" />
+                           <xsd:attribute name="classname" use="required" type="xsd:string" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="Plugins" maxOccurs="1" minOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Plugin" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" use="required" />
+                           <xsd:attribute name="enabled" type="xsd:string" use="required" />
+                           <xsd:attribute name="classname" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="OperationActions" maxOccurs="1" minOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Action" maxOccurs="unbounded">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                           </xsd:sequence>
+                           <xsd:attribute name="id" type="xsd:string" use="required" />
+                           <xsd:attribute name="classname" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+
+            <xsd:element name="Security" maxOccurs="1">
+               <xsd:complexType>
+                  <xsd:sequence>
+                     <xsd:element name="Authenticators" maxOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Authenticator" maxOccurs="unbounded" minOccurs="1">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string" use="required" />
+                                    <xsd:attribute name="level" type="xsd:string" use="required" />
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+
+                     <xsd:element name="Deciders" maxOccurs="1" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Decider" maxOccurs="unbounded" minOccurs="1">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string" use="required" />
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+
+                     <xsd:element name="Enforcers" maxOccurs="1" minOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Enforcer" maxOccurs="unbounded" minOccurs="1">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string" use="required" />
+                                    <xsd:attribute name="environment" type="xsd:string" use="required" />
+                                    <xsd:attribute name="decider" type="xsd:string" use="required" />
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+
+                     <xsd:element name="Policies" maxOccurs="1">
+                        <xsd:complexType>
+                           <xsd:sequence>
+                              <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                              <xsd:element name="Policy" maxOccurs="unbounded" minOccurs="1">
+                                 <xsd:complexType>
+                                    <xsd:sequence>
+                                       <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                                       <xsd:element name="Session" maxOccurs="1" minOccurs="0">
+                                          <xsd:complexType>
+                                             <xsd:sequence>
+                                                <xsd:element name="Types" maxOccurs="1" minOccurs="0">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="Type" maxOccurs="unbounded" minOccurs="1">
+                                                            <xsd:complexType>
+                                                               <xsd:attribute name="id" type="xsd:string" use="required" />
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                                <xsd:element name="Clients" maxOccurs="1" minOccurs="0">
+                                                   <xsd:complexType>
+                                                      <xsd:sequence>
+                                                         <xsd:element name="Client" maxOccurs="unbounded" minOccurs="1">
+                                                            <xsd:complexType>
+                                                               <xsd:attribute name="id" type="xsd:string" use="required" />
+                                                            </xsd:complexType>
+                                                         </xsd:element>
+                                                      </xsd:sequence>
+                                                   </xsd:complexType>
+                                                </xsd:element>
+                                             </xsd:sequence>
+                                          </xsd:complexType>
+                                       </xsd:element>
+                                       <xsd:element name="Targets" type="tns:Targets" maxOccurs="1" minOccurs="1" />
+                                    </xsd:sequence>
+                                    <xsd:attribute name="id" type="xsd:string" use="required" />
+                                    <xsd:attribute name="environment" type="xsd:string" use="required" />
+                                    <xsd:attribute name="mode" type="xsd:string" use="required" />
+                                    <xsd:attribute name="effect" type="xsd:string" use="required" />
+                                 </xsd:complexType>
+                              </xsd:element>
+                           </xsd:sequence>
+                        </xsd:complexType>
+                     </xsd:element>
+                  </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+         </xsd:all>
+      </xsd:complexType>
+   </xsd:element>
+   <xsd:complexType name="Properties">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Property" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:attribute name="name" type="xsd:string" />
+               <xsd:attribute name="value" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="Query">
+      <xsd:choice maxOccurs="unbounded" minOccurs="0">
+         <xsd:element name="Query">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Query" type="tns:Query" maxOccurs="unbounded" minOccurs="0" />
+               </xsd:sequence>
+               <xsd:attribute name="type" type="xsd:string" />
+               <xsd:attribute name="name" type="xsd:string" />
+               <xsd:attribute name="value" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+      <xsd:attribute name="type" type="xsd:string" />
+      <xsd:attribute name="name" type="xsd:string" />
+      <xsd:attribute name="value" type="xsd:string" />
+   </xsd:complexType>
+   <xsd:complexType name="Operations">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Operation" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                  <xsd:element name="Query" type="tns:Query" maxOccurs="1" minOccurs="0" />
+                  <xsd:element name="Actions" maxOccurs="1" minOccurs="0">
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Action" maxOccurs="unbounded" minOccurs="1">
+                              <xsd:complexType>
+                                 <xsd:sequence>
+                                    <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                                 </xsd:sequence>
+                                 <xsd:attribute name="id" type="xsd:string" use="required" />
+                                 <xsd:attribute name="mode" type="xsd:string" use="required" />
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required" />
+               <xsd:attribute name="attrgroup" type="xsd:string" use="required" />
+               <xsd:attribute name="connection" type="xsd:string" />
+               <xsd:attribute name="association" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="AttrGroupAttributes">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Attribute" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:attribute name="id" type="xsd:string" use="required" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="AttrMapAttributes">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Attribute" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>                  
+                  <xsd:element name="Mode" maxOccurs="2" minOccurs="1">
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Processes" maxOccurs="1" minOccurs="0" type="tns:Processes"/>
+                           <xsd:element name="Data" maxOccurs="1" minOccurs="0" type="tns:Data"/>
+                           <xsd:element name="SubAttributes" maxOccurs="1" minOccurs="0" type="tns:SubAttributes"/>
+                        </xsd:sequence>
+                        <xsd:attribute name="id" type="xsd:string" use="required" />
+                     </xsd:complexType>
+                  </xsd:element>                           
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required" />
+               <xsd:attribute name="required" type="xsd:string" />
+               <xsd:attribute name="mapto" type="xsd:string" />
+               <xsd:attribute name="multivalued" type="xsd:string" />
+               <xsd:attribute name="type" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>   
+   <xsd:complexType name="Processes">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Process" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:attribute name="value" use="required" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="Data">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Match" maxOccurs="unbounded" minOccurs="0">
+            <xsd:complexType>
+               <xsd:attribute name="id" use="required" type="xsd:string"/>
+               <xsd:attribute name="datum" use="required" type="xsd:string"/>
+               <xsd:attribute name="value" use="required" type="xsd:string"/>
+               <xsd:attribute name="mapfrom" use="optional" type="xsd:string" />
+               <xsd:attribute name="mapto" use="required" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+         <xsd:element name="Datum" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Processes" maxOccurs="1" minOccurs="0" type="tns:Processes"/>
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required"/>
+               <xsd:attribute name="type" type="xsd:string"/>
+               <xsd:attribute name="mapto" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+      <xsd:attribute name="id" type="xsd:string" use="required"/>
+      <xsd:attribute name="undefined" type="xsd:string"/>
+   </xsd:complexType>
+   <xsd:complexType name="SubAttributes">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="SubAttribute" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Processes" maxOccurs="1" minOccurs="0" type="tns:Processes"/>
+                  <xsd:element name="Data" maxOccurs="1" minOccurs="0" type="tns:Data"/>
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required" />
+               <xsd:attribute name="required" type="xsd:string" />
+               <xsd:attribute name="mapto" type="xsd:string" />
+               <xsd:attribute name="multivalued" type="xsd:string" />
+               <xsd:attribute name="mode" type="xsd:string" />
+               <xsd:attribute name="type" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="DefinitionAttributes">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Attribute" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Properties" maxOccurs="1" minOccurs="0" type="tns:Properties" />
+                  <xsd:element name="Functions" minOccurs="0" maxOccurs="1" type="tns:Functions" />
+                  <xsd:element name="Operations" minOccurs="0" maxOccurs="1" type="tns:Operations" />
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required" />
+               <xsd:attribute name="type" type="xsd:string" />
+               <xsd:attribute name="required" type="xsd:string" />
+               <xsd:attribute name="readonly" type="xsd:string" />
+               <xsd:attribute name="access" type="xsd:string" />
+               <xsd:attribute name="multivalued" type="xsd:string" />
+               <xsd:attribute name="encrypted" type="xsd:string" />
+               <xsd:attribute name="servicename" type="xsd:string" />
+               <xsd:attribute name="virtual" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="Functions">
+      <xsd:choice maxOccurs="unbounded" minOccurs="1">
+         <xsd:element name="Function">
+            <xsd:complexType>
+               <xsd:choice maxOccurs="unbounded">
+                  <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                  <xsd:element name="Arguments">
+                     <xsd:complexType>
+                        <xsd:choice maxOccurs="unbounded" minOccurs="0">
+                           <xsd:element name="Argument">
+                              <xsd:complexType>
+                                 <xsd:attribute name="name" use="required" type="xsd:string" />
+                                 <xsd:attribute name="type" use="required" type="xsd:string" />
+                                 <xsd:attribute name="value" use="required" type="xsd:string" />
+                                 <xsd:attribute name="required" type="xsd:string" />
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:choice>
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="Operations">
+                     <xsd:complexType>
+                        <xsd:choice maxOccurs="unbounded">
+                           <xsd:element name="Operation">
+                              <xsd:complexType>
+                                 <xsd:attribute name="type" use="required" type="xsd:string" />
+                                 <xsd:attribute name="mode" type="xsd:string" />
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:choice>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:choice>
+               <xsd:attribute name="id" use="required" type="xsd:string" />
+               <xsd:attribute name="classname" use="required" type="xsd:string" />
+               <xsd:attribute name="useexisting" type="xsd:string" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="Relationships">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+         <xsd:element name="Relationship" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Properties" type="tns:Properties" maxOccurs="1" minOccurs="0" />
+                  <xsd:element name="Attributes" type="tns:DefinitionAttributes" minOccurs="0" />
+                  <xsd:element name="Query" type="tns:Query" maxOccurs="1" minOccurs="0" />
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="Views">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="View" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Relationships" type="tns:Relationships" maxOccurs="1" minOccurs="0" />
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required" />
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="Targets">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Target" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Operations" maxOccurs="1" minOccurs="0">
+                     <xsd:complexType>
+                        <xsd:sequence>
+                           <xsd:element name="Operation" maxOccurs="unbounded" minOccurs="1">
+                              <xsd:complexType>
+                                 <xsd:attribute name="id" type="xsd:string" use="required"/>                                                  
+                              </xsd:complexType>
+                           </xsd:element>
+                        </xsd:sequence>
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+               <xsd:attribute name="id" type="xsd:string" use="required"/>
+               <xsd:attribute name="type" type="xsd:string" use="required"/>
+               <xsd:attribute name="value" type="xsd:string" use="required"/>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType>
+   <xsd:complexType name="Assignments">
+      <xsd:choice maxOccurs="unbounded">
+         <xsd:element name="Assignment" maxOccurs="unbounded" minOccurs="1">
+            <xsd:complexType>
+               <xsd:sequence>
+                  <xsd:element name="Source" maxOccurs="1" minOccurs="1"> 
+                     <xsd:complexType>
+                        <xsd:attribute name="type"  type="xsd:string" use="required"/>                                                  
+                        <xsd:attribute name="name"  type="xsd:string" use="required"/>                                                  
+                        <xsd:attribute name="value" type="xsd:string"/>                                                  
+                     </xsd:complexType>
+                  </xsd:element>
+                  <xsd:element name="Destination" maxOccurs="1" minOccurs="1"> 
+                     <xsd:complexType>
+                        <xsd:attribute name="type"  type="xsd:string" use="required"/>                                                  
+                        <xsd:attribute name="name"  type="xsd:string" use="required"/>                                                  
+                        <xsd:attribute name="value" type="xsd:string"/>                                                  
+                     </xsd:complexType>
+                  </xsd:element>
+               </xsd:sequence>
+               <xsd:attribute name="id"          type="xsd:string" use="required"/>
+               <xsd:attribute name="description" type="xsd:string"/>
+            </xsd:complexType>
+         </xsd:element>
+      </xsd:choice>
+   </xsd:complexType> 
+
+</xsd:schema>

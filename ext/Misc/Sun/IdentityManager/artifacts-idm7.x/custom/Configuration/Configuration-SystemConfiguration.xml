@@ -1,0 +1,874 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+
+    <Configuration id='#ID#Configuration:SystemConfiguration'
+	name='System Configuration'>
+	<Extension>
+	    <Object>
+		<!-- mappings from abstract process names to task definitions -->
+		<Attribute name='process'>
+		  <Object>
+			<Attribute name='createUser' value='Create User'/>
+			<Attribute name='updateUser' value='Update User'/>
+			<Attribute name='deleteUser' value='Delete User'/>
+			<Attribute name='disableUser' value='Disable User'/>
+			<Attribute name='enableUser' value='Enable User'/>
+			<Attribute name='unlockUser' value='Unlock User'/>
+			<Attribute name='renameUser' value='Rename User'/>
+			<Attribute name='lockUser' value='Lock User'/>
+			<Attribute name='changeResourceAccountPassword' value='Change Resource Account Password'/>
+			<Attribute name='changeUserPassword' value='SPML Change User Password'/>
+			<Attribute name='resetUserPassword' value='Reset User Password'/>
+			<Attribute name='handleNativeChangeToAccountAttributes' value='Audit Native Change To Account Attributes'/>
+			<Attribute name='deleteAccount' value='Delete Resource Account'/>
+			<Attribute name='unlinkResourceAccountsFromUser' value='Unlink Resource Accounts From User'/>
+      <Attribute name='passwordLogin' value='Password Login'/>
+			<Attribute name='questionLogin' value='Question Login'/>
+			<Attribute name='createResourceObject' value='Create Resource Object'/>
+			<Attribute name='updateResourceObject' value='Update Resource Object'/>
+			<Attribute name='deleteResourceObject' value='Delete Resource Object'/>
+			<Attribute name='createResourceGroup' value='Create Resource Group'/>
+			<Attribute name='updateResourceGroup' value='Update Resource Group'/>
+			<Attribute name='deleteResourceGroup' value='Delete Resource Group'/>
+			<Attribute name='createResourceOrganization' value='Create Resource Organization'/>
+			<Attribute name='updateResourceOrganization' value='Update Resource Organization'/>
+			<Attribute name='deleteResourceOrganization' value='Delete Resource Organization'/>
+			<Attribute name='createResourceOrganizationalUnit' value='Create Resource Organizational Unit'/>
+			<Attribute name='updateResourceOrganizationalUnit' value='Update Resource Organizational Unit'/>
+			<Attribute name='deleteResourceOrganizationalUnit' value='Delete Resource Organizational Unit'/>
+			<Attribute name='createResourcePerson' value='Create Resource Person'/>
+			<Attribute name='updateResourcePerson' value='Update Resource Person'/>
+			<Attribute name='deleteResourcePerson' value='Delete Resource Person'/>
+			<Attribute name='createResourceUser' value='Create Resource User'/>
+			<Attribute name='updateResourceUser' value='Update Resource User'/>
+			<Attribute name='deleteResourceUser' value='Delete Resource User'/>
+			<Attribute name='manageRole' value='Manage Role'/>
+			<Attribute name='manageResource' value='Manage Resource'/>
+      <Attribute name='endUserUpdateMyRoles' value='End User Update My Roles'/>
+      <Attribute name='endUserUpdateMyResources' value='End User Update My Resources'/>      
+      <Attribute name='endUserUpdateMyGroups' value='End User Update My Groups'/>      
+      <Attribute name='endUserUpdateRoles' value='End User Update Roles'/>      
+      <Attribute name='endUserUpdateResources' value='End User Update Resources'/>      
+      <Attribute name='endUserUpdateGroups' value='End User Update Groups'/>
+      <Attribute name='endUserAnonymousEnrollment' value='End User Anonymous Enrollment'/> 
+      </Object>
+		</Attribute>
+		<!-- form mappings -->
+		<Attribute name='form'>
+		    <Object>
+			<!-- <Attribute name='userForm' value='Default User Form'/> -->
+			<Attribute name='userForm' value='Tabbed User Form'/>
+			<Attribute name='viewUserForm' value='Tabbed View User Form'/>
+			<Attribute name='endUserForm' value='End User Form'/>
+			<Attribute name='endUserMenu' value='End User Dashboard'/>
+      <Attribute name='endUserAccessApprovalList' value='Access Approval List' />
+      <Attribute name='endUserAppMenu' value='End User Navigation'/>
+			<Attribute name='anonymousUserMenu' value='Anonymous User Menu'/>
+			<Attribute name='endUserLaunchList' value='End User Launch List'/>
+      <Attribute name='endUserWorkItemList' value='End User Work Item List'/>
+      <Attribute name='endUserOtherWorkItemList' value='End User Other Work Item List'/>
+			<Attribute name='endUserWorkItemListExt' value='End User Approvals List'/>
+			<Attribute name='endUserWorkItemEdit' value='End User Work Item Edit'/>
+			<Attribute name='endUserTaskList' value='End User Task List'/>
+			<Attribute name='endUserTaskResults' value='End User Task Results'/>
+			<Attribute name='reprovisionForm' value='Default User Form'/>
+			<Attribute name='loadForm' value='Default User Form'/>
+      <Attribute name='editMetaView' value='Edit Meta View'/>
+      <Attribute name='editMetaViewAttribute' value='Edit Meta View Attribute'/>
+      <Attribute name='editMetaViewAttributeTarget' value='Edit Meta View Attribute Target'/>
+      <Attribute name='editMetaEvent' value='Edit Meta Event'/>
+      <Attribute name='editMetaEventResponse' value='Edit Meta Event Response'/>
+      <Attribute name='metaViewPasswordGeneration' value='Meta View Password Generation'/>
+      <Attribute name='metaViewFromResourceChanges' value='Configure MetaView from Resource Changes'/>
+      <Attribute name='confirmMetaViewAttributeDeletes' value='Confirm Meta View Attribute Deletes'/>
+      <Attribute name='importMetaView' value='Import Meta View'/>
+      <Attribute name='continueToMetaViewFromResource' value='Continue To Meta View From Resource'/>
+      <Attribute name='editChangeLogConfiguration' value='Edit ChangeLog Configuration'/>
+      <Attribute name='editChangeLogPolicy' value='Edit ChangeLog Policy'/>
+      <Attribute name='editChangeLog' value='Edit ChangeLog'/>
+			<Attribute name='findUser' value='Find User Form'/>
+			<Attribute name='findUserResults' value='Find User Results Form'/>
+			<Attribute name='lookupUserId' value='Lookup UserId'/>
+			<Attribute name='renameUser' value='Rename User Form'/>
+			<Attribute name='enableUser' value='Enable Form'/>
+			<Attribute name='disableUser' value='Disable Form'/>
+			<Attribute name='deprovisionUser' value='Deprovision Form'/>
+			<Attribute name='changePassword' value='Change User Password Form'/>
+			<Attribute name='changePasswordSelection' value='User Selection Form'/>
+			<Attribute name='resetPassword' value='Reset User Password Form'/>
+			<Attribute name='resetPasswordSelection' value='User Selection Form'/>
+			<Attribute name='endUserResetPassword' value='Reset User Password Form'/>
+			<Attribute name='endUserChangePassword' value='Change Password Form'/>
+			<Attribute name='changeMyPassword' value='Change My Password Form'/>
+			<Attribute name='changeAnswers' value='Change User Answers Form'/>
+			<Attribute name='changeCapabilities' value='Change User Capabilities Form'/>
+			<Attribute name='changeUserAuditPolicies' value='Change User Audit Policies Form'/>
+			<Attribute name='changeOrgAuditPolicies' value='Change Organization Audit Policies Form'/>			
+			<Attribute name='loginChangeAnswers' value='Login Change User Answers Form'/>
+      <Attribute name='loginChangePassword' value='Expired Login Form'/>
+      <Attribute name='loginResetPassword' value='Reset User Password Form'/>
+			<Attribute name='findReconciledAccount' value='Find Account Form'/>
+			<Attribute name='findReconciledAccountResults' value='Find Account Results Form'/>
+			<Attribute name='findAccountOwner' value='Find Account Owner Form'/>
+			<Attribute name='accountOwnerSelection' value='Account Owner Selection Form'/>
+			<Attribute name='accountSelect' value='Select Accounts Form'/>
+			<Attribute name='confirmDeletes' value='Confirm Deletes'/>
+			<Attribute name='listForms' value='List Forms'/>
+			<Attribute name='editForm' value='Edit Form'/>
+			<Attribute name='editField' value='Edit Field'/>
+			<Attribute name='listRules' value='List Rules'/>
+			<Attribute name='editRule' value='Edit Rule'/>
+			<Attribute name='editArgument' value='Edit Argument'/>
+			<Attribute name='selfDiscovery' value='Self Discovery'/>
+			<Attribute name='otherWorkItemList' value='Other Work Item List'/>
+			<Attribute name='workItemList' value='Work Item List'/>
+			<Attribute name='findObjects' value='Find Objects Form'/>
+            <Attribute name='delegateWorkItems' value='Delegate WorkItems'/>
+			<Attribute name='endUserAnonymousEnrollment' value='End User Anonymous Enrollment Form'/> 
+          <!-- Windows Active Directory ActiveSync -->
+			<Attribute name='Windows Active Directory ActiveSync Create Group Form'
+			    value='Windows Active Directory Create Group Form'/>
+			<Attribute name='Windows Active Directory ActiveSync Update Group Form'
+			    value='Windows Active Directory Update Group Form'/>
+			<Attribute name='Windows Active Directory ActiveSync Create Container Form'
+			    value='Windows Active Directory Create Container Form'/>
+			<Attribute name='Windows Active Directory ActiveSync Update Container Form'
+			    value='Windows Active Directory Update Container Form'/>
+			<Attribute name='Windows Active Directory ActiveSync Create Organizational Unit Form'
+			    value='Windows Active Directory Create Organizational Unit Form'/>
+			<Attribute name='Windows Active Directory ActiveSync Update Organizational Unit Form'
+			    value='Windows Active Directory Update Organizational Unit Form'/>
+			<Attribute name='Windows Active Directory ActiveSync Create User Form'
+			    value='Windows Active Directory Create User Form'/>
+			<Attribute name='Windows Active Directory ActiveSync Update User Form'
+			    value='Windows Active Directory Update User Form'/>
+			<!-- NetWare NDS ActiveSync -->
+			<Attribute name='NetWare NDS ActiveSync Create Group Form'
+			    value='NetWare NDS Create Group Form'/>
+			<Attribute name='NetWare NDS ActiveSync Update Group Form'
+			    value='NetWare NDS Update Group Form'/>
+			<Attribute name='NetWare NDS ActiveSync Create Organization Form'
+			    value='NetWare NDS Create Organization Form'/>
+			<Attribute name='NetWare NDS ActiveSync Update Organization Form'
+			    value='NetWare NDS Update Organization Form'/>
+			<Attribute name='NetWare NDS ActiveSync Create Organizational Unit Form'
+			    value='NetWare NDS Create Organizational Unit Form'/>
+			<Attribute name='NetWare NDS ActiveSync Update Organizational Unit Form'
+			    value='NetWare NDS Update Organizational Unit Form'/>
+			<Attribute name='NetWare NDS ActiveSync Create User Form'
+			    value='NetWare NDS Create User Form'/>
+			<Attribute name='NetWare NDS ActiveSync Update User Form'
+			    value='NetWare NDS Update User Form'/>
+			<!-- LDAP ChangeLog ActiveSync -->
+			<Attribute name='LDAP ChangeLog ActiveSync Create Group Form'
+			    value='LDAP Create Group Form'/>
+			<Attribute name='LDAP ChangeLog ActiveSync Update Group Form'
+			    value='LDAP Update Group Form'/>
+			<Attribute name='LDAP ChangeLog ActiveSync Create Organization Form'
+			    value='LDAP Create Organization Form'/>
+			<Attribute name='LDAP ChangeLog ActiveSync Update Organization Form'
+			    value='LDAP Update Organization Form'/>
+			<Attribute name='LDAP ChangeLog ActiveSync Create Organizational Unit Form'
+			    value='LDAP Create Organizational Unit Form'/>
+			<Attribute name='LDAP ChangeLog ActiveSync Update Organizational Unit Form'
+			    value='LDAP Update Organizational Unit Form'/>
+			<Attribute name='LDAP ChangeLog ActiveSync Create Person Form'
+			    value='LDAP Create Person Form'/>
+			<Attribute name='LDAP ChangeLog ActiveSync Update Person Form'
+			    value='LDAP Update Person Form'/>
+			<!-- LDAP Listener ActiveSync -->
+			<Attribute name='LDAP Listener ActiveSync Create Group Form'
+			    value='LDAP Create Group Form'/>
+			<Attribute name='LDAP Listener ActiveSync Update Group Form'
+			    value='LDAP Update Group Form'/>
+			<Attribute name='LDAP Listener ActiveSync Create Organization Form'
+			    value='LDAP Create Organization Form'/>
+			<Attribute name='LDAP Listener ActiveSync Update Organization Form'
+			    value='LDAP Update Organization Form'/>
+			<Attribute name='LDAP Listener ActiveSync Create Organizational Unit Form'
+			    value='LDAP Create Organizational Unit Form'/>
+			<Attribute name='LDAP Listener ActiveSync Update Organizational Unit Form'
+			    value='LDAP Update Organizational Unit Form'/>
+			<Attribute name='LDAP Listener ActiveSync Create Person Form'
+			    value='LDAP Create Person Form'/>
+			<Attribute name='LDAP Listener ActiveSync Update Person Form'
+			    value='LDAP Update Person Form'/>
+			<Attribute name='activeSyncWizard' value='Resource Active Sync Wizard'/>
+			<Attribute name='conditionForm' value='Condition Dialog'/>
+			<Attribute name='auditorViewUserComplianceForm' value='Auditor Tab'/>
+		    </Object>
+		</Attribute>
+
+		<!-- mapping to the User Action Configuration object -->
+		<Attribute name='userActionsConfigMapping' value='User Actions Configuration'/>
+
+                <!-- controls shared authentication between the UI interfaces -->
+                <Attribute name='allowInterAppAuthentication' value='false' />
+
+		<Attribute name='redirectFilterConfigMapping' value='Redirect Filter Configuration'/>
+		<!-- managed resources -->
+		<Attribute name='resources'>
+		    <Object>
+			<Attribute name='lighthouse'>
+			    <List>
+			    </List>
+			</Attribute>
+			<Attribute name='custom'>
+			    <List>
+			    </List>
+			</Attribute>
+			<Attribute name='lighthouseSupplied'>
+			    <List>
+				<String>com.waveset.adapter.LDAPResourceAdapter</String>
+				<String>com.waveset.adapter.NTResourceAdapter</String>
+				<String>com.waveset.adapter.ADSIResourceAdapter</String>
+				<String>com.waveset.adapter.NDSResourceAdapter</String>
+				<String>com.waveset.adapter.NDSActiveSyncAdapter</String>
+				<String>com.waveset.adapter.RequestResourceAdapter</String>
+				<String>com.waveset.adapter.SecurIdResourceAdapter</String>
+				<String>com.waveset.adapter.SecurIdUnixResourceAdapter</String>
+				<String>com.waveset.adapter.Exchange55ResourceAdapter</String>
+				<String>com.waveset.adapter.RemedyResourceAdapter</String>
+				<String>com.waveset.adapter.RemedyActiveSyncResourceAdapter</String>
+				<String>com.waveset.adapter.ActiveDirectoryActiveSyncAdapter</String>
+				<String>com.waveset.adapter.LDAPChangeLogActiveSyncAdapter</String>
+				<String>com.waveset.adapter.LDAPListenerActiveSyncAdapter</String>
+				<String>com.waveset.adapter.DominoResourceAdapter</String>
+				<String>com.waveset.adapter.AIXResourceAdapter</String>
+				<String>com.waveset.adapter.SolarisResourceAdapter</String>
+				<String>com.waveset.adapter.HPUXResourceAdapter</String>
+				<String>com.waveset.adapter.RedHatLinuxResourceAdapter</String>
+				<String>com.waveset.adapter.SimulatedResourceAdapter</String>
+				<String>com.waveset.adapter.DatabaseTableResourceAdapter</String>
+				<String>com.waveset.adapter.MIISResourceAdapter</String>
+				<String>com.waveset.adapter.DominoActiveSyncAdapter</String>
+				<String>com.waveset.adapter.FlatFileActiveSyncAdapter</String>
+				<String>com.waveset.adapter.JmsListenerResourceAdapter</String>
+				<String>com.waveset.adapter.ScriptedJdbcResourceAdapter</String>
+				<String>com.waveset.adapter.SunCommunicationsServicesResourceAdapter</String>
+				<String>com.waveset.adapter.SUSELinuxResourceAdapter</String>
+			    </List>                              
+			</Attribute>
+		    </Object>
+		</Attribute>
+
+		<!-- attributes updatable through views -->
+		<Attribute name='updatableAttributes'>
+		    <Object>
+			<Attribute name='Password'>
+                            <Object>
+			        <!-- attribute "all" may be used for global attributes -->
+			        <Attribute name='LDAP'>
+                                   <!-- a List of String s with the attribute names -->
+			        </Attribute>
+                            </Object>
+			</Attribute>
+		    </Object>
+		</Attribute>
+		<!-- Number of seconds to allow between password updates
+		     before they will be synchronized. -->
+		<Attribute name='PasswordSyncThreshold' value='30'/>
+
+		<!-- scheduler.hosts is a location to register startup behavior for
+		     the scheduler on particular hosts (or more accurately Lighthouse
+		     application instances).  
+
+		     NOTE: this has been subsumed by the per-server configuration
+		     setting stored under serverSettings.<server>.scheduler.startup.
+	  -->
+
+    <!-- security is the root of a set of security/authentication configuration
+         settings.
+    -->
+    <Attribute name='security'>
+        <Object>
+
+            <Attribute name='admin'>
+                <Object>
+
+
+                    <!--  As of bug 10408, user password changes made by
+                 administrators should not be tracked in the user's password
+                 history if enabled in the password policy. The following
+                 options allow administrators to toggle this behavior
+                 (see bug 13029). The default behavior should always be false
+                  in order to be consistent with bug 10408.
+                 -->
+
+                    <Attribute name='changePassword'>
+                        <Object>
+                            <Attribute name='Administrator Interface'>
+                                <Object>
+                                    <Attribute name='savePasswordHistory' value='false'/>
+                                </Object>
+                            </Attribute>
+                            <Attribute name='IVR Interface'>
+                                <Object>
+                                    <Attribute name='savePasswordHistory' value='false'/>
+                                </Object>
+                            </Attribute>
+                            <Attribute name='SOAP Interface'>
+                                <Object>
+                                    <Attribute name='savePasswordHistory' value='false'/>
+                                </Object>
+                            </Attribute>
+                            <Attribute name='Command Line Interface'>
+                                <Object>
+                                    <Attribute name='savePasswordHistory' value='false'/>
+                                </Object>
+                            </Attribute>
+                        </Object>
+                    </Attribute>
+                </Object>
+            </Attribute>
+
+            <Attribute name='authn'>
+                <Object>
+				    <!-- Attributes required for user ID lookup 
+						 (used by Forgot Your User ID) -->
+				    <Attribute name='lookupUserIdAttributes'>
+					    <Object>
+							<Attribute name='Administrator Interface'>
+							    <List>
+								  <Object name='firstname'>
+								    <Attribute name='title'    value='UI_ATTR_FIRSTNAME'/>
+								    <Attribute name='required' value='false' />
+								  </Object>
+								  <Object name='lastname'>
+								    <Attribute name='title'    value='UI_ATTR_LASTNAME'/>
+								    <Attribute name='required' value='false'/>
+								  </Object>
+								  <Object name='email'>
+								    <Attribute name='title'    value='UI_ATTR_EMAIL'/>
+								    <Attribute name='required' value='false'/>
+								  </Object>
+							    </List>
+							</Attribute>
+							<Attribute name='User Interface'>
+							    <List>
+								  <Object name='firstname'>
+								    <Attribute name='title'    value='UI_ATTR_FIRSTNAME'/>
+								    <Attribute name='required' value='false' />
+								  </Object>
+								  <Object name='lastname'>
+								    <Attribute name='title'    value='UI_ATTR_LASTNAME'/>
+								    <Attribute name='required' value='false'/>
+								  </Object>
+								  <Object name='email'>
+								    <Attribute name='title'    value='UI_ATTR_EMAIL'/>
+								    <Attribute name='required' value='false'/>
+								  </Object>
+							    </List>
+							</Attribute>
+                        </Object>
+				    </Attribute>
+                    <!-- runQuestionLoginOnSuccess, boolean: when set to true
+                         will run the Question Login Workflow if all
+                         questions are answered correctly.
+                         By default the Question Login workflow will not
+                         be run.
+                    -->
+                    <Attribute name='runQuestionLoginOnSuccess'>
+                        <Boolean>false</Boolean>
+                    </Attribute>
+                    <!-- runPasswordLoginOnSuccess, boolean: when set to true
+                         will run the Password Login Workflow if all
+                         questions are answered correctly.
+                         By default the Password Login workflow will not
+                         be run.
+                    -->
+                    <Attribute name='runPasswordLoginOnSuccess'>
+                        <Boolean>false</Boolean>
+                    </Attribute>
+					<!-- singleLoginSessionPerApp, boolean: when set to true 
+						 for a given app, will prevent the same user from logging 
+						 in more than once to that app.
+					-->
+					<Attribute name='singleLoginSessionPerApp'>
+						<Object>
+							<Attribute name='Administrator Interface'>
+								<Boolean>false</Boolean>
+							</Attribute>
+							<Attribute name='User Interface'>
+								<Boolean>false</Boolean>
+							</Attribute>
+							<Attribute name='BPE'>
+								<Boolean>false</Boolean>
+							</Attribute>
+							<Attribute name='Command Line Interface'>
+								<Boolean>false</Boolean>
+							</Attribute>
+						</Object>	
+					</Attribute>
+                </Object>
+            </Attribute>
+            <Attribute name='authz'>
+                <Object>
+					<Attribute name='checkDynamicallyAssignedAdminRolesAtLoginTo'>
+						<Object>
+						    <Attribute name='Administrator Interface'>
+								<Boolean>false</Boolean>
+							</Attribute>
+						    <Attribute name='User Interface'>
+								<Boolean>false</Boolean>
+							</Attribute>
+							<Attribute name='SPE User Interface'>
+								<Boolean>false</Boolean>
+							</Attribute>
+						</Object>
+					</Attribute>
+					<Attribute name='external'>
+						<Object>
+							<Attribute name='Administrator Interface'>
+								<Object>
+									<Attribute name='Service Provider Users'>
+										<Boolean>false</Boolean>
+									</Attribute>
+								</Object>
+							</Attribute>
+							<Attribute name='SPE User Interface'>
+								<Object>
+									<Attribute name='Service Provider Users'>
+										<Boolean>false</Boolean>
+									</Attribute>
+								</Object>
+							</Attribute>
+						</Object>	
+					</Attribute>
+                </Object>
+			</Attribute>
+            <Attribute name='delegation'>
+              <Object>
+                <Attribute name='historyLength'>
+                  <Integer>5</Integer>
+                </Attribute>
+              </Object>
+            </Attribute>
+            <Attribute name='nonrepudiation'>
+                <Object>
+                    <Attribute name='signedApprovals'>
+                        <Boolean>false</Boolean>
+                    </Attribute>
+                </Object>
+            </Attribute>
+        </Object>
+    </Attribute>
+
+    <!-- serverSettings is the root of a set of per-server configuration
+         settings (intended to replace Waveset.properties in many cases).
+         
+         Each child of serverSettings defines the settings for a single
+         server, with the name indicating the server (as returned by
+         Util.getServerId()).  The special server "default" is used to
+         set global defaults for settings; the values set in "default" will
+         be used for a server unless they are specifically set in that
+         server's configuration.
+    -->
+    <Attribute name='serverSettings'>
+      <Object>
+        <Attribute name='default'>
+          <Object>
+            <Attribute name='reconciler'>
+              <Object>
+                <!-- # of threads always kept alive for requests -->
+                <Attribute name='minConcurrentResources' value='1'/>
+                <!-- Maximum # of resources processed concurrently -->
+                <Attribute name='maxConcurrentResources' value='3'/>
+                <!-- # of threads always kept alive for recon processing -->
+                <Attribute name='minWorkerThreads'/>
+                <!-- Maximum # of threads to use for recon processing -->
+		            <Attribute name='maxWorkerThreads'/>
+                <!-- Minimum wait (in ms) between updates of reconcile
+                     result data.  This affects how up-to-date the
+                     ReconcileStatus view will be during a running
+                     reconciliation.
+                -->
+                <Attribute name='resultThrottle' value='15000'/>
+                <!-- Minimum wait (in ms) between updates of reconciler
+                     statistics. This affects how up-to-date reconciler
+                     internal state will be in the debug pages.
+                  -->
+                <Attribute name='statsThrottle' value='15000'/>
+                <!-- Maximum number of times to retry failed
+					 reconcile requests.
+                  -->
+                <Attribute name='maxRetries' value='3'/>
+                <!-- Minimum wait (in ms) between retry attempts -->
+                <Attribute name='lockwaitThreshold' value='5000'/>
+              </Object>
+            </Attribute>
+            <!--controls optimization in UserView that allows AuditPolicy to
+                be executed in the callers thread, rather than in a Task
+              -->
+            <Attribute name='user'>
+               <Object>
+                  <Attribute name='view'>
+                     <Object>
+                        <Attribute name='alwaysUseTask'>
+                           <Boolean>false</Boolean>
+                        </Attribute>
+                     </Object>
+                  </Attribute>
+               </Object>
+            </Attribute>
+            <Attribute name='debugger'>
+               <Object>
+                   <Attribute name='enabled'>
+                      <Boolean>true</Boolean>
+                   </Attribute>
+               </Object>
+            </Attribute>
+            <Attribute name='scheduler'>
+              <Object>
+                <!-- Indicates whether the scheduler should be started
+                     at server startup.  Valid values are "enabled",
+                     "manual", and "disabled".  Other values are
+                     interpreted as "enabled", excepting "suspended"
+                     (which is a synonym for "manual").
+                     If "disabled", the Scheduler CANNOT be started on
+                     the server, even through the API.  If "manual",
+                     the Scheduler needs to be started through the API.
+                     NOTE: For backward compatibility, the
+                     task.scheduler.enabled and task.scheduler.suspended
+                     properties from Waveset.properties will override
+                     this setting.
+                -->
+                <Attribute name='startup' value='enabled'/>
+                <!-- Enables trace logging to stdout -->
+                <Attribute name='trace' value='false'/>
+                <!-- Disables processing of scheduled tasks -->
+                <Attribute name='disableScheduled' value='false'/>
+                <!-- Enables tracing of task result cleanup -->
+                <Attribute name='traceTaskResultCleanup' value='false'/>
+                <!-- Disables removal of ophaned task results -->
+                <Attribute name='disableTaskResultCleanup' value='false'/>
+                <!-- Enables periodic removal of orphaned task results.
+                     If disabled, this clean up is only done at startup.
+                  -->
+                <Attribute name='scheduledTaskResultCleanup' value='false'/>
+                <!-- Lists task definitions (by name or id) which are
+                     subject to task restrictions.
+                -->
+                <Attribute name='tasklist'>
+                  <List/>
+                </Attribute>
+                <!-- Indicates whether the tasklist for task restrictions
+                     enumerates the tasks which ARE NOT allowed to run
+                     ("exclude") or all of the tasks which ARE allowed
+                     to run ("restrict").  Other values are interpreted as
+                     "exclude".
+                 -->
+                <Attribute name='tasklistMode' value='exclude'/>
+              </Object>
+            </Attribute>
+            <!-- Default settings for the email template smtpHost value.
+            -->
+            <Attribute name='emailtemplate'>
+              <Object>
+                  <Attribute name='smtpHost' value='mail.example.com'/>
+				  <Attribute name='port' value='25'/>
+				  <Attribute name='authEnabled' value='false'/>
+				  <Attribute name='ssl' value='false'/>
+				  <Attribute name='ignoreCert' value='false'/>
+              </Object>
+            </Attribute>
+            <!-- Default settings for JXM
+            -->
+            <Attribute name='jmx'>
+              <Object>
+                <!-- default to disable -->
+                <Attribute name='enable' value='false'/>
+                <!-- default to 10min -->
+                <Attribute name='pollinterval' value='60000'/>
+              </Object>
+            </Attribute>
+          </Object>
+        </Attribute>
+      </Object>
+    </Attribute>
+
+        <Attribute name='bulkAction'>
+           <Object>
+              <Attribute name='maxParseErrors' value='10'/>
+            </Object>
+        </Attribute>
+
+		<Attribute name='useOrganizationDisplayNames'>
+		    <Boolean>false</Boolean>
+		</Attribute>
+
+		<Attribute name='forgotPasswordChangeResults'>
+		    <Object>
+			<Attribute name='Admin' value='false'/>
+			<Attribute name='User' value='false'/>
+		    </Object>
+		</Attribute>
+
+		<Attribute name='dateUpgradeBoundary'>
+		    <Date>0</Date>
+		</Attribute>
+
+		<!-- This attribute and subobjects control the ui.  You can configure a few commonly altered UI
+		     properties by tweaking the values here.
+        -->
+		<Attribute name="ui">
+		    <Object>
+			<Attribute name="web">
+			    <Object>
+                <!-- The 'forgot password answers' can be obfuscated by setting this value to true
+                   They are obfuscated in BOTH web UIs, admin and user.
+                -->
+                <Attribute name="obfuscateAnswers">
+                    <Boolean>false</Boolean>
+                </Attribute>
+                <!-- Toggle to pull a string from the message catalog
+                     to override the product name string in the browser title bar -->
+                <Attribute name='browserTitleProdNameOverride'>
+                  <Boolean>false</Boolean>
+                </Attribute>
+                <!-- These attributes control the enduser web UI -->
+				<Attribute name="user">
+				    <Object>
+					<Attribute name="workflowResults">
+					    <Object>
+						<!--When true this will suppress the display of the workflow diagram
+						 in the user workflow status pages (processStatus.jsp.) -->
+						<Attribute name="suppressReports">
+						    <Boolean>false</Boolean>
+						</Attribute>
+						<!-- When true this will keep the host name from being displayed as
+						 part of the process results (processStatus.jsp in user app.) -->
+						<Attribute name="suppressHostName">
+						    <Boolean>false</Boolean>
+						</Attribute>
+						<!-- This will suppress the display of the workflow diagram
+						 in the anonymous user workflow status pages (anonProcessStatus.jsp.) -->
+						<Attribute name="anonSuppressReports">
+						    <Boolean>false</Boolean>
+						</Attribute>
+					    </Object>
+					</Attribute>
+					<!-- The 'forgot userId' button can be disabled by setting this. -->
+					<Attribute name="disableForgotUserId">
+					    <Boolean>false</Boolean>
+					</Attribute>
+					<!-- The 'forgot password answers' button can be disabled by setting this. -->
+					<Attribute name="disableForgotPassword">
+					    <Boolean>false</Boolean>
+					</Attribute>
+					<!-- Attributes that control the question login process -->
+					<Attribute name='questionLogin'>
+						<Object>
+							<!-- The question login change password can be disabled by setting this. -->
+							<Attribute name='bypassChangePassword'>
+								<Boolean>false</Boolean>
+							</Attribute>
+						</Object>
+					</Attribute>
+          <!-- Controls rendering of the user menu:
+               'horizontal' = Lockhart-styled horizontal tab rows 
+               'vertical'   = Vertical tree menu -->
+          <Attribute name='menuLayout' value='horizontal'/>
+          <!-- Toggle rendering of the user menu -->
+          <Attribute name='showMenu'>
+            <Boolean>true</Boolean>
+          </Attribute>
+          <!-- Toggles to enable/disable dashboard information -->
+          <Attribute name='dashboard'>
+            <Object>
+              <Attribute name='displayLoginFailures'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='displayPasswordExpirationWarning'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='displayApprovals'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='displayAttestationReviews'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='displayRequests'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='displayRemediations'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='displayDelegations'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='displayOtherWorkItems'>
+                <Boolean>true</Boolean>
+              </Attribute>
+            </Object>
+          </Attribute>
+          <!-- Attributes to control end user anonymous enrollment -->
+          <Attribute name='anonEnrollment'>
+            <Object>
+              <Attribute name='enable'>
+                <Boolean>false</Boolean>
+              </Attribute>
+              <Attribute name='processLaunchUrl'>
+                <String>user/anonEnrollment.jsp?id=endUserAnonymousEnrollment</String>
+              </Attribute>
+              <Attribute name='enableValidation'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='enableNotifications'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='notificationTemplate'>
+                <String>#ID#EmailTemplate:EndUserAnonymousEnrollment</String>
+              </Attribute>
+              <Attribute name='requirePrivacyPolicy'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='emailDomain'>
+                <String>example.com</String>
+              </Attribute>
+            </Object>
+          </Attribute>
+            </Object>
+				</Attribute>
+                <!-- These attributes control the admin web UI -->
+				<Attribute name="admin">
+				    <Object>
+					<!-- The 'forgot userId' button can be disabled by setting this. -->
+					<Attribute name="disableForgotUserId">
+					    <Boolean>false</Boolean>
+					</Attribute>
+					<!-- The 'forgot password answers' button can be disabled by setting this. -->
+					<Attribute name="disableForgotPassword">
+					    <Boolean>false</Boolean>
+					</Attribute>
+					<!-- Attributes that control the question login process -->
+					<Attribute name='questionLogin'>
+						<Object>
+							<!-- The question login change password can be disabled by setting this. -->
+							<Attribute name='bypassChangePassword'>
+								<Boolean>false</Boolean>
+							</Attribute>
+						</Object>
+					</Attribute>
+					<Attribute name="workflowResults">
+					    <Object>
+						<!-- When true this will keep the host name from being displayed as part of the task results.
+						-->
+						<Attribute name="suppressHostName">
+						    <Boolean>false</Boolean>
+						</Attribute>
+					    </Object>
+					</Attribute>
+				    </Object>
+				</Attribute>
+			    </Object>
+			</Attribute>
+		    </Object>
+		</Attribute>  <!-- ui configuration -->
+
+      <!-- Workflow Options -->
+      <Attribute name='workflow'>
+         <Object>
+            <!-- Specifies the level of detail included in workflow  -->
+            <!-- trace. An unspecified or 0 value generates the most -->
+            <!-- detail.                                             -->
+            <Attribute name='traceLevel' value='1'/>
+
+            <!-- Turn on tracing of generic objects.                 -->
+            <Attribute name='traceAllObjects' value='false'/>
+
+            <!-- When true, trace messages will be accumulated in the -->
+            <!-- task's result object.                                -->
+            <Attribute name='resultTrace' value='false'/>
+
+            <!-- When true, trace messages will be emitted to the console. -->
+            <Attribute name='consoleTrace' value='false'/>
+
+            <!-- When set, trace messages will be emitted to the named -->
+            <!-- file.                                                 -->
+            <Attribute name='fileTrace' value=''/>
+
+            <!-- When true, we will return the entire case history in the   -->
+            <!-- TaskInstance after the task has completed.  Normally we    -->
+            <!-- prune out the case history to save space since it can be   -->
+            <!-- quite large.  It is however occasionally useful to examine -->
+            <!-- the history to diagnose process problems.                  -->
+            <Attribute name='retainHistory' value='false'/>
+
+            <!-- Max steps before we terminate a workflow                   -->
+            <Attribute name='maxSteps' value='5000'/>
+
+            <!-- Level of strictness applied when validating workflows      -->
+            <!-- prior to running them. Errors of this level or greater     -->
+            <!-- will result in the workflow not being run.                 -->
+            <!-- Valid values are CRITICAL, ERROR, WARNING, or NONE,        -->
+            <!-- where NONE turns off validation completely.                -->
+            <Attribute name='validationLevel' value='CRITICAL'/>
+         </Object>
+      </Attribute>
+
+      <!-- Setting this to true exposes links to the scripts used to
+           generate the graphs.  This is useful if a problem is encountered -->
+      <Attribute name='dashboard'>
+        <Object>
+          <Attribute name='debug' value='false'/>
+        </Object>
+      </Attribute>
+
+      <!-- Settings to control how email notifications are sent. -->
+      <Attribute name="emailNotifier">
+        <Object>
+          <!-- If set to true, then localized emails will be sent when
+               the subject and body of the email messages are message
+               catalog keys. -->
+          <Attribute name='enableLocalization' value='true'/>
+
+          <!-- The character set to use when sending emails.  
+               If none is set, then UTF-8 is used. -->
+           <Attribute name='contentCharset' value='UTF-8'/>
+        </Object>
+      </Attribute>
+
+            <!-- Processing flag tells Deferred Task Scanner   -->
+            <!-- that it need only query for deferred tasks.   -->
+            <Attribute name='2005Q4M3refreshOfTypeUserIsComplete'>
+                <Boolean>true</Boolean>
+            </Attribute>
+	
+		<!-- ensures creation of a server encryption key that will be 
+			 encrypted with PBE encryption key instead of the default key -->
+		<Attribute name='pkcs5Encrypt' value='true'/>
+
+        <!--
+          Audit formatter, publisher registration
+         -->
+        <Attribute name='audit'>
+          <Object>
+            <Attribute name='formatters'>
+              <List>
+                <String>com.sun.idm.logging.audit.UlfFormatter</String>
+                <String>com.sun.idm.logging.audit.XmlFormatter</String>
+              </List>
+            </Attribute>
+            <Attribute name='publishers'>
+              <List>
+                <String>com.sun.idm.logging.audit.ConsolePublisher</String>
+                <String>com.sun.idm.logging.audit.FilePublisher</String>
+                <String>com.sun.idm.logging.audit.JdbcPublisher</String>
+                <String>com.sun.idm.logging.audit.JMXPublisher</String>
+                <String>com.sun.idm.logging.audit.JMSPublisher</String>
+                <String>com.sun.idm.logging.audit.ScriptedPublisher</String>
+              </List>
+            </Attribute>
+          </Object>
+        </Attribute>
+		
+	 </Object>
+
+
+	</Extension>
+
+	<MemberObjectGroups>
+	    <ObjectRef type='ObjectGroup' name='All'/>
+	</MemberObjectGroups>
+    </Configuration>

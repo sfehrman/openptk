@@ -1,0 +1,102 @@
+-- 
+-- IMPORTANT:
+-- Identity Manager Service Provider does not support MySQL. This script
+-- is provided to set up a transaction database for demonstration purposes only.
+-- 
+-- PLEASE NOTE:  This script is SAMPLE DDL.
+-- No customer is required to execute this script.
+-- You may use any means to create equivalent tables and indexes.
+-- To state this more formally, IDM SPE requires only that:
+-- 1. Tables (or views) exist with the names specified in this sample DDL.
+-- 2. Each named table (or view) is owned by (or aliased to) the proxy user
+--    that is represented as 'SPE' in this sample DDL.
+-- 3. Each named table (or view) contains every column
+--    that is specified for that table in this sample DDL.
+-- 4. Each named column has a data type that is consistent with
+--    the data type specified for that column in the sample DDL.
+--
+-- If you choose to use this script, you do so at your risk.
+-- You may modify this script to suit your environment.
+-- For example, most customers specify a different proxy user.
+-- Many customers also specify different tablespaces,
+-- or specify separate tablespaces for tables and indexes.
+--
+-- If you wish, you may go even further. For example, you may:
+-- o  Change any data type (as long as a view or the JDBC driver
+--    makes this change transparent to SPE).
+-- o  Add columns (as long as each is nullable or defaulted).
+-- o  Remove or rename columns
+--    (as long as a view makes this transparent to SPE).
+-- o  Rename indexes
+-- However, please realize that if you make these sorts of changes
+-- you will need to make equivalent changes to any sample SPE
+-- database upgrade script that you may receive in the future.
+--
+--
+-- Specify UTF-8 as the default character set for the database
+-- and the "binary" collation for UTF-8 as the default collation.
+--
+-- IMPORTANT:   In order to support multi-byte characters, 
+--              you must also specify these same values as 
+--              the character set and collation for the MySQL Server.
+--              This allows multi-byte characters to be transmitted properly
+--              between the client (JDBC driver) and server (MySQL DBMS instance).
+--
+--              The easiest way to do this is to 
+--              add the following lines to the [mysqld] section 
+--              within MySQL's configuration file 'my.cnf':
+--                  default-character-set=utf8
+--                  default-collation=utf8_bin
+--
+--              Another way to set the MySQL Server's 
+--              character set and collation
+--              is to pass flags to 'mysqld' at startup:
+--                  --default-character-set=utf8
+--                  --default-collation=utf8_bin
+--
+--              Consult the MySQL manual for more information. 
+--
+CREATE DATABASE IF NOT EXISTS SPE CHARACTER SET utf8 COLLATE utf8_bin;
+
+CREATE TABLE SPE.SPETransaction (
+  guid            VARCHAR(50) NOT NULL,
+  userId          VARCHAR(255),
+  name            VARCHAR(50),
+  type            VARCHAR(20),
+  dependentTxnId  VARCHAR(50),
+  state           VARCHAR(20),
+  isCancelled     CHAR(1),
+  numAttempts     VARCHAR(20),
+  submissionTime  VARCHAR(30),
+  completionTime  VARCHAR(30),
+  retryAt         VARCHAR(30),
+  leaseOwner      VARCHAR(50),
+  leaseExpiration VARCHAR(30),
+  errors          VARCHAR(1024),
+  attr1           VARCHAR(255),
+  attr2           VARCHAR(255),
+  attr3           VARCHAR(255),
+  attr4           VARCHAR(255),
+  attr5           VARCHAR(255),
+  xml             MEDIUMTEXT
+) TYPE=INNODB;
+
+CREATE UNIQUE INDEX SPETransactionGuid ON SPE.SPETransaction(guid);
+CREATE INDEX SPETransactionDependent ON SPE.SPETransaction(dependentTxnId);
+
+#
+# Give permissions to the "SPE" userid logging in from any host.
+#
+GRANT ALL PRIVILEGES on SPE.* TO SPE IDENTIFIED BY 'SPE';
+#
+# Give permissions to the "SPE" userid logging in from any host.
+# NOTE: This is equivalent to the formulation where host is unspecified,
+# which works fine for MySQL on Solaris 2.6 in our lab,
+# but one customer (with an odd DNS setup) needed the following variant.
+#
+GRANT ALL PRIVILEGES on SPE.* TO SPE@'%' IDENTIFIED BY 'SPE';
+#
+# Give permissions to the "SPE" user when it logs in from the localhost.
+# MySQL on NT or Linux (I forget which) required this for JDBC connections.
+#
+GRANT ALL PRIVILEGES on SPE.* TO SPE@localhost IDENTIFIED BY 'SPE';

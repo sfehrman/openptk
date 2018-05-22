@@ -1,0 +1,834 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--
+ * NOTE:  This configuration file is based on the sample artifact which ships with 
+ * Sun Identity Manager
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ *      Portions Copyright 2007 Sun Microsystems, Inc.
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License, Version 1.0 only
+ * (the "License").  You may not use this file except in compliance
+ * with the License.
+ *
+ * You can obtain a copy of the license at
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+ * or https://openptk.dev.java.net/OpenPTK.LICENSE.
+ * See the License for the specific language governing permissions
+ * and limitations under the License.
+ *
+ * When distributing Covered Code, include this CDDL HEADER in each
+ * file and include the reference to
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+ * add the following below this CDDL HEADER, with the fields enclosed
+ * by brackets "[]" replaced with your own identifying information:
+ *      Portions Copyright [yyyy] [name of copyright owner]
+ *
+ *
+ * Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+-->
+<!--
+
+SPML Configuration
+
+  The "schema" attribute contains a string of escaped XML for
+  an <spml:schema> element.  We have to escape this because
+  the SPML schema and waveset.dtd cannot be merged easily.
+
+  The "classes" attribute has a list of objects containing 
+  information about the object classes defined in the SPML schema.
+  Each object on the list will have a name corresponding to an 
+  object class name.  The "type" attribute has the name of the
+  corresponding repository type used to store objects of this class.
+  This is also the name of the view handler.  The "form" attribute
+  contains the name of the default form used to transform between
+  the internal view and the attributes defined by the SPML class.
+ 
+  The current schema is the one defined for the SPML-interop demo.
+
+-->
+<Configuration id='#ID#Configuration:SPML' name='SPML'>
+  <Extension>
+    <Object>
+      <Attribute name='classes'>
+        <List>
+
+      <!-- Class 'person' 
+           NOTE:  This is configured as the default objectclass.
+           This is used by Role Manager. The openptk
+           uses the user configuration, below.
+      -->           
+           
+      <Object name='person'>
+        <Attribute name='type' value='User'/>
+        <Attribute name='form' value='SPMLPerson'/>
+        <Attribute name='identifier' value='uid'/>
+      </Object>
+      
+      <!-- Class 'user' 
+           NOTE:  This is configured to be used by the openptk
+           sample configuration.
+      -->
+          <Object name='user'>
+            <Attribute name='form' value='ptkPerson'/>
+            <Attribute name='default' value='true'/>            
+            <Attribute name='identifier' value='waveset.accountId'/>
+            <Attribute name='multiValuedAttributes'>
+              <List>
+                <String>resources</String>
+                <String>roles</String>
+              </List>
+            </Attribute>
+            <Attribute name='type' value='User'/>
+          </Object>
+
+      <!-- Class 'speperson' 
+           NOTE:  This is configured as the default and is used by the openptk
+           SPE sample configuration.
+      -->          
+      <Object name='speperson'>
+        <Attribute name='type' value='IDMXUser'/>
+        <Attribute name='form' value='view'/>
+        <Attribute name='identifier' value='accountId'/>
+        <Attribute name='multiValuedAttributes'>
+          <List>
+            <String>resources</String>
+            <String>roles</String>
+            <String>applications</String>
+          </List>
+        </Attribute>
+      </Object>      
+
+
+      <!-- Class 'ptkPerson' 
+           NOTE:  This is an example only and not used as the preferred objectclass.
+      -->
+
+          <Object name='ptkPerson'>
+            <Attribute name='form' value='ptkPerson'/>
+            <Attribute name='identifier' value='uid'/>
+            <Attribute name='multiValuedAttributes'>
+              <List>
+                <String>waveset.resources</String>
+                <String>waveset.roles</String>
+              </List>
+            </Attribute>
+            <Attribute name='type' value='User'/>
+          </Object>
+
+      <!-- Class 'userview' defines the form "view" which causes the view to
+           pass through unmodified
+      -->
+      <Object name='userview'>
+        <Attribute name='type' value='User'/>
+        <Attribute name='form' value='view'/>
+        <Attribute name='identifier' value='waveset.accountId'/>
+        <Attribute name='multiValuedAttributes'>
+          <List>
+            <String>waveset.resources</String>
+            <String>waveset.roles</String>
+            <String>waveset.applications</String>
+          </List>
+        </Attribute>
+      </Object>
+		
+      <Object name='role'>
+        <Attribute name='type' value='Role'/>
+        <Attribute name='form' value='SPMLRole'/>
+        <Attribute name='default' value='true'/>
+        <Attribute name='identifier' value='name'/> <!--  attribute ...for now? -->
+      </Object>
+		
+<!--
+/**
+ *
+ * The Role view (at least as a GEO) looks like:
+ *
+ * name
+ * type             - View attribute for the role type.  (must use roleType for spml
+ *                    due to a confliect with "type" and convert in the form).
+ * description      - Description of the role
+ * disabled         - Set to true to indicate that the role is disabled
+ * resources        - a List of Strings. Names of locally assigned resources
+ * applications     - ditto for Applications (Resource Groups)
+ * roles            - ditto for Roles
+ * superRoles       - ditto for SuperRoles
+ * notifications    - names of admins to notify
+ * notificationsRule- rule used to calculate admins to notify
+ * approvers        - names of admins that must approve assignment of this role
+ * approversRule    - rule used to calculate admins that must approve assignement of this role
+ * owners           - names of admins that must approve changes of this role
+ * ownersRule       - rule used to calculate admins that must approve changes of this role
+ * 
+ * Other attributes that normally appear in the geo but are omitted and may be 
+ * added later.
+ * 
+ **/ 
+-->
+		
+      <Object name='roleview'>
+        <Attribute name='type' value='Role'/>
+        <Attribute name='form' value='view'/>
+        <Attribute name='identifier' value='name'/> <!-- ...for now? -->
+        <Attribute name='multiValuedAttributes'>
+          <List>
+            <String>resources</String>
+            <String>applications</String>
+            <String>roles</String>
+            <String>superRoles</String>
+            <String>notifications</String>
+            <String>approvers</String>
+            <String>owners</String>            
+            <String>roleExclusions</String>
+          </List>
+        </Attribute>
+      </Object>
+		
+      <Object name='application'>
+        <Attribute name='type' value='Application'/>
+        <Attribute name='form' value='SPMLResourceGroup'/>
+        <Attribute name='default' value='true'/>
+        <Attribute name='identifier' value='name'/> <!-- attribute ...for now? -->
+      </Object>
+		
+      <Object name='resourceGroupView'>
+        <Attribute name='type' value='Application'/>
+        <Attribute name='form' value='view'/>
+        <Attribute name='identifier' value='name'/>
+        <Attribute name='multiValuedAttributes'>
+          <List>
+            <String>resources</String>
+            <String>applications</String> <!-- aka Resource Groups, if hierarchy allowed -->
+            <String>roleExclusions</String>
+		  </List>
+        </Attribute>
+      </Object>
+		
+		
+      <!-- A simplification of the user view that exposes only certain
+           Lighthouse account attributes.  It also sets view options to 
+           prevent fetching of resource accounts since only Lighthouse
+           account attributes are accessible.
+      -->
+      <Object name='lighthouseUser'>
+        <Attribute name='type' value='User'/>
+        <Attribute name='form' value='view'/>
+        <Attribute name='identifier' value='waveset.accountId'/>
+        <Attribute name='multiValuedAttributes'>
+          <List>
+            <String>waveset.resources</String>
+            <String>waveset.roles</String>
+            <String>waveset.applications</String>
+          </List>
+        </Attribute>
+        <Attribute name='viewForm' value='Empty'/>
+        <Attribute name='targetResources'>
+          <List/>
+        </Attribute>
+      </Object>
+      <!--
+         A further simplification of lighthouseUser that does not
+         fetch resource accounts and exposes the more important attributes
+         in a flat namespace.
+      -->
+      <Object name='BasicUser'>
+        <Attribute name='type' value='User'/>
+        <Attribute name='form' value='BasicUser'/>
+        <Attribute name='identifier' value='accountId'/>
+        <Attribute name='multiValuedAttributes'>
+          <List>
+            <String>resources</String>
+            <String>roles</String>
+          </List>
+        </Attribute>
+        <Attribute name='viewForm' value='Empty'/>
+        <Attribute name='targetResources'>
+          <List/>
+        </Attribute>
+      </Object>
+      <!-- A demonstration of creating a resource-specific objectclass.
+           We set user view options that cause only the attributes from
+           a single resource to be fetched.  We use a form that exposes
+           the attributes of that resource as top-level attributes
+           in the SPML request, e.g. removing the accounts[foo]. prefix.
+      -->
+      <Object name='viewtest1'>
+        <Attribute name='type' value='User'/>
+        <Attribute name='form' value='SPMLViewtest1'/>
+        <Attribute name='identifier' value='accountId'/>
+        <Attribute name='viewForm' value='Empty'/>
+        <Attribute name='targetResources' value='viewtest1'/>
+      </Object>
+      <Object name='role'>
+        <Attribute name='type' value='Role'/>
+      </Object>
+      <!--
+        A filter of the TaskInstance view that returns information
+        about tasks associated with SPML requests
+      -->
+      <Object name='request'>
+        <Attribute name='type' value='TaskInstance'/>
+        <Attribute name='filter'>
+          <AttributeCondition attrName='defName' operator='equals' 
+           operand='SPMLRequest'/>
+        </Attribute>
+      </Object>
+      <!-- An example of using an objectclass just to run a form
+           that gathers interesting system information.
+           Specify the type named "none", then a form which
+           will be run to genereate the result.  Typically this
+           will call FormUtil methods.  Then issue a searchRequest
+           on this objectclass.  You will get one result back containing
+           the results of the Derivation expressions in the form.
+       -->
+      <Object name='sysinfo'>
+        <Attribute name='type' value='none'/>
+        <Attribute name='form' value='SysInfoForm'/>
+      </Object>
+
+      <!-- 
+        A class used only for unit testing.
+        Test multi-value wildcards
+      -->
+      <Object name='unittest'>
+        <Attribute name='type' value='User'/>
+        <Attribute name='form' value='view'/>
+        <Attribute name='identifier' value='waveset.accountId'/>
+        <Attribute name='multiValuedAttributes'>
+          <List>
+            <String>waveset.resources</String>
+            <String>waveset.roles</String>
+            <String>waveset.applications</String>
+            <String>*description</String>
+          </List>
+        </Attribute>
+      </Object>
+          
+      </List>
+      </Attribute>
+
+      
+        <Attribute name='schemas'>
+    <List>
+      <String><![CDATA[
+<!-- 
+  SPML Standard Schema
+-->
+<schema xmlns="urn:oasis:names:tc:SPML:1:0"
+        xmlns:dsml="urn:oasis:names:tc:DSML:2:0:core"
+        majorVersion = "0"
+        minorVersion = "1">
+		
+  <providerIdentifier providerIDType = "urn:oasis:names:tc:SPML:1:0#URN">
+    <providerID>urn:oasis:names:tc:SPML</providerID>
+  </providerIdentifier>
+
+  <schemaIdentifier schemaIDType = "urn:oasis:names:tc:SPML:1:0#GenericString">
+    <schemaID>standard</schemaID>
+  </schemaIdentifier>
+
+  <attributeDefinition name = "objectclass"
+     description = "Object Class" />
+
+  <attributeDefinition name = "uid"
+     description = "User ID" />
+
+  <attributeDefinition name="cn"
+    description="Full name, or common name" />
+		
+  <attributeDefinition name="email"
+    description="E-mail address"/>
+		
+  <attributeDefinition name="description"
+    description = "Description" />
+	
+  <attributeDefinition name="password"
+    description="Password" />
+	
+  <attributeDefinition name="sn"
+    description="Sur name, or last name" />
+		
+  <attributeDefinition name="gn"
+    description="Given name, or first name" />
+	
+  <attributeDefinition name="telephone"
+    description="Telephone number" />
+
+  <attributeDefinition name="title"
+    description="Title" />
+
+  <attributeDefinition name="organization"
+    description="Organization" />
+          
+  <attributeDefinition name="manager"
+    description="Manager" />
+          
+  <objectClassDefinition name="ptkPerson"
+    description = "PTK person">
+    <memberAttributes>
+       <attributeDefinitionReference name = "objectclass"  required="true"/>
+       <attributeDefinitionReference name = "uid" />
+       <attributeDefinitionReference name = "cn" required = "true" />
+       <attributeDefinitionReference name = "email" />
+       <attributeDefinitionReference name = "description" />
+       <attributeDefinitionReference name = "password" />
+       <attributeDefinitionReference name = "sn" />
+       <attributeDefinitionReference name = "gn" />
+       <attributeDefinitionReference name = "telephone" />
+       <attributeDefinitionReference name = "title" />
+       <attributeDefinitionReference name = "manager" />
+       <attributeDefinitionReference name = "organization" />
+    </memberAttributes>
+  </objectClassDefinition>    
+    
+  <objectClassDefinition name="person"
+    description = "Standard person">
+    <memberAttributes>
+      <attributeDefinitionReference name = "objectclass"  required="true"/>
+      <attributeDefinitionReference name = "uid" />
+      <attributeDefinitionReference name = "cn" required = "true" />
+      <attributeDefinitionReference name = "email" />
+      <attributeDefinitionReference name = "description" />
+      <attributeDefinitionReference name = "password" />
+      <attributeDefinitionReference name = "sn" />
+      <attributeDefinitionReference name = "gn" />
+      <attributeDefinitionReference name = "telephone" />
+      <attributeDefinitionReference name = "title" />
+    </memberAttributes>
+  </objectClassDefinition>
+	
+  <objectClassDefinition name="IDMperson"
+    description = "Standard person">
+    <memberAttributes>
+      <attributeDefinitionReference name = "objectclass"  required="true"/>
+      <attributeDefinitionReference name = "uid" />
+      <attributeDefinitionReference name = "cn" required = "true" />
+      <attributeDefinitionReference name = "email" />
+      <attributeDefinitionReference name = "description" />
+      <attributeDefinitionReference name = "password" />
+      <attributeDefinitionReference name = "sn" />
+      <attributeDefinitionReference name = "gn" />
+      <attributeDefinitionReference name = "telephone" />
+      <attributeDefinitionReference name = "title" />
+      <attributeDefinitionReference name = "roles" />
+      <attributeDefinitionReference name = "resourceGroups" />
+    </memberAttributes>
+  </objectClassDefinition>
+</schema>
+      ]]></String>
+      <String><![CDATA[
+<!--
+  Lighthouse Extended Schema
+-->
+<schema xmlns="urn:oasis:names:tc:SPML:1:0"
+        xmlns:dsml="urn:oasis:names:tc:DSML:2:0:core"
+        majorVersion = "0"
+        minorVersion = "1">
+		
+  <providerIdentifier providerIDType = "urn:oasis:names:tc:SPML:1:0#URN">
+    <providerID>urn:waveset.com</providerID>
+  </providerIdentifier>
+
+  <schemaIdentifier schemaIDType = "urn:oasis:names:tc:SPML:1:0#GenericString">
+    <schemaID>Lighthouse</schemaID>
+  </schemaIdentifier>
+
+  <!-- represents the TaskInstance launched to process async requests -->
+
+  <objectClassDefinition name="request"
+    description = "SPML Requests">
+    <memberAttributes>
+      <attributeDefinitionReference name = "status" />
+    </memberAttributes>
+  </objectClassDefinition>
+
+  <attributeDefinition name="status"
+    description="SPML Request status"/>
+
+  <!-- extended requests for special user operations -->
+
+  <attributeDefinition name="accountId"
+    description="Lighthouse account identifier">
+    <properties>
+      <attr name='displayName'>
+        <value>Account ID</value>
+      </attr>
+    </properties>
+  </attributeDefinition>
+
+  <attributeDefinition name="password">
+    <properties>
+      <attr name='displayName'>
+        <value>Password</value>
+      </attr>
+      <attr name='encrypted'>
+        <value>true</value>
+      </attr>
+    </properties>
+  </attributeDefinition>
+
+  <attributeDefinition name="accounts"
+    description="Comma delimited list of resource names">
+    <properties>
+      <attr name='displayName'>
+        <value>Target Resources</value>
+      </attr>
+    </properties>
+  </attributeDefinition>
+
+  <attributeDefinition name="roles"
+    description="Comma delimited list of role names">
+    <properties>
+      <attr name='displayName'>
+        <value>Roles</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+	  
+  <attributeDefinition name="resourceGroups"
+    description="Comma delimited list of application names">
+    <properties>
+      <attr name='displayName'>
+        <value>Resource Groups</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+	  
+  <attributeDefinition name="resources"
+    description="Comma delimited list of resources names">
+    <properties>
+      <attr name='displayName'>
+        <value>Resources</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+	  
+  <attributeDefinition name="applications"
+    description="Comma delimited list of application names">
+    <properties>
+      <attr name='displayName'>
+        <value>Applications</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+	  
+  <attributeDefinition name="roles"
+    description="Comma delimited list of subrole names">
+    <properties>
+      <attr name='displayName'>
+        <value>SubRoles</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+	  
+  <attributeDefinition name="superRoles"
+    description="Comma delimited list of Super Role names">
+    <properties>
+      <attr name='displayName'>
+        <value>Super Roles</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+	  
+  <attributeDefinition name="notifications"
+    description="Comma delimited list of Notifier names">
+    <properties>
+      <attr name='displayName'>
+        <value>Notifications</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+
+  <attributeDefinition name="notificationsRule"
+    description="Rule used to calculate list of Notifier names">
+    <properties>
+      <attr name='displayName'>
+        <value>Notifications Rule</value>
+      </attr>
+    </properties>
+  </attributeDefinition>          
+	 	  
+  <attributeDefinition name="approvers"
+    description="Comma delimited list of Approver names">
+    <properties>
+      <attr name='displayName'>
+        <value>Approvers</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+
+  <attributeDefinition name="approversRule"
+    description="Rule used to calculate list of Approver names">
+    <properties>
+      <attr name='displayName'>
+        <value>Approvers Rule</value>
+      </attr>
+    </properties>
+  </attributeDefinition>          
+
+  <attributeDefinition name="owners"
+    description="Comma delimited list of owner names">
+    <properties>
+      <attr name='displayName'>
+        <value>Owners</value>
+      </attr>
+    </properties>
+  </attributeDefinition>          
+
+  <attributeDefinition name="ownersRule"
+    description="Rule used to calculate list of Owner names">
+    <properties>
+      <attr name='displayName'>
+        <value>Owners Rule</value>
+      </attr>
+    </properties>
+  </attributeDefinition>          
+
+  <attributeDefinition name="roleExclusions"
+    description="Comma delimited list of Role Exclusions">
+    <properties>
+      <attr name='displayName'>
+        <value>RoleExclusions</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	
+  
+  <objectClassDefinition name="role"
+    description = "IDM Role">
+    <memberAttributes>
+      <attributeDefinitionReference name = "objectclass"  required="true"/>
+      <attributeDefinitionReference name = "name"  required="true"/>
+      <attributeDefinitionReference name = "roleType" />
+      <attributeDefinitionReference name = "description" />
+      <attributeDefinitionReference name = "disabled" />
+      <attributeDefinitionReference name = "resources" />
+      <attributeDefinitionReference name = "applications" />
+      <attributeDefinitionReference name = "roles" />
+      <attributeDefinitionReference name = "superRoles" />
+      <attributeDefinitionReference name = "notifications" />
+      <attributeDefinitionReference name = "approvers" />
+      <attributeDefinitionReference name = "owners" />      
+      <attributeDefinitionReference name = "notificationsRule" />
+      <attributeDefinitionReference name = "approversRule" />
+      <attributeDefinitionReference name = "ownersRule" />
+      <attributeDefinitionReference name = "roleExclusions" />
+    </memberAttributes>
+  </objectClassDefinition>
+
+  <attributeDefinition name="roleType"
+    description="The type of role">
+    <properties>
+      <attr name='displayName'>
+        <value>Role Type</value>
+      </attr>
+    </properties>
+  </attributeDefinition> 
+                  
+  <attributeDefinition name="description"
+    description="A description for a role">
+    <properties>
+      <attr name='displayName'>
+        <value>Description</value>
+      </attr>
+    </properties>
+  </attributeDefinition>          
+  	  	
+  <attributeDefinition name="opaque"
+    description="Whether or not the resource group is opaque">
+    <properties>
+      <attr name='displayName'>
+        <value>Opaque</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+
+  <attributeDefinition name="ordered"
+    description="Whether or not the resource group's items are ordered">
+    <properties>
+      <attr name='displayName'>
+        <value>Ordered</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	  
+
+  <attributeDefinition name="authenticator"
+    description="The group's authenticator">
+    <properties>
+      <attr name='displayName'>
+        <value>Authenticator</value>
+      </attr>
+    </properties>
+  </attributeDefinition>	    
+	  	  	  
+  <objectClassDefinition name="application"
+    description = "IDM Application">
+    <memberAttributes>
+      <attributeDefinitionReference name = "objectclass"  required="true"/>
+      <attributeDefinitionReference name = "name"  required="true"/>
+      <attributeDefinitionReference name = "opaque" />
+      <attributeDefinitionReference name = "ordered" />
+      <attributeDefinitionReference name = "resources" />
+      <attributeDefinitionReference name = "applications" />
+    </memberAttributes>
+  </objectClassDefinition>
+	  
+  <!-- deleteUser -->
+  <extendedRequestDefinition
+    description='Deprovision a user with optional account selection'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>deleteUser</operationID>
+    </operationIdentifier>
+    <parameters>
+      <attributeDefinitionReferece name='accountId' required='true'/>
+      <attributeDefinitionReferece name='accounts'/>
+    </parameters>
+    <properties>
+      <attr name='displayName'>
+        <value>Deprovision User</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>          
+
+  <!-- disableUser -->
+  <extendedRequestDefinition
+    description='Disable a user with optional account selection'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>disableUser</operationID>
+    </operationIdentifier>
+    <parameters>
+      <attributeDefinitionReferece name='accountId' required='true'/>
+      <attributeDefinitionReferece name='accounts'/>
+    </parameters>
+    <properties>
+      <attr name='displayName'>
+        <value>Disable User</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>          
+
+  <!-- enableUser -->
+  <extendedRequestDefinition
+    description='Enable a user with optional account selection'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>enableUser</operationID>
+    </operationIdentifier>
+    <parameters>
+      <attributeDefinitionReferece name='accountId' required='true'/>
+      <attributeDefinitionReferece name='accounts'/>
+    </parameters>
+    <properties>
+      <attr name='displayName'>
+        <value>Enable User</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>          
+
+  <!-- resetUserPassword -->
+  <extendedRequestDefinition
+    description='Reset a user password'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>resetUserPassword</operationID>
+    </operationIdentifier>
+    <parameters>
+      <attributeDefinitionReferece name='accountId' required='true'/>
+      <attributeDefinitionReferece name='accounts'/>
+    </parameters>
+    <properties>
+      <attr name='displayName'>
+        <value>Reset User Password</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>          
+
+  <!-- changeUserPassword -->
+  <extendedRequestDefinition
+    description='Change a user password'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>changeUserPassword</operationID>
+    </operationIdentifier>
+    <parameters>
+      <attributeDefinitionReferece name='accountId' required='true'/>
+      <attributeDefinitionReferece name='password' required='true'/>
+      <attributeDefinitionReferece name='accounts'/>
+    </parameters>
+    <properties>
+      <attr name='displayName'>
+        <value>SPML Change User Password</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>          
+
+  <!-- launchProcess -->
+
+  <attributeDefinition name="process"
+    description="Process definition name">
+    <properties>
+      <attr name='displayName'>
+        <value>Process Definition</value>
+      </attr>
+    </properties>
+  </attributeDefinition>
+
+  <attributeDefinition name="taskName"
+    description="Name of task object holding state of runnign process">
+    <properties>
+      <attr name='displayName'>
+        <value>Task Name</value>
+      </attr>
+    </properties>
+  </attributeDefinition>
+
+  <extendedRequestDefinition
+    description='Launch a system process'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>launchProcess</operationID>
+    </operationIdentifier>
+    <parameters>
+      <attributeDefinitionReferece name='process' required='true'/>
+      <attributeDefinitionReferece name='taskName'/>
+    </parameters>
+    <properties>
+      <attr name='displayName'>
+        <value>Run Process</value>
+      </attr>
+      <attr name='variableArguments'>
+        <value>true</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>          
+
+  <extendedRequestDefinition
+    description='Reload SPML configuration from repository'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>reloadConfiguration</operationID>
+    </operationIdentifier>
+    <properties>
+      <attr name='displayName'>
+        <value>Reload Configuration</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>
+
+  <extendedRequestDefinition
+    description='Display the SOAP message trace window'>
+    <operationIdentifier operationIDType="urn:oasis:names:tc:SPML:1:0#GenericString">
+      <operationID>soapTrace</operationID>
+    </operationIdentifier>
+    <properties>
+      <attr name='displayName'>
+        <value>Trace SOAP Messages</value>
+      </attr>
+    </properties>
+  </extendedRequestDefinition>
+
+</schema>
+      ]]></String>
+    </List>
+
+  </Attribute>
+      
+      
+    </Object>
+  </Extension>
+</Configuration>

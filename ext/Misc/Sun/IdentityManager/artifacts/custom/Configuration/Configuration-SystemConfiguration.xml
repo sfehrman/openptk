@@ -1,0 +1,672 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<Configuration id='#ID#Configuration:SystemConfiguration' name='System Configuration' repoMod='1233010010000'>
+  <Extension>
+    <Object>
+      <Attribute name='2005Q4M3refreshOfTypeUserIsComplete'>
+        <Boolean>true</Boolean>
+      </Attribute>
+      <Attribute name='PasswordSyncThreshold' value='30'/>
+      <Attribute name='allowCompatibilityTests' value='true'/>
+      <Attribute name='allowInterAppAuthentication' value='false'/>
+      <Attribute name='audit'>
+        <Object>
+          <Attribute name='formatters'>
+            <List>
+              <String>com.sun.idm.logging.audit.UlfFormatter</String>
+              <String>com.sun.idm.logging.audit.XmlFormatter</String>
+            </List>
+          </Attribute>
+          <Attribute name='publishers'>
+            <List>
+              <String>com.sun.idm.logging.audit.ConsolePublisher</String>
+              <String>com.sun.idm.logging.audit.FilePublisher</String>
+              <String>com.sun.idm.logging.audit.JdbcPublisher</String>
+              <String>com.sun.idm.logging.audit.JMXPublisher</String>
+              <String>com.sun.idm.logging.audit.JMSPublisher</String>
+              <String>com.sun.idm.logging.audit.ScriptedPublisher</String>
+            </List>
+          </Attribute>
+        </Object>
+      </Attribute>
+      <Attribute name='bulkAction'>
+        <Object>
+          <Attribute name='maxParseErrors' value='10'/>
+        </Object>
+      </Attribute>
+      <Attribute name='dashboard'>
+        <Object>
+          <Attribute name='debug' value='false'/>
+        </Object>
+      </Attribute>
+      <Attribute name='dateUpgradeBoundary'>
+        <Date>1970-01-01T00:00:00.000Z</Date>
+      </Attribute>
+      <Attribute name='emailNotifier'>
+        <Object>
+          <Attribute name='contentCharset' value='UTF-8'/>
+          <Attribute name='enableLocalization' value='true'/>
+        </Object>
+      </Attribute>
+      <Attribute name='forgotPasswordChangeResults'>
+        <Object>
+          <Attribute name='Admin' value='false'/>
+          <Attribute name='User' value='true'/>
+        </Object>
+      </Attribute>
+      <Attribute name='form'>
+        <Object>
+          <Attribute name='LDAP ChangeLog ActiveSync Create Group Form' value='LDAP Create Group Form'/>
+          <Attribute name='LDAP ChangeLog ActiveSync Create Organization Form' value='LDAP Create Organization Form'/>
+          <Attribute name='LDAP ChangeLog ActiveSync Create Organizational Unit Form' value='LDAP Create Organizational Unit Form'/>
+          <Attribute name='LDAP ChangeLog ActiveSync Create Person Form' value='LDAP Create Person Form'/>
+          <Attribute name='LDAP ChangeLog ActiveSync Update Group Form' value='LDAP Update Group Form'/>
+          <Attribute name='LDAP ChangeLog ActiveSync Update Organization Form' value='LDAP Update Organization Form'/>
+          <Attribute name='LDAP ChangeLog ActiveSync Update Organizational Unit Form' value='LDAP Update Organizational Unit Form'/>
+          <Attribute name='LDAP ChangeLog ActiveSync Update Person Form' value='LDAP Update Person Form'/>
+          <Attribute name='LDAP Listener ActiveSync Create Group Form' value='LDAP Create Group Form'/>
+          <Attribute name='LDAP Listener ActiveSync Create Organization Form' value='LDAP Create Organization Form'/>
+          <Attribute name='LDAP Listener ActiveSync Create Organizational Unit Form' value='LDAP Create Organizational Unit Form'/>
+          <Attribute name='LDAP Listener ActiveSync Create Person Form' value='LDAP Create Person Form'/>
+          <Attribute name='LDAP Listener ActiveSync Update Group Form' value='LDAP Update Group Form'/>
+          <Attribute name='LDAP Listener ActiveSync Update Organization Form' value='LDAP Update Organization Form'/>
+          <Attribute name='LDAP Listener ActiveSync Update Organizational Unit Form' value='LDAP Update Organizational Unit Form'/>
+          <Attribute name='LDAP Listener ActiveSync Update Person Form' value='LDAP Update Person Form'/>
+          <Attribute name='NetWare NDS ActiveSync Create Group Form' value='NetWare NDS Create Group Form'/>
+          <Attribute name='NetWare NDS ActiveSync Create Organization Form' value='NetWare NDS Create Organization Form'/>
+          <Attribute name='NetWare NDS ActiveSync Create Organizational Unit Form' value='NetWare NDS Create Organizational Unit Form'/>
+          <Attribute name='NetWare NDS ActiveSync Create User Form' value='NetWare NDS Create User Form'/>
+          <Attribute name='NetWare NDS ActiveSync Update Group Form' value='NetWare NDS Update Group Form'/>
+          <Attribute name='NetWare NDS ActiveSync Update Organization Form' value='NetWare NDS Update Organization Form'/>
+          <Attribute name='NetWare NDS ActiveSync Update Organizational Unit Form' value='NetWare NDS Update Organizational Unit Form'/>
+          <Attribute name='NetWare NDS ActiveSync Update User Form' value='NetWare NDS Update User Form'/>
+          <Attribute name='UserEntitlementForm' value='UserEntitlementForm'/>
+          <Attribute name='Windows Active Directory ActiveSync Create Container Form' value='Windows Active Directory Create Container Form'/>
+          <Attribute name='Windows Active Directory ActiveSync Create Group Form' value='Windows Active Directory Create Group Form'/>
+          <Attribute name='Windows Active Directory ActiveSync Create Organizational Unit Form' value='Windows Active Directory Create Organizational Unit Form'/>
+          <Attribute name='Windows Active Directory ActiveSync Create User Form' value='Windows Active Directory Create User Form'/>
+          <Attribute name='Windows Active Directory ActiveSync Update Container Form' value='Windows Active Directory Update Container Form'/>
+          <Attribute name='Windows Active Directory ActiveSync Update Group Form' value='Windows Active Directory Update Group Form'/>
+          <Attribute name='Windows Active Directory ActiveSync Update Organizational Unit Form' value='Windows Active Directory Update Organizational Unit Form'/>
+          <Attribute name='Windows Active Directory ActiveSync Update User Form' value='Windows Active Directory Update User Form'/>
+          <Attribute name='accessApprovalList' value='Access Approval List'/>
+          <Attribute name='accessReviewAbortConfirmation' value='Access Review Abort Confirmation Form'/>
+          <Attribute name='accessReviewDashboard' value='Access Review Dashboard'/>
+          <Attribute name='accessReviewDeleteConfirmation' value='Access Review Delete Confirmation Form'/>
+          <Attribute name='accessReviewDetail' value='Access Review Detail'/>
+          <Attribute name='accessReviewSummary' value='Access Review Summary'/>
+          <Attribute name='accessScanDeleteConfirmation' value='Access Scan Delete Confirmation Form'/>
+          <Attribute name='accessScanForm' value='Access Scan Form'/>
+          <Attribute name='accessScanList' value='Access Scan List'/>
+          <Attribute name='accountOwnerSelection' value='Account Owner Selection Form'/>
+          <Attribute name='accountSelect' value='Select Accounts Form'/>
+          <Attribute name='anonymousLoginForm' value='Anonymous User Login'/>
+          <Attribute name='anonymousUserMenu' value='Anonymous User Menu'/>
+          <Attribute name='auditPolicyDeleteConfirmation' value='Audit Policy Delete Confirmation Form'/>
+          <Attribute name='auditPolicyList' value='Audit Policy List'/>
+          <Attribute name='auditorViewUserComplianceForm' value='Auditor Tab'/>
+          <Attribute name='changeAnswers' value='Change User Answers Form'/>
+          <Attribute name='changeCapabilities' value='Change User Capabilities Form'/>
+          <Attribute name='changeMyPassword' value='Change My Password Form'/>
+          <Attribute name='changeOrgAuditPolicies' value='Change Organization Audit Policies Form'/>
+          <Attribute name='changePassword' value='Change User Password Form'/>
+          <Attribute name='changePasswordSelection' value='User Selection Form'/>
+          <Attribute name='changeUserAuditPolicies' value='Change User Audit Policies Form'/>
+          <Attribute name='complianceViolationSummaryForm' value='Compliance Violation Summary Form'/>
+          <Attribute name='conditionForm' value='Condition Dialog'/>
+          <Attribute name='confirmDeletes' value='Confirm Deletes'/>
+          <Attribute name='conflictViolationDetailsForm' value='Conflict Violation Details Form'/>
+          <Attribute name='databaseConnectionEdit' value='Database Connection Edit'/>
+          <Attribute name='databaseConnectionList' value='Database Connection Configuration'/>
+          <Attribute name='delegateWorkItems' value='Delegate WorkItems'/>
+          <Attribute name='deprovisionUser' value='Deprovision Form'/>
+          <Attribute name='disableUser' value='Disable Form'/>
+          <Attribute name='editArgument' value='Edit Argument'/>
+          <Attribute name='editChangeLog' value='Edit ChangeLog'/>
+          <Attribute name='editChangeLogConfiguration' value='Edit ChangeLog Configuration'/>
+          <Attribute name='editChangeLogPolicy' value='Edit ChangeLog Policy'/>
+          <Attribute name='editField' value='Edit Field'/>
+          <Attribute name='editForm' value='Edit Form'/>
+          <Attribute name='editRule' value='Edit Rule'/>
+          <Attribute name='enableUser' value='Enable Form'/>
+          <Attribute name='endUserAccessApprovalList' value='Access Approval List'/>
+          <Attribute name='endUserAnonymousEnrollment' value='End User Anonymous Enrollment Form'/>
+          <Attribute name='endUserAppMenu' value='End User Navigation'/>
+          <Attribute name='endUserChangePassword' value='End User Change Password Form'/>
+          <Attribute name='endUserForm' value='End User Form'/>
+          <Attribute name='endUserLaunchList' value='End User Launch List'/>
+          <Attribute name='endUserMenu' value='End User Dashboard'/>
+          <Attribute name='endUserOtherWorkItemList' value='End User Other Work Item List'/>
+          <Attribute name='endUserResetPassword' value='Reset User Password Form'/>
+          <Attribute name='endUserTaskList' value='End User Task List'/>
+          <Attribute name='endUserTaskResults' value='End User Task Results'/>
+          <Attribute name='endUserWorkItemEdit' value='End User Work Item Edit'/>
+          <Attribute name='endUserWorkItemList' value='End User Work Item List'/>
+          <Attribute name='endUserWorkItemListExt' value='End User Approvals List'/>
+          <Attribute name='exportConfig' value='Data Export Configuration'/>
+          <Attribute name='findAccountOwner' value='Find Account Owner Form'/>
+          <Attribute name='findObjects' value='Find Objects Form'/>
+          <Attribute name='findReconciledAccount' value='Find Account Form'/>
+          <Attribute name='findReconciledAccountResults' value='Find Account Results Form'/>
+          <Attribute name='findUser' value='Find User Form'/>
+          <Attribute name='findUserResults' value='Find User Results Form'/>
+          <Attribute name='listForms' value='List Forms'/>
+          <Attribute name='listRules' value='List Rules'/>
+          <Attribute name='loadForm' value='Default User Form'/>
+          <Attribute name='loginChangeAnswers' value='Login Change User Answers Form'/>
+          <Attribute name='loginChangePassword' value='Expired Login Form'/>
+          <Attribute name='loginResetPassword' value='Reset User Password Form'/>
+          <Attribute name='lookupUserId' value='Lookup UserId'/>
+          <Attribute name='otherWorkItemList' value='Other Work Item List'/>
+          <Attribute name='questionLoginForm' value='Question Login Form'/>
+          <Attribute name='remediationList' value='Remediation List'/>
+          <Attribute name='renameUser' value='Rename User Form'/>
+          <Attribute name='reprovisionForm' value='Default User Form'/>
+          <Attribute name='resetPassword' value='Reset User Password Form'/>
+          <Attribute name='resetPasswordSelection' value='User Selection Form'/>
+          <Attribute name='selfDiscovery' value='Self Discovery'/>
+          <Attribute name='userEntitlementSummaryForm' value='UserEntitlement Summary Form'/>
+          <Attribute name='userForm' value='Tabbed User Form'/>
+          <Attribute name='viewUserForm' value='Tabbed View User Form'/>
+          <Attribute name='violationDetailForm' value='Violation Detail Form'/>
+          <Attribute name='warehouseConfig' value='Data Export Warehouse Configuration'/>
+          <Attribute name='warehouseForensicData' value='Warehouse Forensic Form'/>
+          <Attribute name='warehouseForensicLoadQuery' value='Warehouse Forensic Load Query Form'/>
+          <Attribute name='warehouseForensicResults' value='Warehouse Forensic Results Form'/>
+          <Attribute name='warehouseForensicSaveQuery' value='Warehouse Forensic Save Query Form'/>
+          <Attribute name='warehouseScheduleConfig' value='Data Export Schedule Configuration'/>
+          <Attribute name='warehouseTypeConfig' value='Data Export Type Configuration'/>
+          <Attribute name='workItemList' value='Work Item List'/>
+        </Object>
+      </Attribute>
+      <Attribute name='pkcs5Encrypt' value='true'/>
+      <Attribute name='process'>
+        <Object>
+          <Attribute name='abortAccessReview' value='Abort Access Review'/>
+          <Attribute name='accessReview' value='Access Review'/>
+          <Attribute name='accessReviewRescan' value='Access Review Rescan'/>
+          <Attribute name='accessReviewScan' value='Access Scan'/>
+          <Attribute name='auditPolicyRescan' value='Audit Policy Rescan'/>
+          <Attribute name='changeResourceAccountPassword' value='Change Resource Account Password'/>
+          <Attribute name='changeUserPassword' value='SPML Change User Password'/>
+          <Attribute name='createResourceGroup' value='Create Resource Group'/>
+          <Attribute name='createResourceObject' value='Create Resource Object'/>
+          <Attribute name='createResourceOrganization' value='Create Resource Organization'/>
+          <Attribute name='createResourceOrganizationalUnit' value='Create Resource Organizational Unit'/>
+          <Attribute name='createResourcePerson' value='Create Resource Person'/>
+          <Attribute name='createResourceUser' value='Create Resource User'/>
+          <Attribute name='createUser' value='Create User'/>
+          <Attribute name='deleteAccessReview' value='Delete Access Review'/>
+          <Attribute name='deleteAccount' value='Delete Resource Account'/>
+          <Attribute name='deleteResourceGroup' value='Delete Resource Group'/>
+          <Attribute name='deleteResourceObject' value='Delete Resource Object'/>
+          <Attribute name='deleteResourceOrganization' value='Delete Resource Organization'/>
+          <Attribute name='deleteResourceOrganizationalUnit' value='Delete Resource Organizational Unit'/>
+          <Attribute name='deleteResourcePerson' value='Delete Resource Person'/>
+          <Attribute name='deleteResourceUser' value='Delete Resource User'/>
+          <Attribute name='deleteUser' value='Delete User'/>
+          <Attribute name='disableUser' value='Disable User'/>
+          <Attribute name='enableUser' value='Enable User'/>
+          <Attribute name='endUserAnonymousEnrollment' value='End User Anonymous Enrollment'/>
+          <Attribute name='endUserUpdateGroups' value='End User Update Groups'/>
+          <Attribute name='endUserUpdateMyGroups' value='End User Update My Groups'/>
+          <Attribute name='endUserUpdateMyResources' value='End User Update My Resources'/>
+          <Attribute name='endUserUpdateMyRoles' value='End User Update My Roles'/>
+          <Attribute name='endUserUpdateResources' value='End User Update Resources'/>
+          <Attribute name='endUserUpdateRoles' value='End User Update Roles'/>
+          <Attribute name='handleNativeChangeToAccountAttributes' value='Audit Native Change To Account Attributes'/>
+          <Attribute name='lockUser' value='Lock User'/>
+          <Attribute name='manageResource' value='Manage Resource'/>
+          <Attribute name='manageRole' value='Manage Role'/>
+          <Attribute name='passwordLogin' value='Password Login'/>
+          <Attribute name='questionLogin' value='Question Login'/>
+          <Attribute name='recoverAccessReview' value='Recover Access Review'/>
+          <Attribute name='renameUser' value='Rename User'/>
+          <Attribute name='resetUserPassword' value='Reset User Password'/>
+          <Attribute name='unlinkResourceAccountsFromUser' value='Unlink Resource Accounts From User'/>
+          <Attribute name='unlockUser' value='Unlock User'/>
+          <Attribute name='updateResourceGroup' value='Update Resource Group'/>
+          <Attribute name='updateResourceObject' value='Update Resource Object'/>
+          <Attribute name='updateResourceOrganization' value='Update Resource Organization'/>
+          <Attribute name='updateResourceOrganizationalUnit' value='Update Resource Organizational Unit'/>
+          <Attribute name='updateResourcePerson' value='Update Resource Person'/>
+          <Attribute name='updateResourceUser' value='Update Resource User'/>
+          <Attribute name='updateUser' value='Update User'/>
+        </Object>
+      </Attribute>
+      <Attribute name='redirectFilterConfigMapping' value='Redirect Filter Configuration'/>
+      <Attribute name='repoIndexAttrsAlreadyConverted'>
+        <Boolean>true</Boolean>
+      </Attribute>
+      <Attribute name='resources'>
+        <Object>
+          <Attribute name='custom'>
+            <List>
+            </List>
+          </Attribute>
+          <Attribute name='lighthouse'>
+            <List>
+            </List>
+          </Attribute>
+          <Attribute name='lighthouseSupplied'>
+            <List>
+              <String>com.waveset.adapter.LDAPResourceAdapter</String>
+              <String>com.waveset.adapter.NTResourceAdapter</String>
+              <String>com.waveset.adapter.ADSIResourceAdapter</String>
+              <String>com.waveset.adapter.NDSResourceAdapter</String>
+              <String>com.waveset.adapter.RequestResourceAdapter</String>
+              <String>com.waveset.adapter.SecurIdResourceAdapter</String>
+              <String>com.waveset.adapter.SecurIdUnixResourceAdapter</String>
+              <String>com.waveset.adapter.RemedyResourceAdapter</String>
+              <String>com.waveset.adapter.RemedyActiveSyncResourceAdapter</String>
+              <String>com.waveset.adapter.LDAPChangeLogActiveSyncAdapter</String>
+              <String>com.waveset.adapter.DominoResourceAdapter</String>
+              <String>com.waveset.adapter.AIXResourceAdapter</String>
+              <String>com.waveset.adapter.SolarisResourceAdapter</String>
+              <String>com.waveset.adapter.HPUXResourceAdapter</String>
+              <String>com.waveset.adapter.RedHatLinuxResourceAdapter</String>
+              <String>com.waveset.adapter.SimulatedResourceAdapter</String>
+              <String>com.waveset.adapter.DatabaseTableResourceAdapter</String>
+              <String>com.waveset.adapter.MIISResourceAdapter</String>
+              <String>com.waveset.adapter.DominoActiveSyncAdapter</String>
+              <String>com.waveset.adapter.FlatFileActiveSyncAdapter</String>
+              <String>com.waveset.adapter.JmsListenerResourceAdapter</String>
+              <String>com.waveset.adapter.ScriptedJdbcResourceAdapter</String>
+              <String>com.waveset.adapter.SunCommunicationsServicesResourceAdapter</String>
+              <String>com.waveset.adapter.SUSELinuxResourceAdapter</String>
+            </List>
+          </Attribute>
+        </Object>
+      </Attribute>
+      <Attribute name='security'>
+        <Object>
+          <Attribute name='admin'>
+            <Object>
+              <Attribute name='changePassword'>
+                <Object>
+                  <Attribute name='Administrator Interface'>
+                    <Object>
+                      <Attribute name='savePasswordHistory' value='false'/>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='Command Line Interface'>
+                    <Object>
+                      <Attribute name='savePasswordHistory' value='false'/>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='IVR Interface'>
+                    <Object>
+                      <Attribute name='savePasswordHistory' value='false'/>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='SOAP Interface'>
+                    <Object>
+                      <Attribute name='savePasswordHistory' value='false'/>
+                    </Object>
+                  </Attribute>
+                </Object>
+              </Attribute>
+            </Object>
+          </Attribute>
+          <Attribute name='authn'>
+            <Object>
+              <Attribute name='lookupUserIdAttributes'>
+                <Object>
+                  <Attribute name='Administrator Interface'>
+                    <List>
+                      <Object name='firstname'>
+                        <Attribute name='required' value='false'/>
+                        <Attribute name='title' value='UI_ATTR_FIRSTNAME'/>
+                      </Object>
+                      <Object name='lastname'>
+                        <Attribute name='required' value='false'/>
+                        <Attribute name='title' value='UI_ATTR_LASTNAME'/>
+                      </Object>
+                      <Object name='email'>
+                        <Attribute name='required' value='false'/>
+                        <Attribute name='title' value='UI_ATTR_EMAIL'/>
+                      </Object>
+                    </List>
+                  </Attribute>
+                  <Attribute name='User Interface'>
+                    <List>
+                      <Object name='firstname'>
+                        <Attribute name='required' value='false'/>
+                        <Attribute name='title' value='UI_ATTR_FIRSTNAME'/>
+                      </Object>
+                      <Object name='lastname'>
+                        <Attribute name='required' value='false'/>
+                        <Attribute name='title' value='UI_ATTR_LASTNAME'/>
+                      </Object>
+                      <Object name='email'>
+                        <Attribute name='required' value='false'/>
+                        <Attribute name='title' value='UI_ATTR_EMAIL'/>
+                      </Object>
+                    </List>
+                  </Attribute>
+                </Object>
+              </Attribute>
+              <Attribute name='runPasswordLoginOnSuccess'>
+                <Boolean>false</Boolean>
+              </Attribute>
+              <Attribute name='runQuestionLoginOnSuccess'>
+                <Boolean>false</Boolean>
+              </Attribute>
+              <Attribute name='singleLoginSessionPerApp'>
+                <Object>
+                  <Attribute name='Administrator Interface'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='BPE'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='Command Line Interface'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='User Interface'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                </Object>
+              </Attribute>
+            </Object>
+          </Attribute>
+          <Attribute name='authz'>
+            <Object>
+              <Attribute name='checkDynamicallyAssignedAdminRolesAtLoginTo'>
+                <Object>
+                  <Attribute name='Administrator Interface'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='Service Provider User Interface'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='User Interface'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                </Object>
+              </Attribute>
+              <Attribute name='external'>
+                <Object>
+                  <Attribute name='Administrator Interface'>
+                    <Object>
+                      <Attribute name='Service Provider Users'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='Service Provider User Interface'>
+                    <Object>
+                      <Attribute name='Service Provider Users'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                </Object>
+              </Attribute>
+            </Object>
+          </Attribute>
+          <Attribute name='csrfGuardToken'>
+            <Object>
+              <Attribute name='enable'>
+                <Boolean>false</Boolean>
+              </Attribute>
+              <Attribute name='slotBTokenTTL' value='30000'/>
+            </Object>
+          </Attribute>
+          <Attribute name='delegation'>
+            <Object>
+              <Attribute name='historyLength'>
+                <Integer>10</Integer>
+              </Attribute>
+            </Object>
+          </Attribute>
+          <Attribute name='nonrepudiation'>
+            <Object>
+              <Attribute name='defaultKeystoreType' value='PKCS12'/>
+              <Attribute name='defaultPKCS11KeyProvider' value='com.sun.idm.ui.web.applet.transactionsigner.DefaultPKCS11KeyProvider'/>
+              <Attribute name='signedApprovals'>
+                <Boolean>false</Boolean>
+              </Attribute>
+            </Object>
+          </Attribute>
+        </Object>
+      </Attribute>
+      <Attribute name='serverSettings'>
+        <Object>
+          <Attribute name='default'>
+            <Object>
+              <Attribute name='debugger'>
+                <Object>
+                  <Attribute name='enabled'>
+                    <Boolean>true</Boolean>
+                  </Attribute>
+                </Object>
+              </Attribute>
+              <Attribute name='emailtemplate'>
+                <Object>
+                  <Attribute name='authEnabled' value='false'/>
+                  <Attribute name='ignoreCert' value='false'/>
+                  <Attribute name='port' value='25'/>
+                  <Attribute name='smtpHost' value='mail.example.com'/>
+                  <Attribute name='ssl' value='false'/>
+                </Object>
+              </Attribute>
+              <Attribute name='jmx'>
+                <Object>
+                  <Attribute name='enable' value='false'/>
+                  <Attribute name='pollinterval' value='60000'/>
+                </Object>
+              </Attribute>
+              <Attribute name='reconciler'>
+                <Object>
+                  <Attribute name='lockwaitThreshold' value='5000'/>
+                  <Attribute name='maxConcurrentResources' value='3'/>
+                  <Attribute name='maxRetries' value='3'/>
+                  <Attribute name='maxWorkerThreads'/>
+                  <Attribute name='minConcurrentResources' value='1'/>
+                  <Attribute name='minWorkerThreads'/>
+                  <Attribute name='resultThrottle' value='15000'/>
+                  <Attribute name='statsThrottle' value='15000'/>
+                </Object>
+              </Attribute>
+              <Attribute name='scheduler'>
+                <Object>
+                  <Attribute name='disableScheduled' value='false'/>
+                  <Attribute name='disableTaskResultCleanup' value='false'/>
+                  <Attribute name='scheduledTaskResultCleanup' value='false'/>
+                  <Attribute name='startup' value='enabled'/>
+                  <Attribute name='tasklist'>
+                    <List>
+                    </List>
+                  </Attribute>
+                  <Attribute name='tasklistMode' value='exclude'/>
+                  <Attribute name='trace' value='false'/>
+                  <Attribute name='traceTaskResultCleanup' value='false'/>
+                </Object>
+              </Attribute>
+              <Attribute name='user'>
+                <Object>
+                  <Attribute name='view'>
+                    <Object>
+                      <Attribute name='alwaysUseTask'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                </Object>
+              </Attribute>
+            </Object>
+          </Attribute>
+        </Object>
+      </Attribute>
+      <Attribute name='ui'>
+        <Object>
+          <Attribute name='web'>
+            <Object>
+              <Attribute name='admin'>
+                <Object>
+                  <Attribute name='disableForgotPassword'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='disableForgotUserId'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='questionLogin'>
+                    <Object>
+                      <Attribute name='bypassChangePassword'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='workflowResults'>
+                    <Object>
+                      <Attribute name='suppressHostName'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                </Object>
+              </Attribute>
+              <Attribute name='browserTitleProdNameOverride'>
+                <Boolean>false</Boolean>
+              </Attribute>
+              <Attribute name='disableAutocomplete'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='disableProcessDiagrams'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='hideMetaView'>
+                <Boolean>true</Boolean>
+              </Attribute>
+              <Attribute name='obfuscateAnswers'>
+                <Boolean>false</Boolean>
+              </Attribute>
+              <Attribute name='user'>
+                <Object>
+                  <Attribute name='anonEnrollment'>
+                    <Object>
+                      <Attribute name='emailDomain' value='example.com'/>
+                      <Attribute name='enable'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                      <Attribute name='enableNotifications'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='enableValidation'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='notificationTemplate' value='#ID#EmailTemplate:EndUserAnonymousEnrollment'/>
+                      <Attribute name='processLaunchUrl' value='user/anonEnrollment.jsp?id=endUserAnonymousEnrollment'/>
+                      <Attribute name='requirePrivacyPolicy'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='dashboard'>
+                    <Object>
+                      <Attribute name='displayApprovals'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='displayAttestationReviews'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='displayDelegations'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='displayLoginFailures'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='displayOtherWorkItems'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='displayPasswordExpirationWarning'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='displayRemediations'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                      <Attribute name='displayRequests'>
+                        <Boolean>true</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='disableForgotPassword'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='disableForgotUserId'>
+                    <Boolean>false</Boolean>
+                  </Attribute>
+                  <Attribute name='menuLayout' value='horizontal'/>
+                  <Attribute name='questionLogin'>
+                    <Object>
+                      <Attribute name='bypassChangePassword'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='resultPages'>
+                    <Object>
+                      <Attribute name='enableEndUserProcessDiagrams'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                  <Attribute name='showMenu'>
+                    <Boolean>true</Boolean>
+                  </Attribute>
+                  <Attribute name='workflowResults'>
+                    <Object>
+                      <Attribute name='anonSuppressReports'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                      <Attribute name='suppressHostName'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                      <Attribute name='suppressReports'>
+                        <Boolean>false</Boolean>
+                      </Attribute>
+                    </Object>
+                  </Attribute>
+                </Object>
+              </Attribute>
+            </Object>
+          </Attribute>
+        </Object>
+      </Attribute>
+      <Attribute name='updatableAttributes'>
+        <Object>
+          <Attribute name='Password'>
+            <Object>
+              <Attribute name='LDAP'/>
+            </Object>
+          </Attribute>
+        </Object>
+      </Attribute>
+      <Attribute name='useOrganizationDisplayNames'>
+        <Boolean>false</Boolean>
+      </Attribute>
+      <Attribute name='userActionsConfigMapping' value='User Actions Configuration'/>
+      <Attribute name='userViewValidators'>
+        <List>
+          <String>com.sun.idm.auditor.policy.UserViewValidator</String>
+        </List>
+      </Attribute>
+      <Attribute name='workflow'>
+        <Object>
+          <Attribute name='consoleTrace' value='false'/>
+          <Attribute name='fileTrace'/>
+          <Attribute name='maxSteps' value='5000'/>
+          <Attribute name='resultTrace' value='false'/>
+          <Attribute name='retainHistory' value='false'/>
+          <Attribute name='traceAllObjects' value='false'/>
+          <Attribute name='traceLevel' value='1'/>
+          <Attribute name='validationLevel' value='CRITICAL'/>
+        </Object>
+      </Attribute>
+    </Object>
+  </Extension>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#All' name='All'/>
+  </MemberObjectGroups>
+</Configuration>

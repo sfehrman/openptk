@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Role PUBLIC 'waveset.dtd' 'waveset.dtd'>
+
+<Role authType='ITRole' id='#ID#Role:CorporateDirectory' name='Corporate Directory' creator='Configurator' createDate='1211783179718' lastModifier='Configurator' lastModDate='1211783179718' repoMod='1211783179718' primaryObjectClass='ITRole' idSource='user' passwordSource='user' questionPolicy='All' resetOption='permanent' resetCheck='immediate'>
+   <ResetLimit count='0'>
+   </ResetLimit>
+   <Services>
+      <ObjectRef type='Resource' id='#ID#Resource:LDAP' name='LDAP'/>
+   </Services>   
+   <ContainedRoles>
+   </ContainedRoles>
+   <MemberObjectGroups>
+      <ObjectRef type='ObjectGroup' id='#ID#End User' name='End User'/>
+      <ObjectRef type='ObjectGroup' id='#ID#ObjectGroup:ManagedPeople' name='Managed People' displayName='Managed People'/>
+   </MemberObjectGroups>
+</Role>
+

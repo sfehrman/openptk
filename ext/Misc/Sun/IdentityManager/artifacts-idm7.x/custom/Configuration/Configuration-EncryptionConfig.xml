@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--  MemberObjectGroups="#ID#Top" extensionClass="GenericObject" id="#ID#Configuration:EncryptionConfiguration" name="Encryption Configuration"-->
+<Configuration id='#ID#Configuration:EncryptionConfiguration' name='Encryption Configuration' createDate='1215544166364'>
+  <Extension>
+    <Object>
+      <Attribute name='currentEncryptionKeyId' value='DE786D3A18A7D459:46935CFE:119BDE89C28:-7FFB'/>
+    </Object>
+  </Extension>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#Top' name='Top'/>
+  </MemberObjectGroups>
+</Configuration>

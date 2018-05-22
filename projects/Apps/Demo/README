@@ -1,0 +1,63 @@
+This archive contains components to Project OpenPTK.  Complete documentation for
+this product may be found online at http://www.openptk.org
+
+This product is made available under the Common Development and Distribution
+License (CDDL).  The complete text for this license, and for alternate licenses
+of included components, may be found in the legal-notices directory.
+
+-----------------------------------------------------------------------------------
+
+Projet OpenPTK Demo Environment
+===============================
+The contents of this Demonstration Environment includes the scripts,
+OpenPTK java classes, application server and database necessary
+to run a demonstration environment of OpenPTK Server and Identity
+Central.
+
+It includes the following components:
+
+   - Embedded GlassFish 3
+   - Project OpenPTK Server 2.2.0
+   - Project OpenPTK Identity Central 2.2.0
+   - Project OpenPTK UML 2.2.0
+   - Embedded Derby Database with Demo Tables
+
+The demonstration environment will create the following
+components when run:
+
+   - GlassFish App Server on port 8080
+   - OpenPTK Server Web App (.../openptk-server)
+   - OpenPTK Identity Central Web App (.../openptk-identitycentral)
+   - OpenPTK UML Web App (.../openptk-uml)
+
+To run this environement, follow the steps outlined below.
+
+Running Demonstration Environment
+=================================
+1. Unzip the contents into a directory.  Creates an openptk-demo-2.2.0 directory.
+
+   $ unzip .../openptk-demo-2.2.0.zip
+
+2. Change directory to the bin directory with unziped contents.
+
+   $ cd openptk-demo-2.2.0/bin
+
+3. Start the OpenPTK Server, Identity Central & UML
+
+   $ ./startopenptk
+
+4. Browse to the OpenPTK Server
+
+   http://localhost:8080/openptk-server
+
+     uid: openptkconfig
+     pw: password
+
+5. Browse to the OpenPTK Identity Central
+
+   http://localhost:8080/openptk-identitycentral
+
+6. Browse to the OpenPTK UML
+
+   http://localhost:8080/openptk-uml
+

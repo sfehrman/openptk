@@ -1,0 +1,1207 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<OpenPTK xmlns='http://xml.netbeans.org/schema/openptk'
+         xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+         xsi:schemaLocation='http://xml.netbeans.org/schema/openptk openptk.xsd'>
+   <Defaults>
+      <Properties>
+         <Property name="ldap.url"                            value="ldap://localhost:3389,ldap://localhost:4389" />
+         <Property name="jndi.url"                            value="ldap://localhost:1389" />
+         <Property name="jndi.user.name"                      value="cn=Directory Manager" />
+         <Property name="jndi.user.password"                  value="password" />
+         <Property name="jndi.basedn.employees"               value="ou=people,ou=employees,dc=openptk,dc=org" />
+         <Property name="jndi.basedn.locations"               value="ou=locations,ou=employees,dc=openptk,dc=org" />
+         <Property name="jndi.scope.locations"                value="ONELEVEL_SCOPE" />
+         <Property name="timeout.read"                        value="20000" />
+         <Property name="timeout.write"                       value="20000" />
+         <Property name="debug.level"                         value="1" /> <!-- 1=CONFIG (default) -->
+         <Property name="plugin.sendemail.file"               value="openptk.mail" />
+         <Property name="plugin.sendemail.authen.user"        value="donotreply@openptk.org" />
+         <Property name="plugin.sendemail.authen.password"    value="__NEED_VALUE__" />
+         <Property name="plugin.template.library"             value="templates" />
+         <Property name="email.fromaddress"                   value="donotreply@openptk.org"/>
+         <Property name="cookie.name"                         value="OPENPTKSESSIONID" />
+         <Property name="target.classname"                    value="org.openptk.authorize.BasicTarget"/>
+         <Property name="timestamp"                           value="true" />
+         <Property name="logger.default"                      value="UnixLogFile" />
+         <Property name="database.sample"                     value="databases/sampledb" />
+      </Properties>
+   </Defaults>
+   <!--
+      Global: These Properties are for global configuration of the OpenPTK Server.
+   -->
+   <Global>
+      <Properties>
+         <Property name="openptk.temp"                 value="/var/tmp/openptk" />
+         <Property name="auth.token.name.clientid"     value="clientid" />
+         <Property name="auth.token.name.clientcred"   value="clientcred" />
+         <Property name="auth.token.name.password"     value="password" />
+         <Property name="auth.token.name.user"         value="user" />
+         <Property name="auth.token.name.tokenparam"   value="token" />
+         <Property name="http.session.cookie.uniqueid" value="%{cookie.name}" />
+         <Property name="http.session.cookie.httponly" value="true" />
+         <Property name="engine.session.kill"          value="43200000" /> <!-- msec ( 12 hours = 43200000 ) -->
+         <Property name="engine.session.ttl"           value="1800000" /> <!-- msec ( 30 minutes = 1800000 ) -->
+         <Property name="engine.session.cache.ttl"     value="120000" /> <!-- msec (2 minutes) -->
+         <Property name="engine.session.scan.delay"    value="30" />  <!-- minutes -->
+         <Property name="engine.session.scan.sleep"    value="5" />  <!-- minutes -->
+         <Property name="search.results.quantity"      value="10" />
+         <Property name="search.contains.minchar"      value="3" />
+         <Property name="search.attribute.default"     value="firstname" />
+         <Property name="server.config.userid"         value="openptkconfig" />
+         <Property name="server.config.password.encrypted"  value="EnespBAb/hMwNylyxlh0jw==" />
+         <Property name="server.cookiepath"            value="/" />
+         <Property name="server.defaultclient"         value="anon" />
+         <Property name="security.enforcer.servlet"    value="webfilter" />
+         <Property name="security.enforcer.engine"     value="operation" />
+      </Properties>
+   </Global>
+
+   <Contexts>
+      <Properties>
+         <Property name="context.default"           value="Employees-UnboundID-LDAP" />
+         <Property name="context.classname"         value="org.openptk.context.TimeoutContext" />
+         <Property name="security.encryption.id"    value="PBEWithMD5AndDES" />
+         <Property name="audit"                     value="false" />
+      </Properties>
+
+
+
+      <Context id="Employees-UnboundID-LDAP" enabled="true" definition="Person" connection="UnboundID" association="LDAP">
+         <Properties>
+            <Property name="context.description"         value="Employees to UnboundID using LDAP" />
+            <Property name="operation.classname"         value="org.openptk.spi.operations.UnboundIDLdapOperations" />
+            <Property name="key"                         value="uniqueid" />
+            <Property name="template.create"             value="uid=${uniqueid},%{jndi.basedn.employees}" />
+            <Property name="basedn"                      value="%{jndi.basedn.employees}" />
+            <Property name="objectclass"                 value="inetOrgPerson" />
+            <Property name="timeout"                     value="%{timeout.write}" />
+            <Property name="search.default.order"        value="lastname,firstname,uniqueid,email" />
+            <Property name="search.operators"            value="AND,OR,CONTAINS,EQ" />
+         </Properties>
+         <Model id="Employee">
+            <Relationships>
+               <Relationship id="location" context="Locations-UnboundID-LDAP"/>
+               <Relationship id="photo" context="Employees-UnboundID-LDAP"/>
+            </Relationships>
+         </Model>
+         <Query type="EQ" name="objectClass" value="inetOrgPerson" />
+         <Operations>
+            <Operation id="create" attrgroup="person-create" />
+            <Operation id="read"   attrgroup="person-read">
+               <Properties>
+                  <Property name="timeout" value="%{timeout.read}" />
+               </Properties>
+            </Operation>
+            <Operation id="update" attrgroup="person-update" />
+            <Operation id="delete" attrgroup="person-delete" />
+            <Operation id="search" attrgroup="person-search">
+               <Properties>
+                  <Property name="timeout"              value="%{timeout.read}" />
+                  <Property name="sort"                 value="lastname,firstname" />
+               </Properties>
+            </Operation>
+            <Operation id="pwdchange" attrgroup="person-pwd">
+               <Properties>
+                  <Property name="timeout" value="%{timeout.write}" />
+               </Properties>
+            </Operation>
+            <Operation id="pwdreset" attrgroup="person-pwd">
+               <Properties>
+                  <Property name="timeout"               value="%{timeout.write}" />
+                  <Property name="reset.password.length" value="8" />
+               </Properties>
+            </Operation>
+            <Operation id="pwdforgot" attrgroup="person-forgot" />
+            <Operation id="authenticate" attrgroup="person-pwd" />
+         </Operations>
+      </Context>
+
+      <Context id="Locations-UnboundID-LDAP" enabled="true" definition="Location" connection="UnboundID" association="LDAP-LOCATION">
+         <Properties>
+            <Property name="context.description"         value="Locations to UnboundID using LDAP" />
+            <Property name="operation.classname"         value="org.openptk.spi.operations.UnboundIDLdapOperations" />
+            <Property name="key"                         value="uniqueid" />
+            <Property name="template.create"             value="ou=${uniqueid},%{jndi.basedn.locations}" />
+            <Property name="basedn"                      value="%{jndi.basedn.locations}" />
+            <Property name="scope"                       value="%{jndi.scope.locations}" />
+            <Property name="objectclass"                 value="organizationalunit" />
+            <Property name="timeout"                     value="%{timeout.write}" />
+            <Property name="search.default.order"        value="uniqueid,city,state" />
+            <Property name="search.operators"            value="AND,OR,CONTAINS,EQ" />
+         </Properties>
+         <Query type="EQ" name="objectClass" value="organizationalunit" />
+         <Operations>
+            <Operation id="create" attrgroup="location-create" />
+            <Operation id="read"   attrgroup="location-read">
+               <Properties>
+                  <Property name="timeout" value="%{timeout.read}" />
+               </Properties>
+            </Operation>
+            <Operation id="update" attrgroup="location-update" />
+            <Operation id="delete" attrgroup="location-delete" />
+            <Operation id="search" attrgroup="location-search">
+               <Properties>
+                  <Property name="timeout"              value="%{timeout.read}" />
+                  <Property name="sort"                 value="state,city" />
+               </Properties>
+            </Operation>
+         </Operations>
+      </Context>
+
+   </Contexts>
+   <!--
+      Attribute Groups define what attributes to use for a given Operation
+      Attributes must have been declared in the related Association
+   -->
+   <AttrGroups>
+      <AttrGroup id="person-create">
+         <Attributes>
+            <Attribute id="firstname" />
+            <Attribute id="lastname" />
+            <Attribute id="email" />
+            <Attribute id="fullname" />
+            <Attribute id="roles" />
+            <Attribute id="manager" />
+            <Attribute id="title" />
+            <Attribute id="telephone" />
+            <Attribute id="organization" />
+            <Attribute id="forgottenPasswordQuestions" />
+            <Attribute id="forgottenPasswordAnswers" />
+            <Attribute id="password" />
+            <Attribute id="photo" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="person-read">
+         <Attributes>
+            <Attribute id="firstname" />
+            <Attribute id="lastname" />
+            <Attribute id="email" />
+            <Attribute id="fullname" />
+            <Attribute id="lastcommafirst" />
+            <Attribute id="roles" />
+            <Attribute id="manager" />
+            <Attribute id="title" />
+            <Attribute id="telephone" />
+            <Attribute id="organization" />
+            <Attribute id="forgottenPasswordQuestions" />
+            <Attribute id="forgottenPasswordAnswers" />
+            <Attribute id="location" />
+            <Attribute id="photo" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="person-update">
+         <Attributes>
+            <Attribute id="firstname" />
+            <Attribute id="lastname" />
+            <Attribute id="email" />
+            <Attribute id="fullname" />
+            <Attribute id="roles" />
+            <Attribute id="manager" />
+            <Attribute id="title" />
+            <Attribute id="telephone" />
+            <Attribute id="organization" />
+            <Attribute id="forgottenPasswordQuestions" />
+            <Attribute id="forgottenPasswordAnswers" />
+            <Attribute id="location" />
+            <Attribute id="photo" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="person-delete" />
+      <AttrGroup id="person-search">
+         <Attributes>
+            <Attribute id="email" />
+            <Attribute id="title" />
+            <Attribute id="lastcommafirst" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="person-pwd">
+         <Attributes>
+            <Attribute id="password" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="person-forgot">
+         <Attributes>
+            <Attribute id="forgottenPasswordQuestions" />
+            <Attribute id="forgottenPasswordAnswers" />
+            <Attribute id="forgottenPasswordValues" />
+         </Attributes>
+      </AttrGroup>
+
+      <AttrGroup id="location-create">
+         <Attributes>
+            <Attribute id="description" />
+            <Attribute id="street" />
+            <Attribute id="city" />
+            <Attribute id="state" />
+            <Attribute id="postalCode" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="location-read">
+         <Attributes>
+            <Attribute id="description" />
+            <Attribute id="street" />
+            <Attribute id="city" />
+            <Attribute id="state" />
+            <Attribute id="postalCode" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="location-update">
+         <Attributes>
+            <Attribute id="description" />
+            <Attribute id="street" />
+            <Attribute id="city" />
+            <Attribute id="state" />
+            <Attribute id="postalCode" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="location-delete" />
+      <AttrGroup id="location-search">
+         <Attributes>
+            <Attribute id="description" />
+            <Attribute id="city" />
+            <Attribute id="state" />
+         </Attributes>
+      </AttrGroup>
+
+      <AttrGroup id="media-create">
+         <Attributes>
+            <Attribute id="name" />
+            <Attribute id="type" />
+            <Attribute id="length" />
+            <Attribute id="modified" />
+            <Attribute id="contextid" />
+            <Attribute id="subjectid" />
+            <Attribute id="relationshipid" />
+            <Attribute id="digest" />
+            <Attribute id="data" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="media-read">
+         <Attributes>
+            <Attribute id="name" />
+            <Attribute id="type" />
+            <Attribute id="length" />
+            <Attribute id="modified" />
+            <Attribute id="contextid" />
+            <Attribute id="subjectid" />
+            <Attribute id="relationshipid" />
+            <Attribute id="digest" />
+            <Attribute id="data" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="media-update">
+         <Attributes>
+            <Attribute id="name" />
+            <Attribute id="type" />
+            <Attribute id="length" />
+            <Attribute id="modified" />
+            <Attribute id="contextid" />
+            <Attribute id="subjectid" />
+            <Attribute id="relationshipid" />
+            <Attribute id="digest" />
+            <Attribute id="data" />
+         </Attributes>
+      </AttrGroup>
+      <AttrGroup id="media-delete"/>
+      <AttrGroup id="media-search">
+         <Attributes>
+            <Attribute id="name" />
+            <Attribute id="contextid" />
+            <Attribute id="subjectid" />
+            <Attribute id="relationshipid" />
+         </Attributes>
+      </AttrGroup>
+
+   </AttrGroups>
+
+   <Associations>
+      <Association id="LDAP">
+         <Attributes>
+            <Attribute id="uniqueid"     servicename="uid" />
+            <Attribute id="firstname"    servicename="givenName" />
+            <Attribute id="lastname"     servicename="sn" />
+            <Attribute id="fullname"     servicename="cn" required="true" />
+            <Attribute id="email"        servicename="mail" />
+            <Attribute id="title" />
+            <Attribute id="telephone"    servicename="telephoneNumber" />
+            <Attribute id="organization" servicename="departmentNumber" />
+            <Attribute id="password"     servicename="userPassword" />
+            <Attribute id="manager">
+               <Functions>
+                  <Function id="getUid" classname="org.openptk.definition.functions.SubString">
+                     <Arguments>
+                        <Argument name="after"  type="literal" value="uid=" />
+                        <Argument name="before" type="literal" value="," />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="read" />
+                        <Operation type="search" />
+                     </Operations>
+                  </Function>
+                  <Function id="buildDN" classname="org.openptk.definition.functions.BuildDN">
+                     <Arguments>
+                        <Argument name="prefix" type="literal"   value="uid=" />
+                        <Argument name="uid"    type="attribute" value="manager" required="true"/>
+                        <Argument name="basedn" type="literal"   value=",%{jndi.basedn.employees}" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create" />
+                        <Operation type="update" />
+                        <Operation type="search" mode="TOSERVICE" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="roles" servicename="businessCategory" />
+            <Attribute id="lastcommafirst" />
+            <Attribute id="forgottenPasswordQuestions">
+               <Functions>
+                  <Function id="readPwdQuestions" classname="org.openptk.definition.functions.ForgottenPassword">
+                     <Arguments>
+                        <Argument name="data"           type="attribute" value="forgottenPasswordData" />
+                        <Argument name="questions"      type="attribute" value="forgottenPasswordQuestions" />
+                        <Argument name="answers"        type="attribute" value="forgottenPasswordAnswers" />
+                        <Argument name="innerdelimiter" type="literal"   value="=" />
+                        <Argument name="outerdelimiter" type="literal"   value="+" />
+                        <Argument name="default"        type="literal"   value="Mothers Maiden Name,City you were born,Last 4 digits of Frequent Flyer" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="read" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="forgottenPasswordAnswers">
+               <Functions>
+                  <Function id="updatePwdAnswers" classname="org.openptk.definition.functions.ForgottenPassword">
+                     <Arguments>
+                        <Argument name="data"           type="attribute" value="forgottenPasswordData" />
+                        <Argument name="questions"      type="attribute" value="forgottenPasswordQuestions" />
+                        <Argument name="answers"        type="attribute" value="forgottenPasswordAnswers" />
+                        <Argument name="innerdelimiter" type="literal"   value="=" />
+                        <Argument name="outerdelimiter" type="literal"   value="+" />
+                        <Argument name="minlength"      type="literal"   value="3" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="read" />
+                        <Operation type="update" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="forgottenPasswordData" servicename="destinationIndicator" />
+            <Attribute id="forgottenPasswordValues" />
+            <Attribute id="location"              servicename="physicalDeliveryOfficeName" />
+            <Attribute id="photo"                 servicename="jpegPhoto" />
+         </Attributes>
+      </Association>
+      <Association id="LDAP-LOCATION">
+         <Attributes>
+            <Attribute id="uniqueid"     servicename="ou" />
+            <Attribute id="description"  servicename="description" />
+            <Attribute id="street" />
+            <Attribute id="city"         servicename="postalAddress" />
+            <Attribute id="state"        servicename="st" />
+            <Attribute id="postalCode" />
+         </Attributes>
+      </Association>
+
+   </Associations>
+   <!--
+      These are related to the OpenPTK Subject Interface and it's API A
+      Definition contains Properties and Atttributes Each Attribute (within
+      a Definition) supports a number of "well known" Properties. Here are
+      the defaults: type = String multivalued = false required = false
+      encrypted = false access = public
+   -->
+   <Definitions>
+      <Definition id="Person">
+         <Properties>
+            <Property name="definition.classname"   value="org.openptk.definition.BasicSubject" />
+            <Property name="definition.description" value="A generic employee,partner,consultant" />
+            <!-- Example of authentication against multiple attributes. -->
+            <Property name="definition.authenid"    value="id,email" />
+            <Property name="definition.password"    value="password" />
+         </Properties>
+         <Attributes>
+            <Attribute id="uniqueid" required="true">
+               <Functions>
+                  <Function id="FirstInitialLastName" useexisting="true" classname="org.openptk.definition.functions.FirstInitialLastname">
+                     <Arguments>
+                        <Argument name="first"     type="attribute" value="firstname" />
+                        <Argument name="last"      type="attribute" value="lastname" />
+                        <Argument name="maxlength" type="literal"   value="32" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="firstname" required="true" >
+               <Properties>
+                  <Property name="widget.displayname" value="First Name" />
+                  <Property name="widget.type" value="textfield" />
+                  <Property name="widget.width" value="32" />
+                  <Property name="value.min" value="2" />
+                  <Property name="value.max" value="30" />
+               </Properties>
+            </Attribute>
+            <Attribute id="lastname"  required="true" />
+            <Attribute id="title" />
+            <Attribute id="password" encrypted="true">
+               <Functions>
+                  <Function id="Concat" useexisting="true" classname="org.openptk.definition.functions.Concat">
+                     <Arguments>
+                        <Argument name="initialPassword" type="literal" value="Passw0rd" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="email" required="true">
+               <Functions>
+                  <Function id="Concat" useexisting="true" classname="org.openptk.definition.functions.Concat">
+                     <Arguments>
+                        <Argument name="first"      type="attribute" value="firstname" />
+                        <Argument name="dot"        type="literal"   value="." />
+                        <Argument name="last"       type="attribute" value="lastname" />
+                        <Argument name="at"         type="literal"   value="@" />
+                        <Argument name="domainname" type="literal"   value="openptk.org" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="lastcommafirst" virtual="true">
+               <Functions>
+                  <Function id="OutputLastFirst" classname="org.openptk.definition.functions.Concat">
+                     <Arguments>
+                        <Argument name="arg1" type="attribute" value="lastname" />
+                        <Argument name="arg2" type="literal"   value=", " />
+                        <Argument name="arg3" type="attribute" value="firstname" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="read" />
+                        <Operation type="search" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="fullname" required="false">
+               <Functions>
+                  <Function id="Concat" useexisting="true" classname="org.openptk.definition.functions.Concat">
+                     <Arguments>
+                        <Argument name="arg1" type="attribute" value="firstname" />
+                        <Argument name="arg2" type="literal"   value=" " />
+                        <Argument name="arg3" type="attribute" value="lastname" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create" />
+                        <Operation type="update" />
+                        <Operation type="read" />
+                        <Operation type="search" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="forgottenPasswordQuestions" multivalued="true" virtual="true">
+               <Functions>
+                  <Function id="readPwdQuestions" classname="org.openptk.definition.functions.ForgottenPassword">
+                     <Arguments>
+                        <Argument name="data"           type="attribute" value="forgottenPasswordData" />
+                        <Argument name="questions"      type="attribute" value="forgottenPasswordQuestions" />
+                        <Argument name="answers"        type="attribute" value="forgottenPasswordAnswers" />
+                        <Argument name="innerdelimiter" type="literal"   value="|" />
+                        <Argument name="outerdelimiter" type="literal"   value="^" />
+                        <Argument name="default"        type="literal"   value="Mothers Maiden Name,City you were born,Last 4 digits of Frequent Flyer" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create" />
+                        <Operation type="read" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="forgottenPasswordAnswers" multivalued="true" virtual="true">
+               <Functions>
+                  <Function id="updatePwdAnswers" classname="org.openptk.definition.functions.ForgottenPassword">
+                     <Arguments>
+                        <Argument name="data"           type="attribute" value="forgottenPasswordData" />
+                        <Argument name="questions"      type="attribute" value="forgottenPasswordQuestions" />
+                        <Argument name="answers"        type="attribute" value="forgottenPasswordAnswers" />
+                        <Argument name="innerdelimiter" type="literal"   value="|" />
+                        <Argument name="outerdelimiter" type="literal"   value="^" />
+                        <Argument name="minlength"      type="literal"   value="3" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create" />
+                        <Operation type="read" />
+                        <Operation type="update" />
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="forgottenPasswordData"/>
+            <Attribute id="forgottenPasswordValues" multivalued="true" />
+            <Attribute id="roles" multivalued="true" />
+            <Attribute id="manager" />
+            <Attribute id="telephone" />
+            <Attribute id="organization" />
+            <Attribute id="objectclass" />
+            <Attribute id="location" />
+            <Attribute id="photo" type="object" />
+         </Attributes>
+      </Definition>
+
+      <Definition id="Location">
+         <Properties>
+            <Property name="definition.classname"   value="org.openptk.definition.BasicSubject" />
+            <Property name="definition.description" value="A location" />
+         </Properties>
+         <Attributes>
+            <Attribute id="uniqueid" required="true"/>
+            <Attribute id="description" />
+            <Attribute id="objectclass" />
+            <Attribute id="street" />
+            <Attribute id="city" />
+            <Attribute id="state" />
+            <Attribute id="postalCode" />
+         </Attributes>
+      </Definition>
+
+      <Definition id="Media">
+         <Properties>
+            <Property name="definition.classname"   value="org.openptk.definition.BasicSubject" />
+            <Property name="definition.description" value="Media Repository" />
+         </Properties>
+         <Attributes>
+            <Attribute id="uniqueid" required="true">
+            </Attribute>
+            <Attribute id="name" />
+            <Attribute id="type" required="true">
+               <Functions>
+                  <Function id="MimeType" classname="org.openptk.definition.functions.DetectMimeType">
+                     <Arguments>
+                        <Argument name="data" type="attribute" value="data" />
+                        <Argument name="plugin" type="literal" value="mimeutil"/>
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create"/>
+                        <Operation type="update"/>
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="length" required="true" type="integer"/>
+            <Attribute id="modified" required="true">
+               <Functions>
+                  <Function id="DateTime" classname="org.openptk.definition.functions.DateTimeStamp">
+                     <Operations>
+                        <Operation type="create"/>
+                        <Operation type="update"/>
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="contextid" />
+            <Attribute id="subjectid" />
+            <Attribute id="relationshipid" />
+            <Attribute id="digest" required="true" >
+               <Functions>
+                  <Function id="Digest" classname="org.openptk.definition.functions.CalculateDigest">
+                     <Arguments>
+                        <Argument name="data" type="attribute" value="data" />
+                     </Arguments>
+                     <Operations>
+                        <Operation type="create"/>
+                        <Operation type="update"/>
+                     </Operations>
+                  </Function>
+               </Functions>
+            </Attribute>
+            <Attribute id="data" type="object" required="true" />
+         </Attributes>
+      </Definition>
+
+   </Definitions>
+   <!--
+      ========== Connections === Connection Properties for a given Service
+   -->
+   <Connections>
+      <Properties>
+         <Property name="service.classname" value="org.openptk.spi.RestartService" />
+      </Properties>
+      <Connection id="UnboundID">
+         <Properties>
+            <Property name="connection.description"  value="UnboundID 2.2" />
+            <Property name="url"                     value="%{ldap.url}" />
+            <Property name="user.name"               value="%{jndi.user.name}" />
+            <Property name="user.password"           value="%{jndi.user.password}" />
+            <Property name="connection.pool.min"     value="4" />
+            <Property name="connection.pool.max"     value="8" />
+         </Properties>
+      </Connection>
+      <Connection id="UnboundID-InMemory">
+         <Properties>
+            <Property name="connection.description"  value="UnboundID 2.2" />
+            <Property name="unboundid.inmemory"      value="true" />
+            <Property name="unboundid.inmemory.rootdse" value="dc=openptk,dc=org" />
+            <Property name="unboundid.inmemory.ldif" value="/var/tmp/OpenPTKLDAPobjects.ldif" />
+            <Property name="user.name"               value="%{jndi.user.name}" />
+            <Property name="user.password"           value="%{jndi.user.password}" />
+            <Property name="connection.pool.min"     value="4" />
+            <Property name="connection.pool.max"     value="8" />
+         </Properties>
+      </Connection>
+   </Connections>
+
+   <!--
+   The Loggers for recording audit and debug information
+   NOTE: The "value" for "file" is just the filename ... it will be placed in openptk.temp
+   -->
+   <Loggers default="%{logger.default}">
+      <Logger id="UnixLogFile">
+         <Properties>
+            <Property name="logger.classname" value="org.openptk.logging.SimpleLogger" />
+            <Property name="file"             value="openptk.log" />
+         </Properties>
+      </Logger>
+   </Loggers>
+
+
+   <Encryptors default="PBEWithMD5AndDES">
+      <Encryptor id="PBEWithMD5AndDES">
+         <Properties>
+            <Property name="crypto.classname" value="org.openptk.crypto.DESCrypto" />
+         </Properties>
+      </Encryptor>
+   </Encryptors>
+
+   <!--
+   Client information
+   -->
+
+   <Clients>
+      <Properties>
+         <Property name="openptk.cookie.name" value="%{cookie.name}"/>
+      </Properties>
+      <Client id="anon">
+         <Authenticators>
+            <Authenticator id="Anonymous"/>
+         </Authenticators>
+         <Contexts default="Employees-UnboundID-LDAP">
+            <Context id="Employees-UnboundID-LDAP" />
+         </Contexts>
+      </Client>
+      <Client id="identitycentral">
+         <Authenticators>
+            <Authenticator id="Employees-IdPass-LDAP"/>
+            <Authenticator id="OpenPTK-config"/>
+         </Authenticators>
+         <Contexts default="Employees-UnboundID-LDAP">
+            <Context id="Employees-UnboundID-LDAP" />
+         </Contexts>
+      </Client>
+      <Client id="identitycentralapi" secret="N343EhOmFig6XL1liUuRIvmf">
+         <Properties>
+            <Property name="context.description"       value="Identity Central Application" />
+            <Property name="context.registration"      value="Register-Employees-UnboundID-LDAP" />
+            <Property name="context.photo"             value="Employees-UnboundID-LDAP"/>
+            <Property name="search.min.chars"        value="1" />
+            <Property name="search.results.quantity"   value="10" />
+            <Property name="server.relative.uri"       value="/openptk-server" />
+         </Properties>
+         <Authenticators>
+            <Authenticator id="Employees-IdPass-LDAP"/>
+            <Authenticator id="OpenPTK-config"/>
+         </Authenticators>
+         <Contexts default="Employees-UnboundID-LDAP">
+            <Context id="Employees-UnboundID-LDAP" />
+         </Contexts>
+      </Client>
+      <Client id="openptkserver">
+         <Authenticators>
+            <Authenticator id="OpenPTK-config"/>
+         </Authenticators>
+         <Contexts default="Employees-UnboundID-LDAP">
+            <Context id="Employees-UnboundID-LDAP" />
+         </Contexts>
+      </Client>
+      <Client id="openptkserverapi" secret="N343EhOmFig6XL1liUuRIvmf">
+         <Authenticators>
+            <Authenticator id="OpenPTK-config"/>
+         </Authenticators>
+         <Contexts default="Employees-UnboundID-LDAP">
+            <Context id="Employees-UnboundID-LDAP" />
+         </Contexts>
+      </Client>
+      <Client id="uml" secret="WeacAymEnZqP34gDQuNfDsHE">
+         <Authenticators>
+            <Authenticator id="Employees-IdPass-LDAP"/>
+            <Authenticator id="OpenPTK-config"/>
+         </Authenticators>
+         <Contexts default="Employees-UnboundID-LDAP">
+            <Context id="Employees-UnboundID-LDAP" />
+         </Contexts>
+      </Client>
+      <Client id="console" secret="tLlGZ1rkok865iEmvomJEl4Z">
+         <Authenticators>
+            <Authenticator id="Employees-IdPass-LDAP"/>
+            <Authenticator id="OpenPTK-config"/>
+         </Authenticators>
+         <Contexts default="Employees-UnboundID-LDAP">
+            <Context id="Employees-UnboundID-LDAP" />
+         </Contexts>
+      </Client>
+   </Clients>
+
+   <!--
+   Models
+   -->
+   <Models>
+      <Properties>
+         <Property name="model.classname" value="org.openptk.model.BasicModel"/>
+      </Properties>
+      <Model id="Employee">
+         <Properties>
+            <Property name="model.description" value="Person that has Organization and Location information"/>
+         </Properties>
+         <Relationships>
+            <Relationship id="directReports">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.ChildrenRelationship"/>
+                  <Property name="relationship.description" value="List of children for a Subject"/>
+               </Properties>
+               <Query type="EQ" name="manager" value="${uniqueid}"/>
+            </Relationship>
+            <Relationship id="reportsTo">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.AncestorsRelationship"/>
+                  <Property name="relationship.description" value="List (ordered) of ancestors for a Subject"/>
+               </Properties>
+               <Query type="EQ" name="uniqueid" value="${manager}"/>
+            </Relationship>
+            <Relationship id="organization">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.OrganizationRelationship"/>
+                  <Property name="relationship.description" value="List (ordered) of the Subject organization"/>
+               </Properties>
+               <Query type="EQ" name="uniqueid" value="${manager}"/>
+            </Relationship>
+            <Relationship id="peers">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.SiblingsRelationship"/>
+                  <Property name="relationship.description" value="List of siblings for a Subject"/>
+               </Properties>
+               <Query type="EQ" name="manager" value="${manager}"/>
+            </Relationship>
+            <Relationship id="location">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.SubjectRelationship" />
+                  <Property name="relationship.description" value="Location related Subject" />
+                  <Property name="relationship.uniqueid"    value="${attr:location}" />
+               </Properties>
+            </Relationship>
+            <Relationship id="photo">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.MediaRelationship" />
+                  <Property name="relationship.description" value="A photo of the Person" />
+                  <Property name="relationship.uniqueid"    value="${path:contextid}-${path:subjectid}-${path:relationshipid}" />
+               </Properties>
+            </Relationship>
+            <Relationship id="cardphoto">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.MediaRelationship" />
+                  <Property name="relationship.description" value="A business card image of the photo" />
+                  <Property name="relationship.uniqueid"    value="${path:contextid}-${path:subjectid}-${path:relationshipid}" />
+               </Properties>
+            </Relationship>
+            <Relationship id="thumbnail">
+               <Properties>
+                  <Property name="relationship.classname"   value="org.openptk.model.MediaRelationship" />
+                  <Property name="relationship.description" value="A thumbnail image of the photo" />
+                  <Property name="relationship.uniqueid"    value="${path:contextid}-${path:subjectid}-${path:relationshipid}" />
+               </Properties>
+            </Relationship>
+<!--
+			   <Relationship id="roles">
+				   <Properties>
+					  <Property name="relationship.classname" value="org.openptk.model.ChildrenLinkRelationship"/>
+					  <Property name="relationship.description" value="List of roles linked to a User"/>
+					  <Property name="relationship.primary.context.name" value="UserRole-MySQL-JDBC"/>
+					  <Property name="relationship.link.context.name" value="Roles-MySQL-JDBC"/>
+                 <Property name="relationship.linkcontext.linkedid.attribute" value="roleid"/>
+				  </Properties>
+				  <Query type="EQ" name="userid" value="${uniqueid}"/>
+			   </Relationship>
+-->
+         </Relationships>
+         <Views>
+            <View id="extended">
+               <Relationships>
+                  <Relationship id="location"/>
+                  <Relationship id="organization"/>
+                  <Relationship id="peers"/>
+                  <Relationship id="directReports"/>
+               </Relationships>
+            </View>
+            <View id="address">
+               <Relationships>
+                  <Relationship id="location"/>
+               </Relationships>
+            </View>
+         </Views>
+      </Model>
+   </Models>
+
+   <!--
+   Converter Rules for the Structures
+   -->
+
+   <Converters>
+      <Converter type="json" classname="org.openptk.structure.JsonConverter">
+         <Structures>
+            <Structure id="results">
+               <Properties>
+                  <Property name="children" value="list"/>
+               </Properties>
+            </Structure>
+         </Structures>
+      </Converter>
+      <Converter type="xml" classname="org.openptk.structure.XmlConverter"/>
+      <Converter type="html" classname="org.openptk.structure.HtmlConverter"/>
+      <Converter type="plain" classname="org.openptk.structure.PlainConverter"/>
+   </Converters>
+
+   <!--
+   Plugins: access to external processing
+   -->
+
+   <Plugins>
+      <Plugin id="mimeutil" enabled="true" classname="org.openptk.plugin.mimeutil.MimeUtilPlugin">
+         <Properties>
+            <Property name="mimeutil.detector"  value="eu.medsea.mimeutil.detector.MagicMimeMimeDetector"/>
+            <Property name="structure.mimetype" value="mimetype"/>
+         </Properties>
+      </Plugin>
+      <Plugin id="sendemail" enabled="true" classname="org.openptk.plugin.sendemail.SendEmailPlugin">
+         <Properties>
+            <Property name="sendemail.online"          value="true" />
+            <Property name="sendemail.file"            value="%{plugin.sendemail.file}"/>
+            <Property name="sendemail.authen.user"     value="%{plugin.sendemail.authen.user}" />
+            <Property name="sendemail.authen.password" value="%{plugin.sendemail.authen.password}" />
+            <Property name="mail.debug"                value="false" />
+            <Property name="mail.host"                 value="localhost"/>
+            <Property name="mail.transport.protocol"   value="smtp" />
+            <Property name="mail.smtp.auth"            value="false" />
+            <Property name="mail.smtp.port"            value="25" />
+            <Property name="mail.smtp.quitwait"        value="false" />
+         </Properties>
+      </Plugin>
+      <Plugin id="template" enabled="true" classname="org.openptk.plugin.template.TemplatePlugin">
+         <Properties>
+            <Property name="template.library"  value="%{plugin.template.library}" />
+            <Property name="missing.attribute" value="variable" />
+         </Properties>
+      </Plugin>
+   </Plugins>
+
+   <!--
+   OperationActions: Pre and Post logic for Context/Subject Operations
+   -->
+
+   <OperationActions>
+      <Action id="ifexists" classname="org.openptk.context.actions.IfExistsThenUpdate">
+      </Action>
+      <Action id="checkmimetype" classname="org.openptk.context.actions.CheckMimeType">
+         <Properties>
+            <Property name="mimetype.allow" value="image/png, image/jpg, image/jpeg, image/gif"/>
+         </Properties>
+      </Action>
+      <Action id="cardphoto" classname="org.openptk.context.actions.ScaleCropImage">
+         <Properties>
+            <Property name="size.width"             value="100" />
+            <Property name="size.height"            value="120" />
+            <Property name="uniqueid"               value="${contextid}-${subjectid}-cardphoto"/>
+            <Property name="attribute.data"         value="data"/>
+            <Property name="attribute.type"         value="type"/>
+            <Property name="attribute.length"       value="length"/>
+            <Property name="attribute.modified"     value="modified"/>
+            <Property name="attribute.digest"       value="digest" />
+            <Property name="attribute.context"      value="contextid"/>
+            <Property name="attribute.subject"      value="subjectid" />
+            <Property name="attribute.relationship" value="relationshipid" />
+         </Properties>
+      </Action>
+      <Action id="thumbnail" classname="org.openptk.context.actions.ScaleCropImage">
+         <Properties>
+            <Property name="size.width"             value="50" />
+            <Property name="size.height"            value="60" />
+            <Property name="uniqueid"               value="${contextid}-${subjectid}-thumbnail"/>
+            <Property name="attribute.data"         value="data"/>
+            <Property name="attribute.type"         value="type"/>
+            <Property name="attribute.length"       value="length"/>
+            <Property name="attribute.modified"     value="modified"/>
+            <Property name="attribute.digest"       value="digest" />
+            <Property name="attribute.context"      value="contextid"/>
+            <Property name="attribute.subject"      value="subjectid" />
+            <Property name="attribute.relationship" value="relationshipid" />
+         </Properties>
+      </Action>
+      <Action id="notify" classname="org.openptk.context.actions.Notify">
+         <Properties>
+            <Property name="plugin.template" value="template"/>
+            <Property name="plugin.email"    value="sendemail"/>
+         </Properties>
+      </Action>
+   </OperationActions>
+
+   <!--
+   Security related information
+   -->
+   <Security>
+      <!--
+      Authentication mechanisms
+      -->
+      <Authenticators>
+         <Authenticator id="Anonymous" level="ANON">
+            <Properties>
+               <Property name="authenticator.classname"   value="org.openptk.authenticate.AnonAuthenticator"/>
+               <Property name="authenticator.description" value="Anonymous User"/>
+            </Properties>
+         </Authenticator>
+         <Authenticator id="Employees-IdPass-LDAP" level="USER">
+            <Properties>
+               <Property name="authenticator.classname"   value="org.openptk.authenticate.IdPassServiceAuthenticator"/>
+               <Property name="authenticator.context"     value="Employees-UnboundID-LDAP"/>
+               <Property name="authenticator.description" value="Employees with User ID and Password verified against LDAP"/>
+            </Properties>
+         </Authenticator>
+         <Authenticator id="OpenPTK-config" level="SYSTEM">
+            <Properties>
+               <Property name="authenticator.classname"   value="org.openptk.authenticate.IdPassSystemAuthenticator"/>
+               <Property name="authenticator.description" value="OpenPTK config against internal admin credentials"/>
+            </Properties>
+         </Authenticator>
+      </Authenticators>
+
+      <Deciders>
+         <Decider id="internal">
+            <Properties>
+               <Property name="decider.classname" value="org.openptk.authorize.decider.BasicDecider"/>
+            </Properties>
+         </Decider>
+      </Deciders>
+
+      <Enforcers>
+         <Properties>
+            <Property name="enforcer.classname" value="org.openptk.authorize.BasicEnforcer"/>
+         </Properties>
+         <Enforcer id="webfilter" environment="SERVLET" decider="internal" />
+         <Enforcer id="operation" environment="ENGINE"  decider="internal" />
+      </Enforcers>
+
+      <Policies>
+         <Properties>
+            <Property name="policy.classname" value="org.openptk.authorize.policy.BasicPolicy"/>
+         </Properties>
+         <Policy id="NotEnforcedURIs" environment="SERVLET" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="Not Enforced URIs"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="INTERNAL"/>
+                  <Type id="ANON"/>
+                  <Type id="USER"/>
+                  <Type id="SYSTEM"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="sessioninfo" type="uri" value="/resources/sessioninfo"/>
+               <Target id="forgotP1" type="uri" value="/resources/contexts/./subjects/./password/forgot/questions"/>
+               <Target id="forgotP2" type="uri" value="/resources/contexts/./subjects/./password/forgot/answers"/>
+               <Target id="forgotP3" type="uri" value="/resources/contexts/./subjects/./password/forgot/change"/>
+            </Targets>
+         </Policy>
+         <Policy id="ClientsURI" environment="SERVLET" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="Clients URI"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="INTERNAL"/>
+                  <Type id="ANON"/>
+                  <Type id="USER"/>
+                  <Type id="SYSTEM"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="clients" type="uri" value="/resources/clients/*" />
+            </Targets>
+         </Policy>
+         <Policy id="ContextsURI" environment="SERVLET" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="Contexts URI"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="ANON"/>
+                  <Type id="USER"/>
+                  <Type id="SYSTEM"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="contexts" type="uri" value="/resources/contexts/*" />
+            </Targets>
+         </Policy>
+         <Policy id="EngineURIs" environment="SERVLET" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="Internal SYSTEM URIs"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="ANON"/>
+                  <Type id="SYSTEM"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="engine" type="uri" value="/resources/engine/*" />
+            </Targets>
+         </Policy>
+         <Policy id="NotEnforcedOps" environment="ENGINE" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="Not enforced Operations"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="INTERNAL"/>
+                  <Type id="ANON"/>
+                  <Type id="USER"/>
+                  <Type id="SYSTEM"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="sessioninfo" type="uri" value="/resources/sessioninfo">
+                  <Operations>
+                     <Operation id="READ"/>
+                  </Operations>
+               </Target>
+               <Target id="forgotP1" type="uri" value="/resources/contexts/./subjects/./password/forgot/questions">
+                  <Operations>
+                     <Operation id="PWDFORGOT"/>
+                  </Operations>
+               </Target>
+               <Target id="forgotP2" type="uri" value="/resources/contexts/./subjects/./password/forgot/answers">
+                  <Operations>
+                     <Operation id="PWDFORGOT"/>
+                  </Operations>
+               </Target>
+               <Target id="forgotP3" type="uri" value="/resources/contexts/./subjects/./password/forgot/change">
+                  <Operations>
+                     <Operation id="PWDFORGOT"/>
+                  </Operations>
+               </Target>
+            </Targets>
+         </Policy>
+         <Policy id="AnonymousOps" environment="ENGINE" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="Anonymous Operations"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="ANON"/>
+                  <Type id="USER"/>
+                  <Type id="SYSTEM"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="clients" type="uri" value="/resources/clients/*">
+                  <Operations>
+                     <Operation id="READ"/>
+                  </Operations>
+               </Target>
+               <Target id="contexts" type="uri" value="/resources/contexts/*">
+                  <Operations>
+                     <Operation id="READ"/>
+                     <Operation id="SEARCH"/>
+                  </Operations>
+               </Target>
+               <Target id="reg-ldap" type="uri" value="/resources/contexts/Register-Employees-UnboundID-LDAP/subjects">
+                  <Operations>
+                     <Operation id="CREATE"/>
+                  </Operations>
+               </Target>
+            </Targets>
+         </Policy>
+         <Policy id="UserOps" environment="ENGINE" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="End-User Self Service"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="USER"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="photo" type="uri" value="/resources/contexts/${session.principal.contextid}/subjects/${session.principal.uniqueid}/relationships/photo">
+                  <Operations>
+                     <Operation id="CREATE"/>
+                  </Operations>
+               </Target>
+               <Target id="update" type="uri" value="/resources/contexts/${session.principal.contextid}/subjects/${session.principal.uniqueid}">
+                  <Operations>
+                     <Operation id="UPDATE"/>
+                  </Operations>
+               </Target>
+               <Target id="pwdchange" type="uri" value="/resources/contexts/${session.principal.contextid}/subjects/${session.principal.uniqueid}/password/change">
+                  <Operations>
+                     <Operation id="PWDCHANGE"/>
+                  </Operations>
+               </Target>
+            </Targets>
+         </Policy>
+         <Policy id="SystemOps" environment="ENGINE" mode="inbound" effect="allow">
+            <Properties>
+               <Property name="policy.description" value="System user access"/>
+            </Properties>
+            <Session>
+               <Types>
+                  <Type id="SYSTEM"/>
+               </Types>
+            </Session>
+            <Targets>
+               <Target id="contexts" type="uri" value="/resources/contexts/*">
+                  <Operations>
+                     <Operation id="CREATE"/>
+                     <Operation id="READ"/>
+                     <Operation id="UPDATE"/>
+                     <Operation id="DELETE"/>
+                     <Operation id="SEARCH"/>
+                     <Operation id="PWDCHANGE"/>
+                     <Operation id="PWDRESET"/>
+                  </Operations>
+               </Target>
+               <Target id="engine" type="uri" value="/resources/engine/*">
+                  <Operations>
+                     <Operation id="READ"/>
+                     <Operation id="SEARCH"/>
+                  </Operations>
+               </Target>
+               <Target id="clients" type="uri" value="/resources/clients/*">
+                  <Operations>
+                     <Operation id="READ"/>
+                     <Operation id="SEARCH"/>
+                  </Operations>
+               </Target>
+            </Targets>
+         </Policy>
+      </Policies>
+   </Security>
+
+</OpenPTK>

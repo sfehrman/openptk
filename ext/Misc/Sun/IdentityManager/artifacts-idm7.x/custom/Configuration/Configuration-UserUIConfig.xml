@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--
+ * NOTE:  This configuration file is based on the sample artifact which ships with 
+ * Sun Identity Manager
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ *      Portions Copyright 2007 Sun Microsystems, Inc.
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License, Version 1.0 only
+ * (the "License").  You may not use this file except in compliance
+ * with the License.
+ *
+ * You can obtain a copy of the license at
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+ * or https://openptk.dev.java.net/OpenPTK.LICENSE.
+ * See the License for the specific language governing permissions
+ * and limitations under the License.
+ *
+ * When distributing Covered Code, include this CDDL HEADER in each
+ * file and include the reference to
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+ * add the following below this CDDL HEADER, with the fields enclosed
+ * by brackets "[]" replaced with your own identifying information:
+ *      Portions Copyright [yyyy] [name of copyright owner]
+ *
+ *
+ * Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+-->
+<Configuration id='#ID#Configuration:UserUIConfig' name='UserUIConfig'>
+  <Extension>
+    <UserUIConfig>
+ <!--
+
+	This configuration object controlls the internal function and end user display
+	for waveset Account searching and editing.
+
+	Because it controls things at a basic systems level, you can break the system
+	by editing some items. Following are the rules that need to be followed and which
+	will be enforced by the object when imported (not yet, but I have hope).
+
+	The system has a separate function for listing objects that does not create them
+	to list them, in the interests of increasing speed and reducing memory requirements.
+	An object exposes through its summary attributes information that can be retrieved
+	using the list command. That is configured here through the SummaryAttrTypes and
+	SummaryAttrNames sections. Anything that you want to show up in the find results
+	columns or the applet list columns has to be in the summary attributes.
+
+	Lighthouse will create this object if it does not exist at startup time. As a result,
+	to update it you should get the current one, edit it and reimport it (so that you
+	get any new default values) Use the following steps:
+
+	launch the waveset console
+	> getObject Configuration UserUIConfig > conf.xml
+
+	edit conf.xml to have the requested attributes
+
+	>import conf.xml
+
+	restart the lighthouse system so that the new configuration will be read and updated.
+
+
+	IMPORTANT!  Pages related to finding users have been converted to forms.
+	Therefore configuration of their appearance should now be done in the form definitions.
+   Refer to the form mappings findUser and findUserResults, among others, in the System
+   Configuration object to locate these forms.
+	The following attributes are now ignored and will be removed in a future release:
+	FindResults, FindSearchAttrs, DefaultFindSearchAttr, FindResultsSortColumn,
+	FindSearchOperators, ShowProvisioningSearchAttr, ShowDisabledSearchAttr,
+	ShowFindResourcesSearch, ShowFindAttribute1, ShowFindAttribute2, ShowFindAttribute3,
+	ShowFindAttribute4, ShowFindAttribute5, ShowFindRoleSearch, ShowFindOrganizationSearch,
+   ShowFindCapabilitiesSearch
+
+
+	XML descriptions:
+
+
+	SummaryAttrTypes: do not edit this list. it is used for internal manipulations. What
+		happens behind the scenes is summary attributes for these types are not stored
+		by name, they are stored by id. The id is then translated into a name when the
+		list is created. Because the list results are cached after the translation, if
+		something of one of these types changes names, the list cache is flushed.
+
+	SummaryAttrNames: edit this list. Do not remove the MemberObjectGroups attribute, it
+		is used for fast authorizations. These are the attributes that can be shown in
+		list results - this should be a superset of the AppletColumns and FindResults lists.
+		These do not have to be on the QueryableAttrNames list. Name and ID are built-in
+		summary attributes and are not listed here.
+
+		role	- the role.
+
+                res		- list of resource names. if over SummaryAttrrResourceCountLimit, the list
+				is truncated and an elipses (...) appended. List separated by commas.
+
+		prov	- provisioning level (0 = none, 1 = some, 2 = all)
+
+        dis		- is the user disabled (true, false)
+
+        MemberObjectGroups - the organization this member belongs to. MUST BE PRESENT.
+
+		fullname - the fullname attribute. also available are lastname, firstname
+
+
+	QueryableAttrNames: edit this list to ADD attributes that can be searched on.
+
+		correlationKey	-
+		role			-
+		email			-
+		firstname		-
+		lastname		-
+		prov			-
+		dis			-
+		name			-
+		fullname		-
+
+	AppletColumns: edit this list to change what columns the applet displays.  Columns named
+       in this list must be in SummaryAttrNames (or the values will show up blank).  The list
+       consists of GenericObjects for each column; supported attributes are:         width  - the initial width of the column.  If omitted (or zero), the applet
+                 will assign a default initial width to the column.
+         sortBy - if present, this is the column the applet will sort by initially.
+                 If more than one is designated, the leftmost column will be used.
+       Note: Representing the columns to display by Strings is supported, though deprecated;
+         Future releases may not continute to support this behavior.
+	RepoIndexAttrs: The attributes are copied to the waveset.object table and indexed so searches
+		against them are very fast. If you change this list, you have to export/import all users
+		so that they are updated. You can only have 5 and they map to the ATTR1-ATTR5 database columns.
+
+	AppletSortColumn: What column should show up sorted on the applet (0-AppletColumns.length - 1)
+       This attribute is deprecated and only consulted if AppletColumns does not specify a sort column.
+
+	ShowListCache: Show the 'Clear List Cache' button on the 'List Accounts' page. Temporary
+
+	SummaryAttrrResourceCountLimit: The number of resources in the resource summary. Because
+		resources are stored by id and ids are about 50 bytes long, you should not have too many
+		of these or we will get a resource schema violation. Also, it is ugly in the UI.
+
+       PolicyAccountAttributeNames: These attribute names are shown in a popup for an accountId policy.
+               They must match attributes that can be found on the User object. The defaults are simple
+               but you can put any attribute named that is added by a user form, also
+
+       PolicyPasswordAttributeNames: These attribute names are shown in a popup for a password policy.
+               They must match attributes that can be found on the User object. The defaults are simple
+               but you can put any attribute named that is added by a user form, also
+
+       PolicyOtherAttributeNames: These attribute names are shown in a popup for other policy types.
+               They must match attributes that can be found on the User object. The defaults are simple
+               but you can put any attribute named that is added by a user form, also
+
+       PolicySpecialChars: characters to put into the string quality policy for forced exclusion or exclusion.
+
+       TaskBarPages: the pages to show the TaskBar (shows user save and create tasks)
+-->
+    <SummaryAttrTypes>
+      <List>
+        <String>Role</String>
+        <String>Resource</String>
+        <String>ObjectGroup</String>
+      </List>
+    </SummaryAttrTypes>
+    <SummaryAttrNames>
+      <List>
+        <String>role</String>
+        <String>res</String>
+        <String>prov</String>
+        <String>dis</String>
+        <String>lhdis</String>
+        <String>lhlocked</String>
+        <String>MemberObjectGroups</String>
+        <String>firstname</String>
+        <String>lastname</String>
+        <String>hasCapabilities</String>
+        <String>idmManager</String>
+        <String>businessRoles</String>
+        <String>assignedBusinessRoles</String>
+        <String>functionalRoles</String>
+        <String>disabledFunctionalRoles</String>
+        <String>assignedFunctionalRoles</String>
+        <String>employeeId</String>
+        <String>telephone</String>
+        <String>email</String>  
+        <String>title</String>        
+      </List>
+    </SummaryAttrNames>
+    <QueryableAttrNames>
+      <List>
+        <String>employeeId</String>
+        <String>correlationKey</String>
+        <String>role</String>
+        <String>email</String>
+        <String>name</String>
+        <String>firstname</String>
+        <String>lastname</String>
+        <String>idmManager</String>
+        <String>prov</String>
+        <String>dis</String>
+        <String>locked</String>
+        <String>user_resources</String>
+        <String>businessRoles</String>
+        <String>functionalRoles</String>
+        <String>telephone</String>
+        <String>title</String>        
+      </List>
+    </QueryableAttrNames>
+    <AppletColumns>
+      <List>
+        <Object name='name'>
+          <Attribute name='label' value='UI_ATTR_NAME'/>
+          <Attribute name='sortBy' value='true'/>
+        </Object>
+        <Object name='lastname'>
+          <Attribute name='label' value='UI_ATTR_LASTNAME'/>
+        </Object>
+        <Object name='firstname'>
+          <Attribute name='label' value='UI_ATTR_FIRSTNAME'/>
+        </Object>
+        <Object name='idmManager'>
+          <Attribute name='label' value='UI_ATTR_MANAGER'/>
+        </Object>
+      </List>
+    </AppletColumns>
+    <FindResults>
+      <List>
+        <String>name</String>
+        <String>lastname</String>
+        <String>firstname</String>
+        <String>res</String>
+        <String>role</String>
+        <String>MemberObjectGroups</String>
+      </List>
+    </FindResults>
+    <FindSearchAttrs>
+      <List>
+        <String>name</String>
+        <String>email</String>
+        <String>lastname</String>
+        <String>firstname</String>
+        <String>employeeId</String>
+      </List>
+    </FindSearchAttrs>
+    <FindSearchOperators>
+      <List>
+        <String>starts with</String>
+        <String>contains</String>
+        <String>is</String>
+      </List>
+    </FindSearchOperators>
+    <RepoIndexAttrs>
+      <List>
+        <String>MemberObjectGroups</String>
+        <String>lastname</String>
+        <String>firstname</String>
+        <String>employeeId</String>
+      </List>
+    </RepoIndexAttrs>
+    <FindResultsSortColumn>
+      <Integer>0</Integer>
+    </FindResultsSortColumn>
+    <DefaultFindSearchAttr>
+      <String>name</String>
+    </DefaultFindSearchAttr>
+    <ShowProvisioningSearchAttr>
+      <Boolean>true</Boolean>
+    </ShowProvisioningSearchAttr>
+    <ShowDisabledSearchAttr>
+      <Boolean>true</Boolean>
+    </ShowDisabledSearchAttr>
+    <ShowFindResourcesSearch>
+      <Boolean>true</Boolean>
+    </ShowFindResourcesSearch>
+    <ShowFindAttribute1>
+      <Boolean>true</Boolean>
+    </ShowFindAttribute1>
+    <ShowFindAttribute2>
+      <Boolean>false</Boolean>
+    </ShowFindAttribute2>
+    <ShowFindAttribute3>
+      <Boolean>false</Boolean>
+    </ShowFindAttribute3>
+    <ShowFindAttribute4>
+      <Boolean>false</Boolean>
+    </ShowFindAttribute4>
+    <ShowFindAttribute5>
+      <Boolean>false</Boolean>
+    </ShowFindAttribute5>
+    <ShowFindRoleSearch>
+      <Boolean>true</Boolean>
+    </ShowFindRoleSearch>
+    <ShowFindOrganizationSearch>
+      <Boolean>true</Boolean>
+    </ShowFindOrganizationSearch>
+    <ShowFindCapabilitiesSearch>
+      <Boolean>true</Boolean>
+    </ShowFindCapabilitiesSearch>
+    <ShowListCache>
+      <Boolean>false</Boolean>
+    </ShowListCache>
+    <SummaryAttrrResourceCountLimit>
+      <Integer>3</Integer>
+    </SummaryAttrrResourceCountLimit>
+    <TopButtonPages>
+      <List>
+      </List>
+    </TopButtonPages>
+    <TaskBarPages>
+      <List>
+        <String>account/list.jsp</String>
+        <String>account/find.jsp</String>
+        <String>account/dofindexisting.jsp</String>
+        <String>account/modify.jsp</String>
+        <String>account/resourceReprovision.jsp</String>
+        <String>task/newresults.jsp</String>
+        <String>home/index.jsp</String>
+      </List>
+    </TaskBarPages>
+    <PolicyAccountAttributeNames>
+      <List>
+        <String>email</String>
+        <String>firstname</String>
+        <String>fullname</String>
+        <String>lastname</String>
+      </List>
+    </PolicyAccountAttributeNames>
+    <PolicyPasswordAttributeNames>
+      <List>
+        <String>accountId</String>
+        <String>email</String>
+        <String>firstname</String>
+        <String>fullname</String>
+        <String>lastname</String>
+      </List>
+    </PolicyPasswordAttributeNames>
+    <PolicyOtherAttributeNames>
+      <List>
+        <String>accountId</String>
+        <String>email</String>
+        <String>firstname</String>
+        <String>fullname</String>
+        <String>lastname</String>
+      </List>
+    </PolicyOtherAttributeNames>
+    <PolicySpecialChars>
+      <String>~!@#$%^&amp;*()_+=-`{}[]|\:";'&lt;&gt;,.?/</String>
+    </PolicySpecialChars>
+    <ListViewAttributes>
+      <Map>
+        <MapEntry key='DisplayBracketOnBranch'>
+          <Boolean>false</Boolean>
+        </MapEntry>
+        <MapEntry key='DisplayNameListDeliminator' value=','/>
+        <MapEntry key='MaximumNumberOfChildrenPerNode'>
+          <Integer>100</Integer>
+        </MapEntry>
+        <MapEntry key='PagesForSearch'>
+          <Integer>20</Integer>
+        </MapEntry>
+        <MapEntry key='RootNodeWindowSize'>
+          <Integer>30</Integer>
+        </MapEntry>
+        <MapEntry key='SearchExpansionThreshold'>
+          <Integer>10</Integer>
+        </MapEntry>
+        <MapEntry key='SubNodeWindowSize'>
+          <Integer>10</Integer>
+        </MapEntry>
+        <MapEntry key='UsePagedResults'>
+          <Boolean>true</Boolean>
+        </MapEntry>
+      </Map>
+    </ListViewAttributes>
+    <UserListViewer>
+      <String>treetable</String>
+    </UserListViewer>
+    </UserUIConfig>
+  </Extension>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#Top' name='Top'/>
+  </MemberObjectGroups>
+</Configuration>
+
+

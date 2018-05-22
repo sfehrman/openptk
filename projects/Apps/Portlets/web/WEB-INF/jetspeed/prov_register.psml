@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page id="prov_register">
+
+  <title>Registration</title>
+
+  <fragment id="prov-register" type="layout" name="jetspeed-layouts::VelocityTwoColumns">
+    <fragment id="prov-register-1" type="portlet" name="openptk-portlets-2.2.0::Registration">
+      <property layout="OneColumn" name="row" value="0" />
+      <property layout="OneColumn" name="column" value="0" />
+    </fragment>
+  </fragment>
+
+  <security-constraints>
+    <security-constraints-ref>public-view</security-constraints-ref>
+  </security-constraints>
+
+</page>
+

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Waveset PUBLIC 'waveset.dtd' 'waveset.dtd'>
+
+<Waveset>
+    <!--
+      This task definition is used to run asynchronous SPML2 requests.
+    -->
+
+    <TaskDefinition id='#ID#TaskDefinition:SPML2Request' name='SPML2Request'
+        executor='com.sun.idm.rpc.spml2.async.AsyncExecutorTask'
+        execMode='asyncImmediate'
+        resultLimit='86400'>
+    </TaskDefinition>
+    
+</Waveset>

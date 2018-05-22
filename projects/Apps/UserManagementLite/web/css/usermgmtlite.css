@@ -1,0 +1,161 @@
+/* 
+    Description:
+
+            Primary                   Secondary                Tertiary
+   ------------------------------------------------------------------------------------
+   Blue     rgb(83,130,161) #5382A1   rgb(53,85,107) #35556B   rgb(163,184,203) #A3B8CB
+   Orange   rgb(231,111,0)  #E76F00   rgb(192,102,0) #C06600   rgb(237,155,9)   #ED9B09
+   Green    rgb(151,177,1)  #97B101   rgb(127,120,0) #7F7800   rgb(197,213,169) #C5D5A9
+   Yellow   rgb(255,199,38) #FFC726   rgb(198,146,0) #C69200   rgb(248,213,131) #F8D583
+*/
+.sunpriblue { color: #5382A1; }
+
+/* Generic settings */
+
+body,th,td,p,div,span,a,input,select,textarea,form,ul,ol,dl,li
+{
+   font-family: sans-serif;
+}
+
+body,th,td,p,span,a,div,li,ul,ol
+{ 
+   font-size: 10pt
+}
+
+body,p
+{
+   color: #000000
+}
+
+/* Anchors / Links */
+
+a
+{
+   text-decoration: none
+}
+
+a:visited,a:visited code
+{
+   color: #E76F00
+}
+
+a:link,a.named:visited,div.breadcrumb a:visited,div.sitelinks a:visited,a code
+{
+   color: #E76F00
+}
+
+a:hover,b.error,span.error
+{
+   text-decoration: underline
+}
+
+
+root { display: block; }
+a:link, a:visited {text-decoration: none;}
+a:hover {text-decoration: underline;}
+
+/********************************************************************/
+
+body
+{ 
+   background:  white;
+   font-family: sans-serif; 
+}
+
+.top      
+{
+   background:  #5382A1;
+   color:       white; 
+   font-style:  normal; 
+   font-weight: bold;   
+   font-size:   medium;
+   text-align:  left;
+}
+
+.menu     
+{ 
+   background:  #FFFFFF;
+   color:       #E76F00;         
+   font-style:  normal;
+   font-weight: bold;   
+   font-size:   small;
+   text-align:  left;
+}
+
+.bottom   
+{ 
+   background:  #C5D5A9;
+   color:       black;
+   font-style:  normal; 
+   font-weight: normal;   
+   font-size:   small;
+   text-align:  left;
+}
+
+.error
+{
+   background:  red;
+   color:       white;
+   font-style:  normal;
+   font-weight: bold;
+   font-size:   medium;
+   text-align:  left;
+}
+
+.result
+{
+   background:  green;
+   color:       white;
+   font-style:  normal;
+   font-weight: bold;
+   font-size:   medium;
+   text-align:  left;
+}
+
+.debug   
+{ 
+   background:  #FFC726;
+   color:       #35556B;          
+   font-style:  normal; 
+   font-weight: normal;   
+   font-size:   small;
+   text-align:  left;
+}
+
+.list-user-header
+{
+   text-align:       left;
+   background-color: #C5D5A9;
+   color:            black;
+   font-weight:      normal;
+}
+
+.list-user-detail
+{
+   text-align:       left;
+   background-color: white;
+   color:            black;
+   font-weight:      bold;
+}
+
+/********************************************************************/
+
+*.listBody      { background: #FDF5E6; font-family: sans-serif; }
+*.listToolbar   { color: rgb(53,85,107);   font-style: normal; font-weight: normal; font-size: medium; }
+*.listItem      { color: black;            font-style: normal; font-weight: normal; font-size: medium; }
+*.listHeader    { color: rgb(53,85,107);   font-style: normal; font-weight: bold;   font-size: medium; }
+*.listInfo      { color: black;            font-style: normal; font-weight: normal; font-size: medium; }
+*.listError     { color: red;              font-style: normal; font-weight: bold;   font-size: large; }
+
+/********************************************************************/
+
+*.detailBody    { background: #FDF5E6; font-family: sans-serif; }
+*.detailData    { background: white; }
+*.detailToolbar { color: rgb(53,85,107);   font-style: normal; font-weight: normal; font-size: medium; }
+*.detailLabel   { color: black;            font-style: italic; font-weight: normal; font-size: small;  }
+*.detailAttr    { color: black;            font-style: normal; font-weight: normal; font-size: small;  }
+*.detailValue   { color: black;            font-style: normal; font-weight: bold;   font-size: medium; }
+*.detailLink    { color: rgb(127,120,0);   font-style: normal; font-weight: bold;   font-size: medium; }
+*.detailLinkLbl { color: rgb(127,120,0);   font-style: italic; font-weight: normal; font-size: small;  }
+*.detailFooter  { color: rgb(53,85,107);   font-style: normal; font-weight: normal; font-size: small;  }
+

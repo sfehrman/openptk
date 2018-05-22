@@ -1,0 +1,19 @@
+<b>Dear ${attribute:firstname} ${attribute:lastname}</b>
+
+<p>
+Your account id is <b>${uniqueid}</b>.
+Your email address is <b>${email}</b>.
+</p>
+
+Your account balance is $0.00
+
+Please contact our web site <a href="http://java.net/projects/openptk">
+http://java.net/projects/openptk</a> if you have questions.
+
+<hr>
+
+<h5>Template Information</h5>
+<table border='1'>
+<tr><td align='right'>Library</td><td>${template:library}</td></tr>
+<tr><td align='right'>Document</td><td>${template:document}</td></tr>
+</table>

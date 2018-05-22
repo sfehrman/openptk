@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Policy PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ *      Portions Copyright 2007 Sun Microsystems, Inc.
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License, Version 1.0 only
+ * (the "License").  You may not use this file except in compliance
+ * with the License.
+ *
+ * You can obtain a copy of the license at
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+ * or https://openptk.dev.java.net/OpenPTK.LICENSE.
+ * See the License for the specific language governing permissions
+ * and limitations under the License.
+ *
+ * When distributing Covered Code, include this CDDL HEADER in each
+ * file and include the reference to
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+ * add the following below this CDDL HEADER, with the fields enclosed
+ * by brackets "[]" replaced with your own identifying information:
+ *      Portions Copyright [yyyy] [name of copyright owner]
+ *
+ *
+ * Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+-->
+<Policy id='#ID#POLICY:Custom-IdMAccountPolicy' name='Custom - IdM Account Policy' class='com.waveset.policy.LighthouseAccountPolicy'>
+  <Description>A policy used to demonstrate Identity Manager functionality</Description>
+  <GeoAttributes>  <Object>
+    <Attribute name='UI_LOGIN_CONFIG_DISPLAY_NAME_ALL_INTERFACES'>
+      <Object>
+        <Attribute name='questionAllowUserSupplied' value='false'/>
+        <Attribute name='questionEnforcePolicyAtLogin' value='false'/>
+        <Attribute name='questionMaxFailedLoginCount'>
+          <Integer>3</Integer>
+        </Attribute>
+        <Attribute name='questionPolicy' value='All'/>
+        <Attribute name='questionRandomCount'>
+          <Integer>1</Integer>
+        </Attribute>
+        <Attribute name='questionRoundRobinIndex'>
+          <Integer>0</Integer>
+        </Attribute>
+        <Attribute name='questions'>
+          <List>
+          </List>
+        </Attribute>
+      </Object>
+    </Attribute>
+    <Attribute name='UI_LOGIN_CONFIG_DISPLAY_NAME_USER_INTERFACE'>
+      <Object>
+        <Attribute name='questionAllowUserSupplied' value='false'/>
+        <Attribute name='questionEnforcePolicyAtLogin' value='true'/>
+        <Attribute name='questionMaxFailedLoginCount'>
+          <Integer>3</Integer>
+        </Attribute>
+        <Attribute name='questionPolicy' value='All'/>
+        <Attribute name='questionRandomCount'>
+          <Integer>1</Integer>
+        </Attribute>
+        <Attribute name='questions'>
+          <List>
+            <Question id='#ID#MothersMaiden'>Mothers Maiden Name</Question>
+            <Question id='#ID#CityWhereBorn'>City you were born</Question>
+            <Question id='#ID#Last4'>Last 4 digits of Frequent Flyer</Question>
+          </List>
+        </Attribute>
+      </Object>
+    </Attribute>
+    <Attribute name='accountIdPolicy'>
+      <ObjectRef type='Policy' name='Custom - Account Id Policy'/>
+    </Attribute>
+    <Attribute name='accountLockExpiry'/>
+    <Attribute name='idSource' value='user'/>
+    <Attribute name='passwordExpiry'/>
+    <Attribute name='passwordExpiryWarning'/>
+    <Attribute name='passwordMaxFailedLoginCount'>
+      <Integer>0</Integer>
+    </Attribute>
+    <Attribute name='passwordPolicy'>
+      <ObjectRef type='Policy' name='Custom - Password Policy'/>
+    </Attribute>
+    <Attribute name='passwordResetCheck' value='immediate'/>
+    <Attribute name='passwordResetLimit'>
+      <Integer>0</Integer>
+    </Attribute>
+    <Attribute name='passwordResetLimitPeriod'/>
+    <Attribute name='passwordSource' value='user'/>
+    <Attribute name='previousLoginInterface' value='UI_LOGIN_CONFIG_DISPLAY_NAME_USER_INTERFACE'/>
+    <Attribute name='questionAllowUserSupplied' value='false'/>
+    <Attribute name='questionEnforcePolicyAtLogin' value='true'/>
+    <Attribute name='questionMaxFailedLoginCount'>
+      <Integer>3</Integer>
+    </Attribute>
+    <Attribute name='questionPolicy' value='All'/>
+    <Attribute name='questionRandomCount'>
+      <Integer>1</Integer>
+    </Attribute>
+    <Attribute name='questionRoundRobinIndex'>
+      <Integer>0</Integer>
+    </Attribute>
+    <Attribute name='questions'>
+      <List>
+            <Question id='#ID#MothersMaiden'>Mothers Maiden Name</Question>
+            <Question id='#ID#CityWhereBorn'>City you were born</Question>
+            <Question id='#ID#Last4'>Last 4 digits of Frequent Flyer</Question>
+      </List>
+    </Attribute>
+    <Attribute name='resetOption' value='permanent'/>
+    <Attribute name='selectedLoginInterface' value='UI_LOGIN_CONFIG_DISPLAY_NAME_USER_INTERFACE'/>
+    <Attribute name='tempPasswordExpiry'/>
+    <Attribute name='typeDisplayString' value='_FM_LIGHTHOUSE_POLICY_FORM_DISPLAY_TYPE'/>
+    <Attribute name='typeString' value='Lighthouse account'/>
+  </Object>
+</GeoAttributes>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#All' name='All'/>
+  </MemberObjectGroups>
+</Policy>
+

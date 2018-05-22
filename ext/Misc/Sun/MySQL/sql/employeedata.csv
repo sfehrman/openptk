@@ -1,0 +1,543 @@
+uniqueid,org,manager,email,lastname,firstname,telephone,location   
+-----,-----------
+aa10127,Corporate Executive,sa15346,Alice.Adams@openptk.com,Adams,Alice,303-191-5506,loc34
+ra65029,Information Systems,rb5068,Richard.Adler@openptk.com,Adler,Richard,303-364-1432,loc37
+pa10130,Customer Service,dl9637,Peter.Ahern@openptk.com,Ahern,Peter,303-982-8764,loc30
+sa69620,Customer Relations,gm84036,Saherish.Akram@openptk.com,Akram,Saherish,303-571-6306,loc31
+ha4922,Customer Relations,lj39201,Helena.Allis@openptk.com,Allis,Helena,303-564-8680,loc33
+aa4427,Corporate Executive,sa15346,Amy.Anderson@openptk.com,Anderson,Amy,303-191-5506,loc32
+sa15346,Corporate Executive,ITAdministrator,Scott.Anderson@openptk.com,Anderson,Scott,303-191-5506,loc34
+ja1324,Corporate Executive,sa15346,John.Andrews@openptk.com,Andrews,John,303-191-5506,loc35
+ma863,Procurement,lm31932,Marc.Angoulvent@openptk.com,Angoulvent,Marc,303-257-8485,loc36
+da47195,Marketing,jm7605,Douglas.Armstrong@openptk.com,Armstrong,Douglas,303-979-7979,loc37
+bb10310,Corporate Executive,sa15346,Ben.Bach@openptk.com,Bach,Ben,303-191-5506,loc38
+rb5068,Information Systems,aa10127,Robert.Bahr@openptk.com,Bahr,Robert,303-191-5506,loc39
+ab14156,Benefits,dm11050,Angela.Baker@openptk.com,Baker,Angela,303-899-4914,loc30
+bb84946,Corporate Executive,sa15346,Bob.Baker@openptk.com,Baker,Bob,303-191-5506,loc31
+lb5722,Credit,fm50746,Luisa.Ballestar.March@openptk.com,Ballestar March,Luisa,303-304-8635,loc32
+tb6035,Corporate Executive,sa15346,Ted.Banks@openptk.com,Banks,Ted,303-191-5506,loc33
+rb11668,Sales,aw89027,Rachael.Barker@openptk.com,Barker,Rachael,303-871-6231,loc34
+jb5392,Mortgage,ja1324,Jim.Barnes@openptk.com,Barnes,Jim,303-764-4862,loc35
+mb11644,Customer Service,dl9637,Martin.Barrett@openptk.com,Barrett,Martin,303-640-5289,loc36
+db8800,Sales,aw89027,David.Barry@openptk.com,Barry,David,303-744-6092,loc37
+pb87682,Customer Relations,lj39201,Patrick.Barry@openptk.com,Barry,Patrick,303-461-9937,loc38
+db4532,Corporate Workplace,nc6214,Daniel.Bassett@openptk.com,Bassett,Daniel,303-381-6962,loc39
+eb83526,Customer Service,dl9637,Eimear.Bell@openptk.com,Bell,Eimear,303-722-3900,loc30
+ab24717,Customer Relations,gm84036,Anne.Bennett@openptk.com,Bennett,Anne,303-312-3821,loc31
+fb9582,Customer Relations,lj39201,Federica.Biancoli@openptk.com,Biancoli,Federica,303-322-1654,loc32
+jb15621,Services,lh9189,Jamie.Bignal@openptk.com,Bignal,Jamie,303-977-6708,loc33
+ab37603,Investment Banking,sh9168,Allan.Birney@openptk.com,Birney,Allan,303-910-4987,loc34
+jb8578,Services,lh9189,John.Paul.Boland@openptk.com,Boland,John Paul,303-587-9939,loc35
+mb63289,IT Compliance,rh6300,Michelle.Boland@openptk.com,Boland,Michelle,303-421-2578,loc36
+rb28628,Corporate Workplace,lr11655,Rita.Bonass@openptk.com,Bonass,Rita,303-738-0436,loc37
+pb14724,Credit,fm50746,Piotr.Boruc@openptk.com,Boruc,Piotr,303-874-1549,loc38
+db60825,Investment Banking,sh9168,Denise.Boyd@openptk.com,Boyd,Denise,303-695-2896,loc39
+cb5981,Corporate Executive,sa15346,Chuck.Boyle@openptk.com,Boyle,Chuck,303-191-5506,loc30
+jb2284,Customer Relations,gm84036,Jennifer.Brady@openptk.com,Brady,Jennifer,303-868-8785,loc31
+cb12677,Customer Relations,gm84036,Catherine.Branagan@openptk.com,Branagan,Catherine,303-983-1995,loc32
+wb20370,Corporate Workplace,gm51383,Walter.Brazil@openptk.com,Brazil,Walter,303-791-4919,loc33
+db64628,Customer Relations,gm84036,Deirdre.Breheny@openptk.com,Breheny,Deirdre,303-227-9009,loc35
+cb4054,Customer Relations,gm84036,Caroline.Brennan@openptk.com,Brennan,Caroline,303-185-8146,loc34
+eb59755,Procurement,lm31932,Edel.Brennan@openptk.com,Brennan,Edel,303-912-7637,loc36
+kb30671,Services,lh9189,Karl.Brennan@openptk.com,Brennan,Karl,303-471-6883,loc37
+pb82129,Investment Banking,sh9168,Paula.Brennan@openptk.com,Brennan,Paula,303-416-2999,loc38
+tb64573,Procurement,lm31932,Tracy.Brennan@openptk.com,Brennan,Tracy,303-392-7717,loc39
+kb69243,Customer Service,dl9637,Kathy.Breslin@openptk.com,Breslin,Kathy,303-581-4373,loc30
+sb85670,Corporate Workplace,em66961,Stephanie.Brophy@openptk.com,Brophy,Stephanie,303-740-3957,loc31
+bb84188,Information Systems,rb5068,Barbara.Browne@openptk.com,Browne,Barbara,303-927-3229,loc31
+eb83970,Marketing,jm7605,Emer.Browne@openptk.com,Browne,Emer,303-754-6572,loc33
+lb30361,Marketing,jm7605,Louise.Browne@openptk.com,Browne,Louise,303-387-5625,loc34
+cb8849,Services,lh9189,Catriona.Buckley@openptk.com,Buckley,Catriona,303-661-3536,loc35
+ib87290,Investment Banking,sh9168,Ian.Buckley@openptk.com,Buckley,Ian,303-655-5279,loc37
+ab15357,Services,cg14655,Andrew.Budenberg@openptk.com,Budenberg,Andrew,303-524-7649,loc38
+db24731,Legal,je61475,Diana.Burke@openptk.com,Burke,Diana,303-598-5048,loc38
+rb68111,Investment Banking,sh9168,Ronan.Burke@openptk.com,Burke,Ronan,303-354-0097,loc30
+ab20082,Customer Service,dl9637,Anne.Butler@openptk.com,Butler,Anne,303-592-5234,loc31
+vb17261,Customer Service,dl9637,Vincent.Butler@openptk.com,Butler,Vincent,303-193-8786,loc38
+cb58796,Investment Banking,sh9168,Carolyn.Byrne@openptk.com,Byrne,Carolyn,303-343-8995,loc33
+jb60729,Legal,je61475,Joanne.Byrne@openptk.com,Byrne,Joanne,303-864-5777,loc34
+sb60409,Investment Banking,sh9168,Stephen.Byrne@openptk.com,Byrne,Stephen,303-901-1687,loc35
+fc23334,Services,lh9189,Fiona.Cahill@openptk.com,Cahill,Fiona,303-535-4384,loc34
+dc30939,Corporate Workplace,co11173,Donal.Campion@openptk.com,Campion,Donal,303-415-7041,loc35
+fc51218,Legal,je61475,Fergus.Campion@openptk.com,Campion,Fergus,303-492-5170,loc34
+lc61636,Customer Relations,gm84036,Laura.Cannon@openptk.com,Cannon,Laura,303-310-2949,loc36
+ec17271,Legal,je61475,Elaine.Carpenter@openptk.com,Carpenter,Elaine,303-790-3205,loc38
+nc6214,Corporate Workplace,co11173,Niall.Carter@openptk.com,Carter,Niall,303-846-2225,loc39
+pc8589,Credit,fm50746,Patrick.Casey@openptk.com,Casey,Patrick,303-891-9822,loc30
+ac39435,Customer Service,dl9637,Anna.Cassidy@openptk.com,Cassidy,Anna,303-879-0903,loc31
+mc85795,Legal,je61475,Maura.Cassidy@openptk.com,Cassidy,Maura,303-566-4964,loc32
+cc5164,Corporate Workplace,co11173,Caroline.Caulfield@openptk.com,Caulfield,Caroline,303-182-2740,loc33
+sc69659,Corporate Workplace,kc13254,Sarah.Jane.Chaney@openptk.com,Chaney,Sarah Jane,303-763-8393,loc34
+jc5104,Sales,aw89027,John.Clarke@openptk.com,Clarke,John,303-239-9594,loc39
+lc83855,Information Systems,rb5068,Linda.Clarke@openptk.com,Clarke,Linda,303-870-9558,loc36
+ac6410,Legal,je61475,Amy.Colley@openptk.com,Colley,Amy,303-809-3013,loc37
+sc13493,Investment Banking,sh9168,Stuart.Collins@openptk.com,Collins,Stuart,303-248-2654,loc38
+kc6801,Benefits,dm11050,Kevin.Connaughton@openptk.com,Connaughton,Kevin,303-229-3208,loc39
+sc14065,Procurement,lm31932,Sean.Connolly@openptk.com,Connolly,Sean,303-319-3096,loc30
+bc81070,Customer Relations,gm84036,Ben.Conroy@openptk.com,Conroy,Ben,303-977-1973,loc31
+jc61605,Corporate Workplace,lr11655,Joseph.Conroy@openptk.com,Conroy,Joseph,303-964-0380,loc32
+bc89607,Marketing,jm7605,Barry.Conway@openptk.com,Conway,Barry,303-944-0946,loc33
+mc81572,Legal,je61475,Mark.Conway@openptk.com,Conway,Mark,303-250-1486,loc34
+mc88873,Customer Relations,gm84036,Mark.Conway@openptk.com,Conway,Mark,303-585-5626,loc35
+ec15596,Legal,je61475,Ellen.Cooke@openptk.com,Cooke,Ellen,303-277-3519,loc36
+dc10221,IT Compliance,rh6300,Denise.Cooling@openptk.com,Cooling,Denise,303-698-6659,loc37
+kc13254,Corporate Workplace,co11173,Katie.Corless@openptk.com,Corless,Katie,303-507-1834,loc38
+ac14281,Corporate Workplace,em66961,Andrew.Corr@openptk.com,Corr,Andrew,303-178-5697,loc39
+cc15497,Mortgage,jb5392,Colm.Corrigan@openptk.com,Corrigan,Colm,303-958-9446,loc35
+wc80021,Services,lh9189,Willie.Costello@openptk.com,Costello,Willie,303-540-6350,loc30
+ec35204,Customer Service,dl9637,Eamonn.Costelloe@openptk.com,Costelloe,Eamonn,303-379-2184,loc31
+nc4338,Customer Service,dl9637,Neal.Coughlan@openptk.com,Coughlan,Neal,303-540-1279,loc32
+ac69663,Information Systems,rb5068,Alan.Cox@openptk.com,Cox,Alan,303-444-2852,loc33
+pc18092,Benefits,dm11050,Pauline.Coyne@openptk.com,Coyne,Pauline,303-938-6884,loc34
+pc19956,Credit,fm50746,Peter.Coyne@openptk.com,Coyne,Peter,303-150-0053,loc35
+sc17640,Corporate Workplace,nc6214,Sandra.Craig@openptk.com,Craig,Sandra,303-102-3964,loc36
+gc84089,Benefits,dm11050,Garrett.Creagh@openptk.com,Creagh,Garrett,303-801-3464,loc37
+lc9974,IT Compliance,rh6300,Laura.Creagh@openptk.com,Creagh,Laura,303-165-8655,loc38
+jc655,Credit,fm50746,John.Cronin@openptk.com,Cronin,John,303-339-3554,loc39
+kc6591,Customer Service,dl9637,Kieran.Cronin@openptk.com,Cronin,Kieran,303-539-1855,loc30
+mc10982,Information Systems,rb5068,Mark.Cronin@openptk.com,Cronin,Mark,303-148-6947,loc31
+dc68048,Corporate Workplace,lr11655,David.Crowe@openptk.com,Crowe,David,303-294-8951,loc32
+ac69686,Credit,fm50746,Agnes.Csorgo@openptk.com,Csorgo,Agnes,303-360-2595,loc33
+dc14969,Customer Relations,gm84036,Denis.Culligan@openptk.com,Culligan,Denis,303-657-9962,loc34
+sc84874,Customer Relations,gm84036,Sinead.Cummins@openptk.com,Cummins,Sinead,303-559-4893,loc35
+cc60203,IT Compliance,rh6300,Colm.Cunningham@openptk.com,Cunningham,Colm,303-365-4309,loc36
+lc82740,Information Systems,rb5068,Lynn.Cunningham@openptk.com,Cunningham,Lynn,303-234-2453,loc37
+cc2752,IT Compliance,rh6300,Catherine.Cutchey@openptk.com,Cutchey,Catherine,303-737-9234,loc38
+rd63723,Investment Banking,sh9168,Rakesh.D'Souza@openptk.com,D'Souza,Rakesh,303-689-2027,loc39
+jd37300,Customer Service,dl9637,Julia.Dallaghan@openptk.com,Dallaghan,Julia,303-313-4944,loc30
+jd64567,Services,lh9189,Jonathan.Dalton@openptk.com,Dalton,Jonathan,303-822-7712,loc31
+nd14162,IT Compliance,rh6300,Niall.Daly@openptk.com,Daly,Niall,303-820-8496,loc32
+td6386,Credit,fm50746,Tomasz.Damzyn@openptk.com,Damzyn,Tomasz,303-157-9077,loc33
+ad9156,Marketing,jm7605,Antonio.De.Miguel@openptk.com,De Miguel,Antonio,303-886-7389,loc35
+md12951,Mortgage,jb5392,Mary.Delahunty@openptk.com,Delahunty,Mary,303-212-4534,loc36
+bd15601,Customer Relations,gm84036,Brian.DeLappe@openptk.com,DeLappe,Brian,303-530-1216,loc37
+jd1266,Credit,fm50746,Julie.Delchambre@openptk.com,Delchambre,Julie,303-158-2140,loc38
+pd17844,Sales,aw89027,Paula.Denvir@openptk.com,Denvir,Paula,303-716-3736,loc39
+md6528,IT Compliance,rh6300,Michelle.Derwin@openptk.com,Derwin,Michelle,303-648-6096,loc31
+nd14159,Services,cg14655,Nashila.Desmond@openptk.com,Desmond,Nashila,303-560-4278,loc32
+ad86066,Customer Relations,gm84036,Aidan.Dillon@openptk.com,Dillon,Aidan,303-682-6494,loc33
+rd87373,Marketing,jm7605,Roisin.Dixon@openptk.com,Dixon,Roisin,303-146-9575,loc37
+gd8439,Marketing,jm7605,Garett.Dodrill@openptk.com,Dodrill,Garett,303-404-4170,loc30
+ad23073,Investment Banking,sh9168,Alan.Doherty@openptk.com,Doherty,Alan,303-883-9975,loc36
+sd83073,Benefits,dm11050,Sally.Anne.Dolan@openptk.com,Dolan,Sally Anne,303-557-8446,loc37
+sd58742,Customer Relations,lj39201,Sharon.Dolan@openptk.com,Dolan,Sharon,303-190-2778,loc38
+jd15764,Corporate Workplace,kc13254,John.Donnellan@openptk.com,Donnellan,John,303-671-2464,loc31
+md38042,Corporate Workplace,gm51383,Michelle.Donnelly@openptk.com,Donnelly,Michelle,303-644-0740,loc30
+td13259,Services,cg14655,Tara.Donnelly@openptk.com,Donnelly,Tara,303-681-8993,loc31
+sd15640,Corporate Workplace,nc6214,Suzanne.Dooner@openptk.com,Dooner,Suzanne,303-364-8387,loc32
+ad12715,Investment Banking,sh9168,Aileen.Doyle@openptk.com,Doyle,Aileen,303-863-8451,loc33
+dd50176,Customer Relations,gm84036,David.Doyle@openptk.com,Doyle,David,303-696-2882,loc34
+nd80029,Information Systems,rb5068,Natalie.Driver@openptk.com,Driver,Natalie,303-558-7754,loc33
+ad6391,Credit,fm50746,Anna.Duchnowska@openptk.com,Duchnowska,Anna,303-398-1717,loc36
+sd2936,Investment Banking,sh9168,Sharon.Duffy@openptk.com,Duffy,Sharon,303-856-9568,loc37
+ld87308,IT Compliance,rh6300,Liza.Dunne@openptk.com,Dunne,Liza,303-449-0866,loc31
+nd91582,Customer Relations,gm84036,Niamh.Dunne@openptk.com,Dunne,Niamh,303-391-5481,loc32
+wd63724,Services,lh9189,William.Dwight@openptk.com,Dwight,William,303-537-2204,loc31
+td8756,Legal,je61475,Tim.Dyball@openptk.com,Dyball,Tim,303-693-8627,loc30
+kd12154,Credit,fm50746,Katarzyna.Dyzewska@openptk.com,Dyzewska,Katarzyna,303-662-4999,loc39
+je61475,Legal,aa4427,Jamie.Easton@openptk.com,Easton,Jamie,303-183-4938,loc38
+me81307,Customer Service,dl9637,Mark.Edge@openptk.com,Edge,Mark,303-273-2693,loc34
+re68533,Investment Banking,sh9168,Roland.Emmans@openptk.com,Emmans,Roland,303-252-6660,loc33
+te84587,Customer Relations,lj39201,Timothy.Emmott@openptk.com,Emmott,Timothy,303-361-2187,loc36
+df14463,Services,lh9189,Daniel.Farley@openptk.com,Farley,Daniel,303-351-2503,loc37
+pf50861,Legal,je61475,Peter.Farmer@openptk.com,Farmer,Peter,303-746-6381,loc38
+af28953,Customer Service,dl9637,Agnes.Farrell@openptk.com,Farrell,Agnes,303-925-0383,loc39
+cf80344,Marketing,jm7605,Cathie.Farrell@openptk.com,Farrell,Cathie,303-497-1862,loc30
+jf81980,Sales,aw89027,Joseph.Farrell@openptk.com,Farrell,Joseph,303-251-2010,loc31
+kf30751,Investment Banking,sh9168,Kathryn.Farrell@openptk.com,Farrell,Kathryn,303-783-6928,loc32
+af14389,Benefits,dm11050,Aislinn.Farrelly@openptk.com,Farrelly,Aislinn,303-280-6659,loc33
+ef65674,IT Compliance,rh6300,Eveline.Favre@openptk.com,Favre,Eveline,303-479-3825,loc34
+mf6248,IT Compliance,rh6300,Michelle.Fay@openptk.com,Fay,Michelle,303-986-0710,loc35
+df15481,Investment Banking,sh9168,Diana.Fedorovica@openptk.com,Fedorovica,Diana,303-679-1864,loc36
+pf17664,Mortgage,jb5392,Pauline.Feighery@openptk.com,Feighery,Pauline,303-909-6021,loc37
+jf86035,Investment Banking,sh9168,Julie.Anne.Fennell@openptk.com,Fennell,Julie Anne,303-763-7593,loc38
+sf20697,Sales,aw89027,Sandra.Fenner@openptk.com,Fenner,Sandra,303-668-2609,loc39
+jf10491,Credit,fm50746,Joanna.Fiszer@openptk.com,Fiszer,Joanna,303-783-7289,loc30
+cf17317,Marketing,jm7605,Clare.Fitzgerald@openptk.com,Fitzgerald,Clare,303-243-2385,loc30
+af86856,Customer Relations,gm84036,Audrey.Fitzsimons@openptk.com,Fitzsimons,Audrey,303-936-0717,loc32
+gf20848,Information Systems,rb5068,Gerard.Flaherty@openptk.com,Flaherty,Gerard,303-757-4425,loc33
+cf83098,Investment Banking,sh9168,Claire.Flavin@openptk.com,Flavin,Claire,303-144-0930,loc34
+sf17669,Benefits,dm11050,Seamus.Fleming@openptk.com,Fleming,Seamus,303-172-7427,loc35
+sf13896,Investment Banking,sh9168,Shay.Fleming@openptk.com,Fleming,Shay,303-875-7622,loc36
+ff61781,Sales,aw89027,Fiona.Flood@openptk.com,Flood,Fiona,303-360-5076,loc37
+vf6266,Marketing,jm7605,Vincent.Flood@openptk.com,Flood,Vincent,303-100-9788,loc38
+af67981,Services,lh9189,Aidan.Flynn@openptk.com,Flynn,Aidan,303-518-3856,loc39
+jf50422,Information Systems,rb5068,John.Flynn@openptk.com,Flynn,John,303-355-7776,loc30
+sf2902,Sales,aw89027,Sinead.Fogarty@openptk.com,Fogarty,Sinead,303-733-4270,loc31
+cf10349,Services,lh9189,Colm.Foley@openptk.com,Foley,Colm,303-386-6056,loc32
+bf9744,IT Compliance,rh6300,Brian.Foran@openptk.com,Foran,Brian,303-944-6088,loc33
+mf11994,Services,lh9189,Maree.Forbes@openptk.com,Forbes,Maree,303-126-3462,loc34
+vf87296,Corporate Workplace,gm51383,Vincent.Foster@openptk.com,Foster,Vincent,303-745-3767,loc35
+sf4346,Credit,fm50746,Sebastien.Francois@openptk.com,Francois,Sebastien,303-481-2792,loc36
+af10320,Customer Service,dl9637,Alice.Friedrich@openptk.com,Friedrich,Alice,303-912-4549,loc37
+tf5767,Information Systems,rb5068,Toby.Furnivall@openptk.com,Furnivall,Toby,303-196-3504,loc38
+mf247,Procurement,lm31932,Marie-Solange.Fusil@openptk.com,Fusil,Marie-Solange,303-260-4315,loc39
+rg87530,Marketing,jm7605,Rosemary.Gaine@openptk.com,Gaine,Rosemary,303-429-3028,loc32
+ag8633,Services,lh9189,Amy.Galesa@openptk.com,Galesa,Amy,303-575-8549,loc39
+cg59849,Marketing,jm7605,Cillian.Gallagher@openptk.com,Gallagher,Cillian,303-910-1433,loc32
+ug12729,Mortgage,jb5392,Una.Gallagher@openptk.com,Gallagher,Una,303-595-2052,loc33
+fg23634,Customer Relations,gm84036,Fiona.Galvin@openptk.com,Galvin,Fiona,303-564-5145,loc34
+rg64680,Mortgage,jb5392,Rachel.Ganly@openptk.com,Ganly,Rachel,303-816-3181,loc35
+cg31835,Investment Banking,sh9168,Conor.Geary@openptk.com,Geary,Conor,303-688-4361,loc36
+sg60935,Corporate Workplace,nc6214,Sharon.Geraghty@openptk.com,Geraghty,Sharon,303-261-0224,loc37
+ng84098,Information Systems,rb5068,Nicola.Gilchrist@openptk.com,Gilchrist,Nicola,303-365-3750,loc38
+lg83716,Customer Service,dl9637,Laura.Gilligan@openptk.com,Gilligan,Laura,303-778-2671,loc39
+mg7259,Marketing,jm7605,Mary.Gleeson@openptk.com,Gleeson,Mary,303-854-8062,loc30
+pg10698,Corporate Workplace,gm51383,Paula.Glynn@openptk.com,Glynn,Paula,303-949-4460,loc31
+kg11948,Procurement,lm31932,Katharina.Goerlach@openptk.com,Goerlach,Katharina,303-762-0479,loc35
+mg84871,Mortgage,jb5392,Maria.Greaney@openptk.com,Greaney,Maria,303-164-8912,loc33
+cg14655,Services,aa4427,Christopher.Green@openptk.com,Green,Christopher,303-144-6845,loc34
+kg50219,IT Compliance,rh6300,Kellie.Greene@openptk.com,Greene,Kellie,303-125-8460,loc33
+fg83882,Information Systems,rb5068,Finbarr.Griffin@openptk.com,Griffin,Finbarr,303-541-8422,loc32
+ag80472,Customer Relations,lj39201,Adrian.Groarke@openptk.com,Groarke,Adrian,303-354-8736,loc34
+sg5045,Corporate Workplace,kc13254,Sarah.Grogan@openptk.com,Grogan,Sarah,303-902-7246,loc35
+kg7585,Legal,je61475,Katarzyna.Gruszka@openptk.com,Gruszka,Katarzyna,303-766-5986,loc37
+jg13197,Marketing,jm7605,Jan.Gyurik@openptk.com,Gyurik,Jan,303-450-1404,loc30
+jh7164,Sales,aw89027,Jennifer.Hallinan@openptk.com,Hallinan,Jennifer,303-967-5124,loc36
+ah7875,Marketing,jm7605,Amy.Hand@openptk.com,Hand,Amy,303-857-5371,loc37
+lh85356,Investment Banking,sh9168,Lisa.Hand@openptk.com,Hand,Lisa,303-746-2418,loc38
+mh20083,Sales,aw89027,Margaret.Hand@openptk.com,Hand,Margaret,303-975-3507,loc39
+dh88687,IT Compliance,rh6300,Donal.Hanlon@openptk.com,Hanlon,Donal,303-342-2845,loc30
+sh9168,Investment Banking,bb84946,Sandra.Hannigan@openptk.com,Hannigan,Sandra,303-431-8875,loc32
+nh36713,Customer Relations,lj39201,Norah.Hanratty@openptk.com,Hanratty,Norah,303-504-6415,loc39
+rh6300,IT Compliance,cb5981,Richard.Harker@openptk.com,Harker,Richard,303-136-3344,loc38
+dh10222,Information Systems,rb5068,Donald.Harrington@openptk.com,Harrington,Donald,303-128-0721,loc37
+ah1400,Services,cg14655,Aidan.Hayes@openptk.com,Hayes,Aidan,303-263-9121,loc36
+mh80812,Corporate Workplace,gm51383,Miriam.Hayes@openptk.com,Hayes,Miriam,303-296-4451,loc32
+ch50194,Customer Relations,gm84036,Claire.Heaslip@openptk.com,Heaslip,Claire,303-735-3698,loc33
+jh85779,Customer Service,dl9637,Joseph.Heeley@openptk.com,Heeley,Joseph,303-535-5409,loc34
+ph15110,Customer Relations,gm84036,Peter.Hegarty@openptk.com,Hegarty,Peter,303-165-1273,loc35
+lh69431,Procurement,lm31932,Linda.Hickey@openptk.com,Hickey,Linda,303-739-5692,loc36
+th9453,Benefits,dm11050,Thomas.Higgins@openptk.com,Higgins,Thomas,303-512-7991,loc37
+dh88111,Information Systems,rb5068,Diane.Hodgson@openptk.com,Hodgson,Diane,303-480-2074,loc37
+jh651,Services,cg14655,Joerg.Hoermann@openptk.com,Hoermann,Joerg,303-817-8490,loc30
+rh37075,Legal,je61475,Ruth.Hogan@openptk.com,Hogan,Ruth,303-314-0453,loc39
+th6499,Credit,fm50746,Tamas.Horvath@openptk.com,Horvath,Tamas,303-103-4300,loc31
+mh60891,Legal,je61475,Michelle.Howe@openptk.com,Howe,Michelle,303-558-8674,loc33
+sh88685,Information Systems,rb5068,Simon.Howley@openptk.com,Howley,Simon,303-165-3335,loc33
+lh9189,Services,aa4427,Leo.Hughes@openptk.com,Hughes,Leo,303-226-5654,loc37
+rh67437,Services,lh9189,Raja.Hussain@openptk.com,Hussain,Raja,303-208-0840,loc38
+gh10287,Customer Relations,lj39201,Gavin.Husselbury@openptk.com,Husselbury,Gavin,303-881-7285,loc39
+sh10875,Mortgage,jb5392,Sarah.Hynes@openptk.com,Hynes,Sarah,303-964-6810,loc34
+gj11966,Services,lh9189,Garth.Jackson@openptk.com,Jackson,Garth,303-602-6709,loc30
+rj67536,Corporate Workplace,dc30939,Robert.Jackson@openptk.com,Jackson,Robert,303-825-4627,loc31
+vj23090,Legal,je61475,Valerie.Jameson@openptk.com,Jameson,Valerie,303-925-0072,loc32
+mj6390,Credit,fm50746,Mirek.Januszko@openptk.com,Januszko,Mirek,303-109-7779,loc33
+lj39201,Customer Relations,gm84036,Lynn.Johns@openptk.com,Johns,Lynn,303-901-8068,loc35
+sj4599,Procurement,lm31932,Sharon.Jones@openptk.com,Jones,Sharon,303-609-2042,loc34
+aj2171,Sales,aw89027,Anne.Joyce@openptk.com,Joyce,Anne,303-927-8494,loc35
+kj4794,Corporate Workplace,em66961,Keith.Joyce@openptk.com,Joyce,Keith,303-677-5782,loc36
+bk13212,Credit,fm50746,Birgit.Kaiser@openptk.com,Kaiser,Birgit,303-249-3969,loc34
+ak69367,Marketing,jm7605,Alan.Kane@openptk.com,Kane,Alan,303-670-4759,loc36
+mk39210,Legal,je61475,Mary.Kane@openptk.com,Kane,Mary,303-748-3756,loc36
+sk15653,Information Systems,rb5068,Stephen.Kane@openptk.com,Kane,Stephen,303-705-7298,loc37
+ak82086,Procurement,lm31932,Andrea.Kavanagh@openptk.com,Kavanagh,Andrea,303-572-5918,loc38
+tk65839,Corporate Workplace,kc13254,Thomas.Kavanagh@openptk.com,Kavanagh,Thomas,303-155-6044,loc39
+ck23889,Customer Relations,gm84036,Colm.Keane@openptk.com,Keane,Colm,303-618-8267,loc32
+ck59238,Benefits,dm11050,Claire.Kearney@openptk.com,Kearney,Claire,303-988-3412,loc31
+dk85468,Information Systems,rb5068,David.Kearney@openptk.com,Kearney,David,303-546-8227,loc32
+lk7177,Sales,aw89027,Laura.Kearney@openptk.com,Kearney,Laura,303-321-7640,loc33
+mk11920,Services,lh9189,Mary.Kearney@openptk.com,Kearney,Mary,303-608-3661,loc34
+kk80198,Information Systems,rb5068,Kevin.Keating@openptk.com,Keating,Kevin,303-382-0504,loc35
+jk50709,Marketing,jm7605,Jennifer.Keegan@openptk.com,Keegan,Jennifer,303-219-4279,loc36
+tk8128,Investment Banking,sh9168,Thomas.Keir@openptk.com,Keir,Thomas,303-918-8036,loc37
+kk69329,Customer Service,dl9637,Karon.Kells@openptk.com,Kells,Karon,303-153-4820,loc38
+ak9741,Sales,aw89027,Aisling.Kelly@openptk.com,Kelly,Aisling,303-982-6552,loc39
+ck85826,Procurement,lm31932,Caroline.Kelly@openptk.com,Kelly,Caroline,303-729-1610,loc31
+fk69498,Marketing,jm7605,Fergal.Kelly@openptk.com,Kelly,Fergal,303-193-1993,loc32
+jk68865,Services,lh9189,Juan.Kelly@openptk.com,Kelly,Juan,303-588-9159,loc30
+mk4144,Marketing,jm7605,Marian.Kelly@openptk.com,Kelly,Marian,303-318-9183,loc33
+sk39794,Benefits,dm11050,Suzanne.Kelly@openptk.com,Kelly,Suzanne,303-892-5578,loc34
+ck15868,Sales,aw89027,Christina.Kennedy@openptk.com,Kennedy,Christina,303-885-8604,loc35
+ck7940,Customer Relations,gm84036,Carla.Kenny@openptk.com,Kenny,Carla,303-504-0195,loc36
+yk6180,Customer Relations,gm84036,Yvonne.Kenny@openptk.com,Kenny,Yvonne,303-310-5069,loc37
+gk98,Credit,fm50746,Greg.Kenward@openptk.com,Kenward,Greg,303-485-9627,loc38
+ak6798,IT Compliance,rh6300,Aoife.Keogh@openptk.com,Keogh,Aoife,303-346-9173,loc39
+mk1457,Investment Banking,sh9168,Marie-Claire.Kerrin@openptk.com,Kerrin,Marie-Claire,303-321-5345,loc30
+ak17703,Benefits,dm11050,Angela.Kinahan@openptk.com,Kinahan,Angela,303-505-3685,loc32
+ak84707,Investment Banking,sh9168,Anne.Marie.King@openptk.com,King,Anne Marie,303-961-4196,loc33
+lk50206,IT Compliance,rh6300,Lynda.Kinsella@openptk.com,Kinsella,Lynda,303-200-5010,loc34
+ck59364,IT Compliance,rh6300,Claire.Kirwan@openptk.com,Kirwan,Claire,303-569-0980,loc37
+gk6356,Marketing,jm7605,Grainne.Kirwan@openptk.com,Kirwan,Grainne,303-309-3008,loc36
+rk5433,Procurement,lm31932,Rikke.Kok@openptk.com,Kok,Rikke,303-283-7271,loc37
+yk68651,Procurement,lm31932,Yvonne.Kong@openptk.com,Kong,Yvonne,303-707-3001,loc38
+cl28636,Benefits,dm11050,Caroline.Ladrigan@openptk.com,Ladrigan,Caroline,303-530-8810,loc39
+rl85943,Services,lh9189,Robert.Lall@openptk.com,Lall,Robert,303-779-5294,loc30
+al50712,Information Systems,rb5068,Adrienne.Lalor@openptk.com,Lalor,Adrienne,303-294-0605,loc31
+dl8626,Benefits,dm11050,Deirdre.Lambe@openptk.com,Lambe,Deirdre,303-449-9175,loc31
+al9577,IT Compliance,rh6300,Ann-Marie.Lane@openptk.com,Lane,Ann-Marie,303-109-9577,loc32
+ml9572,Customer Relations,lj39201,Michael.Lanning@openptk.com,Lanning,Michael,303-849-1605,loc33
+sl9861,Customer Relations,gm84036,Sinead.Larkin@openptk.com,Larkin,Sinead,303-372-6305,loc34
+cl10220,Services,lh9189,Cronan.Lavelle@openptk.com,Lavelle,Cronan,303-616-5566,loc35
+sl11468,Information Systems,rb5068,Steve.Laws@openptk.com,Laws,Steve,303-834-0028,loc36
+sl17189,Customer Relations,gm84036,Sinead.Layden.Daly@openptk.com,Layden Daly,Sinead,303-502-0269,loc37
+dl9637,Customer Service,so65022,Delphine.Lazennec@openptk.com,Lazennec,Delphine,303-397-3939,loc38
+el14716,Investment Banking,sh9168,Emma.Leahy@openptk.com,Leahy,Emma,303-516-6651,loc32
+ml84043,Corporate Workplace,lr11655,Mark.Leneghan@openptk.com,Leneghan,Mark,303-915-7620,loc30
+al80175,IT Compliance,rh6300,Aisling.Leonard@openptk.com,Leonard,Aisling,303-701-5957,loc37
+pl10873,Credit,fm50746,Paula.Leonard@openptk.com,Leonard,Paula,303-163-6088,loc32
+vl9943,IT Compliance,rh6300,Virginie.Leutwiler@openptk.com,Leutwiler,Virginie,303-728-6063,loc33
+wl13581,Customer Service,dl9637,Wenrui.Li@openptk.com,Li,Wenrui,303-745-3937,loc34
+wl58818,Services,lh9189,Wendy.Liu@openptk.com,Liu,Wendy,303-714-1763,loc35
+dl67518,Investment Banking,sh9168,David.Lock@openptk.com,Lock,David,303-674-8284,loc38
+rl10416,Investment Banking,sh9168,Richard.Long@openptk.com,Long,Richard,303-755-3006,loc37
+cl17709,Legal,je61475,Caroline.Lowe@openptk.com,Lowe,Caroline,303-547-2508,loc38
+dl80059,Customer Relations,lj39201,David.Lowe@openptk.com,Lowe,David,303-775-4791,loc39
+jl39987,Customer Relations,gm84036,John.Lowry@openptk.com,Lowry,John,303-797-6368,loc31
+dl30568,Credit,fm50746,Diarmuid.Lucey@openptk.com,Lucey,Diarmuid,303-561-9915,loc35
+al6803,Information Systems,rb5068,Agnieszka.Ludwicka@openptk.com,Ludwicka,Agnieszka,303-932-0875,loc32
+gl59994,Marketing,jm7605,Gerard.Lynam@openptk.com,Lynam,Gerard,303-195-7835,loc33
+cl8132,Marketing,jm7605,Colin.Lynch@openptk.com,Lynch,Colin,303-589-1244,loc34
+rl59912,Legal,je61475,Ros.Lynch@openptk.com,Lynch,Ros,303-635-9991,loc35
+sl84384,Services,cg14655,Stephen.Lynch@openptk.com,Lynch,Stephen,303-201-7508,loc37
+al21804,Benefits,dm11050,Adrian.Lyons@openptk.com,Lyons,Adrian,303-316-5351,loc38
+km50469,Customer Relations,gm84036,Kerry.Mark.MacCarthy@openptk.com,MacCarthy,Kerry Mark,303-242-1415,loc39
+nm81669,Corporate Workplace,nc6214,Nora.MacKey@openptk.com,MacKey,Nora,303-615-2433,loc30
+mm14851,Marketing,jm7605,Mark.Mackin@openptk.com,Mackin,Mark,303-973-7891,loc31
+jm60767,Information Systems,rb5068,Joan.MacNamara@openptk.com,MacNamara,Joan,303-767-8064,loc32
+am6457,Credit,fm50746,Annick.Magermans@openptk.com,Magermans,Annick,303-513-3516,loc33
+mm18491,Corporate Workplace,nc6214,Mary.Maginn@openptk.com,Maginn,Mary,303-316-3969,loc34
+fm3611,Information Systems,rb5068,Frances.Maguire@openptk.com,Maguire,Frances,303-407-6939,loc35
+nm64454,Mortgage,jb5392,Niamh.Mahon@openptk.com,Mahon,Niamh,303-976-9003,loc39
+jm7605,Marketing,tb6035,John.Mahony@openptk.com,Mahony,John,303-235-6150,loc37
+gm8144,Corporate Workplace,nc6214,Gerard.Manning@openptk.com,Manning,Gerard,303-138-5613,loc38
+rm50388,Mortgage,ja1324,Rebecca.Manning@openptk.com,Manning,Rebecca,303-850-9653,loc39
+cm20309,Corporate Workplace,dc30939,Carol.Mannion@openptk.com,Mannion,Carol,303-561-0290,loc30
+lm80882,Customer Relations,gm84036,Lucy.Mansergh@openptk.com,Mansergh,Lucy,303-382-3420,loc31
+sm59753,Services,cg14655,Stuart.Marshall@openptk.com,Marshall,Stuart,303-628-3813,loc32
+em83863,Services,lh9189,Enda.Martin@openptk.com,Martin,Enda,303-127-2173,loc33
+sm51683,Sales,aw89027,Shane.Martin@openptk.com,Martin,Shane,303-265-1574,loc34
+dm14877,Customer Service,dl9637,Diane.Masterson@openptk.com,Masterson,Diane,303-405-3271,loc36
+jm6630,Customer Relations,gm84036,Jocelyne.Mboyo@openptk.com,Mboyo,Jocelyne,303-412-2549,loc37
+mm15647,Services,lh9189,Michael.Mc.Nally@openptk.com,Mc Nally,Michael,303-293-0141,loc35
+cm6576,IT Compliance,rh6300,Claire.McAdam@openptk.com,McAdam,Claire,303-891-7097,loc34
+fm50746,Credit,bb84946,Fergal.McAleavey@openptk.com,McAleavey,Fergal,303-412-0692,loc39
+dm21673,Customer Relations,lj39201,Daniel.McBrien@openptk.com,McBrien,Daniel,303-585-7481,loc30
+em14972,Sales,aw89027,Elizabeth.McCabe@openptk.com,McCabe,Elizabeth,303-583-8929,loc31
+jm65529,Information Systems,rb5068,Joanne.McCabe@openptk.com,McCabe,Joanne,303-674-1497,loc32
+em7603,Corporate Workplace,dc30939,Elaine.McCaffrey@openptk.com,McCaffrey,Elaine,303-593-4910,loc33
+cm37324,Customer Relations,lj39201,Ciaran.McCarron@openptk.com,McCarron,Ciaran,303-766-5312,loc34
+jm9860,Investment Banking,sh9168,John.McCarthy@openptk.com,McCarthy,John,303-734-0687,loc38
+lm90064,Sales,aw89027,Louise.McCarthy@openptk.com,McCarthy,Louise,303-981-8347,loc36
+nm9740,Sales,aw89027,Niamh.McCarthy@openptk.com,McCarthy,Niamh,303-204-5346,loc37
+gm86645,Marketing,jm7605,Gerard.McConnell@openptk.com,McConnell,Gerard,303-783-2864,loc39
+am65364,Legal,je61475,Ann.McCormack@openptk.com,McCormack,Ann,303-916-5144,loc39
+jm19723,IT Compliance,rh6300,John.McCormack@openptk.com,McCormack,John,303-639-7758,loc30
+km2264,Benefits,dm11050,Kevin.McCormack@openptk.com,McCormack,Kevin,303-866-4233,loc31
+gm64093,Sales,aw89027,Gillian.McCreevey@openptk.com,McCreevey,Gillian,303-589-6607,loc32
+jm18083,Marketing,jm7605,Joseph.McDonagh@openptk.com,McDonagh,Joseph,303-745-8919,loc33
+wm20363,Customer Service,dl9637,William.McDonagh@openptk.com,McDonagh,William,303-465-0843,loc34
+rm6134,Benefits,dm11050,Ronan.McElvaney@openptk.com,McElvaney,Ronan,303-301-4051,loc35
+fm8440,Services,lh9189,Fiona.McGee@openptk.com,McGee,Fiona,303-517-5453,loc36
+bm10332,IT Compliance,rh6300,Brendan.McGeever@openptk.com,McGeever,Brendan,303-601-4479,loc37
+dm11050,Benefits,bb10310,Deirdre.McGinty@openptk.com,McGinty,Deirdre,303-276-6577,loc38
+pm16650,Customer Service,dl9637,Patrick.McGloin@openptk.com,McGloin,Patrick,303-148-3362,loc39
+nm6631,Information Systems,rb5068,Neil.McGowan@openptk.com,McGowan,Neil,303-108-6858,loc30
+am1275,Information Systems,rb5068,Alythea.McGrath@openptk.com,McGrath,Alythea,303-863-0972,loc31
+am31578,Benefits,dm11050,Antoinette.McGuinn@openptk.com,McGuinn,Antoinette,303-418-7353,loc32
+lm83949,Benefits,dm11050,Louise.McGuirk@openptk.com,McGuirk,Louise,303-641-4837,loc35
+fm68749,Services,lh9189,Feargal.McKenna@openptk.com,McKenna,Feargal,303-218-7476,loc33
+jm67949,Services,cg14655,Joan.McLaughlin@openptk.com,McLaughlin,Joan,303-736-1472,loc34
+cm10118,Credit,fm50746,Claire.McLoughlin@openptk.com,McLoughlin,Claire,303-370-2869,loc36
+lm87170,Corporate Workplace,em66961,Louise.McMahon@openptk.com,McMahon,Louise,303-530-2640,loc37
+mm68426,Legal,je61475,Michelle.McNamara@openptk.com,McNamara,Michelle,303-134-6454,loc38
+pm10862,Services,cg14655,Patrick.McNamara@openptk.com,McNamara,Patrick,303-857-7997,loc39
+rm11806,Customer Service,dl9637,Ross.McNamara@openptk.com,McNamara,Ross,303-685-4366,loc30
+lm18850,Marketing,jm7605,Linda.McNevin@openptk.com,McNevin,Linda,303-432-6881,loc31
+cm24400,Customer Service,dl9637,Conor.McNulty@openptk.com,McNulty,Conor,303-962-5410,loc32
+mm10249,Corporate Workplace,dc30939,Michael.Meade@openptk.com,Meade,Michael,303-515-1429,loc33
+rm823,Investment Banking,sh9168,Richard.Meehan@openptk.com,Meehan,Richard,303-544-1041,loc34
+lm60815,Investment Banking,sh9168,Laura.Menton@openptk.com,Menton,Laura,303-382-1258,loc35
+pm80161,IT Compliance,rh6300,Patricia.Mitchell@openptk.com,Mitchell,Patricia,303-977-6852,loc36
+cm28701,IT Compliance,rh6300,Carmel.Molloy@openptk.com,Molloy,Carmel,303-103-4637,loc37
+wm50736,Corporate Workplace,gm51383,Walter.Molloy@openptk.com,Molloy,Walter,303-431-6077,loc31
+am23849,Corporate Workplace,nc6214,Anthony.Moloney@openptk.com,Moloney,Anthony,303-968-5015,loc34
+nm11667,Marketing,jm7605,Neasa.Moloney@openptk.com,Moloney,Neasa,303-508-2151,loc30
+fm19515,Customer Relations,lj39201,Fergal.Molony@openptk.com,Molony,Fergal,303-448-3205,loc31
+bm20245,Marketing,jm7605,Bernardine.Mooney@openptk.com,Mooney,Bernardine,303-745-9932,loc32
+lm63405,Information Systems,rb5068,Lorraine.Mooney@openptk.com,Mooney,Lorraine,303-344-7896,loc33
+pm13714,IT Compliance,rh6300,Patrick.Mooney@openptk.com,Mooney,Patrick,303-705-8394,loc34
+gm84036,Customer Relations,tb6035,Glen.Moore@openptk.com,Moore,Glen,303-915-4626,loc35
+lm1666,Procurement,lm31932,Linda.Moore@openptk.com,Moore,Linda,303-125-9325,loc36
+cm69544,Information Systems,rb5068,Colum.Moran@openptk.com,Moran,Colum,303-823-0086,loc37
+cm83060,Credit,fm50746,Conor.Moran@openptk.com,Moran,Conor,303-958-8017,loc38
+lm63711,Customer Relations,lj39201,Laura.Morgan@openptk.com,Morgan,Laura,303-949-8832,loc39
+jm5999,Procurement,lm31932,John.Moriarty@openptk.com,Moriarty,John,303-605-3067,loc30
+em66961,Corporate Workplace,co11173,Elaine.Morris@openptk.com,Morris,Elaine,303-927-0767,loc31
+mm10396,Services,cg14655,Michael.Morris@openptk.com,Morris,Michael,303-837-6758,loc32
+pm82550,Services,lh9189,Paul.Morris@openptk.com,Morris,Paul,303-458-5199,loc33
+bm17749,Legal,je61475,Brian.Morrison@openptk.com,Morrison,Brian,303-683-7498,loc34
+mm14641,Services,lh9189,Matthew.Mosse-Robinson@openptk.com,Mosse-Robinson,Matthew,303-465-7358,loc35
+am84255,Marketing,jm7605,Aileen.Moylan@openptk.com,Moylan,Aileen,303-967-9388,loc36
+em87896,Customer Relations,gm84036,Evelyn.Moyles@openptk.com,Moyles,Evelyn,303-723-8590,loc38
+bm89726,Marketing,jm7605,Barry.Muldoon@openptk.com,Muldoon,Barry,303-537-7383,loc39
+hm63573,Investment Banking,sh9168,Hannah.Mulhall@openptk.com,Mulhall,Hannah,303-189-5020,loc30
+mm17754,Corporate Workplace,em66961,Margaret.Mulhall@openptk.com,Mulhall,Margaret,303-206-2981,loc31
+gm51383,Corporate Workplace,co11173,Genevieve.Mullen@openptk.com,Mullen,Genevieve,303-582-8128,loc32
+lm21434,Customer Relations,gm84036,Loretto.Mulligan@openptk.com,Mulligan,Loretto,303-607-2695,loc33
+lm31932,Procurement,aa4427,Linda.Murdock@openptk.com,Murdock,Linda,303-149-8915,loc34
+am12266,Benefits,dm11050,Aidan.Murphy@openptk.com,Murphy,Aidan,303-599-3142,loc35
+gm81552,Customer Service,dl9637,Gillian.Murphy@openptk.com,Murphy,Gillian,303-663-3769,loc35
+mm69899,Investment Banking,sh9168,Michelle.Murphy@openptk.com,Murphy,Michelle,303-779-2478,loc37
+nm19685,Corporate Workplace,em66961,Naomi.Murphy@openptk.com,Murphy,Naomi,303-578-5860,loc38
+pm17762,Corporate Workplace,em66961,Paula.Murphy@openptk.com,Murphy,Paula,303-707-9865,loc39
+rm87378,Corporate Workplace,gm51383,Rachel.Murphy@openptk.com,Murphy,Rachel,303-370-8495,loc30
+tm6459,Customer Service,dl9637,Tristan.Murphy@openptk.com,Murphy,Tristan,303-925-3985,loc34
+wm10877,Sales,aw89027,Wesley.Murphy@openptk.com,Murphy,Wesley,303-129-2223,loc32
+am37079,Customer Service,dl9637,Audrey.Murray@openptk.com,Murray,Audrey,303-731-2422,loc33
+em81187,Corporate Workplace,gm51383,Eoin.Murray@openptk.com,Murray,Eoin,303-569-2327,loc34
+fm59878,Information Systems,rb5068,Fiona.Murray@openptk.com,Murray,Fiona,303-491-0456,loc35
+cm30440,Benefits,dm11050,Ciara.Myers@openptk.com,Myers,Ciara,303-317-6775,loc36
+kn70072,Mortgage,jb5392,Karimi.Nash@openptk.com,Nash,Karimi,303-542-1230,loc37
+jn64467,Customer Relations,lj39201,John.Naughton@openptk.com,Naughton,John,303-160-7848,loc38
+sn51182,Marketing,jm7605,Stephen.Naughton@openptk.com,Naughton,Stephen,303-734-6350,loc39
+pn80009,Services,lh9189,Paula.Nicoll@openptk.com,Nicoll,Paula,303-786-5639,loc30
+en6216,Customer Service,dl9637,Enda.Nolan@openptk.com,Nolan,Enda,303-528-4244,loc31
+vn82256,Information Systems,rb5068,Vanessa.Nugent@openptk.com,Nugent,Vanessa,303-712-2940,loc32
+to5949,Marketing,jm7605,Thomas.O'Beirne@openptk.com,O'Beirne,Thomas,303-685-8585,loc33
+to14167,Services,cg14655,Tom.O'Beirne@openptk.com,O'Beirne,Tom,303-671-6515,loc36
+ko14909,Sales,aw89027,Kieran.O'Byrne@openptk.com,O'Byrne,Kieran,303-733-8281,loc35
+ao30491,Corporate Workplace,nc6214,Aidan.O'Callaghan@openptk.com,O'Callaghan,Aidan,303-981-2968,loc36
+mo4449,Investment Banking,sh9168,Maria.O'Callaghan@openptk.com,O'Callaghan,Maria,303-251-6291,loc37
+po61789,Corporate Workplace,kc13254,Paul.O'Callaghan@openptk.com,O'Callaghan,Paul,303-677-6871,loc38
+bo14970,Sales,aw89027,Bernadette.O'Connor@openptk.com,O'Connor,Bernadette,303-919-9647,loc39
+co24564,Marketing,jm7605,Cathal.O'Connor@openptk.com,O'Connor,Cathal,303-666-6042,loc30
+eo88554,Legal,je61475,Eimear.O'Connor@openptk.com,O'Connor,Eimear,303-579-9169,loc31
+so65073,Customer Service,dl9637,Sean.O'Connor@openptk.com,O'Connor,Sean,303-749-8502,loc32
+eo17932,Customer Relations,lj39201,Eamonn.O'Dea@openptk.com,O'Dea,Eamonn,303-270-7799,loc33
+co89586,Corporate Workplace,lr11655,Ciaran.O'Donoghue@openptk.com,O'Donoghue,Ciaran,303-853-9756,loc34
+go39190,Benefits,dm11050,Garrett.O'Donoghue@openptk.com,O'Donoghue,Garrett,303-631-4149,loc38
+mo87841,Customer Service,dl9637,Marie.O'Donoghue@openptk.com,O'Donoghue,Marie,303-914-5507,loc36
+po6586,Marketing,jm7605,Paul.O'Donoghue@openptk.com,O'Donoghue,Paul,303-730-3720,loc37
+to19331,Services,lh9189,Thomas.O'Donoghue@openptk.com,O'Donoghue,Thomas,303-346-1841,loc37
+ko17510,Services,cg14655,Kieran.O'Driscoll@openptk.com,O'Driscoll,Kieran,303-437-3732,loc39
+go19813,Marketing,jm7605,Gemma.O'Farrell@openptk.com,O'Farrell,Gemma,303-525-2518,loc34
+po60201,Marketing,jm7605,Paul.O'Farrell@openptk.com,O'Farrell,Paul,303-602-0565,loc35
+do3238,Sales,aw89027,Denise.O'Flaherty@openptk.com,O'Flaherty,Denise,303-789-0859,loc32
+so13796,Corporate Workplace,nc6214,Stephen.O'Flanagan@openptk.com,O'Flanagan,Stephen,303-722-7553,loc33
+co38030,Customer Relations,lj39201,Cillin.O'Flynn@openptk.com,O'Flynn,Cillin,303-145-3720,loc34
+fo18314,Customer Service,dl9637,Fintan.O'Hanlon@openptk.com,O'Hanlon,Fintan,303-435-0344,loc35
+bo80022,Information Systems,rb5068,Brian.O'Kelly@openptk.com,O'Kelly,Brian,303-228-6771,loc36
+jo18560,Corporate Workplace,dc30939,James.O'Leary@openptk.com,O'Leary,James,303-618-1795,loc37
+ao15694,Customer Relations,gm84036,Anne.O'Mahony@openptk.com,O'Mahony,Anne,303-734-8856,loc38
+bo7024,Investment Banking,sh9168,Barry.O'Malley@openptk.com,O'Malley,Barry,303-302-5179,loc39
+ko50037,Marketing,jm7605,Keith.O'Malley@openptk.com,O'Malley,Keith,303-175-3509,loc30
+ro28750,Corporate Workplace,lr11655,Rosaleen.O'Malley@openptk.com,O'Malley,Rosaleen,303-219-6784,loc39
+co11173,Corporate Workplace,so65022,Cillian.O'Murchadha@openptk.com,O'Murchadha,Cillian,303-817-6174,loc32
+co58488,Customer Relations,gm84036,Conor.O'Neill@openptk.com,O'Neill,Conor,303-728-3567,loc33
+no23863,Credit,fm50746,Niamh.O'Neill@openptk.com,O'Neill,Niamh,303-804-7040,loc34
+ro17782,Procurement,lm31932,Ronan.O'Neill@openptk.com,O'Neill,Ronan,303-198-4736,loc30
+bo38928,IT Compliance,rh6300,Brian.O'Reilly@openptk.com,O'Reilly,Brian,303-206-4048,loc36
+so65022,Corporate Executive,sa15346,Susan.O'Reilly@openptk.com,O'Reilly,Susan,303-191-5506,loc37
+do20365,Investment Banking,sh9168,David.O'Riordan@openptk.com,O'Riordan,David,303-540-3514,loc38
+co91633,Customer Relations,lj39201,Cormac.O'Rourke@openptk.com,O'Rourke,Cormac,303-841-7674,loc39
+eo65403,Sales,aw89027,Emma.O'Shaughnessy@openptk.com,O'Shaughnessy,Emma,303-496-4467,loc31
+co10398,Services,cg14655,Conor.O'Sullivan@openptk.com,O'Sullivan,Conor,303-995-3519,loc36
+co8165,Sales,aw89027,Conleth.O'Toole@openptk.com,O'Toole,Conleth,303-337-9800,loc31
+eo58821,Investment Banking,sh9168,Edward.O'Toole@openptk.com,O'Toole,Edward,303-800-9963,loc32
+jo13153,Services,lh9189,Jemal.Omar@openptk.com,Omar,Jemal,303-201-9066,loc33
+mo11482,Sales,aw89027,Michael.Samuel.Orr@openptk.com,Orr,Michael Samuel,303-200-3835,loc34
+dp6453,Corporate Workplace,kc13254,Derek.Pender@openptk.com,Pender,Derek,303-681-4231,loc35
+jp20288,Procurement,lm31932,James.Pender@openptk.com,Pender,James,303-215-5494,loc36
+np8687,Procurement,lm31932,Nicole.Perez@openptk.com,Perez,Nicole,303-364-5945,loc37
+mp14402,Mortgage,jb5392,Marta.Piatkowska@openptk.com,Piatkowska,Marta,303-758-0093,loc38
+pp870,Procurement,lm31932,Pierre.Pillet@openptk.com,Pillet,Pierre,303-468-6535,loc39
+lp16043,IT Compliance,rh6300,Luisa.Pillitu@openptk.com,Pillitu,Luisa,303-610-5538,loc30
+sp7050,IT Compliance,rh6300,Stephen.Place@openptk.com,Place,Stephen,303-906-8441,loc31
+np14327,Investment Banking,sh9168,Naomi.Prasad@openptk.com,Prasad,Naomi,303-312-5790,loc32
+ep71523,Sales,aw89027,Emer.Prior@openptk.com,Prior,Emer,303-310-2158,loc33
+pp14363,Mortgage,jb5392,Paulina.Przybyla@openptk.com,Przybyla,Paulina,303-743-0933,loc34
+ap87358,Investment Banking,sh9168,Andrew.Pyne@openptk.com,Pyne,Andrew,303-691-5949,loc35
+jq60744,IT Compliance,rh6300,Jenny.Quail@openptk.com,Quail,Jenny,303-644-6714,loc34
+hq18497,Customer Service,dl9637,Helen.Quigley@openptk.com,Quigley,Helen,303-601-0202,loc37
+bq60310,Benefits,dm11050,Brendan.Quinn@openptk.com,Quinn,Brendan,303-856-1448,loc38
+cq84582,Sales,aw89027,Claire.Quinn@openptk.com,Quinn,Claire,303-732-4661,loc39
+mq18094,Customer Relations,gm84036,Mary.Quinn@openptk.com,Quinn,Mary,303-316-7387,loc30
+lq1112,IT Compliance,rh6300,Liliawei.Quirke@openptk.com,Quirke,Liliawei,303-739-5225,loc31
+vr6959,IT Compliance,rh6300,Viktoria.Redey@openptk.com,Redey,Viktoria,303-660-2280,loc32
+nr15202,IT Compliance,rh6300,Niamh.Redmond@openptk.com,Redmond,Niamh,303-863-8378,loc35
+sr24509,Information Systems,rb5068,Sinead.Redmond@openptk.com,Redmond,Sinead,303-562-0790,loc33
+gr84922,Credit,fm50746,Graham.Reid@openptk.com,Reid,Graham,303-449-6826,loc35
+ar50414,Information Systems,rb5068,Alison.Reilly@openptk.com,Reilly,Alison,303-717-6946,loc36
+ar9971,Customer Service,dl9637,Aine.Reynolds@openptk.com,Reynolds,Aine,303-375-8784,loc37
+jr4705,Services,cg14655,Jens.Richter@openptk.com,Richter,Jens,303-318-3491,loc38
+pr11799,Sales,aw89027,Patrick.Riddell@openptk.com,Riddell,Patrick,303-218-1093,loc39
+sr30372,Corporate Workplace,nc6214,Shane.Riordan@openptk.com,Riordan,Shane,303-721-8387,loc30
+fr80099,Legal,je61475,Frank.Robinson@openptk.com,Robinson,Frank,303-731-6096,loc31
+pr13939,Corporate Workplace,dc30939,Patrick.Roche@openptk.com,Roche,Patrick,303-256-1775,loc32
+kr9912,Marketing,jm7605,Keith.Rooney@openptk.com,Rooney,Keith,303-800-5566,loc33
+fr13502,Procurement,lm31932,Fiona.Ross@openptk.com,Ross,Fiona,303-587-0633,loc34
+lr11655,Corporate Workplace,co11173,Leah.Ruddock@openptk.com,Ruddock,Leah,303-669-7707,loc35
+nr9360,Information Systems,rb5068,Niall.Ruddy@openptk.com,Ruddy,Niall,303-298-5958,loc36
+dr14727,Credit,fm50746,Dawid.Rutkowski@openptk.com,Rutkowski,Dawid,303-620-0655,loc37
+kr89434,Customer Relations,gm84036,Keith.Ryan@openptk.com,Ryan,Keith,303-674-2134,loc38
+lr81762,Sales,aw89027,Liam.Ryan@openptk.com,Ryan,Liam,303-698-7257,loc39
+mr50158,Investment Banking,sh9168,Marion.Ryan@openptk.com,Ryan,Marion,303-161-6836,loc30
+as13920,Procurement,lm31932,Alexandra.Schaffner@openptk.com,Schaffner,Alexandra,303-523-8036,loc31
+ms10631,Credit,fm50746,Mandy.Schneider@openptk.com,Schneider,Mandy,303-355-9582,loc32
+ss14173,Services,cg14655,Sarah.Schoeppe@openptk.com,Schoeppe,Sarah,303-292-6332,loc35
+as68456,Investment Banking,sh9168,Aoife.Scully@openptk.com,Scully,Aoife,303-213-8996,loc36
+rs12153,Credit,fm50746,Rose.Seberry@openptk.com,Seberry,Rose,303-101-2103,loc37
+ls82125,Corporate Workplace,em66961,Leona.Shanley@openptk.com,Shanley,Leona,303-901-3625,loc30
+gs64439,Sales,aw89027,Graham.Sharkey@openptk.com,Sharkey,Graham,303-264-8023,loc39
+js708,Investment Banking,sh9168,John.Silcox@openptk.com,Silcox,John,303-633-0862,loc30
+ks6392,Credit,fm50746,Karol.Skiba@openptk.com,Skiba,Karol,303-266-5790,loc31
+bs8506,Legal,je61475,Barry.Smith@openptk.com,Smith,Barry,303-643-4084,loc32
+bs38009,Investment Banking,sh9168,Brian.Smith@openptk.com,Smith,Brian,303-140-2874,loc33
+ks67124,Sales,aw89027,Kevin.Smith@openptk.com,Smith,Kevin,303-213-2026,loc35
+ns80276,Marketing,jm7605,Niall.Smyth@openptk.com,Smyth,Niall,303-142-9785,loc36
+cs28577,Customer Relations,gm84036,Christina.Stokes@openptk.com,Stokes,Christina,303-635-9055,loc37
+ds3636,Information Systems,rb5068,David.Stokes@openptk.com,Stokes,David,303-741-1909,loc38
+js12952,Marketing,jm7605,Jacqueline.Sweeney@openptk.com,Sweeney,Jacqueline,303-328-4618,loc39
+ns2520,Corporate Workplace,nc6214,Noel.Sweeney@openptk.com,Sweeney,Noel,303-184-3715,loc30
+cs24136,Customer Relations,gm84036,Catherine.Swift@openptk.com,Swift,Catherine,303-129-2027,loc31
+lt15595,Sales,aw89027,Laura.Tangney@openptk.com,Tangney,Laura,303-787-5305,loc32
+lt5238,IT Compliance,rh6300,Lian.Hong.Tay@openptk.com,Tay,Lian Hong,303-870-0712,loc33
+lt10899,Services,lh9189,Luke.Thomas@openptk.com,Thomas,Luke,303-481-1510,loc32
+at11576,IT Compliance,rh6300,Andreas.Thommen@openptk.com,Thommen,Andreas,303-772-5824,loc33
+bt63994,Services,lh9189,Bruce.Thomson@openptk.com,Thomson,Bruce,303-534-8084,loc36
+ct10449,Credit,fm50746,Claire.Thuillet@openptk.com,Thuillet,Claire,303-379-6071,loc37
+mt6393,Credit,fm50746,Monika.Tiak@openptk.com,Tiak,Monika,303-458-6207,loc38
+lt20086,Customer Service,dl9637,Laura.Tighe@openptk.com,Tighe,Laura,303-679-1510,loc39
+at11653,Procurement,lm31932,Adrian.Toner@openptk.com,Toner,Adrian,303-913-8450,loc30
+lt61919,Corporate Workplace,lr11655,Lorraine.Toner@openptk.com,Toner,Lorraine,303-190-8603,loc31
+st82921,Customer Relations,gm84036,Scott.Townsend@openptk.com,Townsend,Scott,303-821-7748,loc35
+ot83556,Procurement,lm31932,Owen.Travers@openptk.com,Travers,Owen,303-577-5809,loc32
+vt19743,Benefits,dm11050,Valerie.Traynor@openptk.com,Traynor,Valerie,303-100-8451,loc33
+nt85175,Marketing,jm7605,Natasha.Treacy@openptk.com,Treacy,Natasha,303-986-2667,loc34
+ct50325,Credit,fm50746,Clara.Treanor@openptk.com,Treanor,Clara,303-121-8818,loc35
+bt14161,Services,cg14655,Brendan.Trears@openptk.com,Trears,Brendan,303-765-7869,loc36
+st6260,Investment Banking,sh9168,Suzanne.Tyndall@openptk.com,Tyndall,Suzanne,303-383-5529,loc37
+st30413,Customer Service,dl9637,Sandra.Tyrrell@openptk.com,Tyrrell,Sandra,303-737-8493,loc38
+st86011,Marketing,jm7605,Stephen.Tyrrell@openptk.com,Tyrrell,Stephen,303-661-2043,loc39
+vv5567,Investment Banking,sh9168,Vera.Vavrova@openptk.com,Vavrova,Vera,303-767-4304,loc30
+lv6069,Customer Relations,lj39201,Luca.Villanti@openptk.com,Villanti,Luca,303-851-4763,loc31
+nv13974,Credit,fm50746,Naoki.Villemagne@openptk.com,Villemagne,Naoki,303-742-7975,loc32
+ww6678,Services,lh9189,William.Waite@openptk.com,Waite,William,303-176-2488,loc33
+nw14183,Services,cg14655,Nazish.Wali@openptk.com,Wali,Nazish,303-542-3489,loc34
+aw17927,Sales,aw89027,Aisling.Walsh@openptk.com,Walsh,Aisling,303-146-3535,loc35
+fw3914,Marketing,jm7605,Fiona.Walsh@openptk.com,Walsh,Fiona,303-187-0877,loc37
+jw1819,Customer Service,dl9637,Janet.Walsh@openptk.com,Walsh,Janet,303-789-1841,loc36
+aw3061,Corporate Workplace,gm51383,Angela.Ward@openptk.com,Ward,Angela,303-687-6906,loc38
+ew58570,Investment Banking,sh9168,Edward.Ward@openptk.com,Ward,Edward,303-521-0518,loc39
+jw4617,Services,lh9189,John.Ward@openptk.com,Ward,John,303-269-2690,loc30
+pw9578,Marketing,jm7605,Pearl.Wardell@openptk.com,Wardell,Pearl,303-620-7014,loc31
+mw18154,Services,cg14655,Michelle.Waterton@openptk.com,Waterton,Michelle,303-854-8636,loc32
+tw68790,Credit,fm50746,Tushina.Weeramanthri@openptk.com,Weeramanthri,Tushina,303-939-4048,loc33
+jw38518,Marketing,jm7605,James.Wehrley@openptk.com,Wehrley,James,303-687-7036,loc34
+iw6384,Credit,fm50746,Ian.Whiston@openptk.com,Whiston,Ian,303-933-8745,loc35
+bw18851,Corporate Workplace,dc30939,Billy.Whyte@openptk.com,Whyte,Billy,303-579-9067,loc36
+lw15281,Services,cg14655,Lee.Wilkinson@openptk.com,Wilkinson,Lee,303-552-9647,loc37
+aw89027,Sales,ja1324,Alan.Williams@openptk.com,Williams,Alan,303-155-8694,loc38
+sw81127,Procurement,lm31932,Steven.Williams@openptk.com,Williams,Steven,303-673-5362,loc39
+dw15203,Services,cg14655,Danielle.Willkomm@openptk.com,Willkomm,Danielle,303-428-2101,loc30
+sw94261,Marketing,jm7605,Sinead.Wolfe@openptk.com,Wolfe,Sinead,303-128-0889,loc31
+uw1786,Services,lh9189,Ursula.Wood@openptk.com,Wood,Ursula,303-707-4662,loc32
+dw6140,Corporate Workplace,nc6214,Darren.Woods@openptk.com,Woods,Darren,303-585-6481,loc33
+tw6388,Credit,fm50746,Tadeusz.Woroniecki@openptk.com,Woroniecki,Tadeusz,303-556-1558,loc34
+dw39309,Investment Banking,sh9168,Deirdre.Worthington@openptk.com,Worthington,Deirdre,303-315-2868,loc35
+dw18877,Services,lh9189,Deirdre.Wyer@openptk.com,Wyer,Deirdre,303-382-7962,loc36
+gy1639,Services,cg14655,Gemma.York@openptk.com,York,Gemma,303-885-0148,loc37
+mz7167,Credit,fm50746,Monika.Zalewska@openptk.com,Zalewska,Monika,303-574-3535,loc38
+mz30500,Investment Banking,sh9168,Meyrem.Ziya@openptk.com,Ziya,Meyrem,303-354-3960,loc39
+Z Thompson,Procurement,lm31932,Zach.Thompson@openptk.com,Thompson,Zach,382-385-3879,loc39

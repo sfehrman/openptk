@@ -1,0 +1,2784 @@
+dn: dc=openptkspe,dc=org
+objectclass: top
+objectclass: domain
+dc: openptkspe
+aci: (target ="ldap:///dc=openptkspe,dc=org")(targetattr !="userPassword")(version 3.0;acl "Anonymous read-search access"; allow (read, search, compare)(userdn = "ldap:///anyone");)
+aci: (target="ldap:///dc=openptkspe,dc=org") (targetattr ="*")(version 3.0; acl "allow all Admin group"; allow(all) groupdn ="ldap:///cn=Directory Administrators,ou=Groups,dc=openptkspe,dc=org";)
+
+dn: ou=Groups, dc=openptkspe,dc=org
+objectclass: top
+objectclass: organizationalunit
+ou: Groups
+
+dn: ou=People, dc=openptkspe,dc=org
+objectclass: top
+objectclass: organizationalunit
+ou: People
+aci: (target ="ldap:///ou=People,dc=openptkspe,dc=org")(targetattr ="userpassword || telephonenumber || facsimiletelephonenumber")(version 3.0; acl "Allow self entry modification";allow (write)(userdn = "ldap:///self");)
+aci: (target ="ldap:///ou=People,dc=openptkspe,dc=org")(targetattr !="cn || sn || uid")(targetfilter ="(ou=Accounting)")(version 3.0; acl "Accounting Managers Group Permissions";allow (write) (groupdn ="ldap:///cn=Accounting Managers,ou=groups,dc=openptkspe,dc=org");)
+aci: (target ="ldap:///ou=People,dc=openptkspe,dc=org")(targetattr !="cn || sn || uid")(targetfilter ="(ou=Human Resources)")(version 3.0; acl "HR Group Permissions";allow (write)(groupdn = "ldap:///cn=HR Managers, ou=groups,dc=openptkspe,dc=org");)
+aci: (target ="ldap:///ou=People,dc=openptkspe,dc=org")(targetattr !="cn ||sn || uid")(targetfilter ="(ou=Product Testing)")(version 3.0; acl "QA Group Permissions";allow (write)(groupdn = "ldap:///cn=QA Managers, ou=groups,dc=openptkspe,dc=org");)
+aci: (target ="ldap:///ou=People,dc=openptkspe,dc=org")(targetattr !="cn || sn || uid")(targetfilter ="(ou=Product Development)")(version 3.0; acl "Engineering Group Permissions";allow (write)(groupdn = "ldap:///cn=PD Managers,ou=groups,dc=openptkspe,dc=org");)
+
+dn: ou=Special Users,dc=openptkspe,dc=org
+objectclass: top
+objectclass: organizationalUnit
+ou: Special Users
+description: Special Administrative Accounts
+
+dn: ou=Broadband,dc=openptkspe,dc=org
+objectclass: top
+objectclass: organizationalunit
+ou: Broadband
+
+dn: ou=Wireless,dc=openptkspe,dc=org
+objectclass: top
+objectclass: organizationalunit
+ou: Wireless
+
+dn: cn=Directory Administrators, ou=Groups, dc=openptkspe,dc=org
+cn: Directory Administrators
+objectclass: top
+objectclass: groupofuniquenames
+ou: Groups
+uniquemember: uid=kvaughan, ou=People, dc=openptkspe,dc=org
+uniquemember: uid=rdaugherty, ou=People, dc=openptkspe,dc=org
+uniquemember: uid=hmiller, ou=People, dc=openptkspe,dc=org
+
+dn: cn=Accounting Managers,ou=groups,dc=openptkspe,dc=org
+cn: Accounting Managers
+objectclass: top
+objectclass: groupOfUniqueNames
+ou: groups
+description: People who can manage accounting entries
+uniquemember: uid=scarter, ou=People, dc=openptkspe,dc=org
+uniquemember: uid=tmorris, ou=People, dc=openptkspe,dc=org
+
+dn: cn=HR Managers,ou=groups,dc=openptkspe,dc=org
+cn: HR Managers
+objectclass: top
+objectclass: groupOfUniqueNames
+ou: groups
+description: People who can manage HR entries
+uniquemember: uid=kvaughan, ou=People, dc=openptkspe,dc=org
+uniquemember: uid=cschmith, ou=People, dc=openptkspe,dc=org
+
+dn: cn=QA Managers,ou=groups,dc=openptkspe,dc=org
+cn: QA Managers
+objectclass: top
+objectclass: groupOfUniqueNames
+ou: groups
+description: People who can manage QA entries
+uniquemember: uid=abergin, ou=People, dc=openptkspe,dc=org
+uniquemember: uid=jwalker, ou=People, dc=openptkspe,dc=org
+
+dn: cn=PD Managers,ou=groups,dc=openptkspe,dc=org
+cn: PD Managers
+objectclass: top
+objectclass: groupOfUniqueNames
+ou: groups
+description: People who can manage engineer entries
+uniquemember: uid=kwinters, ou=People, dc=openptkspe,dc=org
+uniquemember: uid=trigden, ou=People, dc=openptkspe,dc=org
+
+dn: uid=abergin, ou=People, dc=openptkspe,dc=org
+cn: Andy Bergin
+sn: Bergin
+givenname: Andy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Cupertino
+uid: abergin
+facsimiletelephonenumber: +1 408 555 7472
+mail: abergin@openptkspe.org
+roomnumber: 3472
+telephonenumber: +1 408 555 8585
+userpassword: inflict
+
+dn: uid=gfarmer, ou=People, dc=openptkspe,dc=org
+cn: Gern Farmer
+sn: Farmer
+givenname: Gern
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: gfarmer
+facsimiletelephonenumber: +1 408 555 8473
+mail: gfarmer@openptkspe.org
+roomnumber: 1269
+telephonenumber: +1 408 555 6201
+userpassword: ruling
+
+dn: uid=jwalker, ou=People, dc=openptkspe,dc=org
+cn: John Walker
+sn: Walker
+givenname: John
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Cupertino
+uid: jwalker
+facsimiletelephonenumber: +1 408 555 1992
+mail: jwalker@openptkspe.org
+roomnumber: 3915
+telephonenumber: +1 408 555 1476
+userpassword: dogleg
+
+dn: uid=jreuter, ou=People, dc=openptkspe,dc=org
+cn: Jayne Reuter
+sn: Reuter
+givenname: Jayne
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Cupertino
+uid: jreuter
+facsimiletelephonenumber: +1 408 555 8721
+mail: jreuter@openptkspe.org
+roomnumber: 2942
+telephonenumber: +1 408 555 1122
+userpassword: destroy
+
+dn: uid=btalbot, ou=People, dc=openptkspe,dc=org
+cn: Brad Talbot
+sn: Talbot
+givenname: Brad
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: btalbot
+facsimiletelephonenumber: +1 408 555 8473
+mail: btalbot@openptkspe.org
+roomnumber: 3532
+telephonenumber: +1 408 555 4992
+userpassword: trident
+
+dn: uid=jcampaig, ou=People, dc=openptkspe,dc=org
+cn: Jody Campaigne
+sn: Campaigne
+givenname: Jody
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: jcampaig
+facsimiletelephonenumber: +1 408 555 9751
+mail: jcampaig@openptkspe.org
+roomnumber: 4385
+telephonenumber: +1 408 555 1660
+userpassword: grapevine
+
+dn: uid=mlangdon, ou=People, dc=openptkspe,dc=org
+cn: Marcus Langdon
+sn: Langdon
+givenname: Marcus
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: mlangdon
+facsimiletelephonenumber: +1 408 555 9332
+mail: mlangdon@openptkspe.org
+roomnumber: 4471
+telephonenumber: +1 408 555 6249
+userpassword: threat
+
+dn: uid=speterso, ou=People, dc=openptkspe,dc=org
+cn: Sue Peterson
+sn: Peterson
+givenname: Sue
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: speterso
+facsimiletelephonenumber: +1 408 555 9332
+mail: speterso@openptkspe.org
+roomnumber: 3073
+telephonenumber: +1 408 555 3613
+userpassword: quinine
+
+dn: uid=cwallace, ou=People, dc=openptkspe,dc=org
+cn: Cecil Wallace
+sn: Wallace
+givenname: Cecil
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: cwallace
+facsimiletelephonenumber: +1 408 555 8721
+mail: cwallace@openptkspe.org
+roomnumber: 0349
+telephonenumber: +1 408 555 6438
+userpassword: quintus
+
+dn: uid=bplante, ou=People, dc=openptkspe,dc=org
+cn: Brian Plante
+sn: Plante
+givenname: Brian
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: bplante
+facsimiletelephonenumber: +1 408 555 3825
+mail: bplante@openptkspe.org
+roomnumber: 4654
+telephonenumber: +1 408 555 3550
+userpassword: tangerine
+
+dn: uid=dthorud, ou=People, dc=openptkspe,dc=org
+cn: David Thorud
+sn: Thorud
+givenname: David
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: dthorud
+facsimiletelephonenumber: +1 408 555 7472
+mail: dthorud@openptkspe.org
+roomnumber: 1128
+telephonenumber: +1 408 555 6185
+userpassword: fulcrum
+
+dn: uid=tlabonte, ou=People, dc=openptkspe,dc=org
+cn: Tim Labonte
+sn: Labonte
+givenname: Tim
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: tlabonte
+facsimiletelephonenumber: +1 408 555 9751
+mail: tlabonte@openptkspe.org
+roomnumber: 1426
+telephonenumber: +1 408 555 0058
+userpassword: express
+
+dn: uid=prose, ou=People, dc=openptkspe,dc=org
+cn: Paula Rose
+sn: Rose
+givenname: Paula
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: prose
+facsimiletelephonenumber: +1 408 555 3825
+mail: prose@openptkspe.org
+roomnumber: 0542
+telephonenumber: +1 408 555 9998
+userpassword: regatta
+
+dn: uid=mschneid, ou=People, dc=openptkspe,dc=org
+cn: Martin Schneider
+sn: Schneider
+givenname: Martin
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: mschneid
+facsimiletelephonenumber: +1 408 555 3372
+mail: mschneid@openptkspe.org
+roomnumber: 3153
+telephonenumber: +1 408 555 5017
+userpassword: motorcycle
+
+dn: uid=smason, ou=People, dc=openptkspe,dc=org
+cn: Sue Mason
+sn: Mason
+givenname: Sue
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: smason
+facsimiletelephonenumber: +1 408 555 0111
+mail: smason@openptkspe.org
+roomnumber: 4971
+telephonenumber: +1 408 555 9780
+userpassword: sensible
+
+dn: uid=kcarter, ou=People, dc=openptkspe,dc=org
+cn: Karen Carter
+sn: Carter
+givenname: Karen
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: kcarter
+facsimiletelephonenumber: +1 408 555 0111
+mail: kcarter@openptkspe.org
+roomnumber: 2320
+telephonenumber: +1 408 555 4675
+userpassword: radiosonde
+
+dn: uid=bjensen, ou=People, dc=openptkspe,dc=org
+cn: Barbara Jensen
+cn: Babs Jensen
+sn: Jensen
+givenname: Barbara
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: bjensen
+facsimiletelephonenumber: +1 408 555 1992
+mail: bjensen@openptkspe.org
+roomnumber: 0209
+telephonenumber: +1 408 555 1862
+userpassword: hifalutin
+
+dn: uid=mwhite, ou=People, dc=openptkspe,dc=org
+cn: Morgan White
+sn: White
+givenname: Morgan
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: mwhite
+facsimiletelephonenumber: +1 408 555 4661
+mail: mwhite@openptkspe.org
+roomnumber: 3088
+telephonenumber: +1 408 555 9620
+userpassword: staple
+
+dn: uid=mtalbot, ou=People, dc=openptkspe,dc=org
+cn: Martin Talbot
+sn: Talbot
+givenname: Martin
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: mtalbot
+facsimiletelephonenumber: +1 408 555 8473
+mail: mtalbot@openptkspe.org
+roomnumber: 1415
+telephonenumber: +1 408 555 9228
+userpassword: currant
+
+dn: uid=dakers, ou=People, dc=openptkspe,dc=org
+cn: David Akers
+sn: Akers
+givenname: David
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: dakers
+facsimiletelephonenumber: +1 408 555 8721
+mail: dakers@openptkspe.org
+roomnumber: 4944
+telephonenumber: +1 408 555 4812
+userpassword: integument
+
+dn: uid=pshelton, ou=People, dc=openptkspe,dc=org
+cn: Patricia Shelton
+sn: Shelton
+givenname: Patricia
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Cupertino
+uid: pshelton
+facsimiletelephonenumber: +1 408 555 4661
+mail: pshelton@openptkspe.org
+roomnumber: 2918
+telephonenumber: +1 408 555 6442
+userpassword: nosedive
+
+dn: uid=kschmith, ou=People, dc=openptkspe,dc=org
+cn: Kelly Schmith
+sn: Schmith
+givenname: Kelly
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: kschmith
+facsimiletelephonenumber: +1 408 555 3372
+mail: kschmith@openptkspe.org
+roomnumber: 2221
+telephonenumber: +1 408 555 9749
+userpassword: purvey
+
+dn: uid=tschmith, ou=People, dc=openptkspe,dc=org
+cn: Tobias Schmith
+sn: Schmith
+givenname: Tobias
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: tschmith
+facsimiletelephonenumber: +1 408 555 1992
+mail: tschmith@openptkspe.org
+roomnumber: 4607
+telephonenumber: +1 408 555 9626
+userpassword: compost
+
+dn: uid=jmuffly, ou=People, dc=openptkspe,dc=org
+cn: Jeff Muffly
+sn: Muffly
+givenname: Jeff
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: jmuffly
+facsimiletelephonenumber: +1 408 555 9751
+mail: jmuffly@openptkspe.org
+roomnumber: 0997
+telephonenumber: +1 408 555 5287
+userpassword: dictate
+
+dn: uid=aworrell, ou=People, dc=openptkspe,dc=org
+cn: Alan Worrell
+sn: Worrell
+givenname: Alan
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: aworrell
+facsimiletelephonenumber: +1 408 555 3825
+mail: aworrell@openptkspe.org
+roomnumber: 3966
+telephonenumber: +1 408 555 1591
+userpassword: gargoyle
+
+dn: uid=aknutson, ou=People, dc=openptkspe,dc=org
+cn: Ashley Knutson
+sn: Knutson
+givenname: Ashley
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: aknutson
+facsimiletelephonenumber: +1 408 555 4774
+mail: aknutson@openptkspe.org
+roomnumber: 4736
+telephonenumber: +1 408 555 2169
+userpassword: maltose
+
+dn: uid=jbourke, ou=People, dc=openptkspe,dc=org
+cn: Jon Bourke
+sn: Bourke
+givenname: Jon
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Cupertino
+uid: jbourke
+facsimiletelephonenumber: +1 408 555 4774
+mail: jbourke@openptkspe.org
+roomnumber: 0034
+telephonenumber: +1 408 555 8541
+userpassword: brainwash
+
+dn: uid=rjensen, ou=People, dc=openptkspe,dc=org
+cn: Richard Jensen
+sn: Jensen
+givenname: Richard
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: rjensen
+facsimiletelephonenumber: +1 408 555 3825
+mail: rjensen@openptkspe.org
+roomnumber: 2631
+telephonenumber: +1 408 555 5957
+userpassword: disciplinarian
+
+dn: uid=mjablons, ou=People, dc=openptkspe,dc=org
+cn: Morgan Jablonski
+sn: Jablonski
+givenname: Morgan
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: mjablons
+facsimiletelephonenumber: +1 408 555 7472
+mail: mjablons@openptkspe.org
+roomnumber: 3160
+telephonenumber: +1 408 555 0813
+userpassword: minimal
+
+dn: uid=tcruse, ou=People, dc=openptkspe,dc=org
+cn: Tobias Cruse
+sn: Cruse
+givenname: Tobias
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: tcruse
+facsimiletelephonenumber: +1 408 555 4774
+mail: tcruse@openptkspe.org
+roomnumber: 4191
+telephonenumber: +1 408 555 5980
+userpassword: flinty
+
+dn: uid=rfisher, ou=People, dc=openptkspe,dc=org
+cn: Randy Fisher
+sn: Fisher
+givenname: Randy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: rfisher
+facsimiletelephonenumber: +1 408 555 1992
+mail: rfisher@openptkspe.org
+roomnumber: 1579
+telephonenumber: +1 408 555 1506
+userpassword: pomegranate
+
+dn: uid=awalker, ou=People, dc=openptkspe,dc=org
+cn: Andy Walker
+sn: Walker
+givenname: Andy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Cupertino
+uid: awalker
+facsimiletelephonenumber: +1 408 555 3372
+mail: awalker@openptkspe.org
+roomnumber: 0061
+telephonenumber: +1 408 555 9199
+userpassword: detonable
+
+dn: uid=ewalker, ou=People, dc=openptkspe,dc=org
+cn: Eric Walker
+sn: Walker
+givenname: Eric
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Cupertino
+uid: ewalker
+facsimiletelephonenumber: +1 408 555 8721
+mail: ewalker@openptkspe.org
+roomnumber: 2295
+telephonenumber: +1 408 555 6387
+userpassword: beguile
+
+dn: uid=mtyler, ou=People, dc=openptkspe,dc=org
+cn: Matthew Tyler
+sn: Tyler
+givenname: Matthew
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Cupertino
+uid: mtyler
+facsimiletelephonenumber: +1 408 555 4661
+mail: mtyler@openptkspe.org
+roomnumber: 2701
+telephonenumber: +1 408 555 7907
+userpassword: instantiate
+
+dn: uid=tmorris, ou=People, dc=openptkspe,dc=org
+cn: Ted Morris
+sn: Morris
+givenname: Ted
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: tmorris
+facsimiletelephonenumber: +1 408 555 8473
+mail: tmorris@openptkspe.org
+roomnumber: 4117
+telephonenumber: +1 408 555 9187
+userpassword: irrefutable
+
+dn: uid=kwinters, ou=People, dc=openptkspe,dc=org
+cn: Kelly Winters
+sn: Winters
+givenname: Kelly
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: kwinters
+facsimiletelephonenumber: +1 408 555 1992
+mail: kwinters@openptkspe.org
+roomnumber: 4178
+telephonenumber: +1 408 555 9069
+userpassword: forsook
+
+dn: uid=trigden, ou=People, dc=openptkspe,dc=org
+cn: Torrey Rigden
+sn: Rigden
+givenname: Torrey
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: trigden
+facsimiletelephonenumber: +1 408 555 8473
+mail: trigden@openptkspe.org
+roomnumber: 3584
+telephonenumber: +1 408 555 9280
+userpassword: sensitive
+
+dn: uid=cschmith, ou=People, dc=openptkspe,dc=org
+cn: Chris Schmith
+sn: Schmith
+givenname: Chris
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: cschmith
+facsimiletelephonenumber: +1 408 555 4774
+mail: cschmith@openptkspe.org
+roomnumber: 0416
+telephonenumber: +1 408 555 8011
+userpassword: hypotenuse
+
+dn: uid=tclow, ou=People, dc=openptkspe,dc=org
+cn: Torrey Clow
+sn: Clow
+givenname: Torrey
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: tclow
+facsimiletelephonenumber: +1 408 555 1992
+mail: tclow@openptkspe.org
+roomnumber: 4376
+telephonenumber: +1 408 555 8825
+userpassword: cardreader
+
+dn: uid=bhall, ou=People, dc=openptkspe,dc=org
+cn: Benjamin Hall
+sn: Hall
+givenname: Benjamin
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: bhall
+facsimiletelephonenumber: +1 408 555 0111
+mail: bhall@openptkspe.org
+roomnumber: 2511
+telephonenumber: +1 408 555 6067
+userpassword: oranges
+
+dn: uid=mward, ou=People, dc=openptkspe,dc=org
+cn: Marcus Ward
+sn: Ward
+givenname: Marcus
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: mward
+facsimiletelephonenumber: +1 408 555 0111
+mail: mward@openptkspe.org
+roomnumber: 1707
+telephonenumber: +1 408 555 5688
+userpassword: normal
+
+dn: uid=jmcFarla, ou=People, dc=openptkspe,dc=org
+cn: Judy McFarland
+sn: McFarland
+givenname: Judy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: jmcFarla
+facsimiletelephonenumber: +1 408 555 4774
+mail: jmcFarla@openptkspe.org
+roomnumber: 2359
+telephonenumber: +1 408 555 2567
+userpassword: walnut
+
+dn: uid=llabonte, ou=People, dc=openptkspe,dc=org
+cn: Lee Labonte
+sn: Labonte
+givenname: Lee
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: llabonte
+facsimiletelephonenumber: +1 408 555 8473
+mail: llabonte@openptkspe.org
+roomnumber: 2854
+telephonenumber: +1 408 555 0957
+userpassword: sourdough
+
+dn: uid=alutz, ou=People, dc=openptkspe,dc=org
+cn: Alexander Lutz
+sn: Lutz
+givenname: Alexander
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: alutz
+facsimiletelephonenumber: +1 408 555 4774
+mail: alutz@openptkspe.org
+roomnumber: 1327
+telephonenumber: +1 408 555 6505
+userpassword: northward
+
+dn: uid=btalbo2, ou=People, dc=openptkspe,dc=org
+cn: Bjorn Talbot
+sn: Talbot
+givenname: Bjorn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: btalbo2
+facsimiletelephonenumber: +1 408 555 9332
+mail: btalbo2@openptkspe.org
+roomnumber: 1205
+telephonenumber: +1 408 555 4234
+userpassword: corduroy
+
+dn: uid=achassin, ou=People, dc=openptkspe,dc=org
+cn: Ashley Chassin
+sn: Chassin
+givenname: Ashley
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Santa Clara
+o: BizPartnerB
+uid: achassin
+facsimiletelephonenumber: +1 408 555 3372
+mail: achassin@openptkspe.org
+roomnumber: 0466
+telephonenumber: +1 408 555 9972
+userpassword: duopolist
+
+dn: uid=hmiller, ou=People, dc=openptkspe,dc=org
+cn: Harry Miller
+sn: Miller
+givenname: Harry
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: hmiller
+facsimiletelephonenumber: +1 408 555 9332
+mail: hmiller@openptkspe.org
+roomnumber: 4304
+telephonenumber: +1 408 555 9804
+userpassword: hillock
+
+dn: uid=jcampai2, ou=People, dc=openptkspe,dc=org
+cn: Jeffrey Campaigne
+sn: Campaigne
+givenname: Jeffrey
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: jcampai2
+facsimiletelephonenumber: +1 408 555 3372
+mail: jcampai2@openptkspe.org
+roomnumber: 1377
+telephonenumber: +1 408 555 7393
+userpassword: nominee
+
+dn: uid=striplet, ou=People, dc=openptkspe,dc=org
+cn: Stephen Triplett
+sn: Triplett
+givenname: Stephen
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: striplet
+facsimiletelephonenumber: +1 408 555 4661
+mail: striplet@openptkspe.org
+roomnumber: 3083
+telephonenumber: +1 408 555 4519
+userpassword: compactify
+
+dn: uid=jfalena, ou=People, dc=openptkspe,dc=org
+cn: John Falena
+sn: Falena
+givenname: John
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: jfalena
+facsimiletelephonenumber: +1 408 555 7472
+mail: jfalena@openptkspe.org
+roomnumber: 1917
+telephonenumber: +1 408 555 8133
+userpassword: nightly
+
+dn: uid=ejohnson, ou=People, dc=openptkspe,dc=org
+cn: Emanuel Johnson
+sn: Johnson
+givenname: Emanuel
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: ejohnson
+facsimiletelephonenumber: +1 408 555 9332
+mail: ejohnson@openptkspe.org
+roomnumber: 3737
+telephonenumber: +1 408 555 3287
+userpassword: marketwise
+
+dn: uid=bwalker, ou=People, dc=openptkspe,dc=org
+cn: Brad Walker
+sn: Walker
+givenname: Brad
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: bwalker
+facsimiletelephonenumber: +1 408 555 0111
+mail: bwalker@openptkspe.org
+roomnumber: 3529
+telephonenumber: +1 408 555 5476
+userpassword: interruptible
+
+dn: uid=kjensen, ou=People, dc=openptkspe,dc=org
+cn: Kurt Jensen
+sn: Jensen
+givenname: Kurt
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: kjensen
+facsimiletelephonenumber: +1 408 555 8721
+mail: kjensen@openptkspe.org
+roomnumber: 1944
+telephonenumber: +1 408 555 6127
+userpassword: regulatory
+
+dn: uid=rbannist, ou=People, dc=openptkspe,dc=org
+cn: Richard Bannister
+sn: Bannister
+givenname: Richard
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: rbannist
+facsimiletelephonenumber: +1 408 555 4661
+mail: rbannist@openptkspe.org
+roomnumber: 0983
+telephonenumber: +1 408 555 1833
+userpassword: demonstrate
+
+dn: uid=rmills, ou=People, dc=openptkspe,dc=org
+cn: Randy Mills
+sn: Mills
+givenname: Randy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: rmills
+facsimiletelephonenumber: +1 408 555 3372
+mail: rmills@openptkspe.org
+roomnumber: 3823
+telephonenumber: +1 408 555 2072
+userpassword: condescend
+
+dn: uid=bschneid, ou=People, dc=openptkspe,dc=org
+cn: Benjamin Schneider
+sn: Schneider
+givenname: Benjamin
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Santa Clara
+o: BizPartnerB
+uid: bschneid
+facsimiletelephonenumber: +1 408 555 7472
+mail: bschneid@openptkspe.org
+roomnumber: 4471
+telephonenumber: +1 408 555 1012
+userpassword: biblical
+
+dn: uid=skellehe, ou=People, dc=openptkspe,dc=org
+cn: Sue Kelleher
+sn: Kelleher
+givenname: Sue
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Santa Clara
+o: BizPartnerB
+uid: skellehe
+facsimiletelephonenumber: +1 408 555 8721
+mail: skellehe@openptkspe.org
+roomnumber: 1608
+telephonenumber: +1 408 555 3480
+userpassword: sweltering
+
+dn: uid=dsmith, ou=People, dc=openptkspe,dc=org
+cn: Daniel Smith
+sn: Smith
+givenname: Daniel
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: dsmith
+facsimiletelephonenumber: +1 408 555 3372
+mail: dsmith@openptkspe.org
+roomnumber: 0368
+telephonenumber: +1 408 555 9519
+userpassword: quantitative
+
+dn: uid=scarte2, ou=People, dc=openptkspe,dc=org
+cn: Stephen Carter
+sn: Carter
+givenname: Stephen
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: scarte2
+facsimiletelephonenumber: +1 408 555 9751
+mail: scarte2@openptkspe.org
+roomnumber: 2013
+telephonenumber: +1 408 555 6022
+userpassword: scooter
+
+dn: uid=lcampbel, ou=People, dc=openptkspe,dc=org
+cn: Laurel Campbell
+sn: Campbell
+givenname: Laurel
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: lcampbel
+facsimiletelephonenumber: +1 408 555 1992
+mail: lcampbel@openptkspe.org
+roomnumber: 2073
+telephonenumber: +1 408 555 2537
+userpassword: impress
+
+dn: uid=slee, ou=People, dc=openptkspe,dc=org
+cn: Scott Lee
+sn: Lee
+givenname: Scott
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: slee
+facsimiletelephonenumber: +1 408 555 4774
+mail: slee@openptkspe.org
+roomnumber: 1806
+telephonenumber: +1 408 555 2335
+userpassword: revertive
+
+dn: uid=bfree, ou=People, dc=openptkspe,dc=org
+cn: Bjorn Free
+sn: Free
+givenname: Bjorn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: bfree
+facsimiletelephonenumber: +1 408 555 4774
+mail: bfree@openptkspe.org
+roomnumber: 3307
+telephonenumber: +1 408 555 8588
+userpassword: etiquette
+
+dn: uid=jhunter, ou=People, dc=openptkspe,dc=org
+cn: Janet Hunter
+sn: Hunter
+givenname: Janet
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: jhunter
+facsimiletelephonenumber: +1 408 555 8473
+mail: jhunter@openptkspe.org
+roomnumber: 4856
+telephonenumber: +1 408 555 7665
+userpassword: nanometer
+
+dn: uid=ashelton, ou=People, dc=openptkspe,dc=org
+cn: Alexander Shelton
+sn: Shelton
+givenname: Alexander
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: ashelton
+facsimiletelephonenumber: +1 408 555 7472
+mail: ashelton@openptkspe.org
+roomnumber: 1987
+telephonenumber: +1 408 555 1081
+userpassword: appointe
+
+dn: uid=mmcinnis, ou=People, dc=openptkspe,dc=org
+cn: Marcus Mcinnis
+sn: Mcinnis
+givenname: Marcus
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: mmcinnis
+facsimiletelephonenumber: +1 408 555 8721
+mail: mmcinnis@openptkspe.org
+roomnumber: 4818
+telephonenumber: +1 408 555 9655
+userpassword: calcify
+
+dn: uid=pcruse, ou=People, dc=openptkspe,dc=org
+cn: Patricia Cruse
+sn: Cruse
+givenname: Patricia
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Santa Clara
+o: BizPartnerB
+uid: pcruse
+facsimiletelephonenumber: +1 408 555 9751
+mail: pcruse@openptkspe.org
+roomnumber: 3967
+telephonenumber: +1 408 555 8641
+userpassword: pauper
+
+dn: uid=tkelly, ou=People, dc=openptkspe,dc=org
+cn: Timothy Kelly
+sn: Kelly
+givenname: Timothy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: tkelly
+facsimiletelephonenumber: +1 408 555 1992
+mail: tkelly@openptkspe.org
+roomnumber: 3107
+telephonenumber: +1 408 555 4295
+userpassword: risible
+
+dn: uid=ahel, ou=People, dc=openptkspe,dc=org
+cn: Andrew Hel
+sn: Hel
+givenname: Andrew
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: ahel
+facsimiletelephonenumber: +1 408 555 8721
+mail: ahel@openptkspe.org
+roomnumber: 0572
+telephonenumber: +1 408 555 2666
+userpassword: sarsaparilla
+
+dn: uid=ptyler, ou=People, dc=openptkspe,dc=org
+cn: Pete Tyler
+sn: Tyler
+givenname: Pete
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: ptyler
+facsimiletelephonenumber: +1 408 555 4774
+mail: ptyler@openptkspe.org
+roomnumber: 0327
+telephonenumber: +1 408 555 3335
+userpassword: vinegar
+
+dn: uid=jcruse, ou=People, dc=openptkspe,dc=org
+cn: Jim Cruse
+sn: Cruse
+givenname: Jim
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Santa Clara
+o: BizPartnerB
+uid: jcruse
+facsimiletelephonenumber: +1 408 555 0111
+mail: jcruse@openptkspe.org
+roomnumber: 0083
+telephonenumber: +1 408 555 9482
+userpassword: bridgework
+
+dn: uid=rfish, ou=People, dc=openptkspe,dc=org
+cn: Randy Fish
+sn: Fish
+givenname: Randy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: rfish
+facsimiletelephonenumber: +1 408 555 8473
+mail: rfish@openptkspe.org
+roomnumber: 2317
+telephonenumber: +1 408 555 9865
+userpassword: mailbox
+
+dn: uid=rschneid, ou=People, dc=openptkspe,dc=org
+cn: Rachel Schneider
+sn: Schneider
+givenname: Rachel
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: rschneid
+facsimiletelephonenumber: +1 408 555 9332
+mail: rschneid@openptkspe.org
+roomnumber: 4183
+telephonenumber: +1 408 555 9908
+userpassword: decorous
+
+dn: uid=jlange, ou=People, dc=openptkspe,dc=org
+cn: Jim Lange
+sn: Lange
+givenname: Jim
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Santa Clara
+o: BizPartnerB
+uid: jlange
+facsimiletelephonenumber: +1 408 555 1992
+mail: jlange@openptkspe.org
+roomnumber: 3798
+telephonenumber: +1 408 555 0488
+userpassword: chastity
+
+dn: uid=rfrancis, ou=People, dc=openptkspe,dc=org
+cn: Richard Francis
+sn: Francis
+givenname: Richard
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: rfrancis
+facsimiletelephonenumber: +1 408 555 4774
+mail: rfrancis@openptkspe.org
+roomnumber: 3482
+telephonenumber: +1 408 555 8157
+userpassword: hacienda
+
+dn: uid=gjensen, ou=People, dc=openptkspe,dc=org
+cn: Gern Jensen
+sn: Jensen
+givenname: Gern
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: gjensen
+facsimiletelephonenumber: +1 408 555 9751
+mail: gjensen@openptkspe.org
+roomnumber: 4609
+telephonenumber: +1 408 555 3299
+userpassword: primitive
+
+dn: uid=bmaddox, ou=People, dc=openptkspe,dc=org
+cn: Barbara Maddox
+sn: Maddox
+givenname: Barbara
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: bmaddox
+facsimiletelephonenumber: +1 408 555 7472
+mail: bmaddox@openptkspe.org
+roomnumber: 2207
+telephonenumber: +1 408 555 7783
+userpassword: feedback
+
+dn: uid=jbrown, ou=People, dc=openptkspe,dc=org
+cn: Judy Brown
+sn: Brown
+givenname: Judy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Santa Clara
+o: BizPartnerB
+uid: jbrown
+facsimiletelephonenumber: +1 408 555 3825
+mail: jbrown@openptkspe.org
+roomnumber: 4224
+telephonenumber: +1 408 555 6885
+userpassword: militiamen
+
+dn: uid=mcarter, ou=People, dc=openptkspe,dc=org
+cn: Mike Carter
+sn: Carter
+givenname: Mike
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: mcarter
+facsimiletelephonenumber: +1 408 555 4661
+mail: mcarter@openptkspe.org
+roomnumber: 3819
+telephonenumber: +1 408 555 1846
+userpassword: mainland
+
+dn: uid=sfarmer, ou=People, dc=openptkspe,dc=org
+cn: Scott Farmer
+sn: Farmer
+givenname: Scott
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: sfarmer
+facsimiletelephonenumber: +1 408 555 4661
+mail: sfarmer@openptkspe.org
+roomnumber: 0019
+telephonenumber: +1 408 555 4228
+userpassword: triumphal
+
+dn: uid=tward, ou=People, dc=openptkspe,dc=org
+cn: Tobias Ward
+sn: Ward
+givenname: Tobias
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: tward
+facsimiletelephonenumber: +1 408 555 4661
+mail: tward@openptkspe.org
+roomnumber: 2238
+telephonenumber: +1 408 555 7202
+userpassword: cedilla
+
+dn: uid=jrentz, ou=People, dc=openptkspe,dc=org
+cn: Jody Rentz
+sn: Rentz
+givenname: Jody
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: jrentz
+facsimiletelephonenumber: +1 408 555 1992
+mail: jrentz@openptkspe.org
+roomnumber: 3025
+telephonenumber: +1 408 555 5829
+userpassword: meander
+
+dn: uid=ajensen, ou=People, dc=openptkspe,dc=org
+cn: Allison Jensen
+sn: Jensen
+givenname: Allison
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: ajensen
+facsimiletelephonenumber: +1 408 555 0111
+mail: ajensen@openptkspe.org
+roomnumber: 0784
+telephonenumber: +1 408 555 7892
+userpassword: coltsfoot
+
+dn: uid=pworrell, ou=People, dc=openptkspe,dc=org
+cn: Pete Worrell
+sn: Worrell
+givenname: Pete
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: pworrell
+facsimiletelephonenumber: +1 408 555 7472
+mail: pworrell@openptkspe.org
+roomnumber: 2449
+telephonenumber: +1 408 555 1637
+userpassword: solicitous
+
+dn: uid=gtyler, ou=People, dc=openptkspe,dc=org
+cn: Gern Tyler
+sn: Tyler
+givenname: Gern
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: gtyler
+facsimiletelephonenumber: +1 408 555 4774
+mail: gtyler@openptkspe.org
+roomnumber: 0312
+telephonenumber: +1 408 555 1020
+userpassword: typology
+
+dn: uid=bjense2, ou=People, dc=openptkspe,dc=org
+cn: Bjorn Jensen
+sn: Jensen
+givenname: Bjorn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: bjense2
+facsimiletelephonenumber: +1 408 555 4774
+mail: bjense2@openptkspe.org
+roomnumber: 4294
+telephonenumber: +1 408 555 5655
+userpassword: mortgage
+
+dn: uid=ahall, ou=People, dc=openptkspe,dc=org
+cn: Andy Hall
+sn: Hall
+givenname: Andy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: ahall
+facsimiletelephonenumber: +1 408 555 4774
+mail: ahall@openptkspe.org
+roomnumber: 3050
+telephonenumber: +1 408 555 6169
+userpassword: slater
+
+dn: uid=tjensen, ou=People, dc=openptkspe,dc=org
+cn: Ted Jensen
+sn: Jensen
+givenname: Ted
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: tjensen
+facsimiletelephonenumber: +1 408 555 3825
+mail: tjensen@openptkspe.org
+roomnumber: 4717
+telephonenumber: +1 408 555 8622
+userpassword: ecosystem
+
+dn: uid=jgoldste, ou=People, dc=openptkspe,dc=org
+cn: Jon Goldstein
+sn: Goldstein
+givenname: Jon
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: jgoldste
+facsimiletelephonenumber: +1 408 555 7472
+mail: jgoldste@openptkspe.org
+roomnumber: 1454
+telephonenumber: +1 408 555 5769
+userpassword: yellow
+
+dn: uid=wlutz, ou=People, dc=openptkspe,dc=org
+cn: Wendy Lutz
+sn: Lutz
+givenname: Wendy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: wlutz
+facsimiletelephonenumber: +1 408 555 9332
+mail: wlutz@openptkspe.org
+roomnumber: 4912
+telephonenumber: +1 408 555 3358
+userpassword: bassinet
+
+dn: uid=dlangdon, ou=People, dc=openptkspe,dc=org
+cn: Dan Langdon
+sn: Langdon
+givenname: Dan
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: dlangdon
+facsimiletelephonenumber: +1 408 555 8473
+mail: dlangdon@openptkspe.org
+roomnumber: 3263
+telephonenumber: +1 408 555 7044
+userpassword: botulin
+
+dn: uid=kmcinnis, ou=People, dc=openptkspe,dc=org
+cn: Kelly Mcinnis
+sn: Mcinnis
+givenname: Kelly
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: kmcinnis
+facsimiletelephonenumber: +1 408 555 0111
+mail: kmcinnis@openptkspe.org
+roomnumber: 4312
+telephonenumber: +1 408 555 8596
+userpassword: stargaze
+
+dn: uid=lstockto, ou=People, dc=openptkspe,dc=org
+cn: Lee Stockton
+sn: Stockton
+givenname: Lee
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Santa Clara
+o: BizPartnerB
+uid: lstockto
+facsimiletelephonenumber: +1 408 555 4774
+mail: lstockto@openptkspe.org
+roomnumber: 0169
+telephonenumber: +1 408 555 0518
+userpassword: brooklyn
+
+dn: uid=dlanoway, ou=People, dc=openptkspe,dc=org
+cn: Dan Lanoway
+sn: Lanoway
+givenname: Dan
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: dlanoway
+facsimiletelephonenumber: +1 408 555 8473
+mail: dlanoway@openptkspe.org
+roomnumber: 3540
+telephonenumber: +1 408 555 2017
+userpassword: manhattan
+
+dn: uid=abarnes, ou=People, dc=openptkspe,dc=org
+cn: Anne-Louise Barnes
+sn: Barnes
+givenname: Anne-Louise
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Santa Clara
+o: BizPartnerB
+uid: abarnes
+facsimiletelephonenumber: +1 408 555 4661
+mail: abarnes@openptkspe.org
+roomnumber: 2290
+telephonenumber: +1 408 555 9445
+userpassword: chevron
+
+dn: uid=phun2, ou=People, dc=openptkspe,dc=org
+cn: Pete Hunt
+sn: Hunt
+givenname: Pete
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: phun2
+facsimiletelephonenumber: +1 408 555 4661
+mail: phun2@openptkspe.org
+roomnumber: 0087
+telephonenumber: +1 408 555 0342
+userpassword: absorb
+
+dn: uid=jlut2, ou=People, dc=openptkspe,dc=org
+cn: James Lutz
+sn: Lutz
+givenname: James
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: jlut2
+facsimiletelephonenumber: +1 408 555 3825
+mail: jlut2@openptkspe.org
+roomnumber: 3541
+telephonenumber: +1 408 555 9689
+userpassword: shrank
+
+dn: uid=pchassin, ou=People, dc=openptkspe,dc=org
+cn: Peter Chassin
+sn: Chassin
+givenname: Peter
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Santa Clara
+o: BizPartnerB
+uid: pchassin
+facsimiletelephonenumber: +1 408 555 3372
+mail: pchassin@openptkspe.org
+roomnumber: 4524
+telephonenumber: +1 408 555 2816
+userpassword: barbital
+
+dn: uid=jrent2, ou=People, dc=openptkspe,dc=org
+cn: Judy Rentz
+sn: Rentz
+givenname: Judy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Santa Clara
+o: BizPartnerB
+uid: jrent2
+facsimiletelephonenumber: +1 408 555 8473
+mail: jrent2@openptkspe.org
+roomnumber: 4405
+telephonenumber: +1 408 555 2523
+userpassword: tachistoscope
+
+dn: uid=eward, ou=People, dc=openptkspe,dc=org
+cn: Eric Ward
+sn: Ward
+givenname: Eric
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: eward
+facsimiletelephonenumber: +1 408 555 7472
+mail: eward@openptkspe.org
+roomnumber: 4874
+telephonenumber: +1 408 555 2320
+userpassword: episcopal
+
+dn: uid=charvey, ou=People, dc=openptkspe,dc=org
+cn: Cecil Harvey
+sn: Harvey
+givenname: Cecil
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: charvey
+facsimiletelephonenumber: +1 408 555 3825
+mail: charvey@openptkspe.org
+roomnumber: 4583
+telephonenumber: +1 408 555 1815
+userpassword: journalese
+
+dn: uid=alangdon, ou=People, dc=openptkspe,dc=org
+cn: Andrew Langdon
+sn: Langdon
+givenname: Andrew
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: alangdon
+facsimiletelephonenumber: +1 408 555 9332
+mail: alangdon@openptkspe.org
+roomnumber: 2254
+telephonenumber: +1 408 555 8289
+userpassword: muzzle
+
+dn: uid=polfield, ou=People, dc=openptkspe,dc=org
+cn: Peter Olfield
+sn: Olfield
+givenname: Peter
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: polfield
+facsimiletelephonenumber: +1 408 555 8473
+mail: polfield@openptkspe.org
+roomnumber: 1376
+telephonenumber: +1 408 555 8231
+userpassword: monologue
+
+dn: uid=lrentz, ou=People, dc=openptkspe,dc=org
+cn: Lex Rentz
+sn: Rentz
+givenname: Lex
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: lrentz
+facsimiletelephonenumber: +1 408 555 8473
+mail: lrentz@openptkspe.org
+roomnumber: 2203
+telephonenumber: +1 408 555 2019
+userpassword: calcium
+
+dn: uid=bfrancis, ou=People, dc=openptkspe,dc=org
+cn: Barbara Francis
+sn: Francis
+givenname: Barbara
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Santa Clara
+o: BizPartnerB
+uid: bfrancis
+facsimiletelephonenumber: +1 408 555 9751
+mail: bfrancis@openptkspe.org
+roomnumber: 3743
+telephonenumber: +1 408 555 9111
+userpassword: holystone
+
+dn: uid=tjames, ou=People, dc=openptkspe,dc=org
+cn: Tobias James
+sn: James
+givenname: Tobias
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: tjames
+facsimiletelephonenumber: +1 408 555 9751
+mail: tjames@openptkspe.org
+roomnumber: 0730
+telephonenumber: +1 408 555 2458
+userpassword: turtle
+
+dn: uid=ecruse, ou=People, dc=openptkspe,dc=org
+cn: Eric Cruse
+sn: Cruse
+givenname: Eric
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Santa Clara
+o: BizPartnerB
+uid: ecruse
+facsimiletelephonenumber: +1 408 555 9751
+mail: ecruse@openptkspe.org
+roomnumber: 4233
+telephonenumber: +1 408 555 0648
+userpassword: platelet
+
+dn: uid=rhunt, ou=People, dc=openptkspe,dc=org
+cn: Richard Hunt
+sn: Hunt
+givenname: Richard
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Santa Clara
+o: BizPartnerB
+uid: rhunt
+facsimiletelephonenumber: +1 408 555 8473
+mail: rhunt@openptkspe.org
+roomnumber: 0718
+telephonenumber: +1 408 555 0139
+userpassword: becloud
+
+dn: uid=ealexand, ou=People, dc=openptkspe,dc=org
+cn: Erin Alexander
+sn: Alexander
+givenname: Erin
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Santa Clara
+o: BizPartnerB
+uid: ealexand
+facsimiletelephonenumber: +1 408 555 9751
+mail: ealexand@openptkspe.org
+roomnumber: 2434
+telephonenumber: +1 408 555 5563
+userpassword: galactose
+
+dn: uid=elott, ou=People, dc=openptkspe,dc=org
+cn: Emanuel Lott
+sn: Lott
+givenname: Emanuel
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Santa Clara
+o: BizPartnerB
+uid: elott
+facsimiletelephonenumber: +1 408 555 9751
+mail: elott@openptkspe.org
+roomnumber: 3906
+telephonenumber: +1 408 555 0932
+userpassword: holdout
+
+dn: uid=jvedder, ou=People, dc=openptkspe,dc=org
+cn: Jeff Vedder
+sn: Vedder
+givenname: Jeff
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Santa Clara
+o: BizPartnerB
+uid: jvedder
+facsimiletelephonenumber: +1 408 555 0111
+mail: jvedder@openptkspe.org
+roomnumber: 3445
+telephonenumber: +1 408 555 4668
+userpassword: befitting
+
+dn: uid=scarter, ou=People, dc=openptkspe,dc=org
+cn: Sam Carter
+sn: Carter
+givenname: Sam
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: scarter
+facsimiletelephonenumber: +1 408 555 9751
+mail: scarter@openptkspe.org
+roomnumber: 4612
+telephonenumber: +1 408 555 4798
+userpassword: sprain
+
+dn: uid=kvaughan, ou=People, dc=openptkspe,dc=org
+cn: Kirsten Vaughan
+sn: Vaughan
+givenname: Kirsten
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: kvaughan
+facsimiletelephonenumber: +1 408 555 3372
+mail: kvaughan@openptkspe.org
+roomnumber: 2871
+telephonenumber: +1 408 555 5625
+userpassword: bribery
+
+dn: uid=dmiller, ou=People, dc=openptkspe,dc=org
+cn: David Miller
+sn: Miller
+givenname: David
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: dmiller
+facsimiletelephonenumber: +1 408 555 0111
+mail: dmiller@openptkspe.org
+roomnumber: 4135
+telephonenumber: +1 408 555 9423
+userpassword: gosling
+
+dn: uid=jwallace, ou=People, dc=openptkspe,dc=org
+cn: Judy Wallace
+sn: Wallace
+givenname: Judy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: jwallace
+facsimiletelephonenumber: +1 408 555 8473
+mail: jwallace@openptkspe.org
+roomnumber: 1033
+telephonenumber: +1 408 555 0319
+userpassword: linear
+
+dn: uid=rdaugherty, ou=People, dc=openptkspe,dc=org
+cn: Robert Daugherty
+sn: Daugherty
+givenname: Robert
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: rdaugherty
+facsimiletelephonenumber: +1 408 555 1992
+mail: rdaugherty@openptkspe.org
+roomnumber: 0194
+telephonenumber: +1 408 555 1296
+userpassword: apples
+
+dn: uid=tmason, ou=People, dc=openptkspe,dc=org
+cn: Torrey Mason
+sn: Mason
+givenname: Torrey
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: tmason
+facsimiletelephonenumber: +1 408 555 9751
+mail: tmason@openptkspe.org
+roomnumber: 1124
+telephonenumber: +1 408 555 1596
+userpassword: squatted
+
+dn: uid=bjablons, ou=People, dc=openptkspe,dc=org
+cn: Barbara Jablonski
+sn: Jablonski
+givenname: Barbara
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: bjablons
+facsimiletelephonenumber: +1 408 555 4774
+mail: bjablons@openptkspe.org
+roomnumber: 0906
+telephonenumber: +1 408 555 8815
+userpassword: strawberry
+
+dn: uid=bhal2, ou=People, dc=openptkspe,dc=org
+cn: Barbara Hall
+sn: Hall
+givenname: Barbara
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: bhal2
+facsimiletelephonenumber: +1 408 555 8473
+mail: bhal2@openptkspe.org
+roomnumber: 2758
+telephonenumber: +1 408 555 4491
+userpassword: truths
+
+dn: uid=lulrich, ou=People, dc=openptkspe,dc=org
+cn: Lee Ulrich
+sn: Ulrich
+givenname: Lee
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Sunnyvale
+o: BizPartnerA
+uid: lulrich
+facsimiletelephonenumber: +1 408 555 3825
+mail: lulrich@openptkspe.org
+roomnumber: 0985
+telephonenumber: +1 408 555 8652
+userpassword: attribution
+
+dn: uid=gtriplet, ou=People, dc=openptkspe,dc=org
+cn: Gern Triplett
+sn: Triplett
+givenname: Gern
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: gtriplet
+facsimiletelephonenumber: +1 408 555 3372
+mail: gtriplet@openptkspe.org
+roomnumber: 4023
+telephonenumber: +1 408 555 2582
+userpassword: placeable
+
+dn: uid=prigden, ou=People, dc=openptkspe,dc=org
+cn: Peter Rigden
+sn: Rigden
+givenname: Peter
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: prigden
+facsimiletelephonenumber: +1 408 555 8473
+mail: prigden@openptkspe.org
+roomnumber: 1271
+telephonenumber: +1 408 555 5099
+userpassword: epiphyseal
+
+dn: uid=mlott, ou=People, dc=openptkspe,dc=org
+cn: Mike Lott
+sn: Lott
+givenname: Mike
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: mlott
+facsimiletelephonenumber: +1 408 555 9332
+mail: mlott@openptkspe.org
+roomnumber: 0498
+telephonenumber: +1 408 555 2234
+userpassword: cognac
+
+dn: uid=tpierce, ou=People, dc=openptkspe,dc=org
+cn: Tobias Pierce
+sn: Pierce
+givenname: Tobias
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: tpierce
+facsimiletelephonenumber: +1 408 555 9332
+mail: tpierce@openptkspe.org
+roomnumber: 1383
+telephonenumber: +1 408 555 1531
+userpassword: rascal
+
+dn: uid=brentz, ou=People, dc=openptkspe,dc=org
+cn: Bertram Rentz
+sn: Rentz
+givenname: Bertram
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Sunnyvale
+o: BizPartnerA
+uid: brentz
+facsimiletelephonenumber: +1 408 555 1992
+mail: brentz@openptkspe.org
+roomnumber: 0617
+telephonenumber: +1 408 555 5526
+userpassword: diachronic
+
+dn: uid=ekohler, ou=People, dc=openptkspe,dc=org
+cn: Elba Kohler
+sn: Kohler
+givenname: Elba
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: ekohler
+facsimiletelephonenumber: +1 408 555 9332
+mail: ekohler@openptkspe.org
+roomnumber: 2721
+telephonenumber: +1 408 555 1926
+userpassword: guildhall
+
+dn: uid=tschneid, ou=People, dc=openptkspe,dc=org
+cn: Torrey Schneider
+sn: Schneider
+givenname: Torrey
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: tschneid
+facsimiletelephonenumber: +1 408 555 8473
+mail: tschneid@openptkspe.org
+roomnumber: 2292
+telephonenumber: +1 408 555 7086
+userpassword: chaperone
+
+dn: uid=falbers, ou=People, dc=openptkspe,dc=org
+cn: Frank Albers
+sn: Albers
+givenname: Frank
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: falbers
+facsimiletelephonenumber: +1 408 555 9751
+mail: falbers@openptkspe.org
+roomnumber: 1439
+telephonenumber: +1 408 555 3094
+userpassword: degradation
+
+dn: uid=jburrell, ou=People, dc=openptkspe,dc=org
+cn: James Burrell
+sn: Burrell
+givenname: James
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: jburrell
+facsimiletelephonenumber: +1 408 555 4774
+mail: jburrell@openptkspe.org
+roomnumber: 4926
+telephonenumber: +1 408 555 0751
+userpassword: degrease
+
+dn: uid=calexand, ou=People, dc=openptkspe,dc=org
+cn: Chris Alexander
+sn: Alexander
+givenname: Chris
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Sunnyvale
+o: BizPartnerA
+uid: calexand
+facsimiletelephonenumber: +1 408 555 3825
+mail: calexand@openptkspe.org
+roomnumber: 2884
+telephonenumber: +1 408 555 9438
+userpassword: dauphin
+
+dn: uid=phunt, ou=People, dc=openptkspe,dc=org
+cn: Philip Hunt
+sn: Hunt
+givenname: Philip
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: phunt
+facsimiletelephonenumber: +1 408 555 0111
+mail: phunt@openptkspe.org
+roomnumber: 1183
+telephonenumber: +1 408 555 1242
+userpassword: wastewater
+
+dn: uid=rulrich, ou=People, dc=openptkspe,dc=org
+cn: Randy Ulrich
+sn: Ulrich
+givenname: Randy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: rulrich
+facsimiletelephonenumber: +1 408 555 8721
+mail: rulrich@openptkspe.org
+roomnumber: 1282
+telephonenumber: +1 408 555 5311
+userpassword: twinkle
+
+dn: uid=awhite, ou=People, dc=openptkspe,dc=org
+cn: Alan White
+sn: White
+givenname: Alan
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Sunnyvale
+o: BizPartnerA
+uid: awhite
+facsimiletelephonenumber: +1 408 555 8721
+mail: awhite@openptkspe.org
+roomnumber: 0142
+telephonenumber: +1 408 555 3232
+userpassword: placeholder
+
+dn: uid=jjensen, ou=People, dc=openptkspe,dc=org
+cn: Jody Jensen
+sn: Jensen
+givenname: Jody
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: jjensen
+facsimiletelephonenumber: +1 408 555 8721
+mail: jjensen@openptkspe.org
+roomnumber: 4882
+telephonenumber: +1 408 555 7587
+userpassword: borderland
+
+dn: uid=dward, ou=People, dc=openptkspe,dc=org
+cn: Daniel Ward
+sn: Ward
+givenname: Daniel
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Sunnyvale
+o: BizPartnerA
+uid: dward
+facsimiletelephonenumber: +1 408 555 7472
+mail: dward@openptkspe.org
+roomnumber: 3927
+telephonenumber: +1 408 555 5322
+userpassword: armload
+
+dn: uid=plorig, ou=People, dc=openptkspe,dc=org
+cn: Peter Lorig
+sn: Lorig
+givenname: Peter
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: plorig
+facsimiletelephonenumber: +1 408 555 7472
+mail: plorig@openptkspe.org
+roomnumber: 1276
+telephonenumber: +1 408 555 0624
+userpassword: calorimeter
+
+dn: uid=mreuter, ou=People, dc=openptkspe,dc=org
+cn: Matthew Reuter
+sn: Reuter
+givenname: Matthew
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: mreuter
+facsimiletelephonenumber: +1 408 555 3825
+mail: mreuter@openptkspe.org
+roomnumber: 1356
+telephonenumber: +1 408 555 6879
+userpassword: oblivious
+
+dn: uid=dswain, ou=People, dc=openptkspe,dc=org
+cn: Dietrich Swain
+sn: Swain
+givenname: Dietrich
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Sunnyvale
+o: BizPartnerA
+uid: dswain
+facsimiletelephonenumber: +1 408 555 1992
+mail: dswain@openptkspe.org
+roomnumber: 4396
+telephonenumber: +1 408 555 9222
+userpassword: freedom
+
+dn: uid=ahunter, ou=People, dc=openptkspe,dc=org
+cn: Allison Hunter
+sn: Hunter
+givenname: Allison
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Payroll
+l: Sunnyvale
+o: BizPartnerA
+uid: ahunter
+facsimiletelephonenumber: +1 408 555 8473
+mail: ahunter@openptkspe.org
+roomnumber: 1213
+telephonenumber: +1 408 555 7713
+userpassword: egregious
+
+dn: uid=jlutz, ou=People, dc=openptkspe,dc=org
+cn: Janet Lutz
+sn: Lutz
+givenname: Janet
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: jlutz
+facsimiletelephonenumber: +1 408 555 3825
+mail: jlutz@openptkspe.org
+roomnumber: 2544
+telephonenumber: +1 408 555 4902
+userpassword: autumn
+
+dn: uid=tcouzens, ou=People, dc=openptkspe,dc=org
+cn: Trent Couzens
+sn: Couzens
+givenname: Trent
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Accounting
+l: Sunnyvale
+o: BizPartnerA
+uid: tcouzens
+facsimiletelephonenumber: +1 408 555 4661
+mail: tcouzens@openptkspe.org
+roomnumber: 3994
+telephonenumber: +1 408 555 8401
+userpassword: tambourine
+
+dn: uid=kcope, ou=People, dc=openptkspe,dc=org
+cn: Karl Cope
+sn: Cope
+givenname: Karl
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: kcope
+facsimiletelephonenumber: +1 408 555 8721
+mail: kcope@openptkspe.org
+roomnumber: 3040
+telephonenumber: +1 408 555 2709
+userpassword: forfeiture
+
+dn: uid=mvaughan, ou=People, dc=openptkspe,dc=org
+cn: Matthew Vaughan
+sn: Vaughan
+givenname: Matthew
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Sunnyvale
+o: BizPartnerA
+uid: mvaughan
+facsimiletelephonenumber: +1 408 555 0111
+mail: mvaughan@openptkspe.org
+roomnumber: 4508
+telephonenumber: +1 408 555 4692
+userpassword: submitted
+
+dn: uid=dcope, ou=People, dc=openptkspe,dc=org
+cn: Dan Cope
+sn: Cope
+givenname: Dan
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Sunnyvale
+o: BizPartnerA
+uid: dcope
+facsimiletelephonenumber: +1 408 555 8721
+mail: dcope@openptkspe.org
+roomnumber: 1737
+telephonenumber: +1 408 555 9813
+userpassword: snifter
+
+dn: uid=ttully, ou=People, dc=openptkspe,dc=org
+cn: Torrey Tully
+sn: Tully
+givenname: Torrey
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: ttully
+facsimiletelephonenumber: +1 408 555 0111
+mail: ttully@openptkspe.org
+roomnumber: 3924
+telephonenumber: +1 408 555 2274
+userpassword: schooner
+
+dn: uid=drose, ou=People, dc=openptkspe,dc=org
+cn: David Rose
+sn: Rose
+givenname: David
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Sunnyvale
+o: BizPartnerA
+uid: drose
+facsimiletelephonenumber: +1 408 555 0111
+mail: drose@openptkspe.org
+roomnumber: 4012
+telephonenumber: +1 408 555 3963
+userpassword: gubernatorial
+
+dn: uid=jvaughan, ou=People, dc=openptkspe,dc=org
+cn: Jeff Vaughan
+sn: Vaughan
+givenname: Jeff
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: jvaughan
+facsimiletelephonenumber: +1 408 555 9751
+mail: jvaughan@openptkspe.org
+roomnumber: 1734
+telephonenumber: +1 408 555 4543
+userpassword: appoint
+
+dn: uid=brigden, ou=People, dc=openptkspe,dc=org
+cn: Bjorn Rigden
+sn: Rigden
+givenname: Bjorn
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Human Resources
+l: Sunnyvale
+o: BizPartnerA
+uid: brigden
+facsimiletelephonenumber: +1 408 555 1992
+mail: brigden@openptkspe.org
+roomnumber: 1643
+telephonenumber: +1 408 555 5263
+userpassword: purple
+
+dn: uid=rjense2, ou=People, dc=openptkspe,dc=org
+cn: Randy Jensen
+sn: Jensen
+givenname: Randy
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Testing
+l: Sunnyvale
+o: BizPartnerA
+uid: rjense2
+facsimiletelephonenumber: +1 408 555 1992
+mail: rjense2@openptkspe.org
+roomnumber: 1984
+telephonenumber: +1 408 555 9045
+userpassword: transpose
+
+dn: uid=bparker, ou=People, dc=openptkspe,dc=org
+cn: Barry Parker
+sn: Parker
+givenname: Barry
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Product Development
+l: Sunnyvale
+o: BizPartnerA
+uid: bparker
+facsimiletelephonenumber: +1 408 555 9332
+mail: bparker@openptkspe.org
+roomnumber: 1148
+telephonenumber: +1 408 555 4647
+userpassword: lenticular
+
+dn: uid=sgates, ou=Wireless, dc=openptkspe,dc=org
+cn: Sara Gates
+sn: Gates
+givenname: Sara
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: Wireless
+l: Austin
+uid: sgates
+facsimiletelephonenumber: 408-555-0066
+mail: sgates@sun.org
+roomnumber: 0056
+telephonenumber: 555-867-5309
+userpassword: identity
+
+dn: uid=dburke, ou=People, dc=openptkspe,dc=org
+cn: Danny Burke
+sn: Burke
+givenname: Danny
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: HOH
+l: Sunnyvale
+o: BizPartnerA
+uid: dburke
+description: 11223344
+facsimiletelephonenumber: +1 408 555 9332
+mail: dburke@openptkspe.org
+roomnumber: 0056
+telephonenumber: +1 408 555 0066
+userpassword: Passw0rd
+
+dn: uid=cnewport, ou=People, dc=openptkspe,dc=org
+cn: Christoph Newport
+sn: Newport
+givenname: Christoph
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+ou: subaccount
+uid: cnewport
+description: 11223344
+mail: cnewport@openptkspe.org
+telephonenumber: +1 408 555 9332
+userpassword: Passw0rd
+#Need a carraige return here, otherwise Apache Directory Studio does not take the last entry.
+

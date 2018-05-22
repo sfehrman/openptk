@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Waveset PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ *      Portions Copyright 2007 Sun Microsystems, Inc.
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License, Version 1.0 only
+ * (the "License").  You may not use this file except in compliance
+ * with the License.
+ *
+ * You can obtain a copy of the license at
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+ * or https://openptk.dev.java.net/OpenPTK.LICENSE.
+ * See the License for the specific language governing permissions
+ * and limitations under the License.
+ *
+ * When distributing Covered Code, include this CDDL HEADER in each
+ * file and include the reference to
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+ * add the following below this CDDL HEADER, with the fields enclosed
+ * by brackets "[]" replaced with your own identifying information:
+ *      Portions Copyright [yyyy] [name of copyright owner]
+ *
+ *
+ * Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+-->
+
+<Waveset>
+  
+    <!-- IDM encryption configuration -->
+    <ImportCommand name="include" file="WEB-INF/config/custom/Encryption/EncryptionKey_openptk.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-EncryptionConfig.xml"/>    
+
+    <!-- SPE artifacts -->
+    <ImportCommand name="include" file="WEB-INF/config/custom/Resource/Resource-ServiceProviderEnd-UserDirectory-idm8.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-ServiceProvider-idm8.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-ServiceProviderTrackedEventsConfiguration-idm8.xml"/>
+  
+    <!-- Shared resources -->
+    <ImportCommand name="include" file="WEB-INF/config/custom/Policy/Policy-IdMAccountPolicy.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Policy/Policy-AccountIdPolicy.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Policy/Policy-PasswordPolicy.xml"/>
+
+    <ImportCommand name="include" file="WEB-INF/config/custom/ObjectGroup/objectGroup-init.xml"/>
+
+    <ImportCommand name="include" file="WEB-INF/config/custom/TaskDefinition/TaskDefinition-SPMLRequest.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/TaskDefinition/TaskDefinition-SPMLChangeUserPassword.xml"/>
+
+
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-BasicUser.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-SPMLPerson.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-SPMLRole.xml"/>    
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-ptkPerson.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-SysInfoForm.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-Empty.xml"/>    
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-SPML.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-SystemConfiguration.xml"/>    
+
+    <ImportCommand name="include" file="WEB-INF/config/custom/User/User-SPMLProxy.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/User/Users-SPML-Sample.xml"/>
+
+    <ImportCommand name="include" file="WEB-INF/config/custom/Role/Role-SPMLRoles.xml"/>
+
+    <ImportCommand name="include" file="WEB-INF/config/custom/UserForm/UserForm-CustomSPML-ProxyForm.xml"/>
+
+    <ImportCommand name="include" file="WEB-INF/config/custom/Resource/Resource-LDAP.xml"/>
+
+    
+     <!-- Identity Manager 8 specific objects -->
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-IDMSchemaConfiguration.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Role/Role_IT_CorporateDirectory.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Role/Role_Business_Employee.xml"/>
+
+     <!-- Identity Manager SPMLv2 specific objects -->
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-SPML2.xml"/>
+    <ImportCommand name="include" file="WEB-INF/config/custom/Configuration/Configuration-SPML2Person.xml"/> 
+    <ImportCommand name="include" file="WEB-INF/config/custom/TaskDefinition/TaskDefinition-SPML2Request.xml"/> 
+   
+
+    
+</Waveset>

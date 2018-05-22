@@ -1,0 +1,624 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+   <head><title>Photo Upload To Database</title></head>
+   <body>
+      <h3>Please Choose a Photo and click Submit for user: ra65029</h3>
+      <form action="http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ra65029/relationships/photo" 
+            enctype="multipart/form-data"
+            method="post">
+         <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+         <input type="file" name="media" />
+         <input type="submit" value="Submit" />
+      </form>
+      
+      
+<pre>This will upload an image to the JDBC context at:  http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/.
+
+After importing the sample user database for MySQL, the cURL commands below can be executed from openptk/trunk/ext/Misc/photos directory.
+
+Login First:
+
+curl -v -c cookies.txt -H "Accept: text/plain" http://localhost:8080/openptk-server/login?user=openptkconfig\&password=password\&clientid=identitycentral
+
+upload commands:
+
+curl -b cookies.txt -F "media=@m1.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ra65029/relationships/photo
+curl -b cookies.txt -F "media=@m2.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/pa10130/relationships/photo
+curl -b cookies.txt -F "media=@m3.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/sa69620/relationships/photo
+curl -b cookies.txt -F "media=@m4.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/sa15346/relationships/photo
+curl -b cookies.txt -F "media=@m5.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ma863/relationships/photo
+curl -b cookies.txt -F "media=@m6.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ja1324/relationships/photo
+curl -b cookies.txt -F "media=@m7.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/da47195/relationships/photo
+curl -b cookies.txt -F "media=@m8.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/bb10310/relationships/photo
+curl -b cookies.txt -F "media=@m9.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/rb5068/relationships/photo
+curl -b cookies.txt -F "media=@m10.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/bb84946/relationships/photo
+curl -b cookies.txt -F "media=@m11.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/tb6035/relationships/photo
+curl -b cookies.txt -F "media=@m15.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/jb5392/relationships/photo
+curl -b cookies.txt -F "media=@m12.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/mb11644/relationships/photo
+curl -b cookies.txt -F "media=@m13.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/db8800/relationships/photo
+curl -b cookies.txt -F "media=@m14.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/pb87682/relationships/photo
+curl -b cookies.txt -F "media=@m16.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/db4532/relationships/photo
+curl -b cookies.txt -F "media=@m17.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ab37603/relationships/photo
+curl -b cookies.txt -F "media=@m18.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/jb8578/relationships/photo
+curl -b cookies.txt -F "media=@m19.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/pb14724/relationships/photo
+curl -b cookies.txt -F "media=@m20.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/cb5981/relationships/photo
+curl -b cookies.txt -F "media=@m21.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/wb20370/relationships/photo
+curl -b cookies.txt -F "media=@f1.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/aa10127/relationships/photo
+curl -b cookies.txt -F "media=@f2.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ha4922/relationships/photo
+curl -b cookies.txt -F "media=@f3.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/aa4427/relationships/photo
+curl -b cookies.txt -F "media=@f4.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ab14156/relationships/photo
+curl -b cookies.txt -F "media=@f5.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/lb5722/relationships/photo
+curl -b cookies.txt -F "media=@f6.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/rb11668/relationships/photo
+curl -b cookies.txt -F "media=@f7.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/eb83526/relationships/photo
+curl -b cookies.txt -F "media=@f8.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/ab24717/relationships/photo
+curl -b cookies.txt -F "media=@f9.jpg"  http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/fb9582/relationships/photo
+curl -b cookies.txt -F "media=@f10.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/jb15621/relationships/photo
+curl -b cookies.txt -F "media=@f11.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/mb63289/relationships/photo
+curl -b cookies.txt -F "media=@f12.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/rb28628/relationships/photo
+curl -b cookies.txt -F "media=@f13.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/db60825/relationships/photo
+curl -b cookies.txt -F "media=@f14.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/jb2284/relationships/photo
+curl -b cookies.txt -F "media=@f15.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/cb12677/relationships/photo
+curl -b cookies.txt -F "media=@f16.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/db64628/relationships/photo
+curl -b cookies.txt -F "media=@f17.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/cb4054/relationships/photo
+curl -b cookies.txt -F "media=@f18.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/eb59755/relationships/photo
+curl -b cookies.txt -F "media=@f19.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/pb82129/relationships/photo
+curl -b cookies.txt -F "media=@f20.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/tb64573/relationships/photo
+curl -b cookies.txt -F "media=@f21.jpg" http://localhost:8080/openptk-server/resources/contexts/Employees-MySQL-JDBC/subjects/kb69243/relationships/photo
+
+
+The user images are shown below (assumes a deployment URI of:  http://localhost:8080/openptk-server)
+</pre>
+      
+<table border="1">
+ <tr>
+    <td>ra65029</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ra65029/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ra65029/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ra65029/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ra65029/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+ <tr>
+    <td>pa10130</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pa10130/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pa10130/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pa10130/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pa10130/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>sa69620</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa69620/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa69620/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa69620/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa69620/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>sa15346</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa15346/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa15346/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa15346/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/sa15346/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>ma863</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ma863/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ma863/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ma863/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ma863/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>ja1324</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ja1324/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ja1324/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ja1324/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ja1324/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>da47195</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/da47195/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/da47195/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/da47195/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/da47195/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>bb10310</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb10310/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb10310/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb10310/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb10310/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>rb5068</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb5068/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb5068/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb5068/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb5068/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>bb84946</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb84946/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb84946/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb84946/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/bb84946/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>tb6035</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb6035/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb6035/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb6035/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb6035/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>jb5392</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb5392/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb5392/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb5392/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb5392/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>mb11644</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb11644/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb11644/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb11644/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb11644/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>db8800</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db8800/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db8800/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db8800/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db8800/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>pb87682</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb87682/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb87682/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb87682/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb87682/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>db4532</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db4532/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db4532/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db4532/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db4532/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>ab37603</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab37603/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab37603/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab37603/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab37603/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>jb8578</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb8578/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb8578/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb8578/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb8578/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>pb14724</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb14724/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb14724/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb14724/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb14724/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>cb5981</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb5981/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb5981/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb5981/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb5981/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>wb20370</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/wb20370/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/wb20370/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/wb20370/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/wb20370/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>aa10127</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa10127/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa10127/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa10127/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa10127/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>ha4922</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ha4922/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ha4922/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ha4922/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ha4922/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>aa4427</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa4427/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa4427/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa4427/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/aa4427/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>ab14156</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab14156/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab14156/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab14156/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab14156/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>lb5722</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/lb5722/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/lb5722/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/lb5722/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/lb5722/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>rb11668</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb11668/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb11668/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb11668/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb11668/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>eb83526</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb83526/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb83526/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb83526/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb83526/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>ab24717</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab24717/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab24717/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab24717/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/ab24717/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>fb9582</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/fb9582/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/fb9582/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/fb9582/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/fb9582/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>jb15621</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb15621/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb15621/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb15621/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb15621/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>mb63289</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb63289/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb63289/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb63289/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/mb63289/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>rb28628</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb28628/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb28628/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb28628/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/rb28628/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>db60825</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db60825/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db60825/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db60825/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db60825/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>jb2284</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb2284/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb2284/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb2284/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/jb2284/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>cb12677</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb12677/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb12677/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb12677/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb12677/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>db64628</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db64628/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db64628/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db64628/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/db64628/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>cb4054</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb4054/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb4054/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb4054/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/cb4054/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>eb59755</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb59755/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb59755/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb59755/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/eb59755/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>pb82129</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb82129/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb82129/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb82129/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/pb82129/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>tb64573</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb64573/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb64573/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb64573/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/tb64573/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+  <tr>
+    <td>kb69243</td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/kb69243/relationships/photo" alt="no image"/>
+            <a href="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/kb69243/relationships/photo">Open Media</a>
+    </td>
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/kb69243/relationships/cardphoto" alt="no image"/>
+    </td>      
+    <td>
+      <img src="http://localhost:8080/openptk/resources/engine/contexts/Employees-MySQL-JDBC/subjects/kb69243/relationships/thumbnail" alt="no image"/>
+    </td>
+ </tr>
+</table> 
+
+
+   </body>
+</html>

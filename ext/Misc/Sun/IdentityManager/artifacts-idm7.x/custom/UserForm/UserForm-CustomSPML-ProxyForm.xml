@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ *      Portions Copyright 2007 Sun Microsystems, Inc.
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License, Version 1.0 only
+ * (the "License").  You may not use this file except in compliance
+ * with the License.
+ *
+ * You can obtain a copy of the license at
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+ * or https://openptk.dev.java.net/OpenPTK.LICENSE.
+ * See the License for the specific language governing permissions
+ * and limitations under the License.
+ *
+ * When distributing Covered Code, include this CDDL HEADER in each
+ * file and include the reference to
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+ * add the following below this CDDL HEADER, with the fields enclosed
+ * by brackets "[]" replaced with your own identifying information:
+ *      Portions Copyright [yyyy] [name of copyright owner]
+ *
+ *
+ * Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+-->
+<Configuration id='#ID#USERFORM:SPML-ProxyForm' name='Custom - SPML-Proxy Form' wstype='UserForm'>
+  <Extension>
+    <Form name='Custom - SPML-Proxy Form'>
+       
+         <Field name='LDAPFields'>
+
+
+            <Field name='accounts[LDAP].firstname'>
+               <Expansion>
+                  <ref>accounts[Lighthouse].firstname</ref>
+               </Expansion>
+            </Field>
+            <Field name='accounts[LDAP].lastname'>
+               <Expansion>
+                  <ref>accounts[Lighthouse].lastname</ref>
+               </Expansion>
+            </Field>
+            <Field name='accounts[LDAP].fullname'>
+               <Expansion>
+                  <ref>accounts[Lighthouse].fullname</ref>
+               </Expansion>
+            <Disable>
+                    <isnull>
+                        <ref>accounts[Lighthouse].fullname</ref>
+                    </isnull>
+            </Disable>               
+            </Field>            
+            <Field name='accounts[LDAP].manager'>
+               <Expansion>
+                  <concat>
+                     <s>uid=</s>
+                     <select>
+                       <ref>waveset.idmManager</ref>
+                     </select>
+                     <s>,ou=people,dc=openptk,dc=org</s>
+                  </concat>
+               </Expansion>
+               <Disable>
+                  <isnull>
+                     <ref>waveset.idmManager</ref>
+                  </isnull>
+               </Disable>
+            </Field>
+            <Field name='accounts[LDAP].location'>
+               <Expansion>
+                  <select>
+                     <ref>activeSync.location</ref>
+                     <ref>accounts[Lighthouse].location</ref>
+                     <ref>global.location</ref>
+                  </select>
+               </Expansion>
+            </Field>            
+         </Field>         
+         <!-- Never expire the users password for demonstration only, the OOB behaviour will intentionally 
+              exipre the password when it is set by an administrator, since SPML uses and administrator, 
+              it is expired.
+         -->
+         <Field name='expirePassword'>
+            <Default>
+              <s>false</s>
+            </Default>
+        </Field>
+        <FieldLoop for='name' in='password.accounts[*].name'>
+            <Field>
+                <Field name='password.accounts[$(name)].selected'>
+                    <Expansion>
+                        <s>true</s>
+                    </Expansion>
+                </Field>
+                <Field name='password.accounts[$(name)].expire'>
+                    <Expansion>
+                        <ref>expirePassword</ref>
+                    </Expansion>
+                </Field>
+            </Field>
+        </FieldLoop>
+
+        
+        <!-- Set the users forgotten password answers if the attibute is not null forgottenPasswordDataInput 
+             It is assumes that a variable with inner and outer delimiters (^ and |) is supplied
+        -->
+        <Field name='setAnswers'>
+            <Field name='getQuestionsAndAnswers'>
+                <Expansion>
+                    <split>
+                    <ref>forgottenPasswordDataInput</ref>
+                    <s>^</s>
+                   </split>
+                </Expansion>
+            </Field> 
+            <Field>
+              <FieldLoop for='answer1' in='getQuestionsAndAnswers'>
+                <Field name='calculateQuestionAnswerPair'>
+                  <Expansion>
+                        <split>
+                         <ref>answer1</ref>
+                         <s>|</s>
+                        </split>
+                  </Expansion>
+                </Field>
+                <Field name='calculateQuestion'>
+                  <Expansion>
+                      <get>
+                         <ref>calculateQuestionAnswerPair</ref>
+                        <s>0</s>
+                      </get>
+                  </Expansion>
+                </Field>                  
+                <Field name='calculateAnswer'>
+                  <Expansion>
+                      <get>
+                         <ref>calculateQuestionAnswerPair</ref>
+                        <s>1</s>
+                      </get>
+                  </Expansion>
+                </Field>  
+                <FieldLoop for='name' in='waveset.questions[loginInterface=UI_LOGIN_CONFIG_DISPLAY_NAME_USER_INTERFACE].name'>
+                  <Field>
+                   <Field name='waveset.questions[$(name)].question'>
+                    <Expansion>
+                        <ref>calculateQuestion</ref>
+                    </Expansion>
+                   </Field>
+                   <Field name='waveset.questions[$(name)].answer'>
+                    <Expansion>
+                        <ref>calculateAnswer</ref>
+                    </Expansion>
+                   </Field>
+                   <Disable>
+                       <neq>
+                           <ref>waveset.questions[$(name)].question</ref>
+                           <ref>calculateQuestion</ref>
+                       </neq>
+                    </Disable>
+                  </Field>
+                </FieldLoop>
+               </FieldLoop>
+
+            </Field> 
+            <Disable>
+                <isnull>
+                    <ref>forgottenPasswordDataInput</ref>
+                </isnull>
+            </Disable>
+        </Field>           
+        
+    </Form>
+  </Extension>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#Top' name='Top'/>
+  </MemberObjectGroups>
+</Configuration>
+

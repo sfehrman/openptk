@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns='http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd' 
+             xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' 
+             xsi:schemaLocation='http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd'
+             version="1.0">
+   <portlet>
+      <description>OpenPTK registration portlet</description>
+      <portlet-name>Registration</portlet-name>
+      <display-name>Registration Portlet</display-name>
+      <portlet-class>org.openptk.app.prov.portlets.Registration</portlet-class>
+      <expiration-cache>0</expiration-cache>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+         <portlet-mode>HELP</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <portlet-info>
+         <title>Registration Portlet</title>
+         <short-title>Registration</short-title>
+         <keywords>OpenPTK</keywords>
+      </portlet-info>
+   </portlet>
+   <portlet>
+      <description>OpenPTK self service portlet</description>
+      <portlet-name>SelfService</portlet-name>
+      <display-name>Self Service Portlet</display-name>
+      <portlet-class>org.openptk.app.prov.portlets.SelfService</portlet-class>
+      <expiration-cache>0</expiration-cache>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+         <portlet-mode>HELP</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <portlet-info>
+         <title>User Self Service Portlet</title>
+         <short-title>SelfService</short-title>
+         <keywords>OpenPTK</keywords>
+      </portlet-info>
+   </portlet>
+   <portlet>
+      <description>OpenPTK forgotten password portlet</description>
+      <portlet-name>ForgotPassword</portlet-name>
+      <display-name>Forgotten Password Portlet</display-name>
+      <portlet-class>org.openptk.app.prov.portlets.ForgotPassword</portlet-class>
+      <expiration-cache>0</expiration-cache>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+         <portlet-mode>HELP</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <portlet-info>
+         <title>Forgotten Password Portlet</title>
+         <short-title>ForgotPassword</short-title>
+         <keywords>OpenPTK</keywords>
+      </portlet-info>
+   </portlet>
+   <portlet>
+      <description>OpenPTK user administration portlet</description>
+      <portlet-name>UserAdmin</portlet-name>
+      <display-name>User Administration Portlet</display-name>
+      <portlet-class>org.openptk.app.prov.portlets.UserAdmin</portlet-class>
+      <expiration-cache>-1</expiration-cache>
+      <supports>
+         <mime-type>text/html</mime-type>
+         <portlet-mode>VIEW</portlet-mode>
+         <portlet-mode>HELP</portlet-mode>
+      </supports>
+      <supported-locale>en</supported-locale>
+      <portlet-info>
+         <title>User Administration Portlet</title>
+         <short-title>UserAdmin</short-title>
+         <keywords>OpenPTK</keywords>
+      </portlet-info>
+</portlet></portlet-app>

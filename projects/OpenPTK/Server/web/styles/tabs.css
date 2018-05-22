@@ -1,0 +1,73 @@
+
+
+/* tab styles */
+ul.tabset_tabs {
+	zoom: 1; /* IE */
+}
+ul.tabset_tabs li {
+	cursor: pointer;
+	float: left;
+	margin-right: 0.245em;
+	background: #DADDE3 url(../images/tabs/tab_right.gif) no-repeat right top;
+}
+ul.tabset_tabs li.active {
+	background: #EAEBEE url(../images/tabs/tab_right_current.gif) no-repeat top right;
+}
+ul.tabset_tabs li a:link, ul.tabset_tabs li a:visited {
+	color: #365D95;
+	display: block;
+	padding: 0.515em 1.3em 0.215em;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-decoration: none;
+	background: transparent url(../images/tabs/tab_left.gif) no-repeat left top;
+}
+ul.tabset_tabs li a:hover, ul.tabset_tabs li a:active, ul.tabset_tabs li a:focus {
+	color: #1f2126;
+}
+ul.tabset_tabs li.active a:link, ul.tabset_tabs li.active a:visited {
+	color: #1f2126;
+	background: transparent url(../images/tabs/tab_left_current.gif) no-repeat left top;
+}
+
+.tabset_content_container {
+	clear: both;
+	padding: 10px 0;
+	border: 2px solid #e6e6e6;
+	background: #fff url(../images/tabs/bg_grey_gradient.gif) repeat-x left top;
+}
+.tabset_content_container .tr, .tabset_content_container .bl, .tabset_content_container .br {
+	position: relative;
+	height: 10px;
+	font-size: 1px; /* IE */
+	background: transparent url(../images/tabs/rounded_clear_outline.gif) no-repeat top left;
+}
+.tabset_content_container .tr {
+	background-position: 100% -10px;
+	left: 2px;
+	top: -2px;
+}
+.tabset_content_container .bl {
+	background-position: 0 -20px;
+	top: 2px;
+	left: -2px;
+}
+.tabset_content_container .br {
+	background-position: 100% -30px;
+	left: 4px;
+}
+
+.tabset_content {
+	background-color: transparent !important;
+	background: #fff none; /* IE */
+	padding: 0 10px;
+}
+
+.toggletext {
+	cursor: pointer;
+	padding-left: 0.8em;
+	background: #EAEBEE url(http://validator.w3.org/images/arrow-closed.png) 0 1.2em no-repeat;
+}
+.toggled {
+	background: #EAEBEE url(http://validator.w3.org/images/arrow-open.png) 0 1.4em no-repeat;
+}

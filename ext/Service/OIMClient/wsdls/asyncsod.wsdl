@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name="AsyncSoD" targetNamespace="http://sodcheck.iam.oracle.com/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sodcheck.iam.oracle.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <plnk:partnerLinkType name="asyncPartnerLink">
+    <plnk:role name="asyncProvider">
+      <plnk:portType name="tns:InitiatePortType"/>
+    </plnk:role>
+    <plnk:role name="asyncRequester">
+      <plnk:portType name="tns:ResultPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://sodcheck.iam.oracle.com/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sodcheck.iam.oracle.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="requestID" type="xsd:string"/>
+      <xsd:element name="checkResult" type="xsd:string"/>
+    </xsd:schema>
+  </types>
+  <message name="initiateMessage">
+    <part element="tns:requestID" name="in"/>
+  </message>
+  <message name="resultMessage">
+    <part element="tns:checkResult" name="out"/>
+  </message>
+  <portType name="InitiatePortType">
+    <operation name="initiate">
+      <input message="tns:initiateMessage"/>
+    </operation>
+  </portType>
+  <portType name="ResultPortType">
+    <operation name="result">
+      <input message="tns:resultMessage"/>
+    </operation>
+  </portType>
+  <binding name="InitiateBinding" type="tns:InitiatePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="initiate">
+      <soap:operation/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+    </operation>
+  </binding>
+  <binding name="ResultBinding" type="tns:ResultPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="result">
+      <soap:operation/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+    </operation>
+  </binding>
+  <service name="SoDCheckInitiateService">
+    <port binding="tns:InitiateBinding" name="InitiatePort">
+      <soap:address location="REPLACE_WITH_ACTUAL_URL"/>
+    </port>
+  </service>
+  <service name="SoDCheckResultService">
+    <port binding="tns:ResultBinding" name="ResultPort">
+      <soap:address location="http://set.by.caller"/>
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--
+ * NOTE:  This configuration file is based on the sample artifact which ships with 
+ * Sun Identity Manager
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ *      Portions Copyright 2007 Sun Microsystems, Inc.
+ *
+ * The contents of this file are subject to the terms of the
+ * Common Development and Distribution License, Version 1.0 only
+ * (the "License").  You may not use this file except in compliance
+ * with the License.
+ *
+ * You can obtain a copy of the license at
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+ * or https://openptk.dev.java.net/OpenPTK.LICENSE.
+ * See the License for the specific language governing permissions
+ * and limitations under the License.
+ *
+ * When distributing Covered Code, include this CDDL HEADER in each
+ * file and include the reference to
+ * trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+ * add the following below this CDDL HEADER, with the fields enclosed
+ * by brackets "[]" replaced with your own identifying information:
+ *      Portions Copyright [yyyy] [name of copyright owner]
+ *
+ *
+ * Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+-->
+<Configuration authType='IDMSchemaConfig' id='#ID#Configuration:IDM_Schema_Configuration' name='IDM Schema Configuration' creator='%STARTUP%Configurator' createDate='1209547873812' repoMod='1209547873828'>
+  <IDMSchemaConfiguration>
+    <Comments>ObjectClass schema customizations, including configuration of queryable, summary&#xA;                and extended attributes for User (formerly in UserUIConfig), Role, and extensions&#xA;                of Role. To make an ObjectClassAttributeDefinition of a base ObjectClass queryable&#xA;                or summary, duplicate the entry on the desired extended ObjectClassDefinition in the&#xA;                hierarchy.&#xA;                NOTE: Only customization of these (User, Role, extensions of Role) ObjectClasses&#xA;                are supported. Changes specified for other ObjectClasses will be discarded.&#xA;                NOTE: Only ObjectClassAttributes can be added to an ObjectClassDefinition as&#xA;                extended attributes. Specifically, adding extended ObjectClassReferenceAttributes&#xA;                is not currently supported.&#xA;                NOTE: The recommended best practice for naming extended attributes is to prepend&#xA;                a company or deployment identifier to the name in order to prevent possible conflict&#xA;                with future core product attributes. For example, to add an attribute for&#xA;                widgetName, the ObjectClassAttribute could be named 'acme_widgetName'.&#xA;            </Comments>
+    <IDMAttributeConfigurations>
+      <IDMAttributeConfiguration name='correlationKey' description='default from UserUIConfig' syntax='STRING'/>
+      <IDMAttributeConfiguration name='dis' description='Disabled Summary: 0 - no resource accounts disabled, 1 - partially disabled, 2 - fully disabled' syntax='INT'/>
+      <IDMAttributeConfiguration name='email' syntax='STRING'/>
+      <IDMAttributeConfiguration name='firstname' description='default attribute from UserExtendedAttributes/UserUIConfig' syntax='STRING'/>
+      <IDMAttributeConfiguration name='fullname' description='default from UserExtendedAttributes' syntax='STRING'/>
+      <IDMAttributeConfiguration name='lastname' description='default attribute from UserExtendedAttributes/UserUIConfig' syntax='STRING'/>
+      <IDMAttributeConfiguration name='lhdis' description='default from UserUIConfig' syntax='BOOLEAN'/>
+      <IDMAttributeConfiguration name='lhlocked' description='default from UserUIConfig' syntax='STRING'/>
+      <IDMAttributeConfiguration name='locked' description='Ignores lock expirations' syntax='BOOLEAN'/>
+      <IDMAttributeConfiguration name='prov' description='provisioning level: 0 - no accounts provisioned, 1 - partially provisioned, 2 - fully provisioned' syntax='INT'/>
+      <IDMAttributeConfiguration name='res' description='default from UserUIConfig' syntax='STRING' multiValued='true'/>
+      <IDMAttributeConfiguration name='role' description='default attribute from UserUIConfig' syntax='STRING'/>
+      <IDMAttributeConfiguration name='user_resources' description='default from UserUIConfig' syntax='STRING' multiValued='true'/>
+      <IDMAttributeConfiguration name='department' description='value from HR feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='departmentName' description='value from HR feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='divisionName' description='value from HR feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='division' description='value from HR feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='telephone' description='value from SPML' syntax='STRING'/>      
+      <IDMAttributeConfiguration name='employeeId' description='value from HR feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='last4SSN' description='value from HR feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='birthDate' description='value from HR feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='userRegistered' description='used within custom first time login w/f' syntax='STRING'/>
+      <IDMAttributeConfiguration name='utf8firstname' description='used within custom first time login w/f' syntax='STRING'/>
+      <IDMAttributeConfiguration name='utf8lastname' description='used within custom first time login w/f' syntax='STRING'/>
+      <IDMAttributeConfiguration name='utf8fullname' description='used within custom first time login w/f' syntax='STRING'/>
+      <IDMAttributeConfiguration name='mgrEmplId' description='used to store the managed emplId from HR' syntax='STRING'/>
+      <IDMAttributeConfiguration name='myProxyEnd' description='used within custom my proxy w/f' syntax='STRING'/>
+      <IDMAttributeConfiguration name='myProxyId' description='used within custom my proxy w/f' syntax='STRING'/>
+      <IDMAttributeConfiguration name='myProxyStart' description='used within custom my proxy w/f' syntax='STRING'/>      
+      <IDMAttributeConfiguration name='jobDescription' description='Role config' syntax='STRING'/>
+      <IDMAttributeConfiguration name='isManager' description='manager' syntax='STRING'/>
+      <IDMAttributeConfiguration name='userType' description='type of user' syntax='STRING'/>
+      <IDMAttributeConfiguration name='sunsetDate' description='sunset date' syntax='STRING'/>
+      <IDMAttributeConfiguration name='sunriseDate' description='sunrise date' syntax='STRING'/>
+      <IDMAttributeConfiguration name='jobTitle' description='value from HR Feed' syntax='STRING'/>
+      <IDMAttributeConfiguration name='transitioningJobTitle' description='value from HR Feed' syntax='STRING'/>
+
+    </IDMAttributeConfigurations>
+    <IDMObjectClassConfigurations>
+      <IDMObjectClassConfiguration name='Role' extends='Object' displayName='UI_OBJECTCLASS_ROLE' description='Role description'>
+          <IDMObjectClassAttributeConfiguration name='jobDescription' queryable='true' summary='true'/>
+          <IDMObjectClassAttributeConfiguration name='departmentName' queryable='true' summary='true'/>
+          <IDMObjectClassAttributeConfiguration name='divisionName'   queryable='true' summary='true'/>
+      </IDMObjectClassConfiguration>
+      <IDMObjectClassConfiguration name='BusinessRole' extends='Role' displayName='UI_OBJECTCLASS_BUSINESS_ROLE'>
+      </IDMObjectClassConfiguration>
+      <IDMObjectClassConfiguration name='ITRole' extends='Role' displayName='UI_OBJECTCLASS_IT_ROLE'>
+      </IDMObjectClassConfiguration>
+      <IDMObjectClassConfiguration name='AssetRole' extends='Role' displayName='UI_OBJECTCLASS_ASSET_ROLE'>
+      </IDMObjectClassConfiguration>
+      <IDMObjectClassConfiguration name='ApplicationRole' extends='Role' displayName='UI_OBJECTCLASS_APPLICATION_ROLE'>
+      </IDMObjectClassConfiguration>
+      <IDMObjectClassConfiguration name='User' extends='Principal' description='User description'>
+        <IDMObjectClassAttributeConfiguration name='role' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='correlationKey' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='lhdis' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='dis' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='res' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='locked' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='email' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='firstname' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='user_resources' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='lastname' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='fullname' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='lhlocked' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='prov' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='department' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='division' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='telephone' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='location' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='employeeId' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='last4SSN' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='birthDate' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='userRegistered' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='utf8firstname' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='utf8lastname' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='utf8fullname' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='mgrEmplId' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='myProxyEnd' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='myProxyId' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='myProxyStart' queryable='true'/>        
+        <IDMObjectClassAttributeConfiguration name='isManager' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='userType' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='sunsetDate' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='sunriseDate' queryable='true'/>
+        <IDMObjectClassAttributeConfiguration name='jobTitle' queryable='true' summary='true'/>
+        <IDMObjectClassAttributeConfiguration name='transitioningJobTitle' queryable='true'/>
+      </IDMObjectClassConfiguration>
+    </IDMObjectClassConfigurations>
+  </IDMSchemaConfiguration>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#Top' name='Top'/>
+  </MemberObjectGroups>
+</Configuration>

@@ -1,0 +1,4 @@
+NOTICE:
+
+These scripts are for release / integration testing only.
+They should NOT be used to build a production deployment.

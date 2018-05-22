@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+<!--  MemberObjectGroups="#ID#Top" authType="SPEConfiguration" extensionClass="GenericObject" id="#ID#IDMXTrackedEventsConfig" name="SPE Tracked Events Configuration"-->
+<Configuration authType='SPEConfiguration' id='#ID#IDMXTrackedEventsConfig' name='SPE Tracked Events Configuration' createDate='1215544183927'>
+  <Extension>
+    <Object>
+      <Attribute name='enableCollection' value='false'/>
+      <Attribute name='timeScales'>
+        <List>
+          <Object name='TRACKED_EVENT_TIME_SCALE_10_SECONDS'>
+            <Attribute name='baseDate'>
+              <Date>1995-01-01T06:00:00.000Z</Date>
+            </Attribute>
+            <Attribute name='enableCollection' value='true'/>
+            <Attribute name='intervalCalendarField' value='SECOND'/>
+            <Attribute name='intervalDuration' value='10'/>
+            <Attribute name='labelDateFormat' value='HH:mm:ss'/>
+            <Attribute name='retentionCalendarField' value='HOUR_OF_DAY'/>
+            <Attribute name='retentionDuration' value='1'/>
+            <Attribute name='timeZone' value='America/Chicago'/>
+            <Attribute name='uniqueID' value='TRACKED_EVENT_TIME_SCALE_10_SECONDS'/>
+          </Object>
+          <Object name='TRACKED_EVENT_TIME_SCALE_MINUTE'>
+            <Attribute name='baseDate'>
+              <Date>1995-01-01T06:00:00.000Z</Date>
+            </Attribute>
+            <Attribute name='enableCollection' value='true'/>
+            <Attribute name='intervalCalendarField' value='MINUTE'/>
+            <Attribute name='intervalDuration' value='1'/>
+            <Attribute name='labelDateFormat' value='MM/dd\\nHH:mm'/>
+            <Attribute name='retentionCalendarField' value='DAY_OF_YEAR'/>
+            <Attribute name='retentionDuration' value='1'/>
+            <Attribute name='timeZone' value='America/Chicago'/>
+            <Attribute name='uniqueID' value='TRACKED_EVENT_TIME_SCALE_MINUTE'/>
+          </Object>
+          <Object name='TRACKED_EVENT_TIME_SCALE_HOUR'>
+            <Attribute name='baseDate'>
+              <Date>1995-01-01T06:00:00.000Z</Date>
+            </Attribute>
+            <Attribute name='enableCollection' value='true'/>
+            <Attribute name='intervalCalendarField' value='HOUR'/>
+            <Attribute name='intervalDuration' value='1'/>
+            <Attribute name='labelDateFormat' value='MM/dd\\nHH:mm'/>
+            <Attribute name='retentionCalendarField' value='MONTH'/>
+            <Attribute name='retentionDuration' value='1'/>
+            <Attribute name='timeZone' value='America/Chicago'/>
+            <Attribute name='uniqueID' value='TRACKED_EVENT_TIME_SCALE_HOUR'/>
+          </Object>
+          <Object name='TRACKED_EVENT_TIME_SCALE_DAY'>
+            <Attribute name='baseDate'>
+              <Date>1995-01-01T06:00:00.000Z</Date>
+            </Attribute>
+            <Attribute name='enableCollection' value='true'/>
+            <Attribute name='intervalCalendarField' value='DAY_OF_YEAR'/>
+            <Attribute name='intervalDuration' value='1'/>
+            <Attribute name='labelDateFormat' value='MM/dd/yyyy'/>
+            <Attribute name='retentionCalendarField' value='YEAR'/>
+            <Attribute name='retentionDuration' value='10'/>
+            <Attribute name='timeZone' value='America/Chicago'/>
+            <Attribute name='uniqueID' value='TRACKED_EVENT_TIME_SCALE_DAY'/>
+          </Object>
+          <Object name='TRACKED_EVENT_TIME_SCALE_WEEK'>
+            <Attribute name='baseDate'>
+              <Date>1995-01-01T06:00:00.000Z</Date>
+            </Attribute>
+            <Attribute name='enableCollection' value='true'/>
+            <Attribute name='intervalCalendarField' value='WEEK_OF_YEAR'/>
+            <Attribute name='intervalDuration' value='1'/>
+            <Attribute name='labelDateFormat' value='MM/dd/yyyy'/>
+            <Attribute name='retentionCalendarField' value='YEAR'/>
+            <Attribute name='retentionDuration' value='10'/>
+            <Attribute name='timeZone' value='America/Chicago'/>
+            <Attribute name='uniqueID' value='TRACKED_EVENT_TIME_SCALE_WEEK'/>
+          </Object>
+          <Object name='TRACKED_EVENT_TIME_SCALE_MONTH'>
+            <Attribute name='baseDate'>
+              <Date>1995-01-01T06:00:00.000Z</Date>
+            </Attribute>
+            <Attribute name='enableCollection' value='true'/>
+            <Attribute name='intervalCalendarField' value='MONTH'/>
+            <Attribute name='intervalDuration' value='1'/>
+            <Attribute name='labelDateFormat' value='MM/yyyy'/>
+            <Attribute name='retentionCalendarField' value='YEAR'/>
+            <Attribute name='retentionDuration' value='10'/>
+            <Attribute name='timeZone' value='America/Chicago'/>
+            <Attribute name='uniqueID' value='TRACKED_EVENT_TIME_SCALE_MONTH'/>
+          </Object>
+        </List>
+      </Attribute>
+      <Attribute name='trackedEventDescriptions'>
+        <List>
+        </List>
+      </Attribute>
+    </Object>
+  </Extension>
+  <MemberObjectGroups>
+    <ObjectRef type='ObjectGroup' id='#ID#Top' name='Top'/>
+  </MemberObjectGroups>
+</Configuration>

@@ -1,0 +1,322 @@
+<!--
+!
+! DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+! 
+!      Portions Copyright 2012 Project OpenPTK
+! 
+! The contents of this file are subject to the terms of the
+! Common Development and Distribution License, Version 1.0 only
+! (the "License").  You may not use this file except in compliance
+! with the License.
+! 
+! You can obtain a copy of the license at
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+! or https://openptk.dev.java.net/OpenPTK.LICENSE.
+! See the License for the specific language governing permissions
+! and limitations under the License.
+! 
+! When distributing Covered Code, include this CDDL HEADER in each
+! file and include the reference to
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+! add the following below this CDDL HEADER, with the fields enclosed
+! by brackets "[]" replaced with your own identifying information:
+!      Portions Copyright [yyyy] [name of copyright owner]
+! 
+! -->
+
+<!--
+ ! Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+ ! -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <groupId>org.openptk</groupId>
+   <artifactId>openptk</artifactId>
+   <packaging>pom</packaging>
+   <name>OpenPTK</name>
+   <version>2.2.0-SNAPSHOT</version>
+
+   <properties>
+      <release.version>2.2.0-SNAPSHOT</release.version>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
+
+   <description>Project OpenPTK</description>
+   
+   <organization>
+      <name>Project OpenPTK</name>
+      <url>http://java.net/projects/openptk</url>
+   </organization>
+
+   <url>http://www.openptk.org</url>
+
+   <licenses>
+      <license>
+         <name>Common Development and Distribution License (CDDL-1.0)</name>
+         <url>http://www.opensource.org/licenses/cddl1.php</url>
+      </license>
+   </licenses>
+    
+   <developers>
+      <developer>
+         <id>sfehrman</id>
+         <name>Scott Fehrman</name>
+         <roles>
+            <role>Founder</role>
+            <role>Architect</role>
+            <role>Developer</role>
+         </roles>
+      </developer>
+      <developer>
+         <id>dharcey</id>
+         <name>Derrick Harcey</name>
+         <roles>
+            <role>Founder</role>
+            <role>Architect</role>
+            <role>Developer</role>
+         </roles>
+      </developer>
+      <developer>
+         <id>tsigle</id>
+         <name>Terry Sigle</name>
+         <roles>
+            <role>Founder</role>
+            <role>Architect</role>
+            <role>Developer</role>
+         </roles>
+      </developer>
+   </developers>
+   
+   <issueManagement>
+      <system>Subversion</system>
+      <url>http://java.net/projects/openptk/sources/svn/show</url>
+   </issueManagement>
+   
+   <profiles>
+      
+      <!-- Server -->
+      
+      <profile>
+         <id>server</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>projects/OpenPTK/Servlet</module>
+            <module>projects/OpenPTK/Taglib</module>
+            <module>ext/Plugin/MimeUtil</module>
+            <module>ext/Plugin/SendEmail</module>
+            <module>ext/Plugin/Templates</module>            
+            <module>projects/OpenPTK/Server</module>
+         </modules>
+      </profile>
+      
+      <!-- Services -->
+      
+      <profile>
+         <id>srvc-derby</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/JDBC</module>
+            <module>ext/Service/EmbedJDBC</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-jndi</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>  
+            <module>ext/Service/LDAP</module>
+            <module>ext/Service/JNDI</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-mysql</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/JDBC</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-oim10g</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/OracleIdMgr</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-oim11g</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/OIMClient</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-oracledb</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/JDBC</module>
+            <module>ext/Service/OracleJDBC</module>            
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-spml</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/SPML</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-spml2</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Misc/SPML2</module>
+            <module>ext/Service/SPML2</module>            
+         </modules>
+      </profile>
+      <profile>
+         <id>srvc-unboundid</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/LDAP</module>
+            <module>ext/Service/UnboundIDLDAPSDK</module>
+         </modules>
+      </profile>
+      
+      <!-- Applications -->
+      
+      <profile>
+         <id>app-cli</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/Apps/CLI</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>app-identitycentral</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/OpenPTK/Taglib</module>
+            <module>projects/OpenPTK/Framework</module>  
+            <module>projects/OpenPTK/Servlet</module>
+            <module>projects/Apps/IdentityCentral</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>app-portlets</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/OpenPTK/Taglib</module>
+            <module>projects/Apps/Portlets</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>app-register</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/OpenPTK/Taglib</module>
+            <module>projects/Apps/Register</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>app-soapws</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/Apps/SOAP-WS</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>app-usermgmtlite</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/OpenPTK/Taglib</module>
+            <module>projects/OpenPTK/Framework</module>  
+            <module>projects/OpenPTK/Servlet</module>
+            <module>projects/Apps/UserManagementLite</module>
+         </modules>
+      </profile>
+      
+      <!-- Samples -->
+      
+      <profile>
+         <id>sample-auth</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>projects/Samples/Auth</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>sample-client</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/Samples/Client</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>sample-framework</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Framework</module>
+            <module>ext/Service/EmbedJDBC</module>
+            <module>ext/Service/JDBC</module>
+            <module>ext/Service/LDAP</module>
+            <module>ext/Service/JNDI</module>
+            <module>projects/Samples/Framework</module>
+         </modules>
+      </profile>
+      <profile>
+         <id>sample-taglib</id>
+         <modules>
+            <module>projects/OpenPTK/Base</module>
+            <module>projects/OpenPTK/Client</module>
+            <module>projects/OpenPTK/Taglib</module>
+            <module>projects/Samples/Taglib</module>
+         </modules>
+      </profile>
+   </profiles>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>2.3.2</version>
+            <configuration>
+               <source>1.6</source>
+               <target>1.6</target>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+    <modules>
+        <module>projects/OpenPTK/Base</module>
+        <module>projects/OpenPTK/Framework</module>
+    </modules>
+    <dependencies>
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.11</version>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+
+</project>

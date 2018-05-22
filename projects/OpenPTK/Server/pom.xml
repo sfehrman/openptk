@@ -1,0 +1,372 @@
+<!--
+!
+! DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+! 
+!      Portions Copyright 2012 Project OpenPTK
+! 
+! The contents of this file are subject to the terms of the
+! Common Development and Distribution License, Version 1.0 only
+! (the "License").  You may not use this file except in compliance
+! with the License.
+! 
+! You can obtain a copy of the license at
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+! or https://openptk.dev.java.net/OpenPTK.LICENSE.
+! See the License for the specific language governing permissions
+! and limitations under the License.
+! 
+! When distributing Covered Code, include this CDDL HEADER in each
+! file and include the reference to
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+! add the following below this CDDL HEADER, with the fields enclosed
+! by brackets "[]" replaced with your own identifying information:
+!      Portions Copyright [yyyy] [name of copyright owner]
+! 
+! -->
+
+<!--
+ ! Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+ ! -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <artifactId>openptk-server</artifactId>
+   <packaging>war</packaging>
+   <name>OpenPTK-Server</name>
+
+   <description>OpenPTK - Server</description>
+
+   <parent>
+      <groupId>org.openptk</groupId>
+      <artifactId>openptk</artifactId>
+      <version>2.2.0-SNAPSHOT</version>
+      <relativePath>../../..</relativePath>
+   </parent>
+   
+   <build>
+      <finalName>openptk-server</finalName>
+      <sourceDirectory>src/java</sourceDirectory>
+      <resources>
+         <resource>
+            <directory>config</directory>
+            <filtering>false</filtering>
+         </resource>
+      </resources>   
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.1.1</version>
+            <configuration>
+               <warSourceDirectory>web</warSourceDirectory>
+               <warName>openptk-server</warName>
+               <webResources>
+                  <resource>
+              <!-- this is relative to the pom.xml directory -->
+                     <directory>web</directory>
+                  </resource>
+               </webResources>
+            </configuration>
+         </plugin>
+         <plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.5</version>
+            <executions>
+               <execution>
+                  <id>copy-resource</id>
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>copy-resources</goal>
+                  </goals>
+                  <configuration>
+                     <outputDirectory>${basedir}/target/openptk-server</outputDirectory>
+                     <resources>          
+                        <resource>
+                           <directory>../../../resource</directory>
+                           <filtering>true</filtering>
+                        </resource>
+                     </resources>              
+                  </configuration>            
+               </execution>
+               <execution>
+                  <id>copy-templates</id>
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>copy-resources</goal>
+                  </goals>
+                  <configuration>
+                     <outputDirectory>${basedir}/target/openptk-server/templates</outputDirectory>
+                     <resources>          
+                        <resource>
+                           <directory>../../../ext/Plugin/Templates/web/WEB-INF/templates</directory>
+                           <filtering>true</filtering>
+                        </resource>
+                     </resources>              
+                  </configuration>            
+               </execution>
+               <execution>
+                  <id>copy-web-inf-temp</id>
+                  <phase>validate</phase>
+                  <goals>
+                     <goal>copy-resources</goal>
+                  </goals>
+                  <configuration>
+                     <outputDirectory>${basedir}/target/openptk-server/WEB-INF/temp</outputDirectory>
+                     <resources>          
+                        <resource>
+                           <directory>web/WEB-INF/temp</directory>
+                           <filtering>true</filtering>
+                        </resource>
+                     </resources>              
+                  </configuration>            
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>maven-jetty-plugin</artifactId>
+            <version>6.1.26</version>
+         </plugin>
+      </plugins>
+   </build>
+
+   <dependencies>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-servlet</artifactId>
+         <version>${project.version}</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-framework</artifactId>
+         <version>${project.version}</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-taglib</artifactId>
+         <version>${project.version}</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.sun.jersey</groupId>
+         <artifactId>jersey-server</artifactId>
+         <version>1.12</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>com.sun.jersey</groupId>
+         <artifactId>jersey-servlet</artifactId>
+         <version>1.12</version>
+         <scope>runtime</scope>         
+      </dependency>
+      <dependency>
+         <groupId>com.sun.jersey.contribs</groupId>
+         <artifactId>jersey-multipart</artifactId>
+         <version>1.12</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>asm</groupId>
+         <artifactId>asm</artifactId>
+         <version>3.2</version>
+         <scope>runtime</scope>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet</groupId>
+         <artifactId>javax.servlet-api</artifactId>
+         <version>3.0.1</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>javax.servlet.jsp</groupId>
+         <artifactId>jsp-api</artifactId>
+         <version>2.1</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-plugin-mimeutil</artifactId>
+         <version>${project.version}</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-plugin-sendemail</artifactId>
+         <version>${project.version}</version>
+         <scope>compile</scope>
+      </dependency>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-plugin-templates</artifactId>
+         <version>${project.version}</version>
+         <scope>compile</scope>
+      </dependency>
+   </dependencies>
+   
+   <profiles>
+      <profile>
+         <id>srvc-derby</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <artifactId>maven-resources-plugin</artifactId>
+                  <version>2.5</version>
+                  <executions>
+                     <execution>
+                        <id>copy-embed-sample-database</id>
+                        <phase>validate</phase>
+                        <goals>
+                           <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                           <outputDirectory>${basedir}/target/openptk-server/databases</outputDirectory>
+                           <resources>          
+                              <resource>
+                                 <directory>../../../ext/Misc/Apache/Derby/databases</directory>
+                                 <filtering>false</filtering>
+                              </resource>
+                           </resources>              
+                        </configuration>            
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-embedjdbc</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-jndi</id>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-jndi</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-mysql</id>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-jdbc</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+            <dependency>
+               <groupId>mysql</groupId>
+               <artifactId>mysql-connector-java</artifactId>
+               <version>5.1.18</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-oim10g</id>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-oracleidmgr</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-oim11g</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <artifactId>maven-resources-plugin</artifactId>
+                  <version>2.5</version>
+                  <executions>
+                     <execution>
+                        <id>copy-oim11g-conf</id>
+                        <phase>validate</phase>
+                        <goals>
+                           <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                           <outputDirectory>${basedir}/target/openptk-server/wsdls</outputDirectory>
+                           <resources>          
+                              <resource>
+                                 <directory>../../../ext/Service/OIMClient/wsdls</directory>
+                                 <filtering>false</filtering>
+                              </resource>
+                           </resources>              
+                        </configuration>            
+                     </execution>
+                  </executions>                  
+               </plugin>
+            </plugins>
+         </build>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-oimclient</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-oracledb</id>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-oraclejdbc</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-spml</id>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-spml</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-spml2</id>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-spml2</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+      <profile>
+         <id>srvc-unboundid</id>
+         <dependencies>
+            <dependency>
+               <groupId>${project.groupId}</groupId>
+               <artifactId>openptk-service-unboundidldap</artifactId>
+               <version>${project.version}</version>
+               <scope>runtime</scope>
+            </dependency>
+         </dependencies>
+      </profile>
+   </profiles>
+    <properties>
+        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
+    </properties>
+</project>

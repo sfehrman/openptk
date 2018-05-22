@@ -1,0 +1,102 @@
+<!--
+!
+! DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+! 
+!      Portions Copyright 2012 Project OpenPTK
+! 
+! The contents of this file are subject to the terms of the
+! Common Development and Distribution License, Version 1.0 only
+! (the "License").  You may not use this file except in compliance
+! with the License.
+! 
+! You can obtain a copy of the license at
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE
+! or https://openptk.dev.java.net/OpenPTK.LICENSE.
+! See the License for the specific language governing permissions
+! and limitations under the License.
+! 
+! When distributing Covered Code, include this CDDL HEADER in each
+! file and include the reference to
+! trunk/openptk/resource/legal-notices/OpenPTK.LICENSE. If applicable,
+! add the following below this CDDL HEADER, with the fields enclosed
+! by brackets "[]" replaced with your own identifying information:
+!      Portions Copyright [yyyy] [name of copyright owner]
+! 
+! -->
+
+<!--
+ ! Project OpenPTK Founders: Scott Fehrman, Derrick Harcey, Terry Sigle
+ ! -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <artifactId>openptk-service-oimclient</artifactId>
+   <packaging>jar</packaging>
+   <name>OpenPTK-Service-OIMClient</name>
+
+   <description>OpenPTK - Service - Oracle Identity Manager 11g</description>
+
+   <parent> 
+      <groupId>org.openptk</groupId>
+      <artifactId>openptk</artifactId>
+      <version>2.2.0-SNAPSHOT</version>
+      <relativePath>../../..</relativePath>
+   </parent>
+    
+   <build>
+      <finalName>openptk-service-oimclient</finalName>
+      <sourceDirectory>src/java</sourceDirectory>
+   </build>
+    
+   <dependencies>
+      <dependency>
+         <groupId>${project.groupId}</groupId>
+         <artifactId>openptk-framework</artifactId>
+         <version>${project.version}</version>
+      </dependency>
+      <dependency> 
+         <groupId>com.oracle.iam</groupId> 
+         <artifactId>oracle-iam-oimclient</artifactId> 
+         <version>11.1.1.3.0</version>
+         <scope>provided</scope>
+      </dependency>
+      <dependency>
+         <groupId>commons-logging</groupId>
+         <artifactId>commons-logging</artifactId>
+         <version>1.1</version>
+         <type>jar</type>
+         <scope>runtime</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.eclipse.persistence</groupId>
+         <artifactId>eclipselink</artifactId>
+         <version>2.0.2</version>
+         <type>jar</type>
+         <scope>runtime</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring</artifactId>
+         <version>2.0.8</version>
+         <type>jar</type>
+         <scope>runtime</scope>
+      </dependency>
+   </dependencies>
+
+   <repositories>
+      <repository>
+         <id>EclipseLink Repo</id>
+     <!-- note that ampersands in this URL are escaped because this is in an xml file -
+            un-escape them to use in browser 
+     -->
+         <url>http://www.eclipse.org/downloads/download.php?r=1&amp;nf=1&amp;file=/rt/eclipselink/maven.repo</url>
+     <!-- use this for javax.persistence
+     <snapshots>
+        <enabled>true</enabled>
+     </snapshots> -->
+      </repository>    
+   </repositories> 
+
+</project>

@@ -1,0 +1,60 @@
+#
+# LOGGIN IN
+#
+login openptkconfig
+password
+env
+#
+# Testing Create
+#
+create -a firstname=Foo,lastname=Bar
+create -a firstname="Foo 2",lastname="Bar2"
+create -a firstname="Foo 2",lastname="Bar"
+#
+# Testing Read
+#
+read fbar
+read fbar2
+#
+# Testing Update
+#
+update fbar -a title="unknown"
+update fbar -a firstname="Foo First"
+update fbar -a firstname="Foo First","Bar Last"
+#
+# Testing Search
+#
+search Foo
+search "Foo First"
+search "Bar Last"
+#
+# Testing Delete
+#
+delete fbar
+delete fbar2
+#
+# LOGGIN OUT
+#
+logout
+env
+#
+# LOGGIN IN
+#
+login ja1324
+Passw0rd
+env
+#
+# Testing stats
+#
+stats
+#
+# Testing context
+#
+logout
+context
+context A
+login ja1324
+Passw0rd
+context default
+login ja1324
+Passw0rd

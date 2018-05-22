@@ -1,0 +1,160 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Configuration PUBLIC 'waveset.dtd' 'waveset.dtd'>
+
+    <!--
+
+      SPML2 Configuration
+
+      This is one option for defining the config.
+    -->
+    <!-- This is the config object - you can change the set of executors (to reduce functionality) -
+         and use this to control the Target and set of forms that are used...
+    -->
+    <Configuration id='#ID#Configuration:SPML2' name='SPML2' authType='SPML'>
+        <Extension>
+            <Object>
+                <!-- Each of the objects in this list represents a tuple of
+                  a "requestClass" implementation and its corresponding "spmlExecuterClass".
+                -->
+                <Attribute name='executors'>
+                    <List>
+                        <Object name='com.sun.idm.rpc.spml2.core.ListTargetsExecutor'>
+                            <Attribute name="requests" value="org.openspml.v2.msg.spml.ListTargetsRequest"/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.pass.PasswordRequestExecutor'>
+                            <Attribute name='requests'>
+                                <List>
+                                    <String>org.openspml.v2.msg.pass.SetPasswordRequest</String>
+                                    <String>org.openspml.v2.msg.pass.ResetPasswordRequest</String>
+                                    <String>org.openspml.v2.msg.pass.ValidatePasswordRequest</String>
+                                    <String>org.openspml.v2.msg.pass.ExpirePasswordRequest</String>
+                                </List>
+                            </Attribute>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.core.AddRequestExecutor'>
+                            <Attribute name="requests" value='org.openspml.v2.msg.spml.AddRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.core.DeleteRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spml.DeleteRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.core.LookupRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spml.LookupRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.core.ModifyRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spml.ModifyRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.suspend.SuspendRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlsuspend.SuspendRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.suspend.ResumeRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlsuspend.ResumeRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.suspend.ActiveRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlsuspend.ActiveRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.batch.BatchRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlbatch.BatchRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.bulk.BulkDeleteRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlbulk.BulkDeleteRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.bulk.BulkModifyRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlbulk.BulkModifyRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.async.StatusRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlasync.StatusRequest'/>
+                        </Object>
+                        <Object name='com.sun.idm.rpc.spml2.async.CancelRequestExecutor'>
+                            <Attribute name='requests' value='org.openspml.v2.msg.spmlasync.CancelRequest'/>
+                        </Object>
+                    </List>
+                </Attribute>
+                <Attribute name='targets'>
+                    <List>
+                        <!-- This is the name of the target; broken out so it easy to read and refer too.
+                             This becomes the targetID as the name of this Object replaces the $OBJECT_NAME$
+                             variable in 'xmlTemplate'.
+                        -->
+                        <Object name="spml2-DSML-Target">
+                            <!-- you can state that the target is attached to a profile;
+                                 replaces $PROFILE_ATTRIBUTE$ with 'profile="<value>"' in
+                                 the xmlTemplate.
+                            -->
+                            <Attribute name="profile" value="urn:oasis:names:tc:SPML:2:0:DSML"/>
+                            <!-- This is the target definition; the first two lines, and the last,
+                            are always the same (for each Object in the "targets" list) -->
+                            <Attribute name='xmlTemplate'>
+                                <String><![CDATA[
+    <target targetID="$OBJECT_NAME$" $PROFILE_ATTRIBUTE$>
+        <schema>
+            <spmldsml:schema xmlns:spmldsml="urn:oasis:names:tc:SPML:2:0:DSML">
+                <spmldsml:attributeDefinition name="objectclass"/>
+                <spmldsml:attributeDefinition name="accountId" description="Account Id"/>
+                <spmldsml:attributeDefinition name="credentials" description="Credentials, e.g. password"/>
+                <spmldsml:attributeDefinition name="firstname" description="First Name"/>
+                <spmldsml:attributeDefinition name="lastname" description="Last Name"/>
+                <spmldsml:attributeDefinition name="emailAddress" description="Email Address"/>
+                <spmldsml:attributeDefinition name="fullname" description="Full Name"/>
+                <spmldsml:attributeDefinition name="title" description="title"/>
+                <spmldsml:attributeDefinition name="description" description="Description"/>
+                <spmldsml:attributeDefinition name="telephone" description="Telephone Number"/>
+                <spmldsml:attributeDefinition name="organization" description="Orgainization Name"/>
+                <spmldsml:attributeDefinition name="manager" description="Manager ID"/>
+                <spmldsml:attributeDefinition name="roles" description="Roles"/>
+                <spmldsml:attributeDefinition name="QuestionAnswerData" description="QuestionAnswerData"/>
+                <spmldsml:attributeDefinition name="forgottenPasswordDataInput" description="forgottenPasswordDataInput"/>                
+                <spmldsml:objectClassDefinition name="spml2Person">
+                    <spmldsml:memberAttributes>
+                        <spmldsml:attributeDefinitionReference name="objectclass" required="true"/>
+                        <spmldsml:attributeDefinitionReference name="accountId" required="true"/>
+                        <spmldsml:attributeDefinitionReference name="credentials" required="true"/>
+                        <spmldsml:attributeDefinitionReference name="firstname"/>
+                        <spmldsml:attributeDefinitionReference name="lastname"/>
+                        <spmldsml:attributeDefinitionReference name="emailAddress"/>
+                        <spmldsml:attributeDefinitionReference name="fullname"/>
+                        <spmldsml:attributeDefinitionReference name="title"/>
+                        <spmldsml:attributeDefinitionReference name="description"/>                        
+                        <spmldsml:attributeDefinitionReference name="telephone"/>                        
+                        <spmldsml:attributeDefinitionReference name="organization"/>
+                        <spmldsml:attributeDefinitionReference name="manager"/>
+                        <spmldsml:attributeDefinitionReference name="roles"/>
+                        <spmldsml:attributeDefinitionReference name="QuestionAnswerData"/>
+                        <spmldsml:attributeDefinitionReference name="forgottenPasswordDataInput"/>                        
+                    </spmldsml:memberAttributes>
+                </spmldsml:objectClassDefinition>
+            </spmldsml:schema>
+            <supportedSchemaEntity entityName="spml2Person"/>
+        </schema>
+        <capabilities>
+            <capability namespaceURI="urn:oasis:names:tc:SPML:2:0:async"/>
+            <capability namespaceURI="urn:oasis:names:tc:SPML:2:0:batch"/>
+            <capability namespaceURI="urn:oasis:names:tc:SPML:2:0:bulk"/>
+            <capability namespaceURI="urn:oasis:names:tc:SPML:2:0:pass"/>
+            <capability namespaceURI="urn:oasis:names:tc:SPML:2:0:suspend"/>
+        </capabilities>
+    </target>
+ ]]></String>
+                            </Attribute>
+                        </Object>
+                    </List>
+                </Attribute>
+                <!-- This is like the "classes" list in the spml.xml config.
+                  We added the ability to apply a mapping to one or more targets, in case the
+                  they have common objectclass / type names.
+                -->
+                <Attribute name='mappings'>
+                    <List>
+                        <Object name='spml2Person'>
+                            <Attribute name='type' value='User'/>
+                            <Attribute name='form' value='spml2PersonForm'/>
+                            <Attribute name='default' value='true'/>
+                            <Attribute name='targets'>
+                                <String>"spml2-DSML-Target"</String>
+                            </Attribute>
+                        </Object>
+                    </List>
+                </Attribute>
+            </Object>
+        </Extension>
+    </Configuration>
+
